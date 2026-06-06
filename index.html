@@ -268,7 +268,7 @@ span[data-fr] { display: none; }
 <!-- STATS -->
 <div class="stats">
   <div class="stats-inner">
-    <div class="stat"><div class="stat-n">5</div><div class="stat-l"><span data-en>Projects</span><span data-fr>Projets</span></div></div>
+    <div class="stat"><div class="stat-n">6</div><div class="stat-l"><span data-en>Projects</span><span data-fr>Projets</span></div></div>
     <div class="stat"><div class="stat-n">89%</div><div class="stat-l"><span data-en>Best Accuracy</span><span data-fr>Meilleure Précision</span></div></div>
     <div class="stat"><div class="stat-n">15+</div><div class="stat-l"><span data-en>Technologies</span><span data-fr>Technologies</span></div></div>
     <div class="stat"><div class="stat-n">1</div><div class="stat-l"><span data-en>Internship</span><span data-fr>Stage Pro</span></div></div>
@@ -309,6 +309,12 @@ span[data-fr] { display: none; }
           </div>
         </div>
         <div>
+          <div class="skill-cat">RAG & LLM Engineering</div>
+          <div class="skill-pills">
+            <span class="skill-pill">LangChain</span><span class="skill-pill">ChromaDB</span><span class="skill-pill">BM25</span><span class="skill-pill">Groq</span><span class="skill-pill">Llama 3.3</span><span class="skill-pill">Streamlit</span><span class="skill-pill">Multilingual Embeddings</span>
+          </div>
+        </div>
+        <div>
           <div class="skill-cat">Full-Stack & Mobile</div>
           <div class="skill-pills">
             <span class="skill-pill">React Native</span><span class="skill-pill">TypeScript</span><span class="skill-pill">Firebase</span><span class="skill-pill">Gemini API</span><span class="skill-pill">Node.js</span><span class="skill-pill">Symfony 6.4</span>
@@ -325,6 +331,18 @@ span[data-fr] { display: none; }
     <div class="section-label"><span data-en>What I Built</span><span data-fr>Ce que j'ai construit</span></div>
     <div class="section-title"><span data-en>Projects</span><span data-fr>Projets</span></div>
     <div class="projects-grid">
+
+      <div class="proj" style="border-color: var(--accent2); position: relative; overflow: hidden;">
+        <div style="position:absolute;top:0;right:0;background:var(--accent);color:#fff;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:0 4px 0 4px;">New</div>
+        <div class="proj-cat">RAG · LLM · Healthcare AI</div>
+        <div class="proj-title">MedRAG — Clinical Document Intelligence</div>
+        <p class="proj-desc" data-en>Hybrid RAG pipeline (ChromaDB + BM25) letting physicians query 200-page clinical protocols in seconds. Features automatic detection of critical drug interactions, allergies and overdose risks across 4 severity levels, multi-patient simultaneous comparison, query rewriting with typo correction, and per-patient data isolation. Powered by Llama 3.3-70B via Groq with multilingual FR/EN/AR embeddings. Exports full consultation as a structured PDF report.</p>
+        <p class="proj-desc" data-fr>Pipeline RAG hybride (ChromaDB + BM25) permettant aux médecins d'interroger des protocoles cliniques de 200 pages en quelques secondes. Détection automatique des interactions médicamenteuses critiques, allergies et risques de surdosage sur 4 niveaux de gravité. Comparaison multi-patients simultanée, réécriture des requêtes avec correction de fautes, isolation des données par patient. Propulsé par Llama 3.3-70B via Groq avec embeddings multilingues FR/EN/AR. Export de la consultation en rapport PDF structuré.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">FastAPI</span><span class="proj-tag">Streamlit</span><span class="proj-tag">LangChain</span><span class="proj-tag">ChromaDB</span><span class="proj-tag">BM25</span><span class="proj-tag">Groq</span><span class="proj-tag">Llama 3.3-70B</span><span class="proj-tag">Python</span>
+        </div>
+        <a href="https://github.com/Abd-Elmouhib-Souri/MedRag" class="proj-link" target="_blank">View on GitHub →</a>
+      </div>
 
       <div class="proj">
         <div class="proj-cat">Deep Learning · NLP · Multimodal</div>
