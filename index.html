@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Abd Elmouhib Souri — AI engineering student</title>
-<meta name="description" content="Final-year Data Science & AI engineering student (ESPRIM, Tunisia) building trustworthy LLM, RAG and medical AI systems. Seeking a 4–6 month research internship from February 2027.">
+<meta name="description" content="Final-year Data Science & AI engineering student (ESPRIM, Tunisia) building trustworthy LLM, RAG and medical AI systems, with measured results. Seeking a 4–6 month research internship from February 2027.">
 <meta name="author" content="Abd Elmouhib Souri">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Abd Elmouhib Souri — AI engineering student">
@@ -15,89 +15,110 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap">
 <script>
-  // Apply the saved theme before paint (no flash). Storage can be blocked: fall back silently.
+  // Theme and language before first paint (no flash). Storage may be blocked: fall back silently.
   (function () {
-    try { var t = localStorage.getItem("theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch (e) {}
+    var d = document.documentElement, t = null, l = null;
+    try { t = localStorage.getItem("theme"); l = localStorage.getItem("lang"); } catch (e) {}
+    var q = new URLSearchParams(location.search).get("lang");          // ?lang=fr shareable links
+    if (q) l = q;
+    if (t === "dark" || t === "light") d.dataset.theme = t;
+    if (l === "fr" || l === "ar" || l === "en") { d.lang = l; d.dir = l === "ar" ? "rtl" : "ltr"; }
   })();
 </script>
 <style>
 /* ── Tokens ─────────────────────────────────────────────────────────────── */
 :root {
-  --paper: #f4f6f7;      /* cool page background */
-  --surface: #ffffff;    /* raised areas (dialog, figures) */
-  --ink: #13212b;        /* main text */
-  --ink-2: #4b5b67;      /* secondary text */
-  --rule: #d7dee3;       /* hairlines */
-  --accent: #0d6b66;     /* deep clinical teal: links, measured numbers */
-  --accent-soft: #dcecea;
-  --strike: #b3261e;     /* struck (corrected) claims */
+  --paper: #f4f6f7; --surface: #ffffff; --ink: #13212b; --ink-2: #4b5b67; --rule: #d7dee3;
+  --accent: #0d6b66; --accent-soft: #dcecea; --strike: #b3261e; --warn: #8a5a00; --warn-soft: #f6ead2;
   --display: "Schibsted Grotesk", "Segoe UI", system-ui, sans-serif;
   --prose: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --wrap: 1120px;
-  --gutter: clamp(16px, 4vw, 40px);
+  --wrap: 1120px; --gutter: clamp(16px, 4vw, 40px);
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #0f171d; --surface: #16212a; --ink: #e5ecf0; --ink-2: #9aabb6;
-    --rule: #263540; --accent: #5ec6bc; --accent-soft: #173431; --strike: #f08a82;
-    color-scheme: dark;
+    --paper: #0f171d; --surface: #16212a; --ink: #e5ecf0; --ink-2: #9aabb6; --rule: #263540;
+    --accent: #5ec6bc; --accent-soft: #173431; --strike: #f08a82; --warn: #e8b766; --warn-soft: #3a2e17; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --paper: #0f171d; --surface: #16212a; --ink: #e5ecf0; --ink-2: #9aabb6;
-  --rule: #263540; --accent: #5ec6bc; --accent-soft: #173431; --strike: #f08a82;
-  color-scheme: dark;
+  --paper: #0f171d; --surface: #16212a; --ink: #e5ecf0; --ink-2: #9aabb6; --rule: #263540;
+  --accent: #5ec6bc; --accent-soft: #173431; --strike: #f08a82; --warn: #e8b766; --warn-soft: #3a2e17; color-scheme: dark;
 }
+/* Arabic: dedicated families, slightly larger and looser */
+:root[lang="ar"] { --display: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif; --prose: "Noto Naskh Arabic", "Traditional Arabic", serif; }
+:root[lang="ar"] body { font-size: 1.1rem; line-height: 1.85; }
+:root[lang="ar"] h1, :root[lang="ar"] h2, :root[lang="ar"] h3 { letter-spacing: 0; line-height: 1.35; }
 
 /* ── Base ───────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-body {
-  margin: 0; background: var(--paper); color: var(--ink);
-  font: 400 1.0625rem/1.65 var(--prose);
-  font-variant-numeric: lining-nums;
-}
+html { scroll-behavior: smooth; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1.0625rem/1.65 var(--prose); }
 img { max-width: 100%; display: block; }
 a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
 a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0; text-wrap: balance; letter-spacing: -0.015em; }
 p { margin: 0; text-wrap: pretty; }
+button { font: inherit; color: inherit; }
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
-.skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: var(--paper); padding: 8px 12px; z-index: 20; }
-.skip:focus { left: 8px; }
-.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.skip { position: absolute; inset-inline-start: -999px; top: 8px; background: var(--ink); color: var(--paper); padding: 8px 12px; z-index: 50; }
+.skip:focus { inset-inline-start: 8px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.ui, nav, button, .chip, .meta, .btn, .stack, .when, .status, .badge, .ledger, .viz, label, input, textarea, select { font-family: var(--display); }
 
-/* UI text uses the display family */
-.ui, nav, button, .chip, .meta, .ledger, .btn, .stack, .timeline .when, .status { font-family: var(--display); }
+/* Scroll progress */
+.progress { position: fixed; inset-inline-start: 0; top: 0; height: 3px; width: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0); z-index: 30; }
+[dir="rtl"] .progress { transform-origin: right; }
 
 /* ── Header ─────────────────────────────────────────────────────────────── */
-header.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
-.top .wrap { display: flex; align-items: center; gap: 16px; min-height: 60px; }
-.brand { font: 700 1rem var(--display); color: var(--ink); text-decoration: none; margin-right: auto; }
-nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
-nav a { color: var(--ink-2); text-decoration: none; font-size: .95rem; font-weight: 500; }
-nav a:hover { color: var(--ink); }
-.icon-btn { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--rule); background: transparent; color: var(--ink); border-radius: 50%; cursor: pointer; }
+header.top { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
+.top .wrap { display: flex; align-items: center; gap: 12px; min-height: 62px; }
+.brand { font: 700 1rem var(--display); color: var(--ink); text-decoration: none; margin-inline-end: auto; white-space: nowrap; }
+nav.main ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+nav.main a { color: var(--ink-2); text-decoration: none; font-size: .95rem; font-weight: 500; padding: 6px 0; border-bottom: 2px solid transparent; }
+nav.main a:hover { color: var(--ink); }
+nav.main a[aria-current="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.icon-btn { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--rule); background: transparent; border-radius: 50%; cursor: pointer; flex: 0 0 auto; }
 .icon-btn svg { width: 18px; height: 18px; }
-@media (max-width: 720px) { nav ul { display: none; } }
+.lang { display: flex; border: 1px solid var(--rule); border-radius: 999px; overflow: hidden; }
+.lang button { border: 0; background: transparent; padding: 7px 10px; font-size: .85rem; font-weight: 600; cursor: pointer; color: var(--ink-2); }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.menu-btn { display: none; }
+@media (max-width: 900px) {
+  .menu-btn { display: grid; }
+  nav.main { position: fixed; inset: 62px 0 auto 0; background: var(--paper); border-bottom: 1px solid var(--rule); display: none; }
+  nav.main.open { display: block; }
+  nav.main ul { flex-direction: column; gap: 0; padding: 8px var(--gutter) 16px; }
+  nav.main a { display: block; padding: 12px 0; font-size: 1.05rem; border-bottom: 1px solid var(--rule); }
+  nav.main a[aria-current="true"] { border-bottom-color: var(--rule); color: var(--accent); }
+}
+@media (max-width: 420px) { .brand { font-size: .92rem; } .lang button { padding: 6px 8px; } }
 
 /* ── Buttons ────────────────────────────────────────────────────────────── */
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 6px; font-weight: 600; font-size: .95rem; text-decoration: none; border: 1px solid var(--ink); color: var(--ink); background: transparent; cursor: pointer; }
 .btn.primary { background: var(--ink); color: var(--paper); }
 .btn:hover { text-decoration: none; filter: brightness(1.08); }
-.btn svg { width: 16px; height: 16px; }
+.btn.sm { padding: 7px 12px; font-size: .88rem; }
 
 /* ── Hero ───────────────────────────────────────────────────────────────── */
-.hero { padding: clamp(40px, 8vw, 88px) 0 clamp(36px, 6vw, 64px); }
-.hero .grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: end; }
-.hero .who { font: 600 1.05rem var(--display); color: var(--ink-2); margin-bottom: 18px; }
-.hero h1 { font-size: clamp(2.5rem, 6.4vw, 4.6rem); font-weight: 800; letter-spacing: -0.03em; max-width: 13ch; }
-.hero .lede { font-size: 1.2rem; color: var(--ink-2); margin-top: 22px; max-width: 54ch; }
-.hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.hero { padding: clamp(36px, 7vw, 80px) 0 clamp(32px, 5vw, 56px); }
+.hero .grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+.badge { display: inline-flex; align-items: center; gap: 10px; font-size: .9rem; font-weight: 600; padding: 6px 14px 6px 10px; border: 1px solid var(--rule); border-radius: 999px; background: var(--surface); }
+.badge .dot { width: 9px; height: 9px; border-radius: 50%; background: #1f9d55; box-shadow: 0 0 0 0 rgb(31 157 85 / .5); }
+@media (prefers-reduced-motion: no-preference) { .badge .dot { animation: pulse 2.4s ease-out infinite; } }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgb(31 157 85 / .45); } 70% { box-shadow: 0 0 0 9px rgb(31 157 85 / 0); } 100% { box-shadow: 0 0 0 0 rgb(31 157 85 / 0); } }
+.hero .who { font: 600 1.02rem var(--display); color: var(--ink-2); margin: 20px 0 14px; }
+.hero h1 { font-size: clamp(2.4rem, 6.2vw, 4.5rem); font-weight: 800; letter-spacing: -0.03em; max-width: 14ch; }
+.focus { margin-top: 20px; font: 500 1.12rem var(--display); color: var(--ink-2); min-height: 3.2em; }
+.focus .word { color: var(--accent); font-weight: 700; }
+.focus .caret { display: inline-block; width: 2px; height: 1.05em; background: var(--accent); vertical-align: -0.15em; margin-inline-start: 2px; }
+@media (prefers-reduced-motion: no-preference) { .focus .caret { animation: blink 1s steps(1) infinite; } }
+@keyframes blink { 50% { opacity: 0; } }
+.hero .lede { font-size: 1.15rem; color: var(--ink-2); margin-top: 12px; max-width: 56ch; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
 .portrait { margin: 0; justify-self: end; width: 100%; max-width: 340px; }
 .portrait img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px; }
 .portrait figcaption { font: 500 .85rem var(--display); color: var(--ink-2); margin-top: 10px; }
@@ -107,76 +128,131 @@ nav a:hover { color: var(--ink); }
   .portrait figcaption { display: none; }
 }
 
-/* ── Ledger (signature element) ────────────────────────────────────────── */
-.ledger { margin-top: clamp(40px, 7vw, 72px); border-top: 2px solid var(--ink); }
-.ledger-head { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+/* ── Ledger ─────────────────────────────────────────────────────────────── */
+.ledger { margin-top: clamp(36px, 6vw, 64px); border-top: 2px solid var(--ink); }
+.ledger-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--rule); }
 .ledger-head h2 { font-size: 1.05rem; font-weight: 700; letter-spacing: 0; }
 .ledger-head p { font-size: .9rem; color: var(--ink-2); }
 .row { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr) 7.5rem 8.5rem; gap: 16px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--rule); }
 .row .proj { font-weight: 700; }
 .row .what { color: var(--ink-2); font-size: .98rem; }
 .row .what a { font-weight: 600; }
-.num { font-weight: 800; font-size: clamp(1.6rem, 3.4vw, 2.2rem); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; line-height: 1; }
-.num.old { color: var(--strike); position: relative; justify-self: end; opacity: .85; }
-.num.old::after { content: ""; position: absolute; left: -4%; right: -4%; top: 52%; height: 3px; background: var(--strike); transform-origin: left; transform: scaleX(var(--strike-x, 1)); }
-.num.new { color: var(--accent); justify-self: end; }
-.num.none { color: var(--ink-2); font-weight: 500; font-size: 1rem; justify-self: end; }
+.num { font-weight: 800; font-size: clamp(1.6rem, 3.4vw, 2.2rem); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; line-height: 1; justify-self: end; direction: ltr; }
+.num.old { color: var(--strike); position: relative; opacity: .85; }
+.num.old::after { content: ""; position: absolute; left: -4%; right: -4%; top: 52%; height: 3px; background: var(--strike); transform-origin: left; transform: scaleX(var(--sx, 1)); }
+.num.new { color: var(--accent); }
+.num.none { color: var(--ink-2); font-weight: 500; font-size: 1rem; }
 @media (max-width: 720px) {
   .row { grid-template-columns: 1fr auto auto; grid-template-areas: "proj old new" "what what what"; row-gap: 8px; }
-  .row .proj { grid-area: proj; } .row .what { grid-area: what; }
-  .row .old, .row .none { grid-area: old; } .row .new { grid-area: new; }
+  .row .proj { grid-area: proj; } .row .what { grid-area: what; } .row .old, .row .none { grid-area: old; } .row .new { grid-area: new; }
 }
-/* One orchestrated moment: the strike lines draw, then the measured numbers appear */
 @media (prefers-reduced-motion: no-preference) {
-  .js .ledger .num.old::after { --strike-x: 0; animation: strike .5s cubic-bezier(.6,0,.2,1) forwards; }
-  .js .ledger .num.new { opacity: 0; animation: arrive .45s ease-out forwards; }
-  .js .ledger .r1 .num.new { animation-delay: .45s; }
-  .js .ledger .r2 .num.old::after { animation-delay: .35s; } .js .ledger .r2 .num.new { animation-delay: .8s; }
-  .js .ledger .r3 .num.new { animation-delay: 1.15s; }
+  .js .ledger .num.old::after { --sx: 0; animation: strike .5s cubic-bezier(.6,0,.2,1) .2s forwards; }
+  .js .ledger .r2 .num.old::after { animation-delay: .55s; }
 }
 @keyframes strike { to { transform: scaleX(1); } }
-@keyframes arrive { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 
 /* ── Sections ───────────────────────────────────────────────────────────── */
 section.block { padding: clamp(48px, 8vw, 96px) 0; border-top: 1px solid var(--rule); }
 .block h2.title { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 800; }
 .block .intro { color: var(--ink-2); margin-top: 12px; max-width: 62ch; font-size: 1.1rem; }
+/* Reveal once on scroll (subtle) */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  .js .reveal.in { opacity: 1; transform: none; }
+}
 
-/* Filter */
-.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 8px; }
+/* Filters */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 8px; align-items: center; }
 .chip { border: 1px solid var(--rule); background: transparent; color: var(--ink-2); padding: 7px 14px; border-radius: 999px; font-size: .92rem; font-weight: 500; cursor: pointer; }
 .chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.skill-note { display: none; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 10px; font: 500 .95rem var(--display); color: var(--accent); }
+.skill-note.on { display: flex; }
 
-/* Case studies: rows with a large figure, not identical cards */
+/* Case studies */
 .case { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); padding: clamp(32px, 5vw, 56px) 0; border-bottom: 1px solid var(--rule); align-items: start; }
 .case[hidden] { display: none; }
-.case .shot { margin: 0; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--surface); cursor: zoom-in; }
-.case .shot img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; object-position: top left; }
-.case .shot button { all: unset; display: block; cursor: zoom-in; }
-.case .shot button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .case .meta { color: var(--ink-2); font-size: .9rem; font-weight: 500; }
 .case h3 { font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight: 800; margin: 6px 0 12px; }
 .case .pitch { font-size: 1.1rem; }
 .facts { margin: 20px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-.facts li { padding-left: 18px; position: relative; }
-.facts li::before { content: ""; position: absolute; left: 0; top: .72em; width: 8px; height: 2px; background: var(--accent); }
-.result { margin-top: 20px; padding: 14px 16px; border-left: 3px solid var(--accent); background: var(--accent-soft); }
-.result strong { font-family: var(--display); }
-.stack { margin-top: 18px; color: var(--ink-2); font-size: .9rem; }
-.limit { font-family: var(--prose); font-size: 1rem; color: var(--ink); }
-.limit strong { font-family: var(--display); }
+.facts li { padding-inline-start: 18px; position: relative; }
+.facts li::before { content: ""; position: absolute; inset-inline-start: 0; top: .78em; width: 8px; height: 2px; background: var(--accent); }
+.result { margin-top: 20px; padding: 14px 16px; border-inline-start: 3px solid var(--accent); background: var(--accent-soft); }
+.result strong, .limit strong { font-family: var(--display); }
+.limit { margin-top: 16px; }
+.stack { margin-top: 14px; color: var(--ink-2); font-size: .9rem; direction: ltr; text-align: start; }
+[dir="rtl"] .stack { direction: rtl; }
 .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-@media (min-width: 861px) { .case .shot { position: sticky; top: 84px; } }
-@media (max-width: 860px) { .case { grid-template-columns: 1fr; } }
+@media (min-width: 861px) { .case .media { position: sticky; top: 84px; } }
+@media (max-width: 860px) { .case { grid-template-columns: 1fr; } .case .media { order: 2; } }
 
-/* In progress / smaller work */
+/* Inline carousel */
+.carousel { border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--surface); }
+.carousel .track { display: flex; transition: transform .45s cubic-bezier(.4,0,.2,1); touch-action: pan-y; }
+.carousel .slide { flex: 0 0 100%; margin: 0; cursor: zoom-in; }
+.carousel .slide img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: contain; background: var(--paper); }
+.carousel .bar { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-top: 1px solid var(--rule); }
+.carousel .cap { flex: 1; font-size: .95rem; min-height: 2.6em; }
+.carousel .nav { display: flex; gap: 6px; }
+.carousel .dots { display: flex; gap: 6px; justify-content: center; padding: 0 0 10px; }
+.carousel .dots button { width: 8px; height: 8px; padding: 0; border-radius: 50%; border: 0; background: var(--rule); cursor: pointer; }
+.carousel .dots button[aria-current="true"] { background: var(--accent); width: 22px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) { .carousel .track { transition: none; } }
+
+/* ── Interactive proofs (one per case) ─────────────────────────────────── */
+.viz { margin-top: 18px; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); padding: 16px; }
+.viz h4 { margin: 0; font: 700 1.02rem var(--display); }
+.viz .sub { color: var(--ink-2); font-size: .88rem; margin-top: 4px; }
+.viz .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+/* MedRAG replay */
+.stages { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 6px; }
+.stages li { display: grid; grid-template-columns: 22px 1fr auto; gap: 10px; align-items: center; font-size: .92rem; color: var(--ink-2); padding: 6px 8px; border-radius: 4px; transition: background .25s, color .25s; }
+.stages .mark { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--rule); }
+.stages li.run { background: var(--accent-soft); color: var(--ink); }
+.stages li.run .mark { border-color: var(--accent); border-top-color: transparent; }
+@media (prefers-reduced-motion: no-preference) { .stages li.run .mark { animation: spin .7s linear infinite; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+.stages li.ok { color: var(--ink); } .stages li.ok .mark { background: var(--accent); border-color: var(--accent); }
+.stages li.stop { color: var(--strike); } .stages li.stop .mark { background: var(--strike); border-color: var(--strike); }
+.stages li.skipped { color: var(--ink-2); text-decoration: line-through; opacity: .7; }
+.stages .tag { font-size: .8rem; font-weight: 600; }
+.output { margin-top: 12px; padding: 12px 14px; border-radius: 4px; font-family: var(--prose); min-height: 3.2em; border-inline-start: 3px solid var(--rule); background: var(--paper); }
+.output.ok { border-color: var(--accent); } .output.stop { border-color: var(--strike); }
+.output .q { font: 600 .85rem var(--display); color: var(--ink-2); display: block; margin-bottom: 4px; }
+/* DataScoop bars */
+.bars { margin-top: 14px; display: grid; gap: 10px; position: relative; }
+.bar-row { display: grid; grid-template-columns: 8.5rem 1fr 3.4rem; gap: 10px; align-items: center; font-size: .88rem; }
+.bar-row .name { font-weight: 600; } .bar-row .name small { display: block; font-weight: 500; color: var(--ink-2); font-size: .78rem; }
+.bar-track { position: relative; height: 14px; background: var(--paper); border-radius: 3px; }
+.bar-fill { position: absolute; inset-block: 0; inset-inline-start: 0; width: 0; border-radius: 3px; background: var(--accent); transition: width .7s cubic-bezier(.4,0,.2,1); }
+.bar-fill.off { background: var(--ink-2); opacity: .55; }
+.bar-ci { position: absolute; top: -3px; bottom: -3px; border-inline: 2px solid var(--ink); opacity: 0; transition: opacity .3s; }
+.bar-ci.on { opacity: .8; }
+.chance { position: absolute; top: -4px; bottom: -4px; width: 0; border-inline-start: 2px dashed var(--strike); }
+.bar-val { font-weight: 700; font-variant-numeric: tabular-nums; text-align: end; direction: ltr; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px; font-size: .8rem; color: var(--ink-2); }
+.legend i { display: inline-block; width: 14px; height: 0; border-top: 2px dashed var(--strike); vertical-align: middle; margin-inline-end: 6px; }
+.legend b { display: inline-block; width: 10px; height: 10px; border-inline: 2px solid var(--ink); vertical-align: middle; margin-inline-end: 6px; }
+@media (prefers-reduced-motion: reduce) { .bar-fill, .bar-ci { transition: none; } }
+/* ForgeAI weights */
+.weights { display: flex; height: 26px; border-radius: 4px; overflow: hidden; margin-top: 14px; }
+.weights button { border: 0; padding: 0; cursor: pointer; background: var(--accent); opacity: .35; border-inline-end: 2px solid var(--surface); }
+.weights button:nth-child(odd) { opacity: .55; }
+.weights button[aria-pressed="true"] { opacity: 1; }
+.wlist { list-style: none; margin: 10px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 18px; font-size: .86rem; }
+.wlist li { display: flex; justify-content: space-between; gap: 8px; padding: 3px 4px; border-radius: 3px; }
+.wlist li.on { background: var(--accent-soft); font-weight: 600; }
+.wlist span:last-child { font-variant-numeric: tabular-nums; direction: ltr; }
+@media (max-width: 480px) { .wlist { grid-template-columns: 1fr; } .bar-row { grid-template-columns: 6.8rem 1fr 3rem; } }
+
+/* More work */
 .small-work { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0 40px; margin-top: 28px; }
 .small-work article { padding: 20px 0; border-top: 1px solid var(--rule); }
 .small-work h3 { font-size: 1.2rem; font-weight: 700; }
-.small-work p { color: var(--ink-2); margin-top: 6px; font-size: 1rem; }
-.status { display: inline-block; font-size: .8rem; font-weight: 600; padding: 2px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); margin-left: 6px; vertical-align: 3px; }
-.small-work .links { margin-top: 10px; }
-.small-work .links a { font: 600 .92rem var(--display); }
+.small-work p { color: var(--ink-2); margin-top: 6px; }
+.status { display: inline-block; font-size: .8rem; font-weight: 600; padding: 2px 9px; border-radius: 999px; background: var(--warn-soft); color: var(--warn); margin-inline-start: 8px; vertical-align: 3px; }
+.small-work .links { margin-top: 10px; } .small-work .links a { font: 600 .92rem var(--display); }
 
 /* Method */
 .method { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(24px, 5vw, 64px); margin-top: 28px; }
@@ -185,464 +261,903 @@ section.block { padding: clamp(48px, 8vw, 96px) 0; border-top: 1px solid var(--r
 .method p { margin-top: 8px; color: var(--ink-2); }
 @media (max-width: 720px) { .method { grid-template-columns: 1fr; } }
 
-/* Timeline (a real sequence) */
-.timeline { list-style: none; margin: 28px 0 0; padding: 0; }
-.timeline li { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--rule); }
-.timeline .when { color: var(--ink-2); font-weight: 600; font-size: .95rem; }
+/* Timeline: the line fills as you scroll */
+.timeline { list-style: none; margin: 28px 0 0; padding: 0; position: relative; }
+.timeline::before { content: ""; position: absolute; inset-inline-start: calc(10rem + 9px); top: 0; bottom: 0; width: 2px; background: var(--rule); }
+.timeline .fill { position: absolute; inset-inline-start: calc(10rem + 9px); top: 0; width: 2px; height: 0; background: var(--accent); }
+.timeline li { display: grid; grid-template-columns: 10rem 20px minmax(0, 1fr); gap: 0 20px; padding: 20px 0; position: relative; }
+.timeline .when { color: var(--ink-2); font-weight: 600; font-size: .95rem; text-align: end; padding-top: 2px; }
+.timeline .pin { width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--accent); margin: 6px auto 0; position: relative; z-index: 1; }
 .timeline h3 { font-size: 1.2rem; font-weight: 700; }
 .timeline .org { color: var(--ink-2); font-family: var(--display); font-weight: 500; margin-top: 2px; }
-.timeline p { margin-top: 8px; }
-@media (max-width: 640px) { .timeline li { grid-template-columns: 1fr; gap: 6px; } }
+.timeline p.desc { margin-top: 8px; }
+@media (max-width: 640px) {
+  .timeline::before, .timeline .fill { inset-inline-start: 5px; }
+  .timeline li { grid-template-columns: 12px minmax(0, 1fr); gap: 4px 16px; }
+  .timeline .when { grid-column: 2; text-align: start; order: -1; }
+  .timeline .pin { grid-row: 1 / span 2; grid-column: 1; margin-top: 8px; }
+}
 
-/* Skills */
-.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px 40px; margin-top: 28px; }
+/* Skills: each tool filters the case studies */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 26px 40px; margin-top: 28px; }
 .skills h3 { font-size: 1.05rem; font-weight: 700; }
-.skills p { color: var(--ink-2); margin-top: 6px; font-size: 1rem; }
+.skills .tools { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.skills .tools button { border: 1px solid var(--rule); background: var(--surface); border-radius: 4px; padding: 4px 9px; font-size: .88rem; cursor: pointer; }
+.skills .tools button:hover { border-color: var(--accent); color: var(--accent); }
+.skills .tools span { border: 1px dashed var(--rule); border-radius: 4px; padding: 4px 9px; font-size: .88rem; color: var(--ink-2); font-family: var(--display); }
 
 /* Contact */
-.contact .grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: start; }
-.contact .big { font: 800 clamp(1.15rem, 2.6vw, 1.9rem)/1.2 var(--display); letter-spacing: -0.01em; overflow-wrap: anywhere; }
-.contact dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 10px 20px; font-family: var(--display); }
-.contact dt { color: var(--ink-2); font-weight: 500; }
-.contact dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
-.copy-note { font: 500 .9rem var(--display); color: var(--accent); min-height: 1.4em; margin-top: 10px; }
-@media (max-width: 760px) { .contact .grid { grid-template-columns: 1fr; } }
+.contact .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: start; }
+.contact .big { font: 800 clamp(1.1rem, 2.4vw, 1.7rem)/1.25 var(--display); overflow-wrap: anywhere; margin-top: 22px; direction: ltr; text-align: start; }
+.contact dl { margin: 22px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 10px 20px; font-family: var(--display); }
+.contact dt { color: var(--ink-2); font-weight: 500; } .contact dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+form.mail { display: grid; gap: 14px; padding: 20px; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); }
+form.mail .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+form.mail label { display: grid; gap: 6px; font-size: .9rem; font-weight: 600; }
+form.mail input, form.mail textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); font-size: 1rem; font-family: var(--prose); }
+form.mail textarea { min-height: 130px; resize: vertical; }
+form.mail .err { color: var(--strike); font-size: .85rem; font-weight: 500; min-height: 1.2em; }
+form.mail .hint { color: var(--ink-2); font-size: .85rem; }
+.copy-note { font: 500 .9rem var(--display); color: var(--accent); min-height: 1.4em; margin-top: 8px; }
+@media (max-width: 760px) { .contact .grid { grid-template-columns: 1fr; } form.mail .two { grid-template-columns: 1fr; } }
 footer { border-top: 1px solid var(--rule); padding: 28px 0 40px; color: var(--ink-2); font: 500 .9rem var(--display); }
 
-/* ── Case-study dialog with gallery ─────────────────────────────────────── */
+/* Lightbox */
 dialog { width: min(1100px, calc(100vw - 24px)); max-height: calc(100vh - 24px); padding: 0; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); color: var(--ink); }
-dialog::backdrop { background: rgb(8 14 18 / .72); }
+dialog::backdrop { background: rgb(8 14 18 / .75); }
 .dlg-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--rule); position: sticky; top: 0; background: var(--surface); z-index: 1; }
 .dlg-head h2 { font-size: 1.15rem; }
 .dlg-body { padding: 18px; }
 .stage { margin: 0; }
 .stage img { width: 100%; max-height: 66vh; object-fit: contain; background: var(--paper); border: 1px solid var(--rule); border-radius: 4px; }
 .stage figcaption { margin-top: 12px; font-size: 1.02rem; }
-.pager { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 14px; font-family: var(--display); }
-.pager .count { color: var(--ink-2); font-size: .92rem; font-variant-numeric: tabular-nums; }
-.thumbs { display: flex; gap: 8px; overflow-x: auto; margin-top: 14px; padding-bottom: 4px; }
-.thumbs button { flex: 0 0 auto; width: 92px; height: 56px; padding: 0; border: 2px solid transparent; border-radius: 4px; overflow: hidden; background: var(--paper); cursor: pointer; }
-.thumbs button[aria-current="true"] { border-color: var(--accent); }
-.thumbs img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
-
+.pager { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 14px; }
+.pager .count { color: var(--ink-2); font: 500 .92rem var(--display); }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-@media print { header.top, .filters, .links, dialog { display: none !important; } section.block { break-inside: avoid; } }
+@media print { header.top, .filters, .links, dialog, .progress, form.mail, .viz .controls { display: none !important; } }
 </style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+<a class="skip" href="#main" data-t="skip">Skip to content</a>
 
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top">Abd Elmouhib Souri</a>
-    <nav aria-label="Main">
+    <nav class="main" id="nav" aria-label="Main">
       <ul>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#method">How I work</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#work" data-t="nav.work">Work</a></li>
+        <li><a href="#method" data-t="nav.method">How I work</a></li>
+        <li><a href="#experience" data-t="nav.exp">Experience</a></li>
+        <li><a href="#skills" data-t="nav.skills">Skills</a></li>
+        <li><a href="#contact" data-t="nav.contact">Contact</a></li>
       </ul>
     </nav>
-    <button class="icon-btn" id="theme" type="button" aria-label="Switch to dark theme">
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" lang="en">EN</button>
+      <button type="button" data-lang="fr" lang="fr">FR</button>
+      <button type="button" data-lang="ar" lang="ar">ع</button>
+    </div>
+    <button class="icon-btn" id="theme" type="button" aria-label="Switch theme">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+    </button>
+    <button class="icon-btn menu-btn" id="menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
   </div>
 </header>
 
 <main id="main">
-  <!-- ── Hero ─────────────────────────────────────────────────────────── -->
   <section class="hero" id="top">
     <div class="wrap">
       <div class="grid">
         <div>
-          <p class="who">Final-year engineering student in Data Science &amp; AI, ESPRIM, Tunisia</p>
-          <h1>I build AI that shows its evidence.</h1>
-          <p class="lede">Retrieval-augmented LLMs that refuse when the source is silent, medical models measured on leak-free data, and agent pipelines where rules check what the model proposes. I'm looking for a 4–6 month research internship from February 2027.</p>
+          <span class="badge"><span class="dot" aria-hidden="true"></span><span data-t="badge">Open to a research internship from February 2027</span></span>
+          <p class="who" data-t="who">Final-year engineering student in Data Science &amp; AI, ESPRIM, Tunisia</p>
+          <h1 data-t="h1">I build AI that shows its evidence.</h1>
+          <p class="focus"><span data-t="focus">Currently working on</span> <span class="word" id="word"></span><span class="caret" aria-hidden="true"></span></p>
+          <p class="lede" data-t="lede">I measure before I claim.</p>
           <div class="actions">
-            <a class="btn primary" href="#work">See the case studies</a>
-            <a class="btn" href="#contact">Contact me</a>
+            <a class="btn primary" href="#work" data-t="cta.work">See the case studies</a>
+            <a class="btn" href="#contact" data-t="cta.contact">Contact me</a>
           </div>
         </div>
         <figure class="portrait">
-          <img src="assets/img/portrait.webp" width="640" height="800" alt="Portrait of Abd Elmouhib Souri">
-          <figcaption>Monastir, Tunisia. Arabic, French (C1), English (B1).</figcaption>
+          <img src="assets/img/portrait.webp" width="640" height="800" alt="Abd Elmouhib Souri" data-t-alt="photoAlt">
+          <figcaption data-t="photoCap">Monastir, Tunisia.</figcaption>
         </figure>
       </div>
 
-      <!-- Signature element: numbers I corrected or measured myself -->
       <div class="ledger" aria-labelledby="ledger-title">
         <div class="ledger-head">
-          <h2 id="ledger-title">Numbers I corrected or measured myself</h2>
-          <p>Struck values are what an earlier version reported.</p>
+          <h2 id="ledger-title" data-t="ledger.title">Numbers I corrected or measured myself</h2>
+          <p data-t="ledger.note">Struck values are what an earlier version reported.</p>
         </div>
         <div class="row r1">
           <span class="proj">DataScoop</span>
-          <span class="what">ResNet-50 accuracy on Alzheimer MRI, after I found augmented copies of the same scans on both sides of the split. <a href="#case-datascoop">How I proved it</a></span>
-          <span class="num old" aria-label="earlier value 0.900">0.900</span>
-          <span class="num new" aria-label="measured value 0.814">0.814</span>
+          <span class="what"><span data-t="ledger.r1">ResNet-50 accuracy on Alzheimer MRI.</span> <a href="#case-datascoop" data-t="ledger.r1link">How I proved it</a></span>
+          <span class="num old">0.900</span>
+          <span class="num new" data-count="0.814" data-dec="3">0.814</span>
         </div>
         <div class="row r2">
           <span class="proj">MedRAG</span>
-          <span class="what">Relevance gate (leave-one-out balanced accuracy). The first reranker scored at chance level, so I replaced it after a controlled comparison. <a href="#case-medrag">The comparison</a></span>
-          <span class="num old" aria-label="earlier value 50 percent">50%</span>
-          <span class="num new" aria-label="measured value 88 percent">88%</span>
+          <span class="what"><span data-t="ledger.r2">Relevance gate accuracy.</span> <a href="#case-medrag" data-t="ledger.r2link">The comparison</a></span>
+          <span class="num old">50%</span>
+          <span class="num new" data-count="88" data-dec="0" data-suffix="%">88%</span>
         </div>
         <div class="row r3">
           <span class="proj">MedRAG</span>
-          <span class="what">Unanswerable questions refused on a held-out test set, run once, with no invented answer.</span>
-          <span class="num none">new test</span>
-          <span class="num new" aria-label="8 out of 8">8/8</span>
+          <span class="what" data-t="ledger.r3">Unanswerable questions refused on a held-out test set.</span>
+          <span class="num none" data-t="ledger.newtest">new test</span>
+          <span class="num new">8/8</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Work ─────────────────────────────────────────────────────────── -->
   <section class="block" id="work" aria-labelledby="work-title">
     <div class="wrap">
-      <h2 class="title" id="work-title">Case studies</h2>
-      <p class="intro">Three systems I built or rebuilt in 2026. Each one says what I measured, how, and where it still falls short.</p>
-      <div class="filters" role="group" aria-label="Filter case studies">
-        <!-- Filled by script from the topics in the data below -->
-      </div>
+      <h2 class="title reveal" id="work-title" data-t="work.title">Case studies</h2>
+      <p class="intro reveal" data-t="work.intro">Three systems I built or rebuilt in 2026.</p>
+      <div class="filters" role="group" aria-labelledby="work-title" id="filters"></div>
+      <p class="skill-note" id="skill-note" role="status"><span id="skill-note-text"></span><button class="btn sm" type="button" id="skill-clear" data-t="skills.clear">Show all</button></p>
       <div id="cases"></div>
     </div>
   </section>
 
-  <!-- ── In progress and smaller work ─────────────────────────────────── -->
   <section class="block" id="more" aria-labelledby="more-title">
     <div class="wrap">
-      <h2 class="title" id="more-title">More work</h2>
-      <p class="intro">Smaller or ongoing projects. I add a result here only once I have measured it.</p>
+      <h2 class="title reveal" id="more-title" data-t="more.title">More work</h2>
+      <p class="intro reveal" data-t="more.intro">Smaller or ongoing projects.</p>
       <div class="small-work" id="small-work"></div>
     </div>
   </section>
 
-  <!-- ── Method ───────────────────────────────────────────────────────── -->
   <section class="block" id="method" aria-labelledby="method-title">
     <div class="wrap">
-      <h2 class="title" id="method-title">How I work</h2>
-      <p class="intro">The habits behind the numbers above. I apply them to my own projects first.</p>
-      <div class="method">
-        <article>
-          <h3>Audit before training</h3>
-          <p>In DataScoop I rebuilt the exact Keras validation split, found 195 groups of exact duplicates and near-identical augmented copies across it, and kept only the 3,153 validation images with no copy in training.</p>
-        </article>
-        <article>
-          <h3>Fix the decision rule before the experiment</h3>
-          <p>For MedRAG's reranker I wrote down what "better" meant (accuracy gain and a latency limit) before running bge-reranker-v2-m3, so I could not pick the rule after seeing the result.</p>
-        </article>
-        <article>
-          <h3>Keep a test set I touch once</h3>
-          <p>MedRAG was tuned on 32 development questions and reported on 19 held-out ones. When the held-out run exposed a drug-class error, I reported it instead of fixing it on the test set.</p>
-        </article>
-        <article>
-          <h3>Tests that fail when the bug returns</h3>
-          <p>Each security or safety fix gets a test, and I check that the test fails when I put the old code back. DataScoop has 28 backend and 17 Python tests; MedRAG has 32.</p>
-        </article>
-      </div>
+      <h2 class="title reveal" id="method-title" data-t="method.title">How I work</h2>
+      <p class="intro reveal" data-t="method.intro">The habits behind the numbers above.</p>
+      <div class="method" id="method-list"></div>
     </div>
   </section>
 
-  <!-- ── Experience & education (a real sequence, newest first) ───────── -->
   <section class="block" id="experience" aria-labelledby="exp-title">
     <div class="wrap">
-      <h2 class="title" id="exp-title">Experience and education</h2>
-      <ol class="timeline">
-        <li>
-          <span class="when">Jul – Sep 2026</span>
-          <div>
-            <h3>Software &amp; AI engineering intern</h3>
-            <p class="org">DotJcom Ltd, Soliman, Tunisia</p>
-            <p>Built ForgeAI, a multi-agent platform that turns a startup idea into a sourced analysis and execution plan. See the case study above.</p>
-          </div>
-        </li>
-        <li>
-          <span class="when">Aug – Sep 2025</span>
-          <div>
-            <h3>Mobile development intern</h3>
-            <p class="org">Tunisie Telecom, Monastir</p>
-            <p>A React Native and Firebase app with a Gemini assistant that explains USSD service codes in plain language.</p>
-          </div>
-        </li>
-        <li>
-          <span class="when">2024 – 2027</span>
-          <div>
-            <h3>Engineering degree, Data Science &amp; AI</h3>
-            <p class="org">ESPRIM, Monastir (final year)</p>
-          </div>
-        </li>
-        <li>
-          <span class="when">2022 – 2024</span>
-          <div>
-            <h3>Preparatory classes, Physics–Technology</h3>
-            <p class="org">Gafsa, Tunisia</p>
-          </div>
-        </li>
-      </ol>
+      <h2 class="title reveal" id="exp-title" data-t="exp.title">Experience and education</h2>
+      <ol class="timeline" id="timeline"><span class="fill" aria-hidden="true"></span></ol>
     </div>
   </section>
 
-  <!-- ── Skills ───────────────────────────────────────────────────────── -->
   <section class="block" id="skills" aria-labelledby="skills-title">
     <div class="wrap">
-      <h2 class="title" id="skills-title">Tools I've used in these projects</h2>
-      <div class="skills">
-        <div><h3>LLMs, RAG and agents</h3><p>LangChain, LangGraph, ChromaDB, BM25, cross-encoder reranking, Groq and Gemini APIs, prompt-injection defences</p></div>
-        <div><h3>Machine learning and vision</h3><p>TensorFlow and Keras, scikit-learn, transfer learning (ResNet-50, EfficientNet), bootstrap confidence intervals, ROC-AUC, leakage audits</p></div>
-        <div><h3>Engineering</h3><p>Python, FastAPI, Flask, Node.js and Express, Next.js and React, TypeScript, PostgreSQL, MongoDB, Redis, Docker, pytest</p></div>
-        <div><h3>Data and BI</h3><p>Pandas, ETL design, star schemas, Power BI and DAX. Google Business Intelligence certificate (2026)</p></div>
-      </div>
+      <h2 class="title reveal" id="skills-title" data-t="skills.title">Tools I've used in these projects</h2>
+      <p class="intro reveal" data-t="skills.intro">Select a tool to see the case studies that use it.</p>
+      <div class="skills" id="skill-groups"></div>
     </div>
   </section>
 
-  <!-- ── Contact ──────────────────────────────────────────────────────── -->
   <section class="block contact" id="contact" aria-labelledby="contact-title">
     <div class="wrap grid">
       <div>
-        <h2 class="title" id="contact-title">Working on trustworthy LLMs, medical AI or multilingual NLP?</h2>
-        <p class="intro">I'd be glad to hear about your lab's projects. I'm available for a 4–6 month internship from February 2027 and can relocate.</p>
-        <p class="big" style="margin-top:24px"><a href="mailto:AbdElmouhib.Souri@esprim.tn">AbdElmouhib.Souri@esprim.tn</a></p>
-        <button class="btn" type="button" id="copy-email" style="margin-top:16px">Copy email address</button>
+        <h2 class="title" id="contact-title" data-t="contact.title">Let's talk about your lab's projects</h2>
+        <p class="intro" data-t="contact.intro">Available from February 2027.</p>
+        <p class="big"><a href="mailto:AbdElmouhib.Souri@esprim.tn">AbdElmouhib.Souri@esprim.tn</a></p>
+        <button class="btn sm" type="button" id="copy-email" style="margin-top:12px" data-t="contact.copy">Copy email address</button>
         <p class="copy-note" id="copy-note" role="status" aria-live="polite"></p>
+        <dl>
+          <dt>GitHub</dt><dd><a href="https://github.com/Abd-Elmouhib-Souri">github.com/Abd-Elmouhib-Souri</a></dd>
+          <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/abd-elmouhib-souri/">linkedin.com/in/abd-elmouhib-souri</a></dd>
+          <dt data-t="contact.based">Based in</dt><dd data-t="contact.place">Monastir, Tunisia (UTC+1)</dd>
+        </dl>
       </div>
-      <dl>
-        <dt>GitHub</dt><dd><a href="https://github.com/Abd-Elmouhib-Souri">github.com/Abd-Elmouhib-Souri</a></dd>
-        <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/abd-elmouhib-souri/">linkedin.com/in/abd-elmouhib-souri</a></dd>
-        <dt>Based in</dt><dd>Monastir, Tunisia (UTC+1)</dd>
-      </dl>
+      <form class="mail" id="mail-form" novalidate>
+        <div class="two">
+          <label><span data-t="form.name">Your name</span><input name="name" autocomplete="name" required></label>
+          <label><span data-t="form.email">Your email</span><input name="email" type="email" autocomplete="email" required></label>
+        </div>
+        <label><span data-t="form.subject">Subject</span><input name="subject" required></label>
+        <label><span data-t="form.message">Message</span><textarea name="message" required></textarea></label>
+        <p class="err" id="form-err" role="alert"></p>
+        <button class="btn primary" type="submit" data-t="form.send">Open in my email app</button>
+        <p class="hint" data-t="form.hint">Your email app opens with the message ready. Nothing is sent from this page.</p>
+      </form>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="wrap">Abd Elmouhib Souri, 2026. All patient data shown in these projects is fictional.</div>
-</footer>
+<footer><div class="wrap" data-t="footer">Abd Elmouhib Souri, 2026. All patient data shown in these projects is fictional.</div></footer>
 
-<!-- Case-study gallery -->
 <dialog id="gallery" aria-labelledby="dlg-title">
   <div class="dlg-head">
-    <h2 id="dlg-title">Screenshots</h2>
-    <button class="icon-btn" type="button" id="dlg-close" aria-label="Close screenshots">
+    <h2 id="dlg-title"></h2>
+    <button class="icon-btn" type="button" id="dlg-close" aria-label="Close">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
     </button>
   </div>
   <div class="dlg-body">
-    <figure class="stage"><img id="stage-img" src="" alt=""><figcaption id="stage-cap"></figcaption></figure>
+    <figure class="stage"><img id="stage-img" src="data:," alt=""><figcaption id="stage-cap"></figcaption></figure>
     <div class="pager">
-      <button class="btn" type="button" id="prev">Previous</button>
+      <button class="btn" type="button" id="prev" data-t="ui.prev">Previous</button>
       <span class="count" id="count" aria-live="polite"></span>
-      <button class="btn" type="button" id="next">Next</button>
+      <button class="btn" type="button" id="next" data-t="ui.next">Next</button>
     </div>
-    <div class="thumbs" id="thumbs" aria-label="All screenshots"></div>
   </div>
 </dialog>
 
+<noscript><p class="wrap" style="padding:16px 0">This page needs JavaScript for the case studies. The code is on <a href="https://github.com/Abd-Elmouhib-Souri">GitHub</a>.</p></noscript>
+
 <script>
 document.documentElement.classList.add("js");
-
-/* ── Content ─────────────────────────────────────────────────────────────
-   To add a project (for example MindCare AI once its evaluation is done),
-   add one object to CASES. Only write numbers you have measured yourself. */
-const CASES = [
-  {
-    id: "medrag",
-    title: "MedRAG",
-    meta: "Personal project, 2026",
-    topics: ["LLMs & RAG", "Medical AI"],
-    pitch: "A question-answering assistant over patient records in French, English and Arabic. It answers only from the record, cites the page, and refuses when the record doesn't contain the answer.",
-    facts: [
-      "Hybrid retrieval (ChromaDB and BM25, weighted rank fusion), with the question translated into the records' language.",
-      "A cross-encoder relevance gate: when no passage is relevant enough, the system refuses without calling the LLM.",
-      "A second LLM checks each answer against its sources; text that tries to give the model orders is quarantined at upload.",
-      "I compared three rerankers under a rule fixed in advance: chance level (50%), 73%, then 88% for bge-reranker-v2-m3."
-    ],
-    result: "<strong>Held-out test, run once:</strong> 10 of 11 answers correct (95% CI 62–98%), 8 of 8 unanswerable questions refused, 0 invented answers.",
-    limit: "Small fictional benchmark. It misses questions that name a drug class instead of the drug.",
-    stack: "Python, FastAPI, Streamlit, LangChain, ChromaDB, bge-reranker-v2-m3, Groq (gpt-oss), 32 pytest tests",
-    repo: "https://github.com/Abd-Elmouhib-Souri/MedRag",
-    shots: [
-      ["medrag-01.webp", "The full app: patient card, cited answer, alert and a refusal."],
-      ["medrag-02.webp", "The pipeline: hybrid retrieval, cross-encoder gate, cited answer, grounding check."],
-      ["medrag-03.webp", "Every answer cites its page and is checked against the sources."],
-      ["medrag-04.webp", "No relevant source: the gate refuses and the LLM is never called."],
-      ["medrag-05.webp", "Results on 19 held-out questions never used for tuning."],
-      ["medrag-06.webp", "The controlled comparison of three cross-encoders that chose the gate."],
-      ["medrag-07.webp", "A patient card generated automatically from the uploaded record."]
-    ]
-  },
-  {
-    id: "datascoop",
-    title: "DataScoop",
-    meta: "Team project (PFA), 2026. The audit, evaluation and rebuild described here are my work.",
-    topics: ["Medical AI", "Computer vision"],
-    pitch: "Alzheimer MRI decision support where the AI only suggests and the doctor decides. I rebuilt it after finding that its accuracy was inflated and that it could show results it never computed.",
-    facts: [
-      "Proved data leakage on 50,400 Kaggle images: exact duplicates (MD5) and augmented copies crossing the train/validation split.",
-      "Re-evaluated 5 models on a leak-free subset with bootstrap confidence intervals; disabled the 3 that were broken or too weak.",
-      "Removed every simulated prediction. The patient never sees AI output, only the diagnosis his doctor validated or corrected.",
-      "JWT and bcrypt authentication, per-doctor patient isolation, one-time doctor invitations, and a check that refuses non-MRI images."
-    ],
-    result: "<strong>Leak-free accuracy:</strong> ResNet-50 0.814 (95% CI 0.800–0.826, macro-F1 0.832), down from 0.900 on the leaky split.",
-    limit: "2D slices without patient IDs, so all scores are upper bounds. About 1 in 4 \"very mild\" cases is still missed.",
-    stack: "TensorFlow/Keras, Flask, Node.js/Express, MongoDB, React/TypeScript, 28 backend and 17 Python tests",
-    repo: "https://github.com/Abd-Elmouhib-Souri/DataScoop",
-    shots: [
-      ["datascoop-01.webp", "The AI suggests, the doctor decides: validate or correct."],
-      ["datascoop-02.webp", "When the two models disagree, the suggestion is flagged as uncertain."],
-      ["datascoop-03.webp", "No AI result is ever shown to the patient."],
-      ["datascoop-04.webp", "The patient sees only what his doctor validated."],
-      ["datascoop-05.webp", "Statistics count doctor decisions, not raw AI output."],
-      ["datascoop-06.webp", "Each doctor sees only his own patients."],
-      ["datascoop-07.webp", "Obvious non-MRI images are refused before any prediction."]
-    ]
-  },
-  {
-    id: "forgeai",
-    title: "ForgeAI",
-    meta: "Internship at DotJcom, Jul – Sep 2026",
-    topics: ["Agents & LLMs", "LLMs & RAG"],
-    pitch: "A platform that turns a startup idea into a sourced analysis, an argued verdict and an execution plan. Its rule: AI agents propose, deterministic rules validate and decide.",
-    facts: [
-      "A LangGraph pipeline of 8 analysis steps: market, SWOT, business model canvas, competition, finances, score, personas, fact-checking.",
-      "Two ChromaDB retrieval stores and web search, with the evidence for each claim kept and shown.",
-      "A 9-criterion weighted score and an 8-role investment committee, both computed by rules rather than by the LLM.",
-      "Gemini with Groq fallback, JWT, Google sign-in and 2FA, an admin console with real health checks and an audit log, PDF and Word exports."
-    ],
-    result: "<strong>In use during testing:</strong> 23 analyses completed. One full 15-section report took 5 min 37 s.",
-    limit: "Report quality depends on the web sources found. The score is a structured opinion, not a prediction of success.",
-    stack: "Python, FastAPI, LangGraph, Next.js, PostgreSQL, Redis, ChromaDB, Docker Compose, Gemini, Groq",
-    repo: "https://github.com/Abd-Elmouhib-Souri/ForgeAI",
-    shots: [
-      ["forgeai-03.webp", "A complete analysis in 15 sections, finished in 5 min 37 s."],
-      ["forgeai-02.webp", "The guided path: the idea's context is checked before any analysis starts."],
-      ["forgeai-04.webp", "External sources and verified competitors behind the analysis."],
-      ["forgeai-05.webp", "The 8-role committee and its votes, computed by rules."],
-      ["forgeai-06.webp", "The final verdict, score and risk."],
-      ["forgeai-07.webp", "The product plan, computed on the server."],
-      ["forgeai-08.webp", "A generated UML use-case diagram."],
-      ["forgeai-09.webp", "The technical stack."],
-      ["forgeai-01.webp", "The platform's home page and modules."]
-    ]
-  }
-];
-
-/* Smaller and ongoing work: honest one-liners, no unmeasured numbers. */
-const MORE = [
-  { title: "MindCare AI", status: "In progress",
-    text: "Detecting distress-related language in public posts (Bi-LSTM with GloVe). I'm rebuilding the dataset audit and evaluation before publishing any metric." },
-  { title: "Sales forecasting pipeline",
-    text: "ETL of 9,800 transactions into a star schema on PostgreSQL in Docker, Ridge regression forecasts and a Power BI report.",
-    repo: "https://github.com/Abd-Elmouhib-Souri/sales_kag_project" },
-  { title: "myTT assistant",
-    text: "Internship app at Tunisie Telecom: React Native, Firebase and a Gemini chat that explains USSD service codes.",
-    repo: "https://github.com/Abd-Elmouhib-Souri/myTT" }
-];
-
-/* ── Rendering ───────────────────────────────────────────────────────── */
-const $ = (s, el = document) => el.querySelector(s);
-const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const EMAIL = "AbdElmouhib.Souri@esprim.tn";
 const IMG = "assets/img/";
 
-function renderCases() {
-  $("#cases").innerHTML = CASES.map(c => `
-    <article class="case" id="case-${c.id}" data-topics="${esc(c.topics.join("|"))}">
-      <figure class="shot">
-        <button type="button" data-open="${c.id}" aria-label="Open ${c.shots.length} screenshots of ${esc(c.title)}">
-          <img src="${IMG + c.shots[0][0]}" alt="${esc(c.shots[0][1])}" loading="lazy" width="1600" height="900">
-        </button>
-      </figure>
-      <div>
-        <p class="meta">${esc(c.meta)}</p>
-        <h3>${esc(c.title)}</h3>
-        <p class="pitch">${esc(c.pitch)}</p>
-        <ul class="facts">${c.facts.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
-        <p class="result">${c.result}</p>
-        <p class="stack limit"><strong>Limitation.</strong> ${esc(c.limit)}</p>
-        <p class="stack">${esc(c.stack)}</p>
-        <div class="links">
-          <a class="btn primary" href="${c.repo}">View the code on GitHub</a>
-          <button class="btn" type="button" data-open="${c.id}">See ${c.shots.length} screenshots</button>
-        </div>
-      </div>
-    </article>`).join("");
+/* ═══ Interface text in three languages ═══════════════════════════════════
+   Only measured numbers appear here. To edit a sentence, change it in all three. */
+const T = {
+en: {
+  skip: "Skip to content",
+  "nav.work": "Work", "nav.method": "How I work", "nav.exp": "Experience", "nav.skills": "Skills", "nav.contact": "Contact",
+  badge: "Open to a research internship from February 2027",
+  who: "Final-year engineering student in Data Science & AI, ESPRIM, Tunisia",
+  h1: "I build AI that shows its evidence.",
+  focus: "Currently working on",
+  words: ["trustworthy retrieval-augmented LLMs", "medical image models measured on leak-free data", "LLM agents checked by deterministic rules", "NLP in Arabic, French and English"],
+  lede: "I measure before I claim: held-out test sets, leakage audits, and tests that fail when a bug comes back. I'm looking for a 4–6 month research internship from February 2027.",
+  "cta.work": "See the case studies", "cta.contact": "Contact me",
+  photoAlt: "Portrait of Abd Elmouhib Souri", photoCap: "Monastir, Tunisia. Arabic (native), French (C1), English (B1).",
+  "ledger.title": "Numbers I corrected or measured myself",
+  "ledger.note": "Struck values are what an earlier version reported.",
+  "ledger.r1": "ResNet-50 accuracy on Alzheimer MRI, after I found augmented copies of the same scans on both sides of the split.",
+  "ledger.r1link": "How I proved it",
+  "ledger.r2": "Relevance gate (leave-one-out balanced accuracy). The first reranker scored at chance level, so I replaced it after a controlled comparison.",
+  "ledger.r2link": "The comparison",
+  "ledger.r3": "Unanswerable questions refused on a held-out test set, run once, with no invented answer.",
+  "ledger.newtest": "new test",
+  "work.title": "Case studies",
+  "work.intro": "Three systems I built or rebuilt in 2026. Each one says what I measured, how, and where it still falls short. Try the interactive panels: they replay real results.",
+  all: "All", "topic.rag": "LLMs & RAG", "topic.med": "Medical AI", "topic.vision": "Computer vision", "topic.agents": "LLM agents",
+  "case.code": "View the code", "case.limit": "Limitation.",
+  "ui.prev": "Previous", "ui.next": "Next", "ui.count": "{i} of {n}", "ui.open": "Open screenshot {i} of {n} in full size", "ui.close": "Close", "ui.shots": "Screenshots",
+  "more.title": "More work", "more.intro": "Smaller or ongoing projects. I add a result here only once I have measured it.",
+  "more.progress": "In progress", "more.code": "View the code",
+  "method.title": "How I work", "method.intro": "The habits behind the numbers above. I apply them to my own projects first.",
+  "exp.title": "Experience and education",
+  "skills.title": "Tools I've used in these projects", "skills.intro": "Select a tool to see the case studies that use it.",
+  "skills.showing": "Case studies that use {s}.", "skills.clear": "Show all", "skills.none": "Not in a case study yet",
+  "contact.title": "Working on trustworthy LLMs, medical AI or multilingual NLP?",
+  "contact.intro": "I'd be glad to hear about your lab's projects. I'm available for a 4–6 month internship from February 2027 and can relocate.",
+  "contact.copy": "Copy email address", "contact.copied": "Email address copied.", "contact.nocopy": "Copy isn't available here. Select the address above instead.",
+  "contact.based": "Based in", "contact.place": "Monastir, Tunisia (UTC+1)",
+  "form.name": "Your name", "form.email": "Your email", "form.subject": "Subject", "form.message": "Message",
+  "form.send": "Open in my email app", "form.hint": "Your email app opens with the message ready. Nothing is sent from this page.",
+  "form.missing": "Fill in every field before sending.", "form.bademail": "Enter a valid email address, like name@university.edu.",
+  footer: "Abd Elmouhib Souri, 2026. All patient data shown in these projects is fictional.",
+  "theme.dark": "Switch to dark theme", "theme.light": "Switch to light theme", menu: "Menu"
+},
+fr: {
+  skip: "Aller au contenu",
+  "nav.work": "Projets", "nav.method": "Ma méthode", "nav.exp": "Parcours", "nav.skills": "Compétences", "nav.contact": "Contact",
+  badge: "Disponible pour un stage de recherche dès février 2027",
+  who: "Élève ingénieur en dernière année, Data Science & IA, ESPRIM, Tunisie",
+  h1: "Je construis une IA qui montre ses preuves.",
+  focus: "En ce moment :",
+  words: ["des LLM augmentés par la recherche, fiables", "des modèles d'imagerie médicale mesurés sans fuite de données", "des agents LLM vérifiés par des règles", "du NLP en arabe, français et anglais"],
+  lede: "Je mesure avant d'affirmer : jeux de test tenus à l'écart, audits de fuite de données et tests qui échouent quand un bug revient. Je cherche un stage de recherche de 4 à 6 mois à partir de février 2027.",
+  "cta.work": "Voir les études de cas", "cta.contact": "Me contacter",
+  photoAlt: "Portrait d'Abd Elmouhib Souri", photoCap: "Monastir, Tunisie. Arabe (natif), français (C1), anglais (B1).",
+  "ledger.title": "Des chiffres que j'ai corrigés ou mesurés moi-même",
+  "ledger.note": "Les valeurs barrées sont celles d'une version précédente.",
+  "ledger.r1": "Précision de ResNet-50 sur des IRM d'Alzheimer, après avoir trouvé des copies augmentées des mêmes images des deux côtés du découpage.",
+  "ledger.r1link": "Comment je l'ai prouvé",
+  "ledger.r2": "Filtre de pertinence (précision équilibrée en leave-one-out). Le premier reranker était au niveau du hasard ; je l'ai remplacé après une comparaison contrôlée.",
+  "ledger.r2link": "La comparaison",
+  "ledger.r3": "Questions sans réponse refusées sur un jeu de test tenu à l'écart, lancé une seule fois, sans aucune réponse inventée.",
+  "ledger.newtest": "nouveau test",
+  "work.title": "Études de cas",
+  "work.intro": "Trois systèmes construits ou reconstruits en 2026. Chacun dit ce que j'ai mesuré, comment, et où il reste des limites. Essayez les panneaux interactifs : ils rejouent des résultats réels.",
+  all: "Tous", "topic.rag": "LLM & RAG", "topic.med": "IA médicale", "topic.vision": "Vision par ordinateur", "topic.agents": "Agents LLM",
+  "case.code": "Voir le code", "case.limit": "Limite.",
+  "ui.prev": "Précédente", "ui.next": "Suivante", "ui.count": "{i} sur {n}", "ui.open": "Ouvrir la capture {i} sur {n} en grand", "ui.close": "Fermer", "ui.shots": "Captures",
+  "more.title": "Autres travaux", "more.intro": "Projets plus petits ou en cours. J'ajoute un résultat ici seulement une fois mesuré.",
+  "more.progress": "En cours", "more.code": "Voir le code",
+  "method.title": "Ma méthode", "method.intro": "Les habitudes derrière les chiffres ci-dessus. Je les applique d'abord à mes propres projets.",
+  "exp.title": "Expérience et formation",
+  "skills.title": "Les outils utilisés dans ces projets", "skills.intro": "Choisissez un outil pour voir les études de cas qui l'utilisent.",
+  "skills.showing": "Études de cas qui utilisent {s}.", "skills.clear": "Tout afficher", "skills.none": "Pas encore dans une étude de cas",
+  "contact.title": "Vous travaillez sur des LLM fiables, l'IA médicale ou le NLP multilingue ?",
+  "contact.intro": "Je serais ravi d'en savoir plus sur les projets de votre laboratoire. Disponible pour un stage de 4 à 6 mois dès février 2027, avec mobilité.",
+  "contact.copy": "Copier l'adresse e-mail", "contact.copied": "Adresse e-mail copiée.", "contact.nocopy": "La copie n'est pas disponible ici. Sélectionnez l'adresse ci-dessus.",
+  "contact.based": "Basé à", "contact.place": "Monastir, Tunisie (UTC+1)",
+  "form.name": "Votre nom", "form.email": "Votre e-mail", "form.subject": "Objet", "form.message": "Message",
+  "form.send": "Ouvrir dans ma messagerie", "form.hint": "Votre messagerie s'ouvre avec le message prêt. Rien n'est envoyé depuis cette page.",
+  "form.missing": "Remplissez tous les champs avant l'envoi.", "form.bademail": "Saisissez une adresse e-mail valide, par exemple nom@universite.fr.",
+  footer: "Abd Elmouhib Souri, 2026. Toutes les données de patients présentées sont fictives.",
+  "theme.dark": "Passer au thème sombre", "theme.light": "Passer au thème clair", menu: "Menu"
+},
+ar: {
+  skip: "انتقل إلى المحتوى",
+  "nav.work": "المشاريع", "nav.method": "منهجي", "nav.exp": "المسار", "nav.skills": "المهارات", "nav.contact": "تواصل",
+  badge: "متاح لتربص بحثي ابتداءً من فيفري 2027",
+  who: "طالب مهندس في السنة الأخيرة، علوم البيانات والذكاء الاصطناعي، ESPRIM، تونس",
+  h1: "أبني ذكاءً اصطناعيًا يُظهر أدلّته.",
+  focus: "أعمل حاليًا على",
+  words: ["نماذج لغوية موثوقة معزَّزة بالاسترجاع", "نماذج تصوير طبي مُقاسة دون تسرّب للبيانات", "وكلاء نماذج لغوية تتحقق منهم قواعد ثابتة", "معالجة اللغة بالعربية والفرنسية والإنجليزية"],
+  lede: "أقيس قبل أن أدّعي: مجموعات اختبار معزولة، وتدقيق في تسرّب البيانات، واختبارات تفشل إذا عاد الخطأ. أبحث عن تربص بحثي لمدة 4 إلى 6 أشهر ابتداءً من فيفري 2027.",
+  "cta.work": "شاهد دراسات الحالة", "cta.contact": "تواصل معي",
+  photoAlt: "صورة عبد المهيب السوري", photoCap: "المنستير، تونس. العربية (اللغة الأم)، الفرنسية (C1)، الإنجليزية (B1).",
+  "ledger.title": "أرقام صحّحتها أو قستها بنفسي",
+  "ledger.note": "القيم المشطوبة هي ما أعلنته نسخة سابقة.",
+  "ledger.r1": "دقة ResNet-50 على صور الرنين المغناطيسي للزهايمر، بعد أن اكتشفت نسخًا معدَّلة من الصور نفسها في جهتي التقسيم.",
+  "ledger.r1link": "كيف أثبتّ ذلك",
+  "ledger.r2": "مرشّح الصلة (الدقة المتوازنة بطريقة leave-one-out). كان أول نموذج إعادة ترتيب في مستوى الصدفة، فاستبدلته بعد مقارنة مضبوطة.",
+  "ledger.r2link": "المقارنة",
+  "ledger.r3": "أسئلة بلا جواب في الوثائق رُفضت على مجموعة اختبار معزولة، شُغّلت مرة واحدة، دون أي جواب مختلَق.",
+  "ledger.newtest": "اختبار جديد",
+  "work.title": "دراسات الحالة",
+  "work.intro": "ثلاثة أنظمة بنيتها أو أعدت بناءها في 2026. كل واحد يوضّح ما قسته، وكيف، وأين ما زال قاصرًا. جرّب اللوحات التفاعلية: إنها تعيد عرض نتائج حقيقية.",
+  all: "الكل", "topic.rag": "النماذج اللغوية وRAG", "topic.med": "الذكاء الاصطناعي الطبي", "topic.vision": "الرؤية الحاسوبية", "topic.agents": "وكلاء النماذج اللغوية",
+  "case.code": "عرض الشيفرة", "case.limit": "الحدود.",
+  "ui.prev": "السابقة", "ui.next": "التالية", "ui.count": "{i} من {n}", "ui.open": "افتح الصورة {i} من {n} بالحجم الكامل", "ui.close": "إغلاق", "ui.shots": "لقطات الشاشة",
+  "more.title": "أعمال أخرى", "more.intro": "مشاريع أصغر أو قيد الإنجاز. لا أضيف نتيجة هنا إلا بعد قياسها.",
+  "more.progress": "قيد الإنجاز", "more.code": "عرض الشيفرة",
+  "method.title": "منهجي", "method.intro": "العادات التي تقف وراء الأرقام أعلاه. أطبّقها أولًا على مشاريعي.",
+  "exp.title": "الخبرة والتكوين",
+  "skills.title": "الأدوات التي استعملتها في هذه المشاريع", "skills.intro": "اختر أداة لترى دراسات الحالة التي تستعملها.",
+  "skills.showing": "دراسات الحالة التي تستعمل {s}.", "skills.clear": "عرض الكل", "skills.none": "ليست في دراسة حالة بعد",
+  "contact.title": "تعمل على نماذج لغوية موثوقة أو ذكاء اصطناعي طبي أو معالجة لغات متعددة؟",
+  "contact.intro": "يسعدني التعرّف على مشاريع مخبرك. أنا متاح لتربص من 4 إلى 6 أشهر ابتداءً من فيفري 2027، ومستعد للتنقل.",
+  "contact.copy": "نسخ البريد الإلكتروني", "contact.copied": "تم نسخ البريد الإلكتروني.", "contact.nocopy": "النسخ غير متاح هنا. حدّد العنوان أعلاه.",
+  "contact.based": "مقيم في", "contact.place": "المنستير، تونس (UTC+1)",
+  "form.name": "اسمك", "form.email": "بريدك الإلكتروني", "form.subject": "الموضوع", "form.message": "الرسالة",
+  "form.send": "افتح في تطبيق البريد", "form.hint": "يُفتح تطبيق البريد والرسالة جاهزة. لا يُرسَل شيء من هذه الصفحة.",
+  "form.missing": "املأ كل الحقول قبل الإرسال.", "form.bademail": "أدخل بريدًا إلكترونيًا صحيحًا، مثل name@university.edu.",
+  footer: "عبد المهيب السوري، 2026. كل بيانات المرضى المعروضة في هذه المشاريع وهمية.",
+  "theme.dark": "التبديل إلى الوضع الداكن", "theme.light": "التبديل إلى الوضع الفاتح", menu: "القائمة"
+}};
+
+/* ═══ Case studies ═════════════════════════════════════════════════════════
+   To add a project (MindCare AI once evaluated), add one object here. */
+const CASES = [
+{
+  id: "medrag", title: "MedRAG", topics: ["rag", "med"], viz: "replay",
+  repo: "https://github.com/Abd-Elmouhib-Souri/MedRag",
+  stack: "Python · FastAPI · Streamlit · LangChain · ChromaDB · bge-reranker-v2-m3 · Groq (gpt-oss) · 32 pytest tests",
+  tools: ["Python", "FastAPI", "LangChain", "ChromaDB", "BM25", "Cross-encoder reranking", "Groq / Gemini", "pytest", "Prompt-injection defence"],
+  shots: ["medrag-01", "medrag-02", "medrag-03", "medrag-04", "medrag-05", "medrag-06", "medrag-07"],
+  en: {
+    meta: "Personal project, 2026",
+    pitch: "A question-answering assistant over patient records in French, English and Arabic. It answers only from the record, cites the page, and refuses when the record doesn't contain the answer.",
+    facts: ["Hybrid retrieval (ChromaDB and BM25, weighted rank fusion), with the question translated into the records' language.",
+            "A cross-encoder relevance gate: when no passage is relevant enough, the system refuses without calling the LLM.",
+            "A second LLM checks each answer against its sources; text that tries to give the model orders is quarantined at upload.",
+            "I compared three rerankers under a rule fixed in advance: chance level (50%), 73%, then 88% for bge-reranker-v2-m3."],
+    result: "<strong>Held-out test, run once:</strong> 10 of 11 answers correct (95% CI 62–98%), 8 of 8 unanswerable questions refused, 0 invented answers.",
+    limit: "Small fictional benchmark. It misses questions that name a drug class instead of the drug.",
+    caps: ["The full app: patient card, cited answer, alert and a refusal.", "The pipeline: hybrid retrieval, cross-encoder gate, cited answer, grounding check.", "Every answer cites its page and is checked against the sources.", "No relevant source: the gate refuses and the LLM is never called.", "Results on 19 held-out questions never used for tuning.", "The controlled comparison of three cross-encoders that chose the gate.", "A patient card generated automatically from the uploaded record."]
+  },
+  fr: {
+    meta: "Projet personnel, 2026",
+    pitch: "Un assistant de questions-réponses sur des dossiers patients en français, anglais et arabe. Il répond uniquement à partir du dossier, cite la page, et refuse quand le dossier ne contient pas la réponse.",
+    facts: ["Recherche hybride (ChromaDB et BM25, fusion de rangs pondérée), avec la question traduite dans la langue des dossiers.",
+            "Un filtre de pertinence par cross-encoder : si aucun passage n'est assez pertinent, le système refuse sans appeler le LLM.",
+            "Un second LLM vérifie chaque réponse face à ses sources ; un texte qui tente de donner des ordres au modèle est mis en quarantaine à l'import.",
+            "J'ai comparé trois rerankers selon une règle fixée à l'avance : niveau du hasard (50 %), 73 %, puis 88 % pour bge-reranker-v2-m3."],
+    result: "<strong>Test tenu à l'écart, lancé une fois :</strong> 10 réponses correctes sur 11 (IC 95 % 62–98 %), 8 questions sans réponse refusées sur 8, 0 réponse inventée.",
+    limit: "Petit benchmark fictif. Il rate les questions qui nomment une classe de médicament au lieu du médicament.",
+    caps: ["L'application complète : fiche patient, réponse citée, alerte et un refus.", "Le pipeline : recherche hybride, filtre cross-encoder, réponse citée, vérification des sources.", "Chaque réponse cite sa page et est vérifiée face aux sources.", "Aucune source pertinente : le filtre refuse et le LLM n'est jamais appelé.", "Résultats sur 19 questions tenues à l'écart, jamais utilisées pour le réglage.", "La comparaison contrôlée de trois cross-encoders qui a choisi le filtre.", "Une fiche patient générée automatiquement à partir du dossier importé."]
+  },
+  ar: {
+    meta: "مشروع شخصي، 2026",
+    pitch: "مساعد للإجابة عن الأسئلة حول ملفات المرضى بالفرنسية والإنجليزية والعربية. يجيب من الملف فقط، ويذكر الصفحة، ويرفض الإجابة حين لا يحتوي الملف على الجواب.",
+    facts: ["بحث هجين (ChromaDB وBM25 مع دمج مرجَّح للترتيب)، مع ترجمة السؤال إلى لغة الملفات.",
+            "مرشّح صلة بنموذج cross-encoder: إن لم يكن أي مقطع وثيق الصلة بما يكفي، يرفض النظام دون استدعاء النموذج اللغوي.",
+            "نموذج لغوي ثانٍ يتحقق من كل جواب مقابل مصادره، ويُعزَل عند الرفع كل نص يحاول إعطاء أوامر للنموذج.",
+            "قارنت ثلاثة نماذج لإعادة الترتيب وفق قاعدة محددة مسبقًا: مستوى الصدفة (50%)، ثم 73%، ثم 88% لـ bge-reranker-v2-m3."],
+    result: "<strong>اختبار معزول شُغّل مرة واحدة:</strong> 10 أجوبة صحيحة من 11 (مجال ثقة 95%: 62–98%)، ورُفضت 8 أسئلة من 8 لا جواب لها، ولا جواب مختلَق.",
+    limit: "مجموعة اختبار صغيرة ووهمية. يخفق حين يذكر السؤال فئة الدواء بدل اسمه.",
+    caps: ["التطبيق كاملًا: بطاقة المريض، جواب موثَّق، تنبيه، ورفض.", "المسار: بحث هجين، مرشّح cross-encoder، جواب موثَّق، تحقق من المصادر.", "كل جواب يذكر صفحته ويُتحقق منه مقابل المصادر.", "لا مصدر ذا صلة: يرفض المرشّح ولا يُستدعى النموذج اللغوي.", "النتائج على 19 سؤالًا معزولًا لم يُستعمل أي منها في الضبط.", "المقارنة المضبوطة بين ثلاثة نماذج cross-encoder التي اختارت المرشّح.", "بطاقة مريض مولَّدة آليًا من الملف المرفوع."]
+  }
+},
+{
+  id: "datascoop", title: "DataScoop", topics: ["med", "vision"], viz: "bars",
+  repo: "https://github.com/Abd-Elmouhib-Souri/DataScoop",
+  stack: "TensorFlow/Keras · Flask · Node.js/Express · MongoDB · React/TypeScript · 28 backend + 17 Python tests",
+  tools: ["Python", "TensorFlow / Keras", "Transfer learning", "Leakage audit", "Bootstrap CI", "Flask", "Node.js / Express", "MongoDB", "React / TypeScript", "JWT + bcrypt"],
+  shots: ["datascoop-01", "datascoop-02", "datascoop-03", "datascoop-04", "datascoop-05", "datascoop-06", "datascoop-07"],
+  en: {
+    meta: "Team project (PFA), 2026. The audit, evaluation and rebuild described here are my work.",
+    pitch: "Alzheimer MRI decision support where the AI only suggests and the doctor decides. I rebuilt it after finding that its accuracy was inflated and that it could show results it never computed.",
+    facts: ["Proved data leakage on 50,400 Kaggle images: exact duplicates (MD5) and augmented copies crossing the train/validation split.",
+            "Re-evaluated 5 models on a leak-free subset with bootstrap confidence intervals; disabled the 3 that were broken or too weak.",
+            "Removed every simulated prediction. The patient never sees AI output, only the diagnosis his doctor validated or corrected.",
+            "JWT and bcrypt authentication, per-doctor patient isolation, one-time doctor invitations, and a check that refuses non-MRI images."],
+    result: "<strong>Leak-free accuracy:</strong> ResNet-50 0.814 (95% CI 0.800–0.826, macro-F1 0.832), down from 0.900 on the leaky split.",
+    limit: "2D slices without patient IDs, so all scores are upper bounds. About 1 in 4 \"very mild\" cases is still missed.",
+    caps: ["The AI suggests, the doctor decides: validate or correct.", "When the two models disagree, the suggestion is flagged as uncertain.", "No AI result is ever shown to the patient.", "The patient sees only what his doctor validated.", "Statistics count doctor decisions, not raw AI output.", "Each doctor sees only his own patients.", "Obvious non-MRI images are refused before any prediction."]
+  },
+  fr: {
+    meta: "Projet d'équipe (PFA), 2026. L'audit, l'évaluation et la reconstruction décrits ici sont mon travail.",
+    pitch: "Aide à la décision pour les IRM d'Alzheimer, où l'IA suggère et le médecin décide. Je l'ai reconstruit après avoir découvert que sa précision était gonflée et qu'il pouvait afficher des résultats jamais calculés.",
+    facts: ["Fuite de données prouvée sur 50 400 images Kaggle : doublons exacts (MD5) et copies augmentées des deux côtés du découpage entraînement/validation.",
+            "Réévaluation de 5 modèles sur un sous-ensemble sans fuite, avec intervalles de confiance par bootstrap ; désactivation des 3 modèles cassés ou trop faibles.",
+            "Suppression de toute prédiction simulée. Le patient ne voit jamais la sortie de l'IA, seulement le diagnostic validé ou corrigé par son médecin.",
+            "Authentification JWT et bcrypt, isolement des patients par médecin, invitations médecin à usage unique, et refus des images qui ne sont pas des IRM."],
+    result: "<strong>Précision sans fuite :</strong> ResNet-50 0,814 (IC 95 % 0,800–0,826, macro-F1 0,832), contre 0,900 sur le découpage avec fuite.",
+    limit: "Coupes 2D sans identifiant patient : tous les scores sont des bornes hautes. Environ 1 cas « très léger » sur 4 reste manqué.",
+    caps: ["L'IA suggère, le médecin décide : valider ou corriger.", "Quand les deux modèles divergent, la suggestion est signalée comme incertaine.", "Aucun résultat de l'IA n'est montré au patient.", "Le patient ne voit que ce que son médecin a validé.", "Les statistiques comptent les décisions du médecin, pas la sortie brute de l'IA.", "Chaque médecin ne voit que ses propres patients.", "Les images qui ne sont manifestement pas des IRM sont refusées avant toute prédiction."]
+  },
+  ar: {
+    meta: "مشروع جماعي (PFA)، 2026. التدقيق والتقييم وإعادة البناء الموصوفة هنا من عملي.",
+    pitch: "نظام لدعم القرار في صور الرنين المغناطيسي للزهايمر: الذكاء الاصطناعي يقترح والطبيب يقرّر. أعدت بناءه بعد أن اكتشفت أن دقته مضخَّمة وأنه قد يعرض نتائج لم يحسبها قط.",
+    facts: ["أثبتّ تسرّب البيانات في 50,400 صورة من Kaggle: نسخ مطابقة (MD5) ونسخ معدَّلة موزعة على جهتي التقسيم بين التدريب والتحقق.",
+            "أعدت تقييم 5 نماذج على مجموعة خالية من التسرّب مع مجالات ثقة بطريقة bootstrap، وعطّلت 3 نماذج معطوبة أو ضعيفة.",
+            "حذفت كل تنبؤ محاكى. لا يرى المريض مخرجات الذكاء الاصطناعي أبدًا، بل التشخيص الذي صادق عليه طبيبه أو صحّحه فقط.",
+            "مصادقة JWT وbcrypt، وعزل المرضى حسب الطبيب، ودعوات أطباء صالحة لمرة واحدة، ورفض الصور التي ليست صور رنين."],
+    result: "<strong>الدقة دون تسرّب:</strong> ResNet-50 بلغ 0.814 (مجال ثقة 95%: 0.800–0.826، macro-F1 0.832)، مقابل 0.900 على التقسيم المتسرّب.",
+    limit: "شرائح ثنائية الأبعاد دون معرّف للمريض، لذا كل النتائج حدود عليا. ما زالت حالة واحدة من كل 4 حالات «خفيفة جدًا» تُفوَّت تقريبًا.",
+    caps: ["الذكاء الاصطناعي يقترح والطبيب يقرّر: مصادقة أو تصحيح.", "حين يختلف النموذجان، يُعلَّم الاقتراح بأنه غير مؤكد.", "لا تُعرض أي نتيجة للذكاء الاصطناعي على المريض.", "يرى المريض فقط ما صادق عليه طبيبه.", "الإحصاءات تحسب قرارات الطبيب لا مخرجات الذكاء الاصطناعي الخام.", "يرى كل طبيب مرضاه فقط.", "تُرفض الصور التي ليست صور رنين بوضوح قبل أي تنبؤ."]
+  }
+},
+{
+  id: "forgeai", title: "ForgeAI", topics: ["agents", "rag"], viz: "weights",
+  repo: "https://github.com/Abd-Elmouhib-Souri/ForgeAI",
+  stack: "Python · FastAPI · LangGraph · Next.js · PostgreSQL · Redis · ChromaDB · Docker Compose · Gemini · Groq",
+  tools: ["Python", "FastAPI", "LangGraph", "LangChain", "ChromaDB", "Groq / Gemini", "Next.js / React", "PostgreSQL", "Redis", "Docker"],
+  shots: ["forgeai-03", "forgeai-02", "forgeai-04", "forgeai-05", "forgeai-06", "forgeai-07", "forgeai-08", "forgeai-09", "forgeai-01"],
+  en: {
+    meta: "Internship at DotJcom, Jul – Sep 2026",
+    pitch: "A platform that turns a startup idea into a sourced analysis, an argued verdict and an execution plan. Its rule: AI agents propose, deterministic rules validate and decide.",
+    facts: ["A LangGraph pipeline of 8 analysis steps: market, SWOT, business model canvas, competition, finances, score, personas, fact-checking.",
+            "Two ChromaDB retrieval stores and web search, with the evidence for each claim kept and shown.",
+            "A 9-criterion weighted score and an 8-role investment committee, both computed by rules rather than by the LLM.",
+            "Gemini with Groq fallback, JWT, Google sign-in and 2FA, an admin console with real health checks and an audit log, PDF and Word exports."],
+    result: "<strong>In use during testing:</strong> 23 analyses completed. One full 15-section report took 5 min 37 s.",
+    limit: "Report quality depends on the web sources found. The score is a structured opinion, not a prediction of success.",
+    caps: ["A complete analysis in 15 sections, finished in 5 min 37 s.", "The guided path: the idea's context is checked before any analysis starts.", "External sources and verified competitors behind the analysis.", "The 8-role committee and its votes, computed by rules.", "The final verdict, score and risk.", "The product plan, computed on the server.", "A generated UML use-case diagram.", "The technical stack.", "The platform's home page and modules."]
+  },
+  fr: {
+    meta: "Stage chez DotJcom, juil. – sept. 2026",
+    pitch: "Une plateforme qui transforme une idée de startup en analyse sourcée, verdict argumenté et plan d'exécution. Sa règle : les agents IA proposent, des règles déterministes valident et décident.",
+    facts: ["Un pipeline LangGraph de 8 étapes : marché, SWOT, business model canvas, concurrence, finances, score, personas, vérification des faits.",
+            "Deux bases de recherche ChromaDB et une recherche web, avec la preuve de chaque affirmation conservée et affichée.",
+            "Un score pondéré sur 9 critères et un comité d'investissement à 8 rôles, tous deux calculés par des règles et non par le LLM.",
+            "Gemini avec repli sur Groq, JWT, connexion Google et 2FA, console d'administration avec vrais contrôles de santé et journal d'audit, exports PDF et Word."],
+    result: "<strong>En usage pendant les tests :</strong> 23 analyses terminées. Un rapport complet de 15 sections a pris 5 min 37 s.",
+    limit: "La qualité du rapport dépend des sources web trouvées. Le score est une opinion structurée, pas une prédiction de réussite.",
+    caps: ["Une analyse complète en 15 sections, terminée en 5 min 37 s.", "Le parcours guidé : le contexte de l'idée est vérifié avant toute analyse.", "Les sources externes et les concurrents vérifiés derrière l'analyse.", "Le comité à 8 rôles et ses votes, calculés par des règles.", "Le verdict final, le score et le risque.", "Le plan produit, calculé côté serveur.", "Un diagramme UML de cas d'utilisation généré.", "La pile technique.", "La page d'accueil et les modules de la plateforme."]
+  },
+  ar: {
+    meta: "تربص في DotJcom، جويلية – سبتمبر 2026",
+    pitch: "منصّة تحوّل فكرة مشروع ناشئ إلى تحليل موثَّق المصادر، وحكم معلَّل، وخطة تنفيذ. قاعدتها: وكلاء الذكاء الاصطناعي يقترحون، وقواعد ثابتة تتحقق وتقرّر.",
+    facts: ["مسار LangGraph من 8 مراحل: السوق، SWOT، نموذج العمل، المنافسة، المالية، التقييم، الشخصيات، التحقق من الوقائع.",
+            "قاعدتا استرجاع ChromaDB وبحث على الويب، مع حفظ دليل كل ادعاء وعرضه.",
+            "تقييم مرجَّح على 9 معايير ولجنة استثمار من 8 أدوار، وكلاهما يُحسب بقواعد لا بالنموذج اللغوي.",
+            "Gemini مع بديل Groq، وJWT، والدخول عبر Google، والتحقق بخطوتين، ولوحة إدارة بفحوص صحة حقيقية وسجل تدقيق، وتصدير PDF وWord."],
+    result: "<strong>أثناء الاختبار:</strong> اكتمل 23 تحليلًا. استغرق تقرير كامل من 15 قسمًا 5 دقائق و37 ثانية.",
+    limit: "جودة التقرير مرهونة بمصادر الويب التي يجدها. التقييم رأي منظَّم وليس تنبؤًا بالنجاح.",
+    caps: ["تحليل كامل في 15 قسمًا، انتهى في 5 دقائق و37 ثانية.", "المسار الموجَّه: يُتحقق من سياق الفكرة قبل بدء أي تحليل.", "المصادر الخارجية والمنافسون الذين تم التحقق منهم وراء التحليل.", "لجنة الأدوار الثمانية وأصواتها، محسوبة بقواعد.", "الحكم النهائي والتقييم والمخاطر.", "خطة المنتج، محسوبة على الخادم.", "مخطط UML لحالات الاستخدام مولَّد آليًا.", "البنية التقنية.", "الصفحة الرئيسية للمنصّة ووحداتها."]
+  }
+}];
+
+/* Interactive proofs: data from the project journals and source code */
+const REPLAY = {
+  runs: [
+    { q: "Quelle est la dernière HbA1c ?", gate: true, time: 4.0,
+      out: "La dernière HbA1c est de 8,1 % le 2 octobre 2026. [Page 3]" },
+    { q: "Quel est le résultat de l'EEG ?", gate: false, time: 2.2,
+      out: "Information non trouvée dans les documents fournis." }
+  ],
+  en: { title: "Replay a recorded run", sub: "Two real questions asked on 24 Oct 2026 to a fictional record. The steps are real; the animation speed is not the real timing.",
+        stages: ["Rewrite and translate the question", "Hybrid search (ChromaDB + BM25)", "Remove quarantined passages", "Cross-encoder reranking", "Relevance gate", "Answer with page citations", "Grounding check"],
+        pick: "Pick a question to replay the run.", pass: "passed", blocked: "nothing relevant enough", skipped: "LLM not called", verified: "verified", done: "done",
+        ask: "Ask", answer: "Answer", refused: "Refused", total: "Total time in the real run" },
+  fr: { title: "Rejouer une exécution enregistrée", sub: "Deux vraies questions posées le 24/10/2026 sur un dossier fictif. Les étapes sont réelles ; la vitesse de l'animation ne l'est pas.",
+        stages: ["Réécrire et traduire la question", "Recherche hybride (ChromaDB + BM25)", "Retirer les passages en quarantaine", "Reranking par cross-encoder", "Filtre de pertinence", "Réponse avec citation de page", "Vérification des sources"],
+        pick: "Choisissez une question pour rejouer l'exécution.", pass: "passé", blocked: "rien d'assez pertinent", skipped: "LLM non appelé", verified: "vérifiée", done: "fait",
+        ask: "Poser", answer: "Réponse", refused: "Refus", total: "Durée totale de l'exécution réelle" },
+  ar: { title: "أعد تشغيل جلسة مسجّلة", sub: "سؤالان حقيقيان طُرحا يوم 24/10/2026 على ملف وهمي. المراحل حقيقية، أما سرعة العرض فليست التوقيت الحقيقي.",
+        stages: ["إعادة صياغة السؤال وترجمته", "بحث هجين (ChromaDB + BM25)", "حذف المقاطع المعزولة", "إعادة الترتيب بـ cross-encoder", "مرشّح الصلة", "جواب مع ذكر الصفحة", "التحقق من المصادر"],
+        pick: "اختر سؤالًا لإعادة تشغيل الجلسة.", pass: "اجتاز", blocked: "لا شيء وثيق الصلة بما يكفي", skipped: "لم يُستدعَ النموذج", verified: "تم التحقق", done: "تم",
+        ask: "اسأل", answer: "الجواب", refused: "رفض", total: "المدة الإجمالية في التشغيل الحقيقي" }
+};
+const BARS = {
+  models: [
+    { n: "ResNet-50", leaky: 0.900, free: 0.814, ci: [0.800, 0.826], served: true },
+    { n: "Custom CNN", leaky: 0.810, free: 0.784, ci: [0.770, 0.799], served: true },
+    { n: "EfficientNet-B4", leaky: 0.567, free: 0.555, ci: [0.539, 0.573], served: false },
+    { n: "EfficientNet-B3", leaky: 0.317, free: 0.297, served: false },
+    { n: "EfficientNet-B0", leaky: 0.229, free: 0.209, served: false }
+  ],
+  en: { title: "Accuracy: leaky split vs leak-free images", sub: "Measured on Kaggle (TensorFlow 2.20). Switch to see what the leak was hiding.",
+        leaky: "Leaky split (10,079 images)", free: "Leak-free (3,153 images)", served: "served", off: "disabled", chance: "chance level (4 classes)", ci: "95% bootstrap interval" },
+  fr: { title: "Précision : découpage avec fuite vs images sans fuite", sub: "Mesuré sur Kaggle (TensorFlow 2.20). Basculez pour voir ce que la fuite cachait.",
+        leaky: "Avec fuite (10 079 images)", free: "Sans fuite (3 153 images)", served: "en service", off: "désactivé", chance: "niveau du hasard (4 classes)", ci: "intervalle bootstrap à 95 %" },
+  ar: { title: "الدقة: تقسيم متسرّب مقابل صور دون تسرّب", sub: "مقاسة على Kaggle (TensorFlow 2.20). بدّل لترى ما كان التسرّب يخفيه.",
+        leaky: "مع التسرّب (10,079 صورة)", free: "دون تسرّب (3,153 صورة)", served: "قيد الخدمة", off: "معطَّل", chance: "مستوى الصدفة (4 فئات)", ci: "مجال bootstrap بنسبة 95%" }
+};
+const WEIGHTS = {
+  w: [17, 14, 13, 13, 10, 10, 10, 8, 5],
+  en: { title: "How the 9-criterion score is weighted", sub: "Read from startup_score_agent.py. Select a part of the bar.",
+        names: ["Problem–solution fit", "Market potential", "Execution feasibility", "Business model strength", "Competitive advantage", "Scalability", "Financial viability", "Innovation", "Risk management"] },
+  fr: { title: "La pondération du score à 9 critères", sub: "Lue dans startup_score_agent.py. Sélectionnez une partie de la barre.",
+        names: ["Adéquation problème–solution", "Potentiel de marché", "Faisabilité d'exécution", "Solidité du modèle économique", "Avantage concurrentiel", "Passage à l'échelle", "Viabilité financière", "Innovation", "Gestion des risques"] },
+  ar: { title: "كيف تُوزَّع أوزان التقييم على 9 معايير", sub: "مأخوذة من startup_score_agent.py. اختر جزءًا من الشريط.",
+        names: ["ملاءمة الحل للمشكلة", "إمكانات السوق", "قابلية التنفيذ", "متانة نموذج العمل", "الميزة التنافسية", "قابلية التوسّع", "الجدوى المالية", "الابتكار", "إدارة المخاطر"] }
+};
+
+/* Smaller and ongoing work */
+const MORE = [
+  { id: "mindcare", status: true,
+    en: { t: "MindCare AI", d: "Detecting distress-related language in public posts (Bi-LSTM with GloVe). I'm rebuilding the dataset audit and evaluation before publishing any metric." },
+    fr: { t: "MindCare AI", d: "Détection du langage lié à la détresse dans des publications publiques (Bi-LSTM avec GloVe). Je reconstruis l'audit des données et l'évaluation avant de publier un chiffre." },
+    ar: { t: "MindCare AI", d: "رصد لغة الضيق النفسي في منشورات عامة (Bi-LSTM مع GloVe). أعيد بناء تدقيق البيانات والتقييم قبل نشر أي رقم." } },
+  { id: "sales", repo: "https://github.com/Abd-Elmouhib-Souri/sales_kag_project",
+    en: { t: "Sales forecasting pipeline", d: "ETL of 9,800 transactions into a star schema on PostgreSQL in Docker, Ridge regression forecasts and a Power BI report." },
+    fr: { t: "Pipeline de prévision des ventes", d: "ETL de 9 800 transactions vers un schéma en étoile sur PostgreSQL dans Docker, prévisions par régression Ridge et rapport Power BI." },
+    ar: { t: "مسار للتنبؤ بالمبيعات", d: "استخراج وتحويل 9,800 معاملة إلى مخطط نجمي على PostgreSQL داخل Docker، مع تنبؤات بانحدار Ridge وتقرير Power BI." } },
+  { id: "mytt", repo: "https://github.com/Abd-Elmouhib-Souri/myTT",
+    en: { t: "myTT assistant", d: "Internship app at Tunisie Telecom: React Native, Firebase and a Gemini chat that explains USSD service codes." },
+    fr: { t: "Assistant myTT", d: "Application de stage chez Tunisie Telecom : React Native, Firebase et un chat Gemini qui explique les codes USSD." },
+    ar: { t: "مساعد myTT", d: "تطبيق تربص في اتصالات تونس: React Native وFirebase ومحادثة Gemini تشرح رموز خدمات USSD." } }
+];
+
+const METHOD = {
+  en: [["Audit before training", "In DataScoop I rebuilt the exact Keras validation split, found 195 groups of exact duplicates and near-identical augmented copies across it, and kept only the 3,153 validation images with no copy in training."],
+       ["Fix the decision rule before the experiment", "For MedRAG's reranker I wrote down what \"better\" meant (accuracy gain and a latency limit) before running bge-reranker-v2-m3, so I could not pick the rule after seeing the result."],
+       ["Keep a test set I touch once", "MedRAG was tuned on 32 development questions and reported on 19 held-out ones. When the held-out run exposed a drug-class error, I reported it instead of fixing it on the test set."],
+       ["Tests that fail when the bug returns", "Each security or safety fix gets a test, and I check that the test fails when I put the old code back. DataScoop has 28 backend and 17 Python tests; MedRAG has 32."]],
+  fr: [["Auditer avant d'entraîner", "Dans DataScoop, j'ai reconstruit le découpage de validation exact de Keras, trouvé 195 groupes de doublons exacts et des copies augmentées quasi identiques de part et d'autre, et gardé seulement les 3 153 images de validation sans copie à l'entraînement."],
+       ["Fixer la règle de décision avant l'expérience", "Pour le reranker de MedRAG, j'ai écrit ce que « meilleur » voulait dire (gain de précision et limite de latence) avant de lancer bge-reranker-v2-m3, pour ne pas choisir la règle après avoir vu le résultat."],
+       ["Un jeu de test touché une seule fois", "MedRAG a été réglé sur 32 questions de développement et évalué sur 19 questions tenues à l'écart. Quand ce test a révélé une erreur de classe de médicament, je l'ai rapportée au lieu de la corriger sur le test."],
+       ["Des tests qui échouent si le bug revient", "Chaque correctif de sécurité a son test, et je vérifie qu'il échoue quand je remets l'ancien code. DataScoop a 28 tests backend et 17 tests Python ; MedRAG en a 32."]],
+  ar: [["التدقيق قبل التدريب", "في DataScoop أعدت بناء تقسيم التحقق نفسه الذي يستعمله Keras، ووجدت 195 مجموعة من النسخ المطابقة ونسخًا معدَّلة شبه متطابقة في الجهتين، واحتفظت فقط بـ 3,153 صورة تحقق لا نسخة لها في التدريب."],
+       ["تحديد قاعدة القرار قبل التجربة", "بالنسبة لمرشّح MedRAG كتبت مسبقًا ماذا تعني «أفضل» (مكسب في الدقة وحدّ للزمن) قبل تشغيل bge-reranker-v2-m3، حتى لا أختار القاعدة بعد رؤية النتيجة."],
+       ["مجموعة اختبار تُلمس مرة واحدة", "ضُبط MedRAG على 32 سؤال تطوير وقُيّم على 19 سؤالًا معزولًا. حين كشف هذا الاختبار خطأً في فئة دواء، أبلغت عنه بدل إصلاحه على مجموعة الاختبار."],
+       ["اختبارات تفشل إذا عاد الخطأ", "لكل إصلاح أمني اختبار، وأتأكد أنه يفشل حين أعيد الشيفرة القديمة. في DataScoop ‏28 اختبارًا للخادم و17 اختبار Python، وفي MedRAG ‏32 اختبارًا."]]
+};
+
+const TIMELINE = {
+  en: [["Jul – Sep 2026", "Software & AI engineering intern", "DotJcom Ltd, Soliman, Tunisia", "Built ForgeAI, a multi-agent platform that turns a startup idea into a sourced analysis and execution plan."],
+       ["Aug – Sep 2025", "Mobile development intern", "Tunisie Telecom, Monastir", "A React Native and Firebase app with a Gemini assistant that explains USSD service codes in plain language."],
+       ["2024 – 2027", "Engineering degree, Data Science & AI", "ESPRIM, Monastir (final year)", ""],
+       ["2022 – 2024", "Preparatory classes, Physics–Technology", "Gafsa, Tunisia", ""]],
+  fr: [["juil. – sept. 2026", "Stagiaire ingénieur logiciel & IA", "DotJcom Ltd, Soliman, Tunisie", "Construction de ForgeAI, une plateforme multi-agents qui transforme une idée de startup en analyse sourcée et plan d'exécution."],
+       ["août – sept. 2025", "Stagiaire développement mobile", "Tunisie Telecom, Monastir", "Une application React Native et Firebase avec un assistant Gemini qui explique les codes USSD en langage simple."],
+       ["2024 – 2027", "Diplôme d'ingénieur, Data Science & IA", "ESPRIM, Monastir (dernière année)", ""],
+       ["2022 – 2024", "Classes préparatoires, Physique–Technologie", "Gafsa, Tunisie", ""]],
+  ar: [["جويلية – سبتمبر 2026", "متربص مهندس برمجيات وذكاء اصطناعي", "DotJcom Ltd، سليمان، تونس", "بناء ForgeAI، منصّة متعددة الوكلاء تحوّل فكرة مشروع ناشئ إلى تحليل موثَّق وخطة تنفيذ."],
+       ["أوت – سبتمبر 2025", "متربص في تطوير تطبيقات الهاتف", "اتصالات تونس، المنستير", "تطبيق React Native وFirebase مع مساعد Gemini يشرح رموز خدمات USSD بلغة بسيطة."],
+       ["2024 – 2027", "شهادة مهندس، علوم البيانات والذكاء الاصطناعي", "ESPRIM، المنستير (السنة الأخيرة)", ""],
+       ["2022 – 2024", "الأقسام التحضيرية، فيزياء–تكنولوجيا", "قفصة، تونس", ""]]
+};
+
+/* Skill groups: tools that appear in a case study become filter buttons */
+const SKILLS = [
+  { en: "LLMs, RAG and agents", fr: "LLM, RAG et agents", ar: "النماذج اللغوية وRAG والوكلاء",
+    tools: ["LangChain", "LangGraph", "ChromaDB", "BM25", "Cross-encoder reranking", "Groq / Gemini", "Prompt-injection defence"] },
+  { en: "Machine learning and vision", fr: "Apprentissage automatique et vision", ar: "تعلّم الآلة والرؤية",
+    tools: ["TensorFlow / Keras", "Transfer learning", "Leakage audit", "Bootstrap CI", "scikit-learn"] },
+  { en: "Engineering", fr: "Ingénierie", ar: "الهندسة البرمجية",
+    tools: ["Python", "FastAPI", "Flask", "Node.js / Express", "Next.js / React", "React / TypeScript", "PostgreSQL", "MongoDB", "Redis", "Docker", "pytest", "JWT + bcrypt"] },
+  { en: "Data and BI", fr: "Données et BI", ar: "البيانات وذكاء الأعمال",
+    tools: ["Pandas", "ETL", "Star schema", "Power BI / DAX"] }
+];
+
+/* ═══ Helpers ═════════════════════════════════════════════════════════════ */
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const root = document.documentElement;
+const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let lang = ["en", "fr", "ar"].includes(root.lang) ? root.lang : "en";
+const t = (k, vars) => { let s = (T[lang] && T[lang][k]) ?? T.en[k] ?? k; if (vars) for (const v in vars) s = s.replace(`{${v}}`, vars[v]); return s; };
+const numFmt = (x, d) => lang === "fr" ? x.toFixed(d).replace(".", ",") : x.toFixed(d);
+
+/* ═══ Static text ═════════════════════════════════════════════════════════ */
+function applyStatic() {
+  $$("[data-t]").forEach(el => { el.textContent = t(el.dataset.t); });
+  $$("[data-t-alt]").forEach(el => { el.alt = t(el.dataset.tAlt); });
+  $$(".lang button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+  $("#menu").setAttribute("aria-label", t("menu"));
+  $("#dlg-close").setAttribute("aria-label", t("ui.close"));
+  labelTheme();
 }
 
-function renderMore() {
-  $("#small-work").innerHTML = MORE.map(m => `
-    <article>
-      <h3>${esc(m.title)}${m.status ? `<span class="status">${esc(m.status)}</span>` : ""}</h3>
-      <p>${esc(m.text)}</p>
-      ${m.repo ? `<div class="links"><a href="${m.repo}">View the code on GitHub</a></div>` : ""}
-    </article>`).join("");
-}
-
-/* Filter chips built from the topics actually used */
+/* ═══ Case studies, carousels and interactive proofs ═════════════════════ */
+let activeTopic = "all", activeSkill = null;
 function renderFilters() {
-  const topics = ["All", ...new Set(CASES.flatMap(c => c.topics))];
-  const box = $(".filters");
-  box.innerHTML = topics.map((t, i) => `<button class="chip" type="button" aria-pressed="${i === 0}" data-topic="${esc(t)}">${esc(t)}</button>`).join("");
-  box.addEventListener("click", e => {
-    const b = e.target.closest(".chip"); if (!b) return;
-    box.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", x === b));
-    const t = b.dataset.topic;
-    document.querySelectorAll(".case").forEach(el => { el.hidden = t !== "All" && !el.dataset.topics.split("|").includes(t); });
+  const topics = ["all", ...new Set(CASES.flatMap(c => c.topics))];
+  $("#filters").innerHTML = topics.map(k =>
+    `<button class="chip" type="button" data-topic="${k}" aria-pressed="${k === activeTopic}">${esc(k === "all" ? t("all") : t("topic." + k))}</button>`).join("");
+}
+function applyFilter() {
+  $$(".case").forEach(el => {
+    const c = CASES.find(x => x.id === el.dataset.id);
+    const okTopic = activeTopic === "all" || c.topics.includes(activeTopic);
+    const okSkill = !activeSkill || c.tools.includes(activeSkill);
+    el.hidden = !(okTopic && okSkill);
+  });
+  const note = $("#skill-note");
+  note.classList.toggle("on", !!activeSkill);
+  if (activeSkill) $("#skill-note-text").textContent = t("skills.showing", { s: activeSkill });
+}
+$("#filters").addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  activeTopic = b.dataset.topic; renderFilters(); applyFilter();
+});
+$("#skill-clear").addEventListener("click", () => { activeSkill = null; applyFilter(); });
+
+function vizHTML(c) {
+  if (c.viz === "replay") {
+    const L = REPLAY[lang];
+    return `<div class="viz" data-viz="replay"><h4>${esc(L.title)}</h4><p class="sub">${esc(L.sub)}</p>
+      <div class="controls">${REPLAY.runs.map((r, i) => `<button class="btn sm" type="button" data-run="${i}" lang="fr">${esc(L.ask)}${lang === "fr" ? " : " : ": "}« ${esc(r.q)} »</button>`).join("")}</div>
+      <ol class="stages">${L.stages.map(s => `<li><span class="mark" aria-hidden="true"></span><span>${esc(s)}</span><span class="tag"></span></li>`).join("")}</ol>
+      <div class="output" aria-live="polite">${esc(L.pick)}</div></div>`;
+  }
+  if (c.viz === "bars") {
+    const L = BARS[lang];
+    return `<div class="viz" data-viz="bars"><h4>${esc(L.title)}</h4><p class="sub">${esc(L.sub)}</p>
+      <div class="controls" role="group"><button class="chip" type="button" data-split="leaky" aria-pressed="false">${esc(L.leaky)}</button><button class="chip" type="button" data-split="free" aria-pressed="true">${esc(L.free)}</button></div>
+      <div class="bars">${BARS.models.map(m => `<div class="bar-row"><span class="name">${esc(m.n)}<small>${esc(m.served ? L.served : L.off)}</small></span>
+        <span class="bar-track"><span class="bar-fill${m.served ? "" : " off"}"></span>${m.ci ? `<span class="bar-ci" style="inset-inline-start:${m.ci[0] * 100}%;width:${(m.ci[1] - m.ci[0]) * 100}%"></span>` : ""}<span class="chance" style="inset-inline-start:25%"></span></span>
+        <span class="bar-val"></span></div>`).join("")}</div>
+      <p class="legend"><span><i></i>${esc(L.chance)}</span><span><b></b>${esc(L.ci)}</span></p></div>`;
+  }
+  if (c.viz === "weights") {
+    const L = WEIGHTS[lang];
+    return `<div class="viz" data-viz="weights"><h4>${esc(L.title)}</h4><p class="sub">${esc(L.sub)}</p>
+      <div class="weights" role="group">${WEIGHTS.w.map((w, i) => `<button type="button" style="flex:${w}" data-w="${i}" aria-pressed="${i === 0}" aria-label="${esc(L.names[i])} ${w}%"></button>`).join("")}</div>
+      <ul class="wlist">${WEIGHTS.w.map((w, i) => `<li data-w="${i}" class="${i === 0 ? "on" : ""}"><span>${esc(L.names[i])}</span><span>${w}%</span></li>`).join("")}</ul></div>`;
+  }
+  return "";
+}
+
+function renderCases() {
+  $("#cases").innerHTML = CASES.map(c => {
+    const L = c[lang], n = c.shots.length;
+    return `<article class="case reveal" id="case-${c.id}" data-id="${c.id}">
+      <div class="media">
+        <div class="carousel" data-case="${c.id}" aria-roledescription="carousel" aria-label="${esc(c.title)}: ${esc(t("ui.shots"))}">
+          <div class="track">${c.shots.map((s, i) => `<figure class="slide" data-i="${i}" role="group" aria-label="${esc(t("ui.count", { i: i + 1, n }))}"><img src="${IMG + s}.webp" alt="${esc(L.caps[i])}" loading="lazy" width="1600" height="1000"></figure>`).join("")}</div>
+          <div class="bar"><p class="cap"></p><div class="nav">
+            <button class="icon-btn" type="button" data-step="-1" aria-label="${esc(t("ui.prev"))}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <button class="icon-btn" type="button" data-step="1" aria-label="${esc(t("ui.next"))}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div></div>
+          <div class="dots">${c.shots.map((_, i) => `<button type="button" data-dot="${i}" aria-label="${esc(t("ui.count", { i: i + 1, n }))}"></button>`).join("")}</div>
+        </div>
+        ${vizHTML(c)}
+      </div>
+      <div>
+        <p class="meta">${esc(L.meta)}</p>
+        <h3>${esc(c.title)}</h3>
+        <p class="pitch">${esc(L.pitch)}</p>
+        <ul class="facts">${L.facts.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
+        <p class="result">${L.result}</p>
+        <p class="limit"><strong>${esc(t("case.limit"))}</strong> ${esc(L.limit)}</p>
+        <p class="stack">${esc(c.stack)}</p>
+        <div class="links"><a class="btn primary" href="${c.repo}">${esc(t("case.code"))}</a></div>
+      </div></article>`;
+  }).join("");
+  $$(".carousel").forEach(initCarousel);
+  $$('[data-viz="bars"]').forEach(el => setSplit(el, "free", true));
+  observeReveal();
+  applyFilter();
+}
+
+/* Carousel: arrows, dots, swipe, click to open full size */
+function initCarousel(el) {
+  const c = CASES.find(x => x.id === el.dataset.case), track = $(".track", el), n = c.shots.length;
+  let i = 0;
+  const rtl = () => root.dir === "rtl";
+  const go = k => {
+    i = (k + n) % n;
+    track.style.transform = `translateX(${(rtl() ? 1 : -1) * i * 100}%)`;
+    $(".cap", el).textContent = c[lang].caps[i];
+    $$(".dots button", el).forEach((d, j) => d.setAttribute("aria-current", j === i));
+    $$(".slide", el).forEach((s, j) => { s.setAttribute("aria-hidden", j !== i); s.tabIndex = j === i ? 0 : -1; });
+  };
+  el.addEventListener("click", e => {
+    const s = e.target.closest("[data-step]"); if (s) return go(i + (+s.dataset.step));
+    const d = e.target.closest("[data-dot]"); if (d) return go(+d.dataset.dot);
+    if (e.target.closest(".slide")) openLightbox(c, i, e.target.closest(".slide"));
+  });
+  el.addEventListener("keydown", e => {
+    if ((e.key === "Enter" || e.key === " ") && e.target.closest(".slide")) { e.preventDefault(); openLightbox(c, i, e.target.closest(".slide")); }
+    if (e.key === "ArrowRight") go(i + (rtl() ? -1 : 1));
+    if (e.key === "ArrowLeft") go(i + (rtl() ? 1 : -1));
+  });
+  let x0 = null;                                                    // swipe on touch screens
+  track.addEventListener("pointerdown", e => { x0 = e.clientX; });
+  track.addEventListener("pointerup", e => {
+    if (x0 === null) return; const dx = e.clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) { e.preventDefault(); go(i + ((dx < 0) !== rtl() ? 1 : -1)); }
+  });
+  go(0);
+}
+
+/* Interactive proofs */
+document.addEventListener("click", e => {
+  const run = e.target.closest("[data-run]"); if (run) playRun(run.closest(".viz"), +run.dataset.run);
+  const split = e.target.closest("[data-split]"); if (split) setSplit(split.closest(".viz"), split.dataset.split);
+  const w = e.target.closest("[data-w]"); if (w && w.closest('[data-viz="weights"]')) setWeight(w.closest(".viz"), +w.dataset.w);
+});
+
+let runToken = 0;
+async function playRun(box, k) {
+  const L = REPLAY[lang], r = REPLAY.runs[k], items = $$(".stages li", box), out = $(".output", box), token = ++runToken;
+  const wait = ms => new Promise(res => setTimeout(res, reduced ? 0 : ms));
+  items.forEach(li => { li.className = ""; $(".tag", li).textContent = ""; });
+  out.className = "output"; out.innerHTML = `<span class="q" lang="fr">« ${esc(r.q)} »</span>…`;
+  for (let s = 0; s < items.length; s++) {
+    if (token !== runToken) return;                                // another run started
+    const li = items[s], tag = $(".tag", li);
+    if (!r.gate && s > 4) { li.className = "skipped"; tag.textContent = L.skipped; continue; }
+    li.className = "run"; await wait(s === 4 ? 650 : 420);
+    if (token !== runToken) return;
+    if (s === 4 && !r.gate) { li.className = "stop"; tag.textContent = L.blocked; continue; }
+    li.className = "ok"; tag.textContent = s === 4 ? L.pass : s === 6 ? L.verified : L.done;
+  }
+  out.className = "output " + (r.gate ? "ok" : "stop");
+  out.innerHTML = `<span class="q">${esc(r.gate ? L.answer : L.refused)}. ${esc(L.total)}${lang === "fr" ? " : " : ": "}${esc(numFmt(r.time, 1))} s</span><span lang="fr">${esc(r.out)}</span>`;
+}
+
+function setSplit(box, which, instant) {
+  const L = BARS[lang];
+  $$("[data-split]", box).forEach(b => b.setAttribute("aria-pressed", b.dataset.split === which));
+  $$(".bar-row", box).forEach((row, j) => {
+    const m = BARS.models[j], v = which === "free" ? m.free : m.leaky, fill = $(".bar-fill", row);
+    if (instant) { fill.style.transition = "none"; requestAnimationFrame(() => (fill.style.transition = "")); }
+    fill.style.width = (v * 100) + "%";
+    $(".bar-val", row).textContent = numFmt(v, 3);
+    const ci = $(".bar-ci", row); if (ci) ci.classList.toggle("on", which === "free");
   });
 }
 
-/* ── Gallery dialog ─────────────────────────────────────────────────── */
-const dlg = $("#gallery");
-let current = null, idx = 0, opener = null;
-function show(i) {
-  idx = (i + current.shots.length) % current.shots.length;
-  const [file, cap] = current.shots[idx];
-  $("#stage-img").src = IMG + file;
-  $("#stage-img").alt = cap;
-  $("#stage-cap").textContent = cap;
-  $("#count").textContent = `${idx + 1} of ${current.shots.length}`;
-  $("#thumbs").querySelectorAll("button").forEach((b, j) => b.setAttribute("aria-current", j === idx));
+function setWeight(box, k) {
+  $$(".weights button", box).forEach((b, j) => b.setAttribute("aria-pressed", j === k));
+  $$(".wlist li", box).forEach((li, j) => li.classList.toggle("on", j === k));
 }
-function openGallery(id, from) {
-  current = CASES.find(c => c.id === id); opener = from;
-  $("#dlg-title").textContent = `${current.title}: screenshots`;
-  $("#thumbs").innerHTML = current.shots.map((s, j) =>
-    `<button type="button" data-i="${j}" aria-label="Screenshot ${j + 1}: ${esc(s[1])}"><img src="${IMG + s[0]}" alt="" loading="lazy"></button>`).join("");
-  show(0);
-  dlg.showModal();
-}
-document.addEventListener("click", e => {
-  const o = e.target.closest("[data-open]"); if (o) openGallery(o.dataset.open, o);
-  const t = e.target.closest("#thumbs button"); if (t) show(+t.dataset.i);
-});
-$("#prev").addEventListener("click", () => show(idx - 1));
-$("#next").addEventListener("click", () => show(idx + 1));
-$("#dlg-close").addEventListener("click", () => dlg.close());
-dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });           // click on the backdrop
-dlg.addEventListener("keydown", e => {
-  if (e.key === "ArrowRight") show(idx + 1);
-  if (e.key === "ArrowLeft") show(idx - 1);
-});
-dlg.addEventListener("close", () => { if (opener) opener.focus(); });               // return focus
 
-/* ── Theme toggle (saved per visitor; storage may be unavailable) ───── */
-const root = document.documentElement, themeBtn = $("#theme");
-function isDark() { return root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; }
-function labelTheme() { themeBtn.setAttribute("aria-label", isDark() ? "Switch to light theme" : "Switch to dark theme"); }
+/* ═══ Other sections ═════════════════════════════════════════════════════ */
+function renderMore() {
+  $("#small-work").innerHTML = MORE.map(m => `<article class="reveal">
+    <h3>${esc(m[lang].t)}${m.status ? `<span class="status">${esc(t("more.progress"))}</span>` : ""}</h3>
+    <p>${esc(m[lang].d)}</p>
+    ${m.repo ? `<div class="links"><a href="${m.repo}">${esc(t("more.code"))}</a></div>` : ""}</article>`).join("");
+}
+function renderMethod() {
+  $("#method-list").innerHTML = METHOD[lang].map(([h, p]) => `<article class="reveal"><h3>${esc(h)}</h3><p>${esc(p)}</p></article>`).join("");
+}
+function renderTimeline() {
+  $("#timeline").innerHTML = `<span class="fill" aria-hidden="true"></span>` + TIMELINE[lang].map(([w, h, o, d]) =>
+    `<li><span class="when">${esc(w)}</span><span class="pin" aria-hidden="true"></span><div><h3>${esc(h)}</h3><p class="org">${esc(o)}</p>${d ? `<p class="desc">${esc(d)}</p>` : ""}</div></li>`).join("");
+}
+function renderSkills() {
+  const used = new Set(CASES.flatMap(c => c.tools));
+  $("#skill-groups").innerHTML = SKILLS.map(g => `<div class="reveal"><h3>${esc(g[lang])}</h3><div class="tools">${g.tools.map(x =>
+    used.has(x) ? `<button type="button" data-skill="${esc(x)}">${esc(x)}</button>` : `<span title="${esc(t("skills.none"))}">${esc(x)}</span>`).join("")}</div></div>`).join("");
+}
+$("#skill-groups").addEventListener("click", e => {
+  const b = e.target.closest("[data-skill]"); if (!b) return;
+  activeSkill = b.dataset.skill; activeTopic = "all"; renderFilters(); applyFilter();
+  $("#work").scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
+});
+
+/* ═══ Hero: typed focus words ════════════════════════════════════════════ */
+let typeTimer = null;
+function startTyping() {
+  clearTimeout(typeTimer);
+  const el = $("#word"), words = t("words");
+  if (reduced) { el.textContent = words[0]; return; }
+  let w = 0, c = 0, del = false;
+  (function step() {
+    const word = words[w];
+    el.textContent = word.slice(0, c);
+    if (!del && c < word.length) { c++; typeTimer = setTimeout(step, 42); }
+    else if (!del) { del = true; typeTimer = setTimeout(step, 2200); }
+    else if (c > 0) { c--; typeTimer = setTimeout(step, 18); }
+    else { del = false; w = (w + 1) % words.length; typeTimer = setTimeout(step, 300); }
+  })();
+}
+
+/* Ledger: measured numbers count up once */
+function countUp() {
+  $$(".ledger [data-count]").forEach((el, k) => {
+    const end = +el.dataset.count, d = +el.dataset.dec, suf = el.dataset.suffix || "";
+    if (reduced) { el.textContent = numFmt(end, d) + suf; return; }
+    const t0 = performance.now() + 500 + k * 350, dur = 900;
+    (function frame(now) {
+      const p = Math.min(Math.max((now - t0) / dur, 0), 1), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = numFmt(end * e, d) + suf;
+      if (p < 1) requestAnimationFrame(frame);
+    })(performance.now());
+  });
+}
+
+/* ═══ Scroll: progress bar, active section, reveal, timeline fill ════════ */
+const sections = ["work", "method", "experience", "skills", "contact"].map(id => document.getElementById(id));
+function onScroll() {
+  const h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+  $(".progress").style.transform = `scaleX(${max > 0 ? h.scrollTop / max : 0})`;
+  let current = null;
+  sections.forEach(s => { if (s.getBoundingClientRect().top < innerHeight * 0.4) current = s.id; });
+  $$("nav.main a").forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#" + current));
+  const tl = $("#timeline"), fill = $(".fill", tl);
+  if (fill) { const r = tl.getBoundingClientRect(); fill.style.height = Math.min(Math.max(innerHeight * 0.7 - r.top, 0), r.height) + "px"; }
+}
+addEventListener("scroll", onScroll, { passive: true });
+let io = null;
+function observeReveal() {
+  if (!("IntersectionObserver" in window) || reduced) { $$(".reveal").forEach(el => el.classList.add("in")); return; }
+  io = io || new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
+  $$(".reveal:not(.in)").forEach(el => io.observe(el));
+}
+
+/* ═══ Lightbox ═══════════════════════════════════════════════════════════ */
+const dlg = $("#gallery"); let lb = null, lbI = 0, opener = null;
+function showLb(k) {
+  lbI = (k + lb.shots.length) % lb.shots.length;
+  $("#stage-img").src = IMG + lb.shots[lbI] + ".webp"; $("#stage-img").alt = lb[lang].caps[lbI];
+  $("#stage-cap").textContent = lb[lang].caps[lbI];
+  $("#count").textContent = t("ui.count", { i: lbI + 1, n: lb.shots.length });
+}
+function openLightbox(c, k, from) { lb = c; opener = from; $("#dlg-title").textContent = `${c.title}: ${t("ui.shots")}`; showLb(k); dlg.showModal(); }
+$("#prev").addEventListener("click", () => showLb(lbI - 1));
+$("#next").addEventListener("click", () => showLb(lbI + 1));
+$("#dlg-close").addEventListener("click", () => dlg.close());
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+dlg.addEventListener("keydown", e => {
+  const rtl = root.dir === "rtl";
+  if (e.key === "ArrowRight") showLb(lbI + (rtl ? -1 : 1));
+  if (e.key === "ArrowLeft") showLb(lbI + (rtl ? 1 : -1));
+});
+dlg.addEventListener("close", () => { if (opener) opener.focus?.(); });
+
+/* ═══ Header controls ════════════════════════════════════════════════════ */
+const themeBtn = $("#theme");
+const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+function labelTheme() { themeBtn.setAttribute("aria-label", t(isDark() ? "theme.light" : "theme.dark")); }
 themeBtn.addEventListener("click", () => {
   root.dataset.theme = isDark() ? "light" : "dark";
   try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
   labelTheme();
 });
-labelTheme();
-
-/* ── Copy email ─────────────────────────────────────────────────────── */
-$("#copy-email").addEventListener("click", async () => {
-  const note = $("#copy-note");
-  try { await navigator.clipboard.writeText("AbdElmouhib.Souri@esprim.tn"); note.textContent = "Email address copied."; }
-  catch (e) { note.textContent = "Copy isn't available here. Select the address above instead."; }
+const menu = $("#menu"), nav = $("#nav");
+menu.addEventListener("click", () => { const o = !nav.classList.contains("open"); nav.classList.toggle("open", o); menu.setAttribute("aria-expanded", o); });
+nav.addEventListener("click", e => { if (e.target.closest("a")) { nav.classList.remove("open"); menu.setAttribute("aria-expanded", "false"); } });
+$(".lang").addEventListener("click", e => {
+  const b = e.target.closest("[data-lang]"); if (!b || b.dataset.lang === lang) return;
+  setLang(b.dataset.lang);
+  try { localStorage.setItem("lang", lang); } catch (e) {}
 });
 
-renderFilters(); renderCases(); renderMore();
+/* ═══ Contact ════════════════════════════════════════════════════════════ */
+$("#copy-email").addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(EMAIL); $("#copy-note").textContent = t("contact.copied"); }
+  catch (e) { $("#copy-note").textContent = t("contact.nocopy"); }
+});
+$("#mail-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = e.target, v = k => f.elements[k].value.trim(), err = $("#form-err");
+  if (!v("name") || !v("email") || !v("subject") || !v("message")) { err.textContent = t("form.missing"); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v("email"))) { err.textContent = t("form.bademail"); f.elements.email.focus(); return; }
+  err.textContent = "";
+  const body = `${v("message")}\n\n— ${v("name")} <${v("email")}>`;
+  location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(v("subject"))}&body=${encodeURIComponent(body)}`;
+});
+
+/* ═══ Language switch: re-render everything in place ═════════════════════ */
+function setLang(l) {
+  lang = l; root.lang = l; root.dir = l === "ar" ? "rtl" : "ltr";
+  applyStatic(); renderFilters(); renderCases(); renderMore(); renderMethod(); renderTimeline(); renderSkills();
+  $$(".ledger [data-count]").forEach(el => el.textContent = numFmt(+el.dataset.count, +el.dataset.dec) + (el.dataset.suffix || ""));
+  $$(".reveal").forEach(el => el.classList.add("in"));             // no re-animation on language change
+  startTyping(); onScroll();
+}
+
+applyStatic(); renderFilters(); renderCases(); renderMore(); renderMethod(); renderTimeline(); renderSkills();
+observeReveal(); startTyping(); countUp(); onScroll();
 </script>
 </body>
 </html>
