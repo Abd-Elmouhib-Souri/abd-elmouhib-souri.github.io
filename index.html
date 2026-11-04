@@ -219,6 +219,11 @@ section.block { padding: clamp(48px, 8vw, 96px) 0; border-top: 1px solid var(--r
 .stages .tag { font-size: .8rem; font-weight: 600; }
 .output { margin-top: 12px; padding: 12px 14px; border-radius: 4px; font-family: var(--prose); min-height: 3.2em; border-inline-start: 3px solid var(--rule); background: var(--paper); }
 .output.ok { border-color: var(--accent); } .output.stop { border-color: var(--strike); }
+.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+.tiles div { border: 1px solid var(--rule); border-radius: 4px; padding: 8px 10px; background: var(--paper); }
+.tiles b { display: block; font: 700 1.25rem var(--display); color: var(--accent); font-variant-numeric: tabular-nums; }
+.tiles span { font-size: .78rem; color: var(--ink-2); }
+.output code { display: block; font: .8rem/1.5 ui-monospace, Consolas, monospace; overflow-wrap: anywhere; margin-bottom: 6px; }
 .output .q { font: 600 .85rem var(--display); color: var(--ink-2); display: block; margin-bottom: 4px; }
 /* DataScoop bars */
 .bars { margin-top: 14px; display: grid; gap: 10px; position: relative; }
@@ -514,8 +519,8 @@ en: {
   "ledger.r3": "Unanswerable questions refused on a held-out test set, run once, with no invented answer.",
   "ledger.newtest": "new test",
   "work.title": "Case studies",
-  "work.intro": "Three systems I built or rebuilt in 2026. Each one says what I measured, how, and where it still falls short. Try the interactive panels: they replay real results.",
-  all: "All", "topic.rag": "LLMs & RAG", "topic.med": "Medical AI", "topic.vision": "Computer vision", "topic.agents": "LLM agents",
+  "work.intro": "Five systems I built or rebuilt in 2026. Each one says what I measured, how, and where it still falls short. Try the interactive panels: they replay real results.",
+  all: "All", "topic.rag": "LLMs & RAG", "topic.med": "Medical AI", "topic.vision": "Computer vision", "topic.agents": "LLM agents", "topic.nlp": "Arabic & multilingual NLP", "case.progress": "In progress", "case.private": "Team repository, private for now (school and partner rules). Shared on request.",
   "case.code": "View the code", "case.limit": "Limitation.",
   "ui.prev": "Previous", "ui.next": "Next", "ui.count": "{i} of {n}", "ui.open": "Open screenshot {i} of {n} in full size", "ui.close": "Close", "ui.shots": "Screenshots",
   "more.title": "More work", "more.intro": "Smaller or ongoing projects. I add a result here only once I have measured it.",
@@ -554,8 +559,8 @@ fr: {
   "ledger.r3": "Questions sans réponse refusées sur un jeu de test tenu à l'écart, lancé une seule fois, sans aucune réponse inventée.",
   "ledger.newtest": "nouveau test",
   "work.title": "Études de cas",
-  "work.intro": "Trois systèmes construits ou reconstruits en 2026. Chacun dit ce que j'ai mesuré, comment, et où il reste des limites. Essayez les panneaux interactifs : ils rejouent des résultats réels.",
-  all: "Tous", "topic.rag": "LLM & RAG", "topic.med": "IA médicale", "topic.vision": "Vision par ordinateur", "topic.agents": "Agents LLM",
+  "work.intro": "Cinq systèmes construits ou reconstruits en 2026. Chacun dit ce que j'ai mesuré, comment, et où il reste des limites. Essayez les panneaux interactifs : ils rejouent des résultats réels.",
+  all: "Tous", "topic.rag": "LLM & RAG", "topic.med": "IA médicale", "topic.vision": "Vision par ordinateur", "topic.agents": "Agents LLM", "topic.nlp": "NLP arabe et multilingue", "case.progress": "En cours", "case.private": "Dépôt d'équipe, privé pour l'instant (règles de l'école et du partenaire). Partagé sur demande.",
   "case.code": "Voir le code", "case.limit": "Limite.",
   "ui.prev": "Précédente", "ui.next": "Suivante", "ui.count": "{i} sur {n}", "ui.open": "Ouvrir la capture {i} sur {n} en grand", "ui.close": "Fermer", "ui.shots": "Captures",
   "more.title": "Autres travaux", "more.intro": "Projets plus petits ou en cours. J'ajoute un résultat ici seulement une fois mesuré.",
@@ -594,8 +599,8 @@ ar: {
   "ledger.r3": "أسئلة بلا جواب في الوثائق رُفضت على مجموعة اختبار معزولة، شُغّلت مرة واحدة، دون أي جواب مختلَق.",
   "ledger.newtest": "اختبار جديد",
   "work.title": "دراسات الحالة",
-  "work.intro": "ثلاثة أنظمة بنيتها أو أعدت بناءها في 2026. كل واحد يوضّح ما قسته، وكيف، وأين ما زال قاصرًا. جرّب اللوحات التفاعلية: إنها تعيد عرض نتائج حقيقية.",
-  all: "الكل", "topic.rag": "النماذج اللغوية وRAG", "topic.med": "الذكاء الاصطناعي الطبي", "topic.vision": "الرؤية الحاسوبية", "topic.agents": "وكلاء النماذج اللغوية",
+  "work.intro": "خمسة أنظمة بنيتها أو أعدت بناءها في 2026. كل واحد يوضّح ما قسته، وكيف، وأين ما زال قاصرًا. جرّب اللوحات التفاعلية: إنها تعيد عرض نتائج حقيقية.",
+  all: "الكل", "topic.rag": "النماذج اللغوية وRAG", "topic.med": "الذكاء الاصطناعي الطبي", "topic.vision": "الرؤية الحاسوبية", "topic.agents": "وكلاء النماذج اللغوية", "topic.nlp": "معالجة العربية واللغات المتعددة", "case.progress": "قيد الإنجاز", "case.private": "مستودع الفريق خاص حاليًا (قواعد المدرسة والشريك). يُشارَك عند الطلب.",
   "case.code": "عرض الشيفرة", "case.limit": "الحدود.",
   "ui.prev": "السابقة", "ui.next": "التالية", "ui.count": "{i} من {n}", "ui.open": "افتح الصورة {i} من {n} بالحجم الكامل", "ui.close": "إغلاق", "ui.shots": "لقطات الشاشة",
   "more.title": "أعمال أخرى", "more.intro": "مشاريع أصغر أو قيد الإنجاز. لا أضيف نتيجة هنا إلا بعد قياسها.",
@@ -737,7 +742,87 @@ const CASES = [
     limit: "جودة التقرير مرهونة بمصادر الويب التي يجدها. التقييم رأي منظَّم وليس تنبؤًا بالنجاح.",
     caps: ["تحليل كامل في 15 قسمًا، انتهى في 5 دقائق و37 ثانية.", "المسار الموجَّه: يُتحقق من سياق الفكرة قبل بدء أي تحليل.", "المصادر الخارجية والمنافسون الذين تم التحقق منهم وراء التحليل.", "لجنة الأدوار الثمانية وأصواتها، محسوبة بقواعد.", "الحكم النهائي والتقييم والمخاطر.", "خطة المنتج، محسوبة على الخادم.", "مخطط UML لحالات الاستخدام مولَّد آليًا.", "البنية التقنية.", "الصفحة الرئيسية للمنصّة ووحداتها."]
   }
+},{
+  id: "newscheck", title: "NewsCheck TN", topics: ["nlp"], viz: "recall", status: true,
+  stack: "Python 3.10 · regular expressions · scikit-learn (offline training) · weights in JSON · FastAPI · pytest · ruff",
+  tools: ["Python", "FastAPI", "pytest", "scikit-learn", "Language identification", "Character n-grams"],
+  shots: ["newscheck-01", "newscheck-02", "newscheck-03", "newscheck-04", "newscheck-05", "newscheck-06"],
+  en: {
+    meta: "Team project at ESPRIM, topic proposed by the startup Tradrly, 2026. My part: work package A2 (normalization, language identification, noise detection).",
+    pitch: "A fact-checking pipeline for news and comments in French, Modern Standard Arabic and Tunisian dialect, written in Arabic script or in Arabizi (Latin letters and digits). My stage is the first one: it decides the language and script of every text before the other stages run.",
+    facts: ["Tunisian in Arabic script: a lexicon of 78 dialect markers plus the \"ma…ch\" negation, because there is too little annotated Tunisian to train a model and each decision can be explained.",
+            "Arabizi: a logistic regression on character n-grams (1 to 4), exported as JSON weights for a light FastAPI service. Its threshold was tuned on development data only.",
+            "A character-level perplexity model, one per script, flags noisy texts instead of deleting them.",
+            "Macro-F1 as the metric, because about 77% of the development set is Tunisian and accuracy would hide the small classes. Normalization never changes numbers (29 of 29 kept)."],
+    result: "<strong>Frozen test set (34 sentences):</strong> 0.94 macro-F1 vs 0.50 for a script-only baseline, and 0 of 680 Arabic news sentences wrongly labelled as Tunisian.",
+    limit: "On real comments, Tunisian in Arabic script is found only 53% of the time (precision 1.00): a word outside the lexicon is read as standard Arabic. The test set is small. Next step: a learned model.",
+    caps: ["My stage: raw text to a normalized document with its language and script, served by FastAPI.", "Design decisions: each method next to the alternative I discarded.", "Language identification: 0.94 macro-F1 on the test set, 0.63 on Arabic-script development data.", "The perplexity noise detector, measured against chance.", "Team results by language and script (team work; my part is the A2 row).", "Team error analysis by category, with correction paths (team work; my part is A2)."]
+  },
+  fr: {
+    meta: "Projet d'équipe à l'ESPRIM, sujet proposé par la startup Tradrly, 2026. Ma partie : le lot A2 (normalisation, identification de la langue, détection du bruit).",
+    pitch: "Un pipeline de vérification d'informations pour des articles et commentaires en français, en arabe standard et en tunisien, écrit en lettres arabes ou en arabizi (lettres latines et chiffres). Mon étape est la première : elle détermine la langue et l'écriture de chaque texte avant les autres étapes.",
+    facts: ["Tunisien en lettres arabes : un lexique de 78 marques dialectales et la négation « ma…ch », car il y a trop peu de tunisien annoté pour entraîner un modèle, et chaque décision s'explique.",
+            "Arabizi : une régression logistique sur des n-grammes de caractères (1 à 4), exportée en poids JSON pour un service FastAPI léger. Son seuil a été réglé uniquement sur les données de développement.",
+            "Un modèle de perplexité sur les caractères, un par écriture, signale les textes bruités au lieu de les supprimer.",
+            "Le macro-F1 comme métrique, car environ 77 % du jeu de développement est en tunisien et l'exactitude cacherait les petites classes. La normalisation ne modifie jamais les nombres (29 sur 29 conservés)."],
+    result: "<strong>Jeu de test gelé (34 phrases) :</strong> macro-F1 de 0,94 contre 0,50 pour une baseline fondée sur l'alphabet seul, et 0 phrase de presse arabe sur 680 classée à tort comme tunisienne.",
+    limit: "Sur de vrais commentaires, le tunisien en lettres arabes n'est trouvé que dans 53 % des cas (précision 1,00) : un mot absent du lexique est lu comme de l'arabe standard. Le jeu de test est petit. Prochaine étape : un modèle appris.",
+    caps: ["Mon étape : du texte brut à un document normalisé avec sa langue et son écriture, servi par FastAPI.", "Les choix de conception : chaque méthode face à l'alternative écartée.", "Identification de la langue : macro-F1 de 0,94 sur le test, 0,63 sur les données de développement en lettres arabes.", "Le détecteur de bruit par perplexité, mesuré contre le hasard.", "Résultats de l'équipe par langue et écriture (travail d'équipe ; ma partie est la ligne A2).", "Analyse d'erreurs de l'équipe par catégorie, avec les pistes de correction (travail d'équipe ; ma partie est A2)."]
+  },
+  ar: {
+    meta: "مشروع جماعي في ESPRIM، اقترحت موضوعه الشركة الناشئة Tradrly، 2026. جزئي: حزمة العمل A2 (التطبيع، وتحديد اللغة، وكشف الضجيج).",
+    pitch: "مسار للتحقق من الأخبار والتعليقات بالفرنسية والعربية الفصحى واللهجة التونسية، المكتوبة بالحروف العربية أو بالعربيزي (حروف لاتينية وأرقام). مرحلتي هي الأولى: تحدد لغة كل نص وطريقة كتابته قبل باقي المراحل.",
+    facts: ["التونسية بالحروف العربية: معجم من 78 علامة لهجية مع النفي «ما…ش»، لأن البيانات التونسية المصنَّفة قليلة جدًا لتدريب نموذج، ولأن كل قرار قابل للتفسير.",
+            "العربيزي: انحدار لوجستي على مقاطع حروف (من 1 إلى 4)، مصدَّر كأوزان JSON لخدمة FastAPI خفيفة. ضُبطت عتبته على بيانات التطوير فقط.",
+            "نموذج حيرة (perplexity) على مستوى الحروف، واحد لكل طريقة كتابة، ينبّه إلى النصوص المشوَّشة بدل حذفها.",
+            "مقياس macro-F1، لأن نحو 77% من بيانات التطوير تونسية والدقة الإجمالية كانت ستخفي الفئات الصغيرة. التطبيع لا يغيّر الأرقام أبدًا (29 من 29)."],
+    result: "<strong>مجموعة اختبار مجمَّدة (34 جملة):</strong> macro-F1 بلغ 0.94 مقابل 0.50 لخط أساس يعتمد على الحروف فقط، ولم تُصنَّف أي جملة من 680 جملة صحفية عربية خطأً على أنها تونسية.",
+    limit: "في التعليقات الحقيقية، لا تُكتشف التونسية بالحروف العربية إلا في 53% من الحالات (بدقة 1.00): الكلمة الغائبة عن المعجم تُقرأ كعربية فصحى. مجموعة الاختبار صغيرة. الخطوة التالية: نموذج متعلَّم.",
+    caps: ["مرحلتي: من النص الخام إلى وثيقة مطبَّعة مع لغتها وطريقة كتابتها، عبر FastAPI.", "قرارات التصميم: كل طريقة مقابل البديل الذي استبعدته.", "تحديد اللغة: macro-F1 بلغ 0.94 على الاختبار و0.63 على بيانات التطوير بالحروف العربية.", "كاشف الضجيج بالحيرة، مقاسًا مقابل الصدفة.", "نتائج الفريق حسب اللغة وطريقة الكتابة (عمل جماعي، جزئي هو سطر A2).", "تحليل أخطاء الفريق حسب الفئة مع سبل التصحيح (عمل جماعي، جزئي هو A2)."]
+  }
+},{
+  id: "9anoun", title: "9anoun AI", topics: ["rag", "nlp"], viz: "api", status: true,
+  stack: "Python · pure-Python BM25 with Arabic normalization · Gemini embeddings (768 dimensions) · RRF fusion · FastAPI · uvicorn · pytest",
+  tools: ["Python", "FastAPI", "pytest", "BM25", "Hybrid search (RRF)", "Retrieval evaluation"],
+  shots: [],
+  en: {
+    meta: "Team project (6 members) at ESPRIM with the startup Tradrly, which proposed the topic and provides the documents, 2026. My role: DS2, legal retrieval.",
+    pitch: "A multi-agent assistant that answers Tunisian workers' questions on labour law: sector collective agreements, amendments, salary grids and insurance. It must answer only from the texts, cite the exact article, and refuse when the corpus does not cover the question. I built the retrieval layer the other agents depend on.",
+    facts: ["A versioned corpus: Tradrly's scanned PDFs and OCR output split by article, with versions when an amendment changes an article, and a source registry that maps each PDF to its sector.",
+            "A stable contract (legal_retrieval.v0: search and get_article) with explicit codes: 200 for an answer or a business refusal such as \"source missing\", 422 for a malformed request, 500 for an internal error. The user-facing agent never calls the engine directly.",
+            "BM25 written in plain Python with Arabic normalization (diacritics, prefix letters, stopwords). A question that names \"article 52\" returns that article first.",
+            "An abstention rule: when the raw score and the share of question words found are both too low, the system refuses instead of guessing.",
+            "Semantic search (Gemini embeddings fused with BM25 by RRF, k = 60) is written and tested offline. It is not measured yet: no corpus goes to an external model before the partner's written agreement."],
+    result: "<strong>Current evaluation (17 questions):</strong> Recall@10 of 94.1% and MRR of 0.755, with BM25 alone. 1,209 automated tests pass on the Sprint 4 branch, and my four sprints are merged into main after peer review.",
+    limit: "The evaluation set is small (29 of 43 golden questions written, 17 used). One out-of-corpus question in four is still answered instead of refused. French and dialect questions are poorly covered (a French–Arabic glossary is planned), and page numbers are missing on one ingestion path.",
+    caps: []
+  },
+  fr: {
+    meta: "Projet d'équipe (6 membres) à l'ESPRIM avec la startup Tradrly, qui a proposé le sujet et fournit les documents, 2026. Mon rôle : DS2, la recherche juridique.",
+    pitch: "Un assistant multi-agents qui répond aux questions des travailleurs tunisiens sur le droit du travail : conventions collectives sectorielles, avenants, grilles salariales et assurances. Il doit répondre uniquement à partir des textes, citer l'article exact et s'abstenir quand le corpus ne couvre pas la question. J'ai construit la couche de recherche dont dépendent les autres agents.",
+    facts: ["Un corpus versionné : les PDF scannés et les sorties OCR de Tradrly découpés par article, avec des versions quand un avenant modifie un article, et un registre qui associe chaque PDF à son secteur.",
+            "Un contrat stable (legal_retrieval.v0 : search et get_article) avec des codes explicites : 200 pour une réponse ou un refus métier comme « source manquante », 422 pour une requête mal formée, 500 pour une erreur interne. L'agent qui parle à l'utilisateur n'appelle jamais le moteur directement.",
+            "Un BM25 écrit en Python pur avec normalisation de l'arabe (voyelles, lettres préfixes, mots vides). Une question qui cite « l'article 52 » renvoie cet article en premier.",
+            "Une règle d'abstention : quand le score brut et la part des mots de la question retrouvés sont tous deux trop faibles, le système refuse au lieu de deviner.",
+            "La recherche par le sens (embeddings Gemini fusionnés avec BM25 par RRF, k = 60) est écrite et testée hors ligne. Elle n'est pas encore mesurée : aucun corpus ne part vers un modèle externe sans l'accord écrit du partenaire."],
+    result: "<strong>Évaluation actuelle (17 questions) :</strong> Recall@10 de 94,1 % et MRR de 0,755, avec BM25 seul. 1 209 tests automatisés passent sur la branche du sprint 4, et mes quatre sprints sont fusionnés sur main après revue par les pairs.",
+    limit: "Le jeu d'évaluation est petit (29 questions de référence écrites sur 43, 17 utilisées). Une question hors corpus sur quatre reçoit encore une réponse au lieu d'un refus. Les questions en français et en dialecte sont mal couvertes (un glossaire français–arabe est prévu), et le numéro de page manque sur un des chemins d'ingestion.",
+    caps: []
+  },
+  ar: {
+    meta: "مشروع جماعي (6 أعضاء) في ESPRIM مع الشركة الناشئة Tradrly التي اقترحت الموضوع وتوفّر الوثائق، 2026. دوري: DS2، البحث القانوني.",
+    pitch: "مساعد متعدد الوكلاء يجيب عن أسئلة العمّال التونسيين في قانون الشغل: الاتفاقيات المشتركة القطاعية، والملاحق، وجداول الأجور، والتأمين. عليه أن يجيب من النصوص فقط، وأن يذكر الفصل بدقة، وأن يمتنع حين لا تغطي المدوّنة السؤال. بنيتُ طبقة البحث التي يعتمد عليها باقي الوكلاء.",
+    facts: ["مدوّنة بإصدارات: ملفات PDF الممسوحة ومخرجات OCR من Tradrly مقسّمة حسب الفصل، مع إصدارات حين يعدّل ملحقٌ فصلًا، وسجلّ يربط كل ملف بقطاعه.",
+            "عقد واجهة ثابت اسمه legal_retrieval.v0، فيه وظيفتان هما search وget_article، برموز واضحة: 200 للجواب أو للرفض المهني مثل «المصدر غير موجود»، و422 للطلب غير الصالح، و500 للخطأ الداخلي. الوكيل الذي يحاور المستخدم لا يستدعي المحرّك مباشرة أبدًا.",
+            "BM25 مكتوب بلغة Python فقط مع تطبيع العربية (الحركات، وحروف السوابق، والكلمات الشائعة). السؤال الذي يذكر «الفصل 52» يُرجع ذلك الفصل أولًا.",
+            "قاعدة امتناع: حين تكون الدرجة الخام ونسبة كلمات السؤال الموجودة منخفضتين معًا، يرفض النظام بدل التخمين.",
+            "البحث الدلالي، أي تضمينات Gemini مدموجة مع BM25 بطريقة RRF، مكتوب ومختبَر دون اتصال. لم يُقَس بعد: لا تُرسَل أي مدوّنة إلى نموذج خارجي قبل موافقة الشريك كتابيًا."],
+    result: "<strong>التقييم الحالي (17 سؤالًا):</strong> Recall@10 بنسبة 94.1% وMRR بقيمة 0.755، باستعمال BM25 وحده. تنجح 1209 اختبارات آلية على فرع السبرنت 4، ودُمجت سبرنتاتي الأربعة في main بعد مراجعة الزملاء.",
+    limit: "مجموعة التقييم صغيرة (29 سؤالًا مرجعيًا مكتوبًا من 43، استُعمل منها 17). سؤال واحد من كل أربعة خارج المدوّنة ما زال يتلقى جوابًا بدل الرفض. الأسئلة بالفرنسية وباللهجة ضعيفة التغطية (معجم فرنسي–عربي مبرمج)، ورقم الصفحة غائب في أحد مسارات الإدخال.",
+    caps: []
+  }
 }];
+
 
 /* Interactive proofs: data from the project journals and source code */
 const REPLAY = {
@@ -783,6 +868,39 @@ const WEIGHTS = {
         names: ["Adéquation problème–solution", "Potentiel de marché", "Faisabilité d'exécution", "Solidité du modèle économique", "Avantage concurrentiel", "Passage à l'échelle", "Viabilité financière", "Innovation", "Gestion des risques"] },
   ar: { title: "كيف تُوزَّع أوزان التقييم على 9 معايير", sub: "مأخوذة من startup_score_agent.py. اختر جزءًا من الشريط.",
         names: ["ملاءمة الحل للمشكلة", "إمكانات السوق", "قابلية التنفيذ", "متانة نموذج العمل", "الميزة التنافسية", "قابلية التوسّع", "الجدوى المالية", "الابتكار", "إدارة المخاطر"] }
+};
+
+const RECALL = {
+  rows: [["fr", 10, 10], ["msa", 10, 10], ["tn", 4, 5], ["arabizi", 5, 5], ["mixed", 3, 4]],
+  en: { title: "Recall per language on the frozen test set", sub: "34 sentences, run once (commit 85fb77d). The counts are small, so read them as a sanity check.",
+        names: { fr: "French", msa: "Standard Arabic", tn: "Tunisian (Arabic script)", arabizi: "Arabizi", mixed: "Mixed" },
+        real: "On real comments (development set): Tunisian in Arabic script found 53% of the time, with precision 1.00." },
+  fr: { title: "Rappel par langue sur le jeu de test gelé", sub: "34 phrases, lancé une fois (commit 85fb77d). Les effectifs sont petits : c'est un contrôle, pas une preuve.",
+        names: { fr: "Français", msa: "Arabe standard", tn: "Tunisien (lettres arabes)", arabizi: "Arabizi", mixed: "Mixte" },
+        real: "Sur de vrais commentaires (développement) : tunisien en lettres arabes trouvé dans 53 % des cas, avec une précision de 1,00." },
+  ar: { title: "الاستدعاء حسب اللغة على مجموعة الاختبار المجمَّدة", sub: "34 جملة، شُغّلت مرة واحدة (commit 85fb77d). الأعداد صغيرة، فهي فحص أولي لا أكثر.",
+        names: { fr: "الفرنسية", msa: "العربية الفصحى", tn: "التونسية (حروف عربية)", arabizi: "العربيزي", mixed: "مختلط" },
+        real: "في التعليقات الحقيقية (بيانات التطوير): اكتُشفت التونسية بالحروف العربية في 53% من الحالات، بدقة 1.00." }
+};
+
+const API = {
+  calls: [
+    { k: "hit", q: "منحة النقل", code: 200, body: '{ "status": "ok", "results": [ { "article": "52", "score": 1.0 }, … ] }' },
+    { k: "miss", code: 200, body: '{ "status": "refused", "reason": "SOURCE_MANQUANTE" }' },
+    { k: "bad", q: "", code: 422, body: '{ "error": "PARAM_INVALIDE" }' }
+  ],
+  en: { title: "Replay the HTTP proofs", sub: "Three requests sent to the local server in live mode. Responses shortened to their key fields.",
+        hit: "“منحة النقل” (transport allowance)", miss: "A question outside the corpus", bad: "An empty request",
+        note: { hit: "Article 52 comes first, with the top score.", miss: "A business refusal, not an error: the agent can say \"I don't have this text\".", bad: "Rejected before any search." },
+        pick: "Pick a request.", metrics: [["94.1%", "Recall@10"], ["0.755", "MRR"], ["75%", "out-of-corpus refused"]] },
+  fr: { title: "Rejouer les preuves HTTP", sub: "Trois requêtes envoyées au serveur local en mode live. Réponses réduites à leurs champs clés.",
+        hit: "« منحة النقل » (prime de transport)", miss: "Une question hors corpus", bad: "Une requête vide",
+        note: { hit: "L'article 52 arrive en premier, avec le score maximal.", miss: "Un refus métier, pas une erreur : l'agent peut dire « je n'ai pas ce texte ».", bad: "Rejetée avant toute recherche." },
+        pick: "Choisissez une requête.", metrics: [["94,1 %", "Recall@10"], ["0,755", "MRR"], ["75 %", "refus hors corpus"]] },
+  ar: { title: "أعد تشغيل إثباتات HTTP", sub: "ثلاثة طلبات أُرسلت إلى الخادم المحلي في وضع live. الردود مختصرة إلى حقولها الأساسية.",
+        hit: "«منحة النقل»", miss: "سؤال خارج المدوّنة", bad: "طلب فارغ",
+        note: { hit: "الفصل 52 يأتي أولًا بأعلى درجة.", miss: "رفض مهني وليس خطأ: يستطيع الوكيل أن يقول «لا أملك هذا النص».", bad: "رُفض قبل أي بحث." },
+        pick: "اختر طلبًا.", metrics: [["94.1%", "Recall@10"], ["0.755", "MRR"], ["75%", "رفض خارج المدوّنة"]] }
 };
 
 /* Smaller and ongoing work */
@@ -834,7 +952,7 @@ const TIMELINE = {
 /* Skill groups: tools that appear in a case study become filter buttons */
 const SKILLS = [
   { en: "LLMs, RAG and agents", fr: "LLM, RAG et agents", ar: "النماذج اللغوية وRAG والوكلاء",
-    tools: ["LangChain", "LangGraph", "ChromaDB", "BM25", "Cross-encoder reranking", "Groq / Gemini", "Prompt-injection defence"] },
+    tools: ["LangChain", "LangGraph", "ChromaDB", "BM25", "Cross-encoder reranking", "Groq / Gemini", "Prompt-injection defence", "Language identification", "Character n-grams", "Hybrid search (RRF)", "Retrieval evaluation"] },
   { en: "Machine learning and vision", fr: "Apprentissage automatique et vision", ar: "تعلّم الآلة والرؤية",
     tools: ["TensorFlow / Keras", "Transfer learning", "Leakage audit", "Bootstrap CI", "scikit-learn"] },
   { en: "Engineering", fr: "Ingénierie", ar: "الهندسة البرمجية",
@@ -910,6 +1028,21 @@ function vizHTML(c) {
       <div class="weights" role="group">${WEIGHTS.w.map((w, i) => `<button type="button" style="flex:${w}" data-w="${i}" aria-pressed="${i === 0}" aria-label="${esc(L.names[i])} ${w}%"></button>`).join("")}</div>
       <ul class="wlist">${WEIGHTS.w.map((w, i) => `<li data-w="${i}" class="${i === 0 ? "on" : ""}"><span>${esc(L.names[i])}</span><span>${w}%</span></li>`).join("")}</ul></div>`;
   }
+  if (c.viz === "recall") {
+    const L = RECALL[lang];
+    return `<div class="viz" data-viz="recall"><h4>${esc(L.title)}</h4><p class="sub">${esc(L.sub)}</p>
+      <div class="bars">${RECALL.rows.map(([k, hit, n]) => `<div class="bar-row"><span class="name">${esc(L.names[k])}</span>
+        <span class="bar-track"><span class="bar-fill" style="width:${hit / n * 100}%"></span></span>
+        <span class="bar-val">${hit}/${n}</span></div>`).join("")}</div>
+      <p class="legend">${esc(L.real)}</p></div>`;
+  }
+  if (c.viz === "api") {
+    const L = API[lang];
+    return `<div class="viz" data-viz="api"><h4>${esc(L.title)}</h4><p class="sub">${esc(L.sub)}</p>
+      <div class="tiles">${L.metrics.map(([v, k]) => `<div><b>${esc(v)}</b><span>${esc(k)}</span></div>`).join("")}</div>
+      <div class="controls">${API.calls.map((a, i) => `<button class="btn sm" type="button" data-api="${i}" aria-pressed="false">${esc(L[a.k])}</button>`).join("")}</div>
+      <div class="output" aria-live="polite">${esc(L.pick)}</div></div>`;
+  }
   return "";
 }
 
@@ -918,25 +1051,25 @@ function renderCases() {
     const L = c[lang], n = c.shots.length;
     return `<article class="case reveal" id="case-${c.id}" data-id="${c.id}">
       <div class="media">
-        <div class="carousel" data-case="${c.id}" aria-roledescription="carousel" aria-label="${esc(c.title)}: ${esc(t("ui.shots"))}">
+        ${n ? `<div class="carousel" data-case="${c.id}" aria-roledescription="carousel" aria-label="${esc(c.title)}: ${esc(t("ui.shots"))}">
           <div class="track">${c.shots.map((s, i) => `<figure class="slide" data-i="${i}" role="group" aria-label="${esc(t("ui.count", { i: i + 1, n }))}"><img src="${IMG + s}.webp" alt="${esc(L.caps[i])}" loading="lazy" width="1600" height="1000"></figure>`).join("")}</div>
           <div class="bar"><p class="cap"></p><div class="nav">
             <button class="icon-btn" type="button" data-step="-1" aria-label="${esc(t("ui.prev"))}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
             <button class="icon-btn" type="button" data-step="1" aria-label="${esc(t("ui.next"))}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
           </div></div>
           <div class="dots">${c.shots.map((_, i) => `<button type="button" data-dot="${i}" aria-label="${esc(t("ui.count", { i: i + 1, n }))}"></button>`).join("")}</div>
-        </div>
+        </div>` : ""}
         ${vizHTML(c)}
       </div>
       <div>
         <p class="meta">${esc(L.meta)}</p>
-        <h3>${esc(c.title)}</h3>
+        <h3>${esc(c.title)}${c.status ? `<span class="status">${esc(t("case.progress"))}</span>` : ""}</h3>
         <p class="pitch">${esc(L.pitch)}</p>
         <ul class="facts">${L.facts.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
         <p class="result">${L.result}</p>
         <p class="limit"><strong>${esc(t("case.limit"))}</strong> ${esc(L.limit)}</p>
         <p class="stack">${esc(c.stack)}</p>
-        <div class="links"><a class="btn primary" href="${c.repo}">${esc(t("case.code"))}</a></div>
+        <div class="links">${c.repo ? `<a class="btn primary" href="${c.repo}">${esc(t("case.code"))}</a>` : `<p class="stack">${esc(t("case.private"))}</p>`}</div>
       </div></article>`;
   }).join("");
   $$(".carousel").forEach(initCarousel);
@@ -981,7 +1114,17 @@ document.addEventListener("click", e => {
   const run = e.target.closest("[data-run]"); if (run) playRun(run.closest(".viz"), +run.dataset.run);
   const split = e.target.closest("[data-split]"); if (split) setSplit(split.closest(".viz"), split.dataset.split);
   const w = e.target.closest("[data-w]"); if (w && w.closest('[data-viz="weights"]')) setWeight(w.closest(".viz"), +w.dataset.w);
+  const a = e.target.closest("[data-api]"); if (a) showApi(a.closest(".viz"), +a.dataset.api);
 });
+
+/* 9anoun: show one recorded HTTP response (status colour: teal = answered, red = refused or rejected) */
+function showApi(box, k) {
+  const L = API[lang], c = API.calls[k], out = $(".output", box);
+  $$("[data-api]", box).forEach((b, j) => b.setAttribute("aria-pressed", j === k));
+  const ok = c.k === "hit";
+  out.className = "output " + (ok ? "ok" : "stop");
+  out.innerHTML = `<span class="q">HTTP ${c.code}</span><code dir="ltr">${esc(c.body)}</code><br>${esc(L.note[c.k])}`;
+}
 
 let runToken = 0;
 async function playRun(box, k) {
