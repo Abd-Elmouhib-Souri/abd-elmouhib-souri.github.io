@@ -494,7 +494,7 @@ dialog::backdrop { background: rgb(8 14 18 / .75); }
 <script>
 document.documentElement.classList.add("js");
 const EMAIL = "AbdElmouhib.Souri@esprim.tn";
-const IMG = "assets/img/";
+const IMG = "assets/img/"; const IMG_VER = "2"; // bump to force browsers to reload changed screenshots
 
 /* ═══ Interface text in three languages ═══════════════════════════════════
    Only measured numbers appear here. To edit a sentence, change it in all three. */
@@ -1056,7 +1056,7 @@ function renderCases() {
     return `<article class="case reveal" id="case-${c.id}" data-id="${c.id}">
       <div class="media">
         ${n ? `<div class="carousel" data-case="${c.id}" aria-roledescription="carousel" aria-label="${esc(c.title)}: ${esc(t("ui.shots"))}">
-          <div class="track">${c.shots.map((s, i) => `<figure class="slide" data-i="${i}" role="group" aria-label="${esc(t("ui.count", { i: i + 1, n }))}"><img src="${IMG + s}.webp" alt="${esc(L.caps[i])}" loading="lazy" width="1600" height="1000"></figure>`).join("")}</div>
+          <div class="track">${c.shots.map((s, i) => `<figure class="slide" data-i="${i}" role="group" aria-label="${esc(t("ui.count", { i: i + 1, n }))}"><img src="${IMG + s}.webp?v=${IMG_VER}" alt="${esc(L.caps[i])}" loading="lazy" width="1600" height="1000"></figure>`).join("")}</div>
           <div class="bar"><p class="cap"></p><div class="nav">
             <button class="icon-btn" type="button" data-step="-1" aria-label="${esc(t("ui.prev"))}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
             <button class="icon-btn" type="button" data-step="1" aria-label="${esc(t("ui.next"))}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
@@ -1245,7 +1245,7 @@ function observeReveal() {
 const dlg = $("#gallery"); let lb = null, lbI = 0, opener = null;
 function showLb(k) {
   lbI = (k + lb.shots.length) % lb.shots.length;
-  $("#stage-img").src = IMG + lb.shots[lbI] + ".webp"; $("#stage-img").alt = lb[lang].caps[lbI];
+  $("#stage-img").src = IMG + lb.shots[lbI] + ".webp?v=" + IMG_VER; $("#stage-img").alt = lb[lang].caps[lbI];
   $("#stage-cap").textContent = lb[lang].caps[lbI];
   $("#count").textContent = t("ui.count", { i: lbI + 1, n: lb.shots.length });
 }
