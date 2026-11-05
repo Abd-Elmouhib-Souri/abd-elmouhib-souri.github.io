@@ -117,7 +117,9 @@ nav.main a[aria-current="true"] { color: var(--ink); border-bottom-color: var(--
 .focus .caret { display: inline-block; width: 2px; height: 1.05em; background: var(--accent); vertical-align: -0.15em; margin-inline-start: 2px; }
 @media (prefers-reduced-motion: no-preference) { .focus .caret { animation: blink 1s steps(1) infinite; } }
 @keyframes blink { 50% { opacity: 0; } }
-.hero .lede { font-size: 1.15rem; color: var(--ink-2); margin-top: 12px; max-width: 56ch; }
+.hero .interests { margin-top: 14px; font-size: .95rem; color: var(--ink-2); max-width: 60ch; }
+.interests strong { color: var(--ink); font-family: var(--display); margin-inline-end: 6px; }
+.lede { font-size: 1.15rem; color: var(--ink-2); margin-top: 12px; max-width: 56ch; }
 .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
 .portrait { margin: 0; justify-self: end; width: 100%; max-width: 340px; }
 .portrait img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px; }
@@ -365,6 +367,7 @@ dialog::backdrop { background: rgb(8 14 18 / .75); }
           <h1 data-t="h1">I build AI that shows its evidence.</h1>
           <p class="focus"><span data-t="focus">Currently working on</span> <span class="word" id="word"></span><span class="caret" aria-hidden="true"></span></p>
           <p class="lede" data-t="lede">I measure before I claim.</p>
+          <p class="interests"><strong data-t="int.k">Research interests</strong> <span data-t="int.v">Low-resource NLP (Tunisian Arabic), trustworthy retrieval-augmented LLMs, evaluation methodology.</span></p>
           <div class="actions">
             <a class="btn primary" href="#work" data-t="cta.work">See the case studies</a>
             <a class="btn" href="#contact" data-t="cta.contact">Contact me</a>
@@ -453,6 +456,7 @@ dialog::backdrop { background: rgb(8 14 18 / .75); }
         <button class="btn sm" type="button" id="copy-email" style="margin-top:12px" data-t="contact.copy">Copy email address</button>
         <p class="copy-note" id="copy-note" role="status" aria-live="polite"></p>
         <dl>
+          <dt data-t="contact.personal">Personal email</dt><dd><a href="mailto:abdelmouhibsouri@gmail.com">abdelmouhibsouri@gmail.com</a></dd>
           <dt>GitHub</dt><dd><a href="https://github.com/Abd-Elmouhib-Souri">github.com/Abd-Elmouhib-Souri</a></dd>
           <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/abd-elmouhib-souri/">linkedin.com/in/abd-elmouhib-souri</a></dd>
           <dt data-t="contact.based">Based in</dt><dd data-t="contact.place">Monastir, Tunisia (UTC+1)</dd>
@@ -511,6 +515,7 @@ en: {
   focus: "Currently working on",
   words: ["trustworthy retrieval-augmented LLMs", "computer vision for medical imaging, measured on leak-free data", "LLM agents checked by deterministic rules", "NLP in Arabic, French and English"],
   lede: "I measure before I claim: held-out test sets, leakage audits, and tests that fail when a bug comes back. I'm looking for a 4–6 month research internship from February 2027.",
+  "int.k": "Research interests", "int.v": "Low-resource NLP (Tunisian Arabic and Arabizi), trustworthy retrieval-augmented LLMs, and evaluation methodology.",
   "cta.work": "See the case studies", "cta.contact": "Contact me",
   photoAlt: "Portrait of Abd Elmouhib Souri", photoCap: "Monastir, Tunisia. Arabic (native), French (C1), English (B1).",
   "ledger.title": "Numbers I corrected or measured myself",
@@ -522,7 +527,7 @@ en: {
   "ledger.r3": "Unanswerable questions refused on a held-out test set, run once, with no invented answer.",
   "ledger.newtest": "new test",
   "work.title": "Case studies",
-  "work.intro": "Five systems I built or rebuilt in 2026. Each one says what I measured, how, and where it still falls short. Try the interactive panels: they replay real results.",
+  "work.intro": "Five systems from 2026 that I built, rebuilt, or built a core part of. Each one says what I measured, how, and where it still falls short. Try the interactive panels: they replay real results.",
   all: "All", "topic.rag": "LLMs & RAG", "topic.med": "Medical AI", "topic.vision": "Computer vision", "topic.agents": "LLM agents", "topic.nlp": "NLP", "case.progress": "In progress", "case.private": "Team repository, private for now (school and partner rules). Shared on request.", "case.video": "30-second demo, no sound, recorded on my machine: the landing page, my dashboard, a new idea, the analysis running, the committee verdict, the generated UML, and the exported PDF.",
   "case.code": "View the code", "case.limit": "Limitation.",
   "ui.prev": "Previous", "ui.next": "Next", "ui.count": "{i} of {n}", "ui.open": "Open screenshot {i} of {n} in full size", "ui.close": "Close", "ui.shots": "Screenshots",
@@ -535,7 +540,7 @@ en: {
   "contact.title": "Working on trustworthy LLMs, medical AI or multilingual NLP?",
   "contact.intro": "I'd be glad to hear about your lab's projects. I'm available for a 4–6 month internship from February 2027 and can relocate.",
   "contact.copy": "Copy email address", "contact.copied": "Email address copied.", "contact.nocopy": "Copy isn't available here. Select the address above instead.",
-  "contact.based": "Based in", "contact.place": "Monastir, Tunisia (UTC+1)",
+  "contact.personal": "Personal email", "contact.based": "Based in", "contact.place": "Monastir, Tunisia (UTC+1)",
   "form.name": "Your name", "form.email": "Your email", "form.subject": "Subject", "form.message": "Message",
   "form.send": "Open in my email app", "form.hint": "Your email app opens with the message ready. Nothing is sent from this page.",
   "form.missing": "Fill in every field before sending.", "form.bademail": "Enter a valid email address, like name@university.edu.",
@@ -551,6 +556,7 @@ fr: {
   focus: "En ce moment :",
   words: ["des LLM augmentés par la recherche, fiables", "de la vision par ordinateur pour l'imagerie médicale, mesurée sans fuite", "des agents LLM vérifiés par des règles", "du NLP en arabe, français et anglais"],
   lede: "Je mesure avant d'affirmer : jeux de test tenus à l'écart, audits de fuite de données et tests qui échouent quand un bug revient. Je cherche un stage de recherche de 4 à 6 mois à partir de février 2027.",
+  "int.k": "Intérêts de recherche", "int.v": "NLP pour langues peu dotées (arabe tunisien et arabizi), LLM augmentés par la recherche et fiables, méthodologie d'évaluation.",
   "cta.work": "Voir les études de cas", "cta.contact": "Me contacter",
   photoAlt: "Portrait d'Abd Elmouhib Souri", photoCap: "Monastir, Tunisie. Arabe (natif), français (C1), anglais (B1).",
   "ledger.title": "Des chiffres que j'ai corrigés ou mesurés moi-même",
@@ -562,7 +568,7 @@ fr: {
   "ledger.r3": "Questions sans réponse refusées sur un jeu de test tenu à l'écart, lancé une seule fois, sans aucune réponse inventée.",
   "ledger.newtest": "nouveau test",
   "work.title": "Études de cas",
-  "work.intro": "Cinq systèmes construits ou reconstruits en 2026. Chacun dit ce que j'ai mesuré, comment, et où il reste des limites. Essayez les panneaux interactifs : ils rejouent des résultats réels.",
+  "work.intro": "Cinq systèmes de 2026 que j'ai construits, reconstruits, ou dont j'ai construit une partie centrale. Chacun dit ce que j'ai mesuré, comment, et où il reste des limites. Essayez les panneaux interactifs : ils rejouent des résultats réels.",
   all: "Tous", "topic.rag": "LLM & RAG", "topic.med": "IA médicale", "topic.vision": "Vision par ordinateur", "topic.agents": "Agents LLM", "topic.nlp": "NLP", "case.progress": "En cours", "case.private": "Dépôt d'équipe, privé pour l'instant (règles de l'école et du partenaire). Partagé sur demande.", "case.video": "Démo de 30 secondes, sans son, enregistrée sur ma machine : la page d'accueil, mon tableau de bord, une nouvelle idée, l'analyse en cours, le verdict du comité, l'UML généré et le PDF exporté.",
   "case.code": "Voir le code", "case.limit": "Limite.",
   "ui.prev": "Précédente", "ui.next": "Suivante", "ui.count": "{i} sur {n}", "ui.open": "Ouvrir la capture {i} sur {n} en grand", "ui.close": "Fermer", "ui.shots": "Captures",
@@ -575,7 +581,7 @@ fr: {
   "contact.title": "Vous travaillez sur des LLM fiables, l'IA médicale ou le NLP multilingue ?",
   "contact.intro": "Je serais ravi d'en savoir plus sur les projets de votre laboratoire. Disponible pour un stage de 4 à 6 mois dès février 2027, avec mobilité.",
   "contact.copy": "Copier l'adresse e-mail", "contact.copied": "Adresse e-mail copiée.", "contact.nocopy": "La copie n'est pas disponible ici. Sélectionnez l'adresse ci-dessus.",
-  "contact.based": "Basé à", "contact.place": "Monastir, Tunisie (UTC+1)",
+  "contact.personal": "E-mail personnel", "contact.based": "Basé à", "contact.place": "Monastir, Tunisie (UTC+1)",
   "form.name": "Votre nom", "form.email": "Votre e-mail", "form.subject": "Objet", "form.message": "Message",
   "form.send": "Ouvrir dans ma messagerie", "form.hint": "Votre messagerie s'ouvre avec le message prêt. Rien n'est envoyé depuis cette page.",
   "form.missing": "Remplissez tous les champs avant l'envoi.", "form.bademail": "Saisissez une adresse e-mail valide, par exemple nom@universite.fr.",
@@ -591,6 +597,7 @@ ar: {
   focus: "أعمل حاليًا على",
   words: ["نماذج لغوية موثوقة معزَّزة بالاسترجاع", "رؤية حاسوبية للتصوير الطبي، مُقاسة دون تسرّب للبيانات", "وكلاء نماذج لغوية تتحقق منهم قواعد ثابتة", "معالجة اللغة بالعربية والفرنسية والإنجليزية"],
   lede: "أقيس قبل أن أدّعي: مجموعات اختبار معزولة، وتدقيق في تسرّب البيانات، واختبارات تفشل إذا عاد الخطأ. أبحث عن تربص بحثي لمدة 4 إلى 6 أشهر ابتداءً من فيفري 2027.",
+  "int.k": "اهتمامات بحثية", "int.v": "معالجة اللغات قليلة الموارد (العربية التونسية والعربيزي)، ونماذج لغوية موثوقة معزَّزة بالاسترجاع، ومنهجية التقييم.",
   "cta.work": "شاهد دراسات الحالة", "cta.contact": "تواصل معي",
   photoAlt: "صورة عبد المهيب السوري", photoCap: "المنستير، تونس. العربية (اللغة الأم)، الفرنسية (C1)، الإنجليزية (B1).",
   "ledger.title": "أرقام صحّحتها أو قستها بنفسي",
@@ -602,7 +609,7 @@ ar: {
   "ledger.r3": "أسئلة بلا جواب في الوثائق رُفضت على مجموعة اختبار معزولة، شُغّلت مرة واحدة، دون أي جواب مختلَق.",
   "ledger.newtest": "اختبار جديد",
   "work.title": "دراسات الحالة",
-  "work.intro": "خمسة أنظمة بنيتها أو أعدت بناءها في 2026. كل واحد يوضّح ما قسته، وكيف، وأين ما زال قاصرًا. جرّب اللوحات التفاعلية: إنها تعيد عرض نتائج حقيقية.",
+  "work.intro": "خمسة أنظمة من 2026 بنيتها أو أعدت بناءها أو بنيت جزءًا أساسيًا منها. كل واحد يوضّح ما قسته، وكيف، وأين ما زال قاصرًا. جرّب اللوحات التفاعلية: إنها تعيد عرض نتائج حقيقية.",
   all: "الكل", "topic.rag": "النماذج اللغوية وRAG", "topic.med": "الذكاء الاصطناعي الطبي", "topic.vision": "الرؤية الحاسوبية", "topic.agents": "وكلاء النماذج اللغوية", "topic.nlp": "معالجة اللغة الطبيعية (NLP)", "case.progress": "قيد الإنجاز", "case.private": "مستودع الفريق خاص حاليًا (قواعد المدرسة والشريك). يُشارَك عند الطلب.", "case.video": "عرض لمدة 30 ثانية دون صوت، مسجَّل على جهازي: الصفحة الرئيسية، ولوحة التحكم، وفكرة جديدة، والتحليل أثناء التشغيل، وحكم اللجنة، ومخطط UML المولَّد، وملف PDF المصدَّر.",
   "case.code": "عرض الشيفرة", "case.limit": "الحدود.",
   "ui.prev": "السابقة", "ui.next": "التالية", "ui.count": "{i} من {n}", "ui.open": "افتح الصورة {i} من {n} بالحجم الكامل", "ui.close": "إغلاق", "ui.shots": "لقطات الشاشة",
@@ -615,7 +622,7 @@ ar: {
   "contact.title": "تعمل على نماذج لغوية موثوقة أو ذكاء اصطناعي طبي أو معالجة لغات متعددة؟",
   "contact.intro": "يسعدني التعرّف على مشاريع مخبرك. أنا متاح لتربص من 4 إلى 6 أشهر ابتداءً من فيفري 2027، ومستعد للتنقل.",
   "contact.copy": "نسخ البريد الإلكتروني", "contact.copied": "تم نسخ البريد الإلكتروني.", "contact.nocopy": "النسخ غير متاح هنا. حدّد العنوان أعلاه.",
-  "contact.based": "مقيم في", "contact.place": "المنستير، تونس (UTC+1)",
+  "contact.personal": "البريد الشخصي", "contact.based": "مقيم في", "contact.place": "المنستير، تونس (UTC+1)",
   "form.name": "اسمك", "form.email": "بريدك الإلكتروني", "form.subject": "الموضوع", "form.message": "الرسالة",
   "form.send": "افتح في تطبيق البريد", "form.hint": "يُفتح تطبيق البريد والرسالة جاهزة. لا يُرسَل شيء من هذه الصفحة.",
   "form.missing": "املأ كل الحقول قبل الإرسال.", "form.bademail": "أدخل بريدًا إلكترونيًا صحيحًا، مثل name@university.edu.",
@@ -719,8 +726,8 @@ const CASES = [
             "Two ChromaDB retrieval stores and web search, with the evidence for each claim kept and shown.",
             "A 9-criterion weighted score and an 8-role investment committee, both computed by rules rather than by the LLM.",
             "Gemini with Groq fallback, JWT, Google sign-in and 2FA, an admin console with real health checks and an audit log, PDF and Word exports."],
-    result: "<strong>In use during testing:</strong> 23 analyses completed. One full 15-section report took 5 min 37 s.",
-    limit: "Report quality depends on the web sources found. The score is a structured opinion, not a prediction of success.",
+    result: "<strong>In use during testing:</strong> 25 analyses completed (SQL count). One full 15-section report took 5 min 37 s.",
+    limit: "In a test fixed in advance (two strong ideas, three weak ones), the final score was 7.0 for all five: it does not yet separate good ideas from bad ones. The committee code uses fixed values (opportunity 6.0, risk 7.0); removing them is my next step. Report quality also depends on the web sources found.",
     caps: ["A complete analysis in 15 sections, finished in 5 min 37 s.", "The guided path: the idea's context is checked before any analysis starts.", "External sources and verified competitors behind the analysis.", "The 8-role committee and its votes, computed by rules.", "The final verdict, score and risk.", "The product plan, computed on the server.", "A generated UML use-case diagram.", "The technical stack.", "The platform's home page and modules.", "Admin console: sign-in requires a code from an authenticator app (2FA).", "Admin dashboard: users, projects, average score and analyses by status.", "User management: roles, email verification and deactivation (names and emails hidden).", "Audit log: every admin action and sign-in, including failed 2FA attempts; entries cannot be edited (emails hidden)."]
   },
   fr: {
@@ -730,8 +737,8 @@ const CASES = [
             "Deux bases de recherche ChromaDB et une recherche web, avec la preuve de chaque affirmation conservée et affichée.",
             "Un score pondéré sur 9 critères et un comité d'investissement à 8 rôles, tous deux calculés par des règles et non par le LLM.",
             "Gemini avec repli sur Groq, JWT, connexion Google et 2FA, console d'administration avec vrais contrôles de santé et journal d'audit, exports PDF et Word."],
-    result: "<strong>En usage pendant les tests :</strong> 23 analyses terminées. Un rapport complet de 15 sections a pris 5 min 37 s.",
-    limit: "La qualité du rapport dépend des sources web trouvées. Le score est une opinion structurée, pas une prédiction de réussite.",
+    result: "<strong>En usage pendant les tests :</strong> 25 analyses terminées (comptage SQL). Un rapport complet de 15 sections a pris 5 min 37 s.",
+    limit: "Lors d'un test fixé à l'avance (deux idées solides, trois faibles), le score final a été de 7,0 pour les cinq : il ne distingue pas encore une bonne idée d'une mauvaise. Le code du comité utilise des valeurs fixes (opportunité 6,0, risque 7,0) ; les retirer est ma prochaine étape. La qualité du rapport dépend aussi des sources web trouvées.",
     caps: ["Une analyse complète en 15 sections, terminée en 5 min 37 s.", "Le parcours guidé : le contexte de l'idée est vérifié avant toute analyse.", "Les sources externes et les concurrents vérifiés derrière l'analyse.", "Le comité à 8 rôles et ses votes, calculés par des règles.", "Le verdict final, le score et le risque.", "Le plan produit, calculé côté serveur.", "Un diagramme UML de cas d'utilisation généré.", "La pile technique.", "La page d'accueil et les modules de la plateforme.", "Console admin : la connexion exige un code d'application d'authentification (2FA).", "Tableau de bord admin : utilisateurs, projets, score moyen et analyses par statut.", "Gestion des utilisateurs : rôles, vérification de l'e-mail et désactivation (noms et e-mails masqués).", "Journal d'audit : chaque action et connexion admin, y compris les échecs de 2FA ; les entrées ne sont pas modifiables (e-mails masqués)."]
   },
   ar: {
@@ -741,8 +748,8 @@ const CASES = [
             "قاعدتا استرجاع ChromaDB وبحث على الويب، مع حفظ دليل كل ادعاء وعرضه.",
             "تقييم مرجَّح على 9 معايير ولجنة استثمار من 8 أدوار، وكلاهما يُحسب بقواعد لا بالنموذج اللغوي.",
             "Gemini مع بديل Groq، وJWT، والدخول عبر Google، والتحقق بخطوتين، ولوحة إدارة بفحوص صحة حقيقية وسجل تدقيق، وتصدير PDF وWord."],
-    result: "<strong>أثناء الاختبار:</strong> اكتمل 23 تحليلًا. استغرق تقرير كامل من 15 قسمًا 5 دقائق و37 ثانية.",
-    limit: "جودة التقرير مرهونة بمصادر الويب التي يجدها. التقييم رأي منظَّم وليس تنبؤًا بالنجاح.",
+    result: "<strong>أثناء الاختبار:</strong> اكتمل 25 تحليلًا (عدّ عبر SQL). استغرق تقرير كامل من 15 قسمًا 5 دقائق و37 ثانية.",
+    limit: "في اختبار حُدِّد مسبقًا (فكرتان قويتان وثلاث ضعيفة)، كان التقييم النهائي 7.0 للأفكار الخمس: فهو لا يميّز بعدُ بين الفكرة الجيدة والسيئة. يستعمل كود اللجنة قيمًا ثابتة (الفرصة 6.0، المخاطر 7.0)؛ وإزالتها خطوتي التالية. كما تتوقف جودة التقرير على مصادر الويب.",
     caps: ["تحليل كامل في 15 قسمًا، انتهى في 5 دقائق و37 ثانية.", "المسار الموجَّه: يُتحقق من سياق الفكرة قبل بدء أي تحليل.", "المصادر الخارجية والمنافسون الذين تم التحقق منهم وراء التحليل.", "لجنة الأدوار الثمانية وأصواتها، محسوبة بقواعد.", "الحكم النهائي والتقييم والمخاطر.", "خطة المنتج، محسوبة على الخادم.", "مخطط UML لحالات الاستخدام مولَّد آليًا.", "البنية التقنية.", "الصفحة الرئيسية للمنصّة ووحداتها.", "لوحة الإدارة: يتطلب الدخول رمزًا من تطبيق المصادقة (2FA).", "لوحة تحكم الإدارة: المستخدمون والمشاريع ومتوسط التقييم والتحليلات حسب الحالة.", "إدارة المستخدمين: الأدوار والتحقق من البريد والتعطيل (الأسماء والعناوين مخفية).", "سجل التدقيق: كل عملية ودخول إداري، بما فيها محاولات 2FA الفاشلة؛ لا يمكن تعديل المدخلات (العناوين مخفية)."]
   }
 },{
@@ -865,11 +872,11 @@ const BARS = {
 };
 const WEIGHTS = {
   w: [17, 14, 13, 13, 10, 10, 10, 8, 5],
-  en: { title: "How the 9-criterion score is weighted", sub: "Read from startup_score_agent.py. Select a part of the bar.",
+  en: { title: "How the 9-criterion score is weighted", sub: "The intended weights, read from startup_score_agent.py. Select a part of the bar. In my test, the final score did not vary (see the limitation).",
         names: ["Problem–solution fit", "Market potential", "Execution feasibility", "Business model strength", "Competitive advantage", "Scalability", "Financial viability", "Innovation", "Risk management"] },
-  fr: { title: "La pondération du score à 9 critères", sub: "Lue dans startup_score_agent.py. Sélectionnez une partie de la barre.",
+  fr: { title: "La pondération du score à 9 critères", sub: "Les poids prévus, lus dans startup_score_agent.py. Sélectionnez une partie de la barre. Dans mon test, le score final n'a pas varié (voir la limite).",
         names: ["Adéquation problème–solution", "Potentiel de marché", "Faisabilité d'exécution", "Solidité du modèle économique", "Avantage concurrentiel", "Passage à l'échelle", "Viabilité financière", "Innovation", "Gestion des risques"] },
-  ar: { title: "كيف تُوزَّع أوزان التقييم على 9 معايير", sub: "مأخوذة من startup_score_agent.py. اختر جزءًا من الشريط.",
+  ar: { title: "كيف تُوزَّع أوزان التقييم على 9 معايير", sub: "الأوزان المقرَّرة، مأخوذة من startup_score_agent.py. اختر جزءًا من الشريط. في اختباري لم يتغيّر التقييم النهائي (انظر الحدود).",
         names: ["ملاءمة الحل للمشكلة", "إمكانات السوق", "قابلية التنفيذ", "متانة نموذج العمل", "الميزة التنافسية", "قابلية التوسّع", "الجدوى المالية", "الابتكار", "إدارة المخاطر"] }
 };
 
