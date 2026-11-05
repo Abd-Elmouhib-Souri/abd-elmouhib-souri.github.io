@@ -219,6 +219,9 @@ section.block { padding: clamp(48px, 8vw, 96px) 0; border-top: 1px solid var(--r
 .stages .tag { font-size: .8rem; font-weight: 600; }
 .output { margin-top: 12px; padding: 12px 14px; border-radius: 4px; font-family: var(--prose); min-height: 3.2em; border-inline-start: 3px solid var(--rule); background: var(--paper); }
 .output.ok { border-color: var(--accent); } .output.stop { border-color: var(--strike); }
+.demo { margin: 0 0 16px; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--surface); }
+.demo video { display: block; width: 100%; height: auto; background: #000; }
+.demo figcaption { padding: 10px 14px; font-size: .88rem; color: var(--ink-2); }
 .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
 .tiles div { border: 1px solid var(--rule); border-radius: 4px; padding: 8px 10px; background: var(--paper); }
 .tiles b { display: block; font: 700 1.25rem var(--display); color: var(--accent); font-variant-numeric: tabular-nums; }
@@ -494,7 +497,7 @@ dialog::backdrop { background: rgb(8 14 18 / .75); }
 <script>
 document.documentElement.classList.add("js");
 const EMAIL = "AbdElmouhib.Souri@esprim.tn";
-const IMG = "assets/img/"; const IMG_VER = "2"; // bump to force browsers to reload changed screenshots
+const IMG = "assets/img/"; const IMG_VER = "3"; // bump to force browsers to reload changed screenshots
 
 /* ═══ Interface text in three languages ═══════════════════════════════════
    Only measured numbers appear here. To edit a sentence, change it in all three. */
@@ -520,7 +523,7 @@ en: {
   "ledger.newtest": "new test",
   "work.title": "Case studies",
   "work.intro": "Five systems I built or rebuilt in 2026. Each one says what I measured, how, and where it still falls short. Try the interactive panels: they replay real results.",
-  all: "All", "topic.rag": "LLMs & RAG", "topic.med": "Medical AI", "topic.vision": "Computer vision", "topic.agents": "LLM agents", "topic.nlp": "NLP", "case.progress": "In progress", "case.private": "Team repository, private for now (school and partner rules). Shared on request.",
+  all: "All", "topic.rag": "LLMs & RAG", "topic.med": "Medical AI", "topic.vision": "Computer vision", "topic.agents": "LLM agents", "topic.nlp": "NLP", "case.progress": "In progress", "case.private": "Team repository, private for now (school and partner rules). Shared on request.", "case.video": "30-second demo, no sound, recorded on my machine: the landing page, my dashboard, a new idea, the analysis running, the committee verdict, the generated UML, and the exported PDF.",
   "case.code": "View the code", "case.limit": "Limitation.",
   "ui.prev": "Previous", "ui.next": "Next", "ui.count": "{i} of {n}", "ui.open": "Open screenshot {i} of {n} in full size", "ui.close": "Close", "ui.shots": "Screenshots",
   "more.title": "More work", "more.intro": "Smaller or ongoing projects. I add a result here only once I have measured it.",
@@ -560,7 +563,7 @@ fr: {
   "ledger.newtest": "nouveau test",
   "work.title": "Études de cas",
   "work.intro": "Cinq systèmes construits ou reconstruits en 2026. Chacun dit ce que j'ai mesuré, comment, et où il reste des limites. Essayez les panneaux interactifs : ils rejouent des résultats réels.",
-  all: "Tous", "topic.rag": "LLM & RAG", "topic.med": "IA médicale", "topic.vision": "Vision par ordinateur", "topic.agents": "Agents LLM", "topic.nlp": "NLP", "case.progress": "En cours", "case.private": "Dépôt d'équipe, privé pour l'instant (règles de l'école et du partenaire). Partagé sur demande.",
+  all: "Tous", "topic.rag": "LLM & RAG", "topic.med": "IA médicale", "topic.vision": "Vision par ordinateur", "topic.agents": "Agents LLM", "topic.nlp": "NLP", "case.progress": "En cours", "case.private": "Dépôt d'équipe, privé pour l'instant (règles de l'école et du partenaire). Partagé sur demande.", "case.video": "Démo de 30 secondes, sans son, enregistrée sur ma machine : la page d'accueil, mon tableau de bord, une nouvelle idée, l'analyse en cours, le verdict du comité, l'UML généré et le PDF exporté.",
   "case.code": "Voir le code", "case.limit": "Limite.",
   "ui.prev": "Précédente", "ui.next": "Suivante", "ui.count": "{i} sur {n}", "ui.open": "Ouvrir la capture {i} sur {n} en grand", "ui.close": "Fermer", "ui.shots": "Captures",
   "more.title": "Autres travaux", "more.intro": "Projets plus petits ou en cours. J'ajoute un résultat ici seulement une fois mesuré.",
@@ -600,7 +603,7 @@ ar: {
   "ledger.newtest": "اختبار جديد",
   "work.title": "دراسات الحالة",
   "work.intro": "خمسة أنظمة بنيتها أو أعدت بناءها في 2026. كل واحد يوضّح ما قسته، وكيف، وأين ما زال قاصرًا. جرّب اللوحات التفاعلية: إنها تعيد عرض نتائج حقيقية.",
-  all: "الكل", "topic.rag": "النماذج اللغوية وRAG", "topic.med": "الذكاء الاصطناعي الطبي", "topic.vision": "الرؤية الحاسوبية", "topic.agents": "وكلاء النماذج اللغوية", "topic.nlp": "معالجة اللغة الطبيعية (NLP)", "case.progress": "قيد الإنجاز", "case.private": "مستودع الفريق خاص حاليًا (قواعد المدرسة والشريك). يُشارَك عند الطلب.",
+  all: "الكل", "topic.rag": "النماذج اللغوية وRAG", "topic.med": "الذكاء الاصطناعي الطبي", "topic.vision": "الرؤية الحاسوبية", "topic.agents": "وكلاء النماذج اللغوية", "topic.nlp": "معالجة اللغة الطبيعية (NLP)", "case.progress": "قيد الإنجاز", "case.private": "مستودع الفريق خاص حاليًا (قواعد المدرسة والشريك). يُشارَك عند الطلب.", "case.video": "عرض لمدة 30 ثانية دون صوت، مسجَّل على جهازي: الصفحة الرئيسية، ولوحة التحكم، وفكرة جديدة، والتحليل أثناء التشغيل، وحكم اللجنة، ومخطط UML المولَّد، وملف PDF المصدَّر.",
   "case.code": "عرض الشيفرة", "case.limit": "الحدود.",
   "ui.prev": "السابقة", "ui.next": "التالية", "ui.count": "{i} من {n}", "ui.open": "افتح الصورة {i} من {n} بالحجم الكامل", "ui.close": "إغلاق", "ui.shots": "لقطات الشاشة",
   "more.title": "أعمال أخرى", "more.intro": "مشاريع أصغر أو قيد الإنجاز. لا أضيف نتيجة هنا إلا بعد قياسها.",
@@ -704,11 +707,11 @@ const CASES = [
   }
 },
 {
-  id: "forgeai", title: "ForgeAI", topics: ["agents", "rag"], viz: "weights",
+  id: "forgeai", title: "ForgeAI", topics: ["agents", "rag"], viz: "weights", video: "forgeai-demo",
   repo: "https://github.com/Abd-Elmouhib-Souri/ForgeAI",
   stack: "Python · FastAPI · LangGraph · Next.js · PostgreSQL · Redis · ChromaDB · Docker Compose · Gemini · Groq",
   tools: ["Python", "FastAPI", "LangGraph", "LangChain", "ChromaDB", "Groq / Gemini", "Next.js / React", "PostgreSQL", "Redis", "Docker"],
-  shots: ["forgeai-03", "forgeai-02", "forgeai-04", "forgeai-05", "forgeai-06", "forgeai-07", "forgeai-08", "forgeai-09", "forgeai-01"],
+  shots: ["forgeai-03", "forgeai-02", "forgeai-04", "forgeai-05", "forgeai-06", "forgeai-07", "forgeai-08", "forgeai-09", "forgeai-01", "forgeai-10", "forgeai-11", "forgeai-12", "forgeai-13"],
   en: {
     meta: "Internship at DotJcom, Jul – Sep 2026",
     pitch: "A platform that turns a startup idea into a sourced analysis, an argued verdict and an execution plan. Its rule: AI agents propose, deterministic rules validate and decide.",
@@ -718,7 +721,7 @@ const CASES = [
             "Gemini with Groq fallback, JWT, Google sign-in and 2FA, an admin console with real health checks and an audit log, PDF and Word exports."],
     result: "<strong>In use during testing:</strong> 23 analyses completed. One full 15-section report took 5 min 37 s.",
     limit: "Report quality depends on the web sources found. The score is a structured opinion, not a prediction of success.",
-    caps: ["A complete analysis in 15 sections, finished in 5 min 37 s.", "The guided path: the idea's context is checked before any analysis starts.", "External sources and verified competitors behind the analysis.", "The 8-role committee and its votes, computed by rules.", "The final verdict, score and risk.", "The product plan, computed on the server.", "A generated UML use-case diagram.", "The technical stack.", "The platform's home page and modules."]
+    caps: ["A complete analysis in 15 sections, finished in 5 min 37 s.", "The guided path: the idea's context is checked before any analysis starts.", "External sources and verified competitors behind the analysis.", "The 8-role committee and its votes, computed by rules.", "The final verdict, score and risk.", "The product plan, computed on the server.", "A generated UML use-case diagram.", "The technical stack.", "The platform's home page and modules.", "Admin console: sign-in requires a code from an authenticator app (2FA).", "Admin dashboard: users, projects, average score and analyses by status.", "User management: roles, email verification and deactivation (names and emails hidden).", "Audit log: every admin action and sign-in, including failed 2FA attempts; entries cannot be edited (emails hidden)."]
   },
   fr: {
     meta: "Stage chez DotJcom, juil. – sept. 2026",
@@ -729,7 +732,7 @@ const CASES = [
             "Gemini avec repli sur Groq, JWT, connexion Google et 2FA, console d'administration avec vrais contrôles de santé et journal d'audit, exports PDF et Word."],
     result: "<strong>En usage pendant les tests :</strong> 23 analyses terminées. Un rapport complet de 15 sections a pris 5 min 37 s.",
     limit: "La qualité du rapport dépend des sources web trouvées. Le score est une opinion structurée, pas une prédiction de réussite.",
-    caps: ["Une analyse complète en 15 sections, terminée en 5 min 37 s.", "Le parcours guidé : le contexte de l'idée est vérifié avant toute analyse.", "Les sources externes et les concurrents vérifiés derrière l'analyse.", "Le comité à 8 rôles et ses votes, calculés par des règles.", "Le verdict final, le score et le risque.", "Le plan produit, calculé côté serveur.", "Un diagramme UML de cas d'utilisation généré.", "La pile technique.", "La page d'accueil et les modules de la plateforme."]
+    caps: ["Une analyse complète en 15 sections, terminée en 5 min 37 s.", "Le parcours guidé : le contexte de l'idée est vérifié avant toute analyse.", "Les sources externes et les concurrents vérifiés derrière l'analyse.", "Le comité à 8 rôles et ses votes, calculés par des règles.", "Le verdict final, le score et le risque.", "Le plan produit, calculé côté serveur.", "Un diagramme UML de cas d'utilisation généré.", "La pile technique.", "La page d'accueil et les modules de la plateforme.", "Console admin : la connexion exige un code d'application d'authentification (2FA).", "Tableau de bord admin : utilisateurs, projets, score moyen et analyses par statut.", "Gestion des utilisateurs : rôles, vérification de l'e-mail et désactivation (noms et e-mails masqués).", "Journal d'audit : chaque action et connexion admin, y compris les échecs de 2FA ; les entrées ne sont pas modifiables (e-mails masqués)."]
   },
   ar: {
     meta: "تربص في DotJcom، جويلية – سبتمبر 2026",
@@ -740,7 +743,7 @@ const CASES = [
             "Gemini مع بديل Groq، وJWT، والدخول عبر Google، والتحقق بخطوتين، ولوحة إدارة بفحوص صحة حقيقية وسجل تدقيق، وتصدير PDF وWord."],
     result: "<strong>أثناء الاختبار:</strong> اكتمل 23 تحليلًا. استغرق تقرير كامل من 15 قسمًا 5 دقائق و37 ثانية.",
     limit: "جودة التقرير مرهونة بمصادر الويب التي يجدها. التقييم رأي منظَّم وليس تنبؤًا بالنجاح.",
-    caps: ["تحليل كامل في 15 قسمًا، انتهى في 5 دقائق و37 ثانية.", "المسار الموجَّه: يُتحقق من سياق الفكرة قبل بدء أي تحليل.", "المصادر الخارجية والمنافسون الذين تم التحقق منهم وراء التحليل.", "لجنة الأدوار الثمانية وأصواتها، محسوبة بقواعد.", "الحكم النهائي والتقييم والمخاطر.", "خطة المنتج، محسوبة على الخادم.", "مخطط UML لحالات الاستخدام مولَّد آليًا.", "البنية التقنية.", "الصفحة الرئيسية للمنصّة ووحداتها."]
+    caps: ["تحليل كامل في 15 قسمًا، انتهى في 5 دقائق و37 ثانية.", "المسار الموجَّه: يُتحقق من سياق الفكرة قبل بدء أي تحليل.", "المصادر الخارجية والمنافسون الذين تم التحقق منهم وراء التحليل.", "لجنة الأدوار الثمانية وأصواتها، محسوبة بقواعد.", "الحكم النهائي والتقييم والمخاطر.", "خطة المنتج، محسوبة على الخادم.", "مخطط UML لحالات الاستخدام مولَّد آليًا.", "البنية التقنية.", "الصفحة الرئيسية للمنصّة ووحداتها.", "لوحة الإدارة: يتطلب الدخول رمزًا من تطبيق المصادقة (2FA).", "لوحة تحكم الإدارة: المستخدمون والمشاريع ومتوسط التقييم والتحليلات حسب الحالة.", "إدارة المستخدمين: الأدوار والتحقق من البريد والتعطيل (الأسماء والعناوين مخفية).", "سجل التدقيق: كل عملية ودخول إداري، بما فيها محاولات 2FA الفاشلة؛ لا يمكن تعديل المدخلات (العناوين مخفية)."]
   }
 },{
   id: "newscheck", title: "NewsCheck TN", topics: ["nlp"], viz: "recall", status: true,
@@ -1055,6 +1058,7 @@ function renderCases() {
     const L = c[lang], n = c.shots.length;
     return `<article class="case reveal" id="case-${c.id}" data-id="${c.id}">
       <div class="media">
+        ${c.video ? `<figure class="demo"><video controls muted playsinline preload="none" poster="assets/video/${c.video}-poster.webp?v=${IMG_VER}" width="1280" height="586"><source src="assets/video/${c.video}.mp4?v=${IMG_VER}" type="video/mp4"></video><figcaption>${esc(t("case.video"))}</figcaption></figure>` : ""}
         ${n ? `<div class="carousel" data-case="${c.id}" aria-roledescription="carousel" aria-label="${esc(c.title)}: ${esc(t("ui.shots"))}">
           <div class="track">${c.shots.map((s, i) => `<figure class="slide" data-i="${i}" role="group" aria-label="${esc(t("ui.count", { i: i + 1, n }))}"><img src="${IMG + s}.webp?v=${IMG_VER}" alt="${esc(L.caps[i])}" loading="lazy" width="1600" height="1000"></figure>`).join("")}</div>
           <div class="bar"><p class="cap"></p><div class="nav">
