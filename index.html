@@ -636,7 +636,7 @@ const CASES = [
 {
   id: "medrag", title: "MedRAG", topics: ["rag", "med", "nlp"], viz: "replay",
   repo: "https://github.com/Abd-Elmouhib-Souri/MedRag",
-  stack: "Python · FastAPI · Streamlit · LangChain · ChromaDB · bge-reranker-v2-m3 · Groq (gpt-oss) · 32 pytest tests",
+  stack: "Python · FastAPI · Streamlit · LangChain · ChromaDB · bge-reranker-v2-m3 · Groq (gpt-oss) · 38 pytest tests",
   tools: ["Python", "FastAPI", "LangChain", "ChromaDB", "BM25", "Cross-encoder reranking", "Groq / Gemini", "pytest", "Prompt-injection defence", "Multilingual NLP"],
   shots: ["medrag-01", "medrag-02", "medrag-03", "medrag-04", "medrag-05", "medrag-06", "medrag-07"],
   en: {
@@ -645,9 +645,10 @@ const CASES = [
     facts: ["Hybrid retrieval (ChromaDB and BM25, weighted rank fusion), with the question translated into the records' language.",
             "A cross-encoder relevance gate: when no passage is relevant enough, the system refuses without calling the LLM.",
             "A second LLM checks each answer against its sources; text that tries to give the model orders is quarantined at upload.",
-            "I compared three rerankers under a rule fixed in advance: chance level (50%), 73%, then 88% for bge-reranker-v2-m3."],
-    result: "<strong>Held-out test, run once:</strong> 10 of 11 answers correct (95% CI 62–98%), 8 of 8 unanswerable questions refused, 0 invented answers.",
-    limit: "Small fictional benchmark. It misses questions that name a drug class instead of the drug.",
+            "I compared three rerankers under a rule fixed in advance: chance level (50%), 73%, then 88% for bge-reranker-v2-m3.",
+            "The held-out test missed \"Which beta-blocker?\" (the record only says bisoprolol). I wrote 17 new development questions before coding a class-to-molecule table: 4 → 10 of 11 answered, 6 of 6 traps still refused, no change on the 32 earlier questions."],
+    result: "<strong>Held-out test, run once:</strong> 10 of 11 answers correct (95% CI 62–98%), 8 of 8 unanswerable questions refused, 0 invented answers. Median time per question: 4.3 s (p95 9.1 s) on a laptop CPU, with the LLM called through Groq.",
+    limit: "Small fictional benchmark (4 records, 15 pages), so the timings say nothing about long records. The held-out numbers above are from before the drug-class fix; the fix is measured on development questions only, and claiming it as a test result needs a new held-out set.",
     caps: ["The full app: patient card, cited answer, alert and a refusal.", "The pipeline: hybrid retrieval, cross-encoder gate, cited answer, grounding check.", "Every answer cites its page and is checked against the sources.", "No relevant source: the gate refuses and the LLM is never called.", "Results on 19 held-out questions never used for tuning.", "The controlled comparison of three cross-encoders that chose the gate.", "A patient card generated automatically from the uploaded record."]
   },
   fr: {
@@ -656,9 +657,10 @@ const CASES = [
     facts: ["Recherche hybride (ChromaDB et BM25, fusion de rangs pondérée), avec la question traduite dans la langue des dossiers.",
             "Un filtre de pertinence par cross-encoder : si aucun passage n'est assez pertinent, le système refuse sans appeler le LLM.",
             "Un second LLM vérifie chaque réponse face à ses sources ; un texte qui tente de donner des ordres au modèle est mis en quarantaine à l'import.",
-            "J'ai comparé trois rerankers selon une règle fixée à l'avance : niveau du hasard (50 %), 73 %, puis 88 % pour bge-reranker-v2-m3."],
-    result: "<strong>Test tenu à l'écart, lancé une fois :</strong> 10 réponses correctes sur 11 (IC 95 % 62–98 %), 8 questions sans réponse refusées sur 8, 0 réponse inventée.",
-    limit: "Petit benchmark fictif. Il rate les questions qui nomment une classe de médicament au lieu du médicament.",
+            "J'ai comparé trois rerankers selon une règle fixée à l'avance : niveau du hasard (50 %), 73 %, puis 88 % pour bge-reranker-v2-m3.",
+            "Le test tenu à l'écart a raté « Quel bêtabloquant prend-il ? » (le dossier dit seulement bisoprolol). J'ai écrit 17 nouvelles questions de développement avant de coder une table classe → molécules : de 4 à 10 réponses justes sur 11, 6 pièges sur 6 toujours refusés, aucun changement sur les 32 questions d'avant."],
+    result: "<strong>Test tenu à l'écart, lancé une fois :</strong> 10 réponses correctes sur 11 (IC 95 % 62–98 %), 8 questions sans réponse refusées sur 8, 0 réponse inventée. Temps médian par question : 4,3 s (p95 9,1 s) sur le processeur d'un ordinateur portable, avec le LLM appelé via Groq.",
+    limit: "Petit benchmark fictif (4 dossiers, 15 pages) : les temps ne disent rien de dossiers longs. Les chiffres du test tenu à l'écart datent d'avant la correction des classes ; celle-ci n'est mesurée que sur des questions de développement, et l'annoncer comme résultat de test demande un nouveau jeu de test.",
     caps: ["L'application complète : fiche patient, réponse citée, alerte et un refus.", "Le pipeline : recherche hybride, filtre cross-encoder, réponse citée, vérification des sources.", "Chaque réponse cite sa page et est vérifiée face aux sources.", "Aucune source pertinente : le filtre refuse et le LLM n'est jamais appelé.", "Résultats sur 19 questions tenues à l'écart, jamais utilisées pour le réglage.", "La comparaison contrôlée de trois cross-encoders qui a choisi le filtre.", "Une fiche patient générée automatiquement à partir du dossier importé."]
   },
   ar: {
@@ -667,9 +669,10 @@ const CASES = [
     facts: ["بحث هجين (ChromaDB وBM25 مع دمج مرجَّح للترتيب)، مع ترجمة السؤال إلى لغة الملفات.",
             "مرشّح صلة بنموذج cross-encoder: إن لم يكن أي مقطع وثيق الصلة بما يكفي، يرفض النظام دون استدعاء النموذج اللغوي.",
             "نموذج لغوي ثانٍ يتحقق من كل جواب مقابل مصادره، ويُعزَل عند الرفع كل نص يحاول إعطاء أوامر للنموذج.",
-            "قارنت ثلاثة نماذج لإعادة الترتيب وفق قاعدة محددة مسبقًا: مستوى الصدفة (50%)، ثم 73%، ثم 88% لـ bge-reranker-v2-m3."],
-    result: "<strong>اختبار معزول شُغّل مرة واحدة:</strong> 10 أجوبة صحيحة من 11 (مجال ثقة 95%: 62–98%)، ورُفضت 8 أسئلة من 8 لا جواب لها، ولا جواب مختلَق.",
-    limit: "مجموعة اختبار صغيرة ووهمية. يخفق حين يذكر السؤال فئة الدواء بدل اسمه.",
+            "قارنت ثلاثة نماذج لإعادة الترتيب وفق قاعدة محددة مسبقًا: مستوى الصدفة (50%)، ثم 73%، ثم 88% لـ bge-reranker-v2-m3.",
+            "أخفق الاختبار المعزول في سؤال «أي حاصر بيتا يتناول؟» (الملف يذكر البيسوبرولول فقط). كتبت 17 سؤال تطوير جديدًا قبل برمجة جدول يربط الفئة بالأدوية: من 4 إلى 10 أجوبة صحيحة من 11، و6 أسئلة فخ من 6 ما زالت مرفوضة، ولا تغيير على الأسئلة الـ32 السابقة."],
+    result: "<strong>اختبار معزول شُغّل مرة واحدة:</strong> 10 أجوبة صحيحة من 11 (مجال ثقة 95%: 62–98%)، ورُفضت 8 أسئلة من 8 لا جواب لها، ولا جواب مختلَق. الزمن الوسيط لكل سؤال: 4.3 ثانية (p95: 9.1 ثانية) على معالج حاسوب محمول، مع استدعاء النموذج اللغوي عبر Groq.",
+    limit: "مجموعة اختبار صغيرة ووهمية (4 ملفات، 15 صفحة)، فالأزمنة لا تقول شيئًا عن الملفات الطويلة. أرقام الاختبار المعزول تسبق إصلاح فئات الأدوية؛ والإصلاح مقاس على أسئلة التطوير فقط، واعتباره نتيجة اختبار يتطلب مجموعة اختبار جديدة.",
     caps: ["التطبيق كاملًا: بطاقة المريض، جواب موثَّق، تنبيه، ورفض.", "المسار: بحث هجين، مرشّح cross-encoder، جواب موثَّق، تحقق من المصادر.", "كل جواب يذكر صفحته ويُتحقق منه مقابل المصادر.", "لا مصدر ذا صلة: يرفض المرشّح ولا يُستدعى النموذج اللغوي.", "النتائج على 19 سؤالًا معزولًا لم يُستعمل أي منها في الضبط.", "المقارنة المضبوطة بين ثلاثة نماذج cross-encoder التي اختارت المرشّح.", "بطاقة مريض مولَّدة آليًا من الملف المرفوع."]
   }
 },
@@ -932,16 +935,16 @@ const MORE = [
 const METHOD = {
   en: [["Audit before training", "In DataScoop I rebuilt the exact Keras validation split, found 195 groups of exact duplicates and near-identical augmented copies across it, and kept only the 3,153 validation images with no copy in training."],
        ["Fix the decision rule before the experiment", "For MedRAG's reranker I wrote down what \"better\" meant (accuracy gain and a latency limit) before running bge-reranker-v2-m3, so I could not pick the rule after seeing the result."],
-       ["Keep a test set I touch once", "MedRAG was tuned on 32 development questions and reported on 19 held-out ones. When the held-out run exposed a drug-class error, I reported it instead of fixing it on the test set."],
-       ["Tests that fail when the bug returns", "Each security or safety fix gets a test, and I check that the test fails when I put the old code back. DataScoop has 28 backend and 17 Python tests; MedRAG has 32."]],
+       ["Keep a test set I touch once", "MedRAG was tuned on 32 development questions and reported on 19 held-out ones. When the held-out run exposed a drug-class error, I reported it, then fixed it with new development questions written before the code, without re-running the test."],
+       ["Tests that fail when the bug returns", "Each security or safety fix gets a test, and I check that the test fails when I put the old code back. DataScoop has 28 backend and 17 Python tests; MedRAG has 38."]],
   fr: [["Auditer avant d'entraîner", "Dans DataScoop, j'ai reconstruit le découpage de validation exact de Keras, trouvé 195 groupes de doublons exacts et des copies augmentées quasi identiques de part et d'autre, et gardé seulement les 3 153 images de validation sans copie à l'entraînement."],
        ["Fixer la règle de décision avant l'expérience", "Pour le reranker de MedRAG, j'ai écrit ce que « meilleur » voulait dire (gain d'exactitude et limite de latence) avant de lancer bge-reranker-v2-m3, pour ne pas choisir la règle après avoir vu le résultat."],
-       ["Un jeu de test touché une seule fois", "MedRAG a été réglé sur 32 questions de développement et évalué sur 19 questions tenues à l'écart. Quand ce test a révélé une erreur de classe de médicament, je l'ai rapportée au lieu de la corriger sur le test."],
-       ["Des tests qui échouent si le bug revient", "Chaque correctif de sécurité a son test, et je vérifie qu'il échoue quand je remets l'ancien code. DataScoop a 28 tests backend et 17 tests Python ; MedRAG en a 32."]],
+       ["Un jeu de test touché une seule fois", "MedRAG a été réglé sur 32 questions de développement et évalué sur 19 questions tenues à l'écart. Quand ce test a révélé une erreur de classe de médicament, je l'ai rapportée, puis corrigée avec de nouvelles questions de développement écrites avant le code, sans relancer le test."],
+       ["Des tests qui échouent si le bug revient", "Chaque correctif de sécurité a son test, et je vérifie qu'il échoue quand je remets l'ancien code. DataScoop a 28 tests backend et 17 tests Python ; MedRAG en a 38."]],
   ar: [["التدقيق قبل التدريب", "في DataScoop أعدت بناء تقسيم التحقق نفسه الذي يستعمله Keras، ووجدت 195 مجموعة من النسخ المطابقة ونسخًا معدَّلة شبه متطابقة في الجهتين، واحتفظت فقط بـ 3,153 صورة تحقق لا نسخة لها في التدريب."],
        ["تحديد قاعدة القرار قبل التجربة", "بالنسبة لمرشّح MedRAG كتبت مسبقًا ماذا تعني «أفضل» (مكسب في الدقة وحدّ للزمن) قبل تشغيل bge-reranker-v2-m3، حتى لا أختار القاعدة بعد رؤية النتيجة."],
-       ["مجموعة اختبار تُلمس مرة واحدة", "ضُبط MedRAG على 32 سؤال تطوير وقُيّم على 19 سؤالًا معزولًا. حين كشف هذا الاختبار خطأً في فئة دواء، أبلغت عنه بدل إصلاحه على مجموعة الاختبار."],
-       ["اختبارات تفشل إذا عاد الخطأ", "لكل إصلاح أمني اختبار، وأتأكد أنه يفشل حين أعيد الشيفرة القديمة. في DataScoop ‏28 اختبارًا للخادم و17 اختبار Python، وفي MedRAG ‏32 اختبارًا."]]
+       ["مجموعة اختبار تُلمس مرة واحدة", "ضُبط MedRAG على 32 سؤال تطوير وقُيّم على 19 سؤالًا معزولًا. حين كشف هذا الاختبار خطأً في فئة دواء، أبلغت عنه، ثم أصلحته بأسئلة تطوير جديدة كُتبت قبل الشيفرة، دون إعادة تشغيل الاختبار."],
+       ["اختبارات تفشل إذا عاد الخطأ", "لكل إصلاح أمني اختبار، وأتأكد أنه يفشل حين أعيد الشيفرة القديمة. في DataScoop ‏28 اختبارًا للخادم و17 اختبار Python، وفي MedRAG ‏38 اختبارًا."]]
 };
 
 const TIMELINE = {
