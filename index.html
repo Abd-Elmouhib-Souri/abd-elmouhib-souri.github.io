@@ -656,8 +656,8 @@ const CASES = [
     facts: ["Recherche hybride (ChromaDB et BM25, fusion de rangs pondérée), avec la question traduite dans la langue des dossiers.",
             "Un filtre de pertinence par cross-encoder : si aucun passage n'est assez pertinent, le système refuse sans appeler le LLM.",
             "Un second LLM vérifie chaque réponse face à ses sources ; un texte qui tente de donner des ordres au modèle est mis en quarantaine à l'import.",
-            "J'ai comparé trois rerankers selon une règle fixée à l'avance : niveau du hasard (50 %), 73 %, puis 88 % pour bge-reranker-v2-m3."],
-    result: "<strong>Test tenu à l'écart, lancé une fois :</strong> 10 réponses correctes sur 11 (IC 95 % 62–98 %), 8 questions sans réponse refusées sur 8, 0 réponse inventée.",
+            "J'ai comparé trois rerankers selon une règle fixée à l'avance : niveau du hasard (50 %), 73 %, puis 88 % pour bge-reranker-v2-m3."],
+    result: "<strong>Test tenu à l'écart, lancé une fois :</strong> 10 réponses correctes sur 11 (IC 95 % 62–98 %), 8 questions sans réponse refusées sur 8, 0 réponse inventée.",
     limit: "Petit benchmark fictif. Il rate les questions qui nomment une classe de médicament au lieu du médicament.",
     caps: ["L'application complète : fiche patient, réponse citée, alerte et un refus.", "Le pipeline : recherche hybride, filtre cross-encoder, réponse citée, vérification des sources.", "Chaque réponse cite sa page et est vérifiée face aux sources.", "Aucune source pertinente : le filtre refuse et le LLM n'est jamais appelé.", "Résultats sur 19 questions tenues à l'écart, jamais utilisées pour le réglage.", "La comparaison contrôlée de trois cross-encoders qui a choisi le filtre.", "Une fiche patient générée automatiquement à partir du dossier importé."]
   },
@@ -697,7 +697,7 @@ const CASES = [
             "Réévaluation de 5 modèles sur un sous-ensemble sans fuite, avec intervalles de confiance par bootstrap ; désactivation des 3 modèles cassés ou trop faibles.",
             "Suppression de toute prédiction simulée. Le patient ne voit jamais la sortie de l'IA, seulement le diagnostic validé ou corrigé par son médecin.",
             "Authentification JWT et bcrypt, isolement des patients par médecin, invitations médecin à usage unique, et refus des images qui ne sont pas des IRM."],
-    result: "<strong>Précision sans fuite :</strong> ResNet-50 0,814 (IC 95 % 0,800–0,826, macro-F1 0,832), contre 0,900 sur le découpage avec fuite.",
+    result: "<strong>Précision sans fuite :</strong> ResNet-50 0,814 (IC 95 % 0,800–0,826, macro-F1 0,832), contre 0,900 sur le découpage avec fuite.",
     limit: "Coupes 2D sans identifiant patient : tous les scores sont des bornes hautes. Environ 1 cas « très léger » sur 4 reste manqué.",
     caps: ["L'IA suggère, le médecin décide : valider ou corriger.", "Quand les deux modèles divergent, la suggestion est signalée comme incertaine.", "Aucun résultat de l'IA n'est montré au patient.", "Le patient ne voit que ce que son médecin a validé.", "Les statistiques comptent les décisions du médecin, pas la sortie brute de l'IA.", "Chaque médecin ne voit que ses propres patients.", "Les images qui ne sont manifestement pas des IRM sont refusées avant toute prédiction."]
   },
@@ -774,9 +774,9 @@ const CASES = [
     facts: ["Tunisien en lettres arabes : un lexique de 78 marques dialectales et la négation « ma…ch », car il y a trop peu de tunisien annoté pour entraîner un modèle, et chaque décision s'explique.",
             "Arabizi : une régression logistique sur des n-grammes de caractères (1 à 4), exportée en poids JSON pour un service FastAPI léger. Son seuil a été réglé uniquement sur les données de développement.",
             "Un modèle de perplexité sur les caractères, un par écriture, signale les textes bruités au lieu de les supprimer.",
-            "Le macro-F1 comme métrique, car environ 77 % du jeu de développement est en tunisien et l'exactitude cacherait les petites classes. La normalisation ne modifie jamais les nombres (29 sur 29 conservés)."],
+            "Le macro-F1 comme métrique, car environ 77 % du jeu de développement est en tunisien et l'exactitude cacherait les petites classes. La normalisation ne modifie jamais les nombres (29 sur 29 conservés)."],
     result: "<strong>Jeu de test gelé (34 phrases) :</strong> macro-F1 de 0,94 contre 0,50 pour une baseline fondée sur l'alphabet seul, et 0 phrase de presse arabe sur 680 classée à tort comme tunisienne.",
-    limit: "Sur de vrais commentaires, le tunisien en lettres arabes n'est trouvé que dans 53 % des cas (précision 1,00) : un mot absent du lexique est lu comme de l'arabe standard. Le jeu de test est petit. Prochaine étape : un modèle appris.",
+    limit: "Sur de vrais commentaires, le tunisien en lettres arabes n'est trouvé que dans 53 % des cas (précision 1,00) : un mot absent du lexique est lu comme de l'arabe standard. Le jeu de test est petit. Prochaine étape : un modèle appris.",
     caps: ["Mon étape : du texte brut à un document normalisé avec sa langue et son écriture, servi par FastAPI.", "Les choix de conception : chaque méthode face à l'alternative écartée.", "Identification de la langue : macro-F1 de 0,94 sur le test, 0,63 sur les données de développement en lettres arabes.", "Le détecteur de bruit par perplexité, mesuré contre le hasard.", "Résultats de l'équipe par langue et écriture (travail d'équipe ; ma partie est la ligne A2).", "Analyse d'erreurs de l'équipe par catégorie, avec les pistes de correction (travail d'équipe ; ma partie est A2)."]
   },
   ar: {
@@ -803,8 +803,8 @@ const CASES = [
             "BM25 written in plain Python with Arabic normalization (diacritics, prefix letters, stopwords). A question that names \"article 52\" returns that article first.",
             "An abstention rule: when the raw score and the share of question words found are both too low, the system refuses instead of guessing.",
             "Semantic search (Gemini embeddings fused with BM25 by RRF, k = 60) is written and tested offline. It is not measured yet: no corpus goes to an external model before the partner's written agreement."],
-    result: "<strong>Current evaluation (17 questions):</strong> Recall@10 of 94.1% and MRR of 0.755, with BM25 alone. 1,209 automated tests pass on the Sprint 4 branch, and my four sprints are merged into main after peer review.",
-    limit: "The evaluation set is small (29 of 43 golden questions written, 17 used). One out-of-corpus question in four is still answered instead of refused. French and dialect questions are poorly covered (a French–Arabic glossary is planned), and page numbers are missing on one ingestion path.",
+    result: "<strong>Current evaluation (17 core questions, BM25 alone):</strong> Recall@1 of 58.8% (10 of 17) and Recall@3 of 94.1% (16 of 17), MRR 0.755. 6 of 8 out-of-corpus questions refused. 185 tests pass on my retrieval module (1,209 in the whole team repository), and my four sprints are merged into main after peer review.",
+    limit: "Small evaluation: 29 of 43 golden questions are complete, and the 17 core ones are measured (13 by topic, 4 by article number). 2 of 8 out-of-corpus questions still get an answer, and 1 core question is wrongly refused. French and dialect questions: 0 of 4 found (a French–Arabic glossary is planned). Page numbers are missing on one ingestion path.",
     caps: []
   },
   fr: {
@@ -815,8 +815,8 @@ const CASES = [
             "Un BM25 écrit en Python pur avec normalisation de l'arabe (voyelles, lettres préfixes, mots vides). Une question qui cite « l'article 52 » renvoie cet article en premier.",
             "Une règle d'abstention : quand le score brut et la part des mots de la question retrouvés sont tous deux trop faibles, le système refuse au lieu de deviner.",
             "La recherche par le sens (embeddings Gemini fusionnés avec BM25 par RRF, k = 60) est écrite et testée hors ligne. Elle n'est pas encore mesurée : aucun corpus ne part vers un modèle externe sans l'accord écrit du partenaire."],
-    result: "<strong>Évaluation actuelle (17 questions) :</strong> Recall@10 de 94,1 % et MRR de 0,755, avec BM25 seul. 1 209 tests automatisés passent sur la branche du sprint 4, et mes quatre sprints sont fusionnés sur main après revue par les pairs.",
-    limit: "Le jeu d'évaluation est petit (29 questions de référence écrites sur 43, 17 utilisées). Une question hors corpus sur quatre reçoit encore une réponse au lieu d'un refus. Les questions en français et en dialecte sont mal couvertes (un glossaire français–arabe est prévu), et le numéro de page manque sur un des chemins d'ingestion.",
+    result: "<strong>Évaluation actuelle (17 questions centrales, BM25 seul) :</strong> Recall@1 de 58,8 % (10 sur 17) et Recall@3 de 94,1 % (16 sur 17), MRR 0,755. 6 questions hors corpus sur 8 refusées. 185 tests passent sur mon module de recherche (1 209 dans tout le dépôt de l'équipe), et mes quatre sprints sont fusionnés sur main après revue par les pairs.",
+    limit: "Évaluation petite : 29 questions de référence complètes sur 43, et les 17 centrales sont mesurées (13 par sujet, 4 par numéro d'article). 2 questions hors corpus sur 8 reçoivent encore une réponse, et 1 question centrale est refusée à tort. Questions en français et en dialecte : 0 sur 4 trouvée (un glossaire français–arabe est prévu). Le numéro de page manque sur un des chemins d'ingestion.",
     caps: []
   },
   ar: {
@@ -827,8 +827,8 @@ const CASES = [
             "BM25 مكتوب بلغة Python فقط مع تطبيع العربية (الحركات، وحروف السوابق، والكلمات الشائعة). السؤال الذي يذكر «الفصل 52» يُرجع ذلك الفصل أولًا.",
             "قاعدة امتناع: حين تكون الدرجة الخام ونسبة كلمات السؤال الموجودة منخفضتين معًا، يرفض النظام بدل التخمين.",
             "البحث الدلالي، أي تضمينات Gemini مدموجة مع BM25 بطريقة RRF، مكتوب ومختبَر دون اتصال. لم يُقَس بعد: لا تُرسَل أي مدوّنة إلى نموذج خارجي قبل موافقة الشريك كتابيًا."],
-    result: "<strong>التقييم الحالي (17 سؤالًا):</strong> Recall@10 بنسبة 94.1% وMRR بقيمة 0.755، باستعمال BM25 وحده. تنجح 1209 اختبارات آلية على فرع السبرنت 4، ودُمجت سبرنتاتي الأربعة في main بعد مراجعة الزملاء.",
-    limit: "مجموعة التقييم صغيرة (29 سؤالًا مرجعيًا مكتوبًا من 43، استُعمل منها 17). سؤال واحد من كل أربعة خارج المدوّنة ما زال يتلقى جوابًا بدل الرفض. الأسئلة بالفرنسية وباللهجة ضعيفة التغطية (معجم فرنسي–عربي مبرمج)، ورقم الصفحة غائب في أحد مسارات الإدخال.",
+    result: "<strong>التقييم الحالي (17 سؤالًا أساسيًا، BM25 وحده):</strong> Recall@1 بنسبة 58.8% (10 من 17) وRecall@3 بنسبة 94.1% (16 من 17)، وMRR بقيمة 0.755. رُفض 6 من 8 أسئلة خارج المدوّنة. تنجح 185 اختبارًا على وحدة البحث التي بنيتها (1209 في مستودع الفريق كاملًا)، ودُمجت سبرنتاتي الأربعة في main بعد مراجعة الزملاء.",
+    limit: "التقييم صغير: 29 سؤالًا مرجعيًا مكتملًا من 43، والـ17 الأساسية هي المقاسة (13 حسب الموضوع و4 حسب رقم الفصل). سؤالان من 8 خارج المدوّنة ما زالا يتلقيان جوابًا، وسؤال أساسي واحد يُرفض خطأً. الأسئلة بالفرنسية وباللهجة: 0 من 4 (معجم فرنسي–عربي مبرمج). ورقم الصفحة غائب في أحد مسارات الإدخال.",
     caps: []
   }
 }];
@@ -838,7 +838,7 @@ const CASES = [
 const REPLAY = {
   runs: [
     { q: "Quelle est la dernière HbA1c ?", gate: true, time: 4.0,
-      out: "La dernière HbA1c est de 8,1 % le 2 octobre 2026. [Page 3]" },
+      out: "La dernière HbA1c est de 8,1 % le 2 octobre 2026. [Page 3]" },
     { q: "Quel est le résultat de l'EEG ?", gate: false, time: 2.2,
       out: "Information non trouvée dans les documents fournis." }
   ],
@@ -866,7 +866,7 @@ const BARS = {
   en: { title: "Accuracy: leaky split vs leak-free images", sub: "Measured on Kaggle (TensorFlow 2.20). Switch to see what the leak was hiding.",
         leaky: "Leaky split (10,079 images)", free: "Leak-free (3,153 images)", served: "served", off: "disabled", chance: "chance level (4 classes)", ci: "95% bootstrap interval" },
   fr: { title: "Précision : découpage avec fuite vs images sans fuite", sub: "Mesuré sur Kaggle (TensorFlow 2.20). Basculez pour voir ce que la fuite cachait.",
-        leaky: "Avec fuite (10 079 images)", free: "Sans fuite (3 153 images)", served: "en service", off: "désactivé", chance: "niveau du hasard (4 classes)", ci: "intervalle bootstrap à 95 %" },
+        leaky: "Avec fuite (10 079 images)", free: "Sans fuite (3 153 images)", served: "en service", off: "désactivé", chance: "niveau du hasard (4 classes)", ci: "intervalle bootstrap à 95 %" },
   ar: { title: "الدقة: تقسيم متسرّب مقابل صور دون تسرّب", sub: "مقاسة على Kaggle (TensorFlow 2.20). بدّل لترى ما كان التسرّب يخفيه.",
         leaky: "مع التسرّب (10,079 صورة)", free: "دون تسرّب (3,153 صورة)", served: "قيد الخدمة", off: "معطَّل", chance: "مستوى الصدفة (4 فئات)", ci: "مجال bootstrap بنسبة 95%" }
 };
@@ -887,7 +887,7 @@ const RECALL = {
         real: "On real comments (development set): Tunisian in Arabic script found 53% of the time, with precision 1.00." },
   fr: { title: "Rappel par langue sur le jeu de test gelé", sub: "34 phrases, lancé une fois (commit 85fb77d). Les effectifs sont petits : c'est un contrôle, pas une preuve.",
         names: { fr: "Français", msa: "Arabe standard", tn: "Tunisien (lettres arabes)", arabizi: "Arabizi", mixed: "Mixte" },
-        real: "Sur de vrais commentaires (développement) : tunisien en lettres arabes trouvé dans 53 % des cas, avec une précision de 1,00." },
+        real: "Sur de vrais commentaires (développement) : tunisien en lettres arabes trouvé dans 53 % des cas, avec une précision de 1,00." },
   ar: { title: "الاستدعاء حسب اللغة على مجموعة الاختبار المجمَّدة", sub: "34 جملة، شُغّلت مرة واحدة (commit 85fb77d). الأعداد صغيرة، فهي فحص أولي لا أكثر.",
         names: { fr: "الفرنسية", msa: "العربية الفصحى", tn: "التونسية (حروف عربية)", arabizi: "العربيزي", mixed: "مختلط" },
         real: "في التعليقات الحقيقية (بيانات التطوير): اكتُشفت التونسية بالحروف العربية في 53% من الحالات، بدقة 1.00." }
@@ -902,15 +902,15 @@ const API = {
   en: { title: "Replay the HTTP proofs", sub: "Three requests sent to the local server in live mode. Responses shortened to their key fields.",
         hit: "“منحة النقل” (transport allowance)", miss: "A question outside the corpus", bad: "An empty request",
         note: { hit: "Article 52 comes first, with the top score.", miss: "A business refusal, not an error: the agent can say \"I don't have this text\".", bad: "Rejected before any search." },
-        pick: "Pick a request.", metrics: [["94.1%", "Recall@10"], ["0.755", "MRR"], ["75%", "out-of-corpus refused"]] },
+        pick: "Pick a request.", metrics: [["58.8%", "Recall@1 (10/17)"], ["94.1%", "Recall@3 (16/17)"], ["6/8", "out-of-corpus refused"]] },
   fr: { title: "Rejouer les preuves HTTP", sub: "Trois requêtes envoyées au serveur local en mode live. Réponses réduites à leurs champs clés.",
         hit: "« منحة النقل » (prime de transport)", miss: "Une question hors corpus", bad: "Une requête vide",
         note: { hit: "L'article 52 arrive en premier, avec le score maximal.", miss: "Un refus métier, pas une erreur : l'agent peut dire « je n'ai pas ce texte ».", bad: "Rejetée avant toute recherche." },
-        pick: "Choisissez une requête.", metrics: [["94,1 %", "Recall@10"], ["0,755", "MRR"], ["75 %", "refus hors corpus"]] },
+        pick: "Choisissez une requête.", metrics: [["58,8 %", "Recall@1 (10/17)"], ["94,1 %", "Recall@3 (16/17)"], ["6/8", "refus hors corpus"]] },
   ar: { title: "أعد تشغيل إثباتات HTTP", sub: "ثلاثة طلبات أُرسلت إلى الخادم المحلي في وضع live. الردود مختصرة إلى حقولها الأساسية.",
         hit: "«منحة النقل»", miss: "سؤال خارج المدوّنة", bad: "طلب فارغ",
         note: { hit: "الفصل 52 يأتي أولًا بأعلى درجة.", miss: "رفض مهني وليس خطأ: يستطيع الوكيل أن يقول «لا أملك هذا النص».", bad: "رُفض قبل أي بحث." },
-        pick: "اختر طلبًا.", metrics: [["94.1%", "Recall@10"], ["0.755", "MRR"], ["75%", "رفض خارج المدوّنة"]] }
+        pick: "اختر طلبًا.", metrics: [["58.8%", "Recall@1 (10/17)"], ["94.1%", "Recall@3 (16/17)"], ["6/8", "رفض خارج المدوّنة"]] }
 };
 
 /* Smaller and ongoing work */
