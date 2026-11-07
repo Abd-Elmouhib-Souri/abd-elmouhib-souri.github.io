@@ -262,6 +262,10 @@ section.block { padding: clamp(48px, 8vw, 96px) 0; border-top: 1px solid var(--r
 .small-work article { padding: 20px 0; border-top: 1px solid var(--rule); }
 .small-work h3 { font-size: 1.2rem; font-weight: 700; }
 .small-work p { color: var(--ink-2); margin-top: 6px; }
+.small-work .thumb { display: block; position: relative; margin-top: 14px; padding: 0; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--surface); cursor: zoom-in; width: 100%; }
+.small-work .thumb img { display: block; width: 100%; height: 180px; object-fit: cover; object-position: top left; }
+.small-work .thumb span { position: absolute; inset-inline-end: 8px; bottom: 8px; background: rgba(19,33,43,.85); color: #fff; font-size: .8rem; padding: 3px 8px; border-radius: 4px; }
+.small-work .thumb:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .status { display: inline-block; font-size: .8rem; font-weight: 600; padding: 2px 9px; border-radius: 999px; background: var(--warn-soft); color: var(--warn); margin-inline-start: 8px; vertical-align: 3px; }
 .small-work .links { margin-top: 10px; } .small-work .links a { font: 600 .92rem var(--display); }
 
@@ -502,7 +506,7 @@ dialog::backdrop { background: rgb(8 14 18 / .75); }
 <script>
 document.documentElement.classList.add("js");
 const EMAIL = "AbdElmouhib.Souri@esprim.tn";
-const IMG = "assets/img/"; const IMG_VER = "4"; // bump to force browsers to reload changed screenshots
+const IMG = "assets/img/"; const IMG_VER = "6"; // bump to force browsers to reload changed screenshots
 
 /* ═══ Interface text in three languages ═══════════════════════════════════
    Only measured numbers appear here. To edit a sentence, change it in all three. */
@@ -758,7 +762,7 @@ const CASES = [
   }
 },{
   id: "mindcare", title: "MindCare AI", topics: ["nlp", "med"], viz: "probes",
-  repo: "https://github.com/Abd-Elmouhib-Souri/Mental-Health-AI-Detection",
+  repo: "https://github.com/Abd-Elmouhib-Souri/MindCare-AI",
   stack: "Python · TensorFlow/Keras (Bi-LSTM + GloVe) · scikit-learn (TF-IDF + logistic regression) · FastAPI · React/TypeScript · 48 pytest tests",
   tools: ["Python", "TensorFlow / Keras", "scikit-learn", "FastAPI", "React / TypeScript", "pytest", "Leakage audit", "Bootstrap CI", "Shortcut probes", "Multilingual NLP"],
   shots: ["mindcare-01", "mindcare-02", "mindcare-03"],
@@ -987,14 +991,20 @@ const API = {
 
 /* Smaller and ongoing work */
 const MORE = [
-  { id: "sales", repo: "https://github.com/Abd-Elmouhib-Souri/sales_kag_project",
-    en: { t: "Sales forecasting pipeline", d: "ETL of 9,800 transactions into a star schema on PostgreSQL in Docker, Ridge regression forecasts and a Power BI report." },
-    fr: { t: "Pipeline de prévision des ventes", d: "ETL de 9 800 transactions vers un schéma en étoile sur PostgreSQL dans Docker, prévisions par régression Ridge et rapport Power BI." },
-    ar: { t: "مسار للتنبؤ بالمبيعات", d: "استخراج وتحويل 9,800 معاملة إلى مخطط نجمي على PostgreSQL داخل Docker، مع تنبؤات بانحدار Ridge وتقرير Power BI." } },
-  { id: "mytt", repo: "https://github.com/Abd-Elmouhib-Souri/myTT",
-    en: { t: "myTT assistant", d: "Internship app at Tunisie Telecom: React Native, Firebase and a Gemini chat that explains USSD service codes." },
-    fr: { t: "Assistant myTT", d: "Application de stage chez Tunisie Telecom : React Native, Firebase et un chat Gemini qui explique les codes USSD." },
-    ar: { t: "مساعد myTT", d: "تطبيق تربص في اتصالات تونس: React Native وFirebase ومحادثة Gemini تشرح رموز خدمات USSD." } }
+  { id: "sales", repo: "https://github.com/Abd-Elmouhib-Souri/sales-forecasting-pipeline", shots: ["sales-01", "sales-02", "sales-03", "sales-04"],
+    caps: { en: ["2018, the year kept out of training: actual monthly revenue next to the Ridge forecast from a model trained on 2015–2017 (MAPE 20.3% vs 24.9% for a seasonal naive baseline). Totals checked against SQL: $722.05K, 1,661 orders.", "2017: $600.19K revenue, 1,295 orders, 635 customers.", "2016: $459.44K revenue, 1,019 orders, 567 customers.", "2015: $479.86K revenue, 947 orders, 589 customers."],
+            fr: ["2018, l'année tenue à l'écart de l'entraînement : le chiffre d'affaires mensuel réel à côté de la prévision Ridge d'un modèle entraîné sur 2015–2017 (MAPE 20,3 % contre 24,9 % pour une baseline naïve saisonnière). Totaux vérifiés en SQL : 722,05 k$, 1 661 commandes.", "2017 : 600,19 k$ de chiffre d'affaires, 1 295 commandes, 635 clients.", "2016 : 459,44 k$ de chiffre d'affaires, 1 019 commandes, 567 clients.", "2015 : 479,86 k$ de chiffre d'affaires, 947 commandes, 589 clients."],
+            ar: ["2018، السنة المعزولة عن التدريب: رقم المعاملات الشهري الفعلي بجانب تنبؤ Ridge من نموذج دُرّب على 2015–2017 (MAPE ‏20.3% مقابل 24.9% لخط أساس موسمي بسيط). مجاميع متحقَّق منها عبر SQL: 722.05 ألف دولار و1,661 طلبًا.", "2017: رقم معاملات 600.19 ألف دولار، 1,295 طلبًا، 635 عميلًا.", "2016: رقم معاملات 459.44 ألف دولار، 1,019 طلبًا، 567 عميلًا.", "2015: رقم معاملات 479.86 ألف دولار، 947 طلبًا، 589 عميلًا."] },
+    en: { t: "Sales forecasting pipeline", d: "ETL of 9,800 transactions into a PostgreSQL star schema (Docker) and a Power BI report. On the last 12 months, kept out of training, Ridge (trend + month) reaches a MAPE of 20.3%, against 24.9% for a seasonal naive baseline: a modest gain on 12 points." },
+    fr: { t: "Pipeline de prévision des ventes", d: "ETL de 9 800 transactions vers un schéma en étoile PostgreSQL (Docker) et un rapport Power BI. Sur les 12 derniers mois, tenus à l'écart de l'entraînement, Ridge (tendance + mois) atteint une MAPE de 20,3 %, contre 24,9 % pour une baseline naïve saisonnière : un gain modeste, mesuré sur 12 points." },
+    ar: { t: "مسار للتنبؤ بالمبيعات", d: "استخراج وتحويل 9,800 معاملة إلى مخطط نجمي على PostgreSQL ‏(Docker) مع تقرير Power BI. على آخر 12 شهرًا المعزولة عن التدريب، يبلغ Ridge ‏(الاتجاه + الشهر) نسبة MAPE قدرها 20.3%، مقابل 24.9% لخط أساس موسمي بسيط: تحسّن متواضع على 12 نقطة." } },
+  { id: "retail", repo: "https://github.com/Abd-Elmouhib-Souri/retail-sales-powerbi-dashboard", shots: ["retail-01", "retail-02", "retail-03", "retail-04", "retail-05"],
+    caps: { en: ["Filtered on Camping Equipment: total cost $2.22M, by retailer type and city, with revenue and profit by year.", "Filtered on Mountaineering Equipment: total cost $726.86K, by retailer type and city, with revenue and profit by year.", "Filtered on Personal Accessories: total cost $443.93K, by retailer type and city, with revenue and profit by year.", "Filtered on Golf Equipment: total cost $287.37K, by retailer type and city, with revenue and profit by year. Profit is revenue minus cost; it was revenue times cost before I read the model as text.", "Filtered on Outdoor Protection: total cost $73.29K, by retailer type and city, with revenue and profit by year."],
+            fr: ["Filtré sur Camping Equipment : coût total 2,22 M$, par type de revendeur et par ville, avec le chiffre d'affaires et le profit par année.", "Filtré sur Mountaineering Equipment : coût total 726,86 k$, par type de revendeur et par ville, avec le chiffre d'affaires et le profit par année.", "Filtré sur Personal Accessories : coût total 443,93 k$, par type de revendeur et par ville, avec le chiffre d'affaires et le profit par année.", "Filtré sur Golf Equipment : coût total 287,37 k$, par type de revendeur et par ville, avec le chiffre d'affaires et le profit par année. Le profit est le chiffre d'affaires moins le coût ; c'était une multiplication avant que je lise le modèle en texte.", "Filtré sur Outdoor Protection : coût total 73,29 k$, par type de revendeur et par ville, avec le chiffre d'affaires et le profit par année."],
+            ar: ["مصفّى على Camping Equipment: التكلفة الإجمالية 2.22 مليون دولار، حسب نوع البائع والمدينة، مع رقم المعاملات والربح حسب السنة.", "مصفّى على Mountaineering Equipment: التكلفة الإجمالية 726.86 ألف دولار، حسب نوع البائع والمدينة، مع رقم المعاملات والربح حسب السنة.", "مصفّى على Personal Accessories: التكلفة الإجمالية 443.93 ألف دولار، حسب نوع البائع والمدينة، مع رقم المعاملات والربح حسب السنة.", "مصفّى على Golf Equipment: التكلفة الإجمالية 287.37 ألف دولار، حسب نوع البائع والمدينة، مع رقم المعاملات والربح حسب السنة. الربح هو رقم المعاملات ناقص التكلفة؛ وكان ضربًا قبل أن أقرأ النموذج كنص.", "مصفّى على Outdoor Protection: التكلفة الإجمالية 73.29 ألف دولار، حسب نوع البائع والمدينة، مع رقم المعاملات والربح حسب السنة."] },
+    en: { t: "Retail sales Power BI dashboard", d: "A one-page Power BI report (ESPRIM BI course, course dataset), versioned as a Power BI Project so measures and visuals are readable in Git. Reading the model as text revealed that Profit multiplied revenue by cost instead of subtracting it; I fixed it and documented the fix." },
+    fr: { t: "Tableau de bord Power BI des ventes", d: "Un rapport Power BI d'une page (cours de BI à l'ESPRIM, données du cours), versionné comme projet Power BI pour que les mesures et les visuels se lisent dans Git. En lisant le modèle en texte, j'ai découvert que le profit multipliait le chiffre d'affaires par le coût au lieu de les soustraire ; je l'ai corrigé et documenté." },
+    ar: { t: "لوحة Power BI لمبيعات التجزئة", d: "تقرير Power BI من صفحة واحدة (درس ذكاء الأعمال في ESPRIM، بيانات الدرس)، محفوظ كمشروع Power BI حتى تُقرأ المقاييس والمرئيات في Git. عند قراءة النموذج كنص اكتشفت أن الربح كان يضرب رقم المعاملات في التكلفة بدل طرحها؛ فأصلحته ووثّقت الإصلاح." } }
 ];
 
 const METHOD = {
@@ -1211,6 +1221,9 @@ document.addEventListener("click", e => {
   const split = e.target.closest("[data-split]"); if (split) setSplit(split.closest(".viz"), split.dataset.split);
   const w = e.target.closest("[data-w]"); if (w && w.closest('[data-viz="weights"]')) setWeight(w.closest(".viz"), +w.dataset.w);
   const a = e.target.closest("[data-api]"); if (a) showApi(a.closest(".viz"), +a.dataset.api);
+  const mo = e.target.closest("[data-more]");
+  if (mo) { const m = MORE.find(x => x.id === mo.dataset.more);             // "More work" screenshots
+    openLightbox({ title: m[lang].t, shots: m.shots, en: { caps: m.caps.en }, fr: { caps: m.caps.fr }, ar: { caps: m.caps.ar } }, 0, mo); }
   const pb = e.target.closest("[data-probe]");
   if (pb) { const box = pb.closest(".viz"), k = +pb.dataset.probe;               // MindCare: probes <-> challenge set
     $$("[data-probe]", box).forEach((b, j) => b.setAttribute("aria-pressed", j === k));
@@ -1267,6 +1280,7 @@ function renderMore() {
   $("#small-work").innerHTML = MORE.map(m => `<article class="reveal">
     <h3>${esc(m[lang].t)}${m.status ? `<span class="status">${esc(t("more.progress"))}</span>` : ""}</h3>
     <p>${esc(m[lang].d)}</p>
+    ${m.shots ? `<button class="thumb" type="button" data-more="${m.id}" aria-label="${esc(t("ui.shots"))}: ${esc(m[lang].t)}"><img src="${IMG + m.shots[0]}.webp?v=${IMG_VER}" alt="" loading="lazy" width="640" height="360"><span>${m.shots.length} ${esc(t("ui.shots"))}</span></button>` : ""}
     ${m.repo ? `<div class="links"><a href="${m.repo}">${esc(t("more.code"))}</a></div>` : ""}</article>`).join("");
 }
 function renderMethod() {
