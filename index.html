@@ -506,7 +506,7 @@ dialog::backdrop { background: rgb(8 14 18 / .75); }
 <script>
 document.documentElement.classList.add("js");
 const EMAIL = "AbdElmouhib.Souri@esprim.tn";
-const IMG = "assets/img/"; const IMG_VER = "6"; // bump to force browsers to reload changed screenshots
+const IMG = "assets/img/"; const IMG_VER = "7"; // bump to force browsers to reload changed screenshots
 
 /* ═══ Interface text in three languages ═══════════════════════════════════
    Only measured numbers appear here. To edit a sentence, change it in all three. */
@@ -812,7 +812,7 @@ const CASES = [
   id: "newscheck", title: "NewsCheck TN", topics: ["nlp"], viz: "recall", status: true,
   stack: "Python 3.10 · regular expressions · scikit-learn (offline training) · weights in JSON · FastAPI · pytest · ruff",
   tools: ["Python", "FastAPI", "pytest", "scikit-learn", "Language identification", "Character n-grams", "Arabic text normalization", "Multilingual NLP"],
-  shots: ["newscheck-01", "newscheck-02", "newscheck-03", "newscheck-04", "newscheck-05", "newscheck-06"],
+  shots: ["newscheck-a1", "newscheck-a2"],
   en: {
     meta: "Team project at ESPRIM, topic proposed by the startup Tradrly, 2026. My part: work package A2 (normalization, language identification, noise detection).",
     pitch: "A fact-checking pipeline for news and comments in French, Modern Standard Arabic and Tunisian dialect, written in Arabic script or in Arabizi (Latin letters and digits). My stage is the first one: it decides the language and script of every text before the other stages run.",
@@ -821,8 +821,9 @@ const CASES = [
             "A character-level perplexity model, one per script, flags noisy texts instead of deleting them.",
             "Macro-F1 as the metric, because about 77% of the development set is Tunisian and accuracy would hide the small classes. Normalization never changes numbers (29 of 29 kept)."],
     result: "<strong>Frozen test set (34 sentences):</strong> 0.94 macro-F1 vs 0.50 for a script-only baseline, and 0 of 680 Arabic news sentences wrongly labelled as Tunisian.",
-    limit: "On real comments, Tunisian in Arabic script is found only 53% of the time (precision 1.00): a word outside the lexicon is read as standard Arabic. The test set is small. Next step: a learned model.",
-    caps: ["My stage: raw text to a normalized document with its language and script, served by FastAPI.", "Design decisions: each method next to the alternative I discarded.", "Language identification: 0.94 macro-F1 on the test set, 0.63 on Arabic-script development data.", "The perplexity noise detector, measured against chance.", "Team results by language and script (team work; my part is the A2 row).", "Team error analysis by category, with correction paths (team work; my part is A2)."]
+    limit: "On real comments, Tunisian in Arabic script is found only 53% of the time (precision 1.00): a word outside the lexicon is read as standard Arabic. The test set is small (34 sentences, only 5 in Tunisian Arabic script). Next step, with its protocol committed before any data was drawn: fine-tune MARBERTv2 behind the lexicon, judged on a new frozen test of 300 doubly annotated comments (success: recall ≥ 0.70 at precision ≥ 0.90).",
+    caps: ["My stage: every text enters the pipeline through one typed function (normalize, script, language), and each design choice is shown next to the alternative it replaced.",
+           "Language identification: 0.94 macro-F1 on the frozen test set (34 sentences) against 0.50 for a script-only baseline, and the limit I measured on real comments."]
   },
   fr: {
     meta: "Projet d'équipe à l'ESPRIM, sujet proposé par la startup Tradrly, 2026. Ma partie : le lot A2 (normalisation, identification de la langue, détection du bruit).",
@@ -832,8 +833,9 @@ const CASES = [
             "Un modèle de perplexité sur les caractères, un par écriture, signale les textes bruités au lieu de les supprimer.",
             "Le macro-F1 comme métrique, car environ 77 % du jeu de développement est en tunisien et l'exactitude cacherait les petites classes. La normalisation ne modifie jamais les nombres (29 sur 29 conservés)."],
     result: "<strong>Jeu de test gelé (34 phrases) :</strong> macro-F1 de 0,94 contre 0,50 pour une baseline fondée sur l'alphabet seul, et 0 phrase de presse arabe sur 680 classée à tort comme tunisienne.",
-    limit: "Sur de vrais commentaires, le tunisien en lettres arabes n'est trouvé que dans 53 % des cas (précision 1,00) : un mot absent du lexique est lu comme de l'arabe standard. Le jeu de test est petit. Prochaine étape : un modèle appris.",
-    caps: ["Mon étape : du texte brut à un document normalisé avec sa langue et son écriture, servi par FastAPI.", "Les choix de conception : chaque méthode face à l'alternative écartée.", "Identification de la langue : macro-F1 de 0,94 sur le test, 0,63 sur les données de développement en lettres arabes.", "Le détecteur de bruit par perplexité, mesuré contre le hasard.", "Résultats de l'équipe par langue et écriture (travail d'équipe ; ma partie est la ligne A2).", "Analyse d'erreurs de l'équipe par catégorie, avec les pistes de correction (travail d'équipe ; ma partie est A2)."]
+    limit: "Sur de vrais commentaires, le tunisien en lettres arabes n'est trouvé que dans 53 % des cas (précision 1,00) : un mot absent du lexique est lu comme de l'arabe standard. Le jeu de test est petit (34 phrases, dont 5 seulement en tunisien en lettres arabes). Prochaine étape, avec un protocole commité avant le tirage des données : affiner MARBERTv2 derrière le lexique, jugé sur un nouveau test gelé de 300 commentaires annotés par deux personnes (réussite : rappel ≥ 0,70 avec une précision ≥ 0,90).",
+    caps: ["Mon étape : chaque texte entre dans le pipeline par une seule fonction typée (normalisation, écriture, langue), et chaque choix de conception est montré face à l'alternative écartée.",
+           "Identification de la langue : macro-F1 de 0,94 sur le test gelé (34 phrases) contre 0,50 pour une baseline fondée sur l'alphabet seul, et la limite mesurée sur de vrais commentaires."]
   },
   ar: {
     meta: "مشروع جماعي في ESPRIM، اقترحت موضوعه الشركة الناشئة Tradrly، 2026. جزئي: حزمة العمل A2 (التطبيع، وتحديد اللغة، وكشف الضجيج).",
@@ -843,8 +845,9 @@ const CASES = [
             "نموذج حيرة (perplexity) على مستوى الحروف، واحد لكل طريقة كتابة، ينبّه إلى النصوص المشوَّشة بدل حذفها.",
             "مقياس macro-F1، لأن نحو 77% من بيانات التطوير تونسية والدقة الإجمالية كانت ستخفي الفئات الصغيرة. التطبيع لا يغيّر الأرقام أبدًا (29 من 29)."],
     result: "<strong>مجموعة اختبار مجمَّدة (34 جملة):</strong> macro-F1 بلغ 0.94 مقابل 0.50 لخط أساس يعتمد على الحروف فقط، ولم تُصنَّف أي جملة من 680 جملة صحفية عربية خطأً على أنها تونسية.",
-    limit: "في التعليقات الحقيقية، لا تُكتشف التونسية بالحروف العربية إلا في 53% من الحالات (بدقة 1.00): الكلمة الغائبة عن المعجم تُقرأ كعربية فصحى. مجموعة الاختبار صغيرة. الخطوة التالية: نموذج متعلَّم.",
-    caps: ["مرحلتي: من النص الخام إلى وثيقة مطبَّعة مع لغتها وطريقة كتابتها، عبر FastAPI.", "قرارات التصميم: كل طريقة مقابل البديل الذي استبعدته.", "تحديد اللغة: macro-F1 بلغ 0.94 على الاختبار و0.63 على بيانات التطوير بالحروف العربية.", "كاشف الضجيج بالحيرة، مقاسًا مقابل الصدفة.", "نتائج الفريق حسب اللغة وطريقة الكتابة (عمل جماعي، جزئي هو سطر A2).", "تحليل أخطاء الفريق حسب الفئة مع سبل التصحيح (عمل جماعي، جزئي هو A2)."]
+    limit: "في التعليقات الحقيقية، لا تُكتشف التونسية بالحروف العربية إلا في 53% من الحالات (بدقة 1.00): الكلمة الغائبة عن المعجم تُقرأ كعربية فصحى. مجموعة الاختبار صغيرة (34 جملة، منها 5 فقط بالتونسية بالحروف العربية). الخطوة التالية، ببروتوكول التُزم به قبل سحب البيانات: ضبط MARBERTv2 خلف المعجم، ويُحكم عليه باختبار مجمَّد جديد من 300 تعليق يصنّفها شخصان (النجاح: استدعاء ≥ 0.70 بدقة ≥ 0.90).",
+    caps: ["مرحلتي: يدخل كل نص المسار عبر دالة واحدة محدَّدة النوع (التطبيع، طريقة الكتابة، اللغة)، ويُعرض كل قرار تصميم مقابل البديل الذي استبعدته.",
+           "تحديد اللغة: macro-F1 بلغ 0.94 على مجموعة الاختبار المجمَّدة (34 جملة) مقابل 0.50 لخط أساس يعتمد على الحروف فقط، مع الحدّ الذي قسته على تعليقات حقيقية."]
   }
 },{
   id: "9anoun", title: "9anoun AI", topics: ["rag", "nlp"], viz: "api", status: true,
