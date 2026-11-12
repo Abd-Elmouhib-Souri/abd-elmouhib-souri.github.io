@@ -1,126 +1,112 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Abd Elmouhib Souri — AI engineering student</title>
-<meta name="description" content="Final-year Data Science & AI engineering student (ESPRIM, Tunisia) building trustworthy LLM, RAG and medical AI systems, with measured results. Seeking a 4–6 month research internship from February 2027.">
+<meta name="description" content="Abd Elmouhib Souri — final-year Data Science & AI engineering student (ESPRIM, Tunisia). Machine learning, NLP, LLM/RAG, AI agents and computer vision, with measured results. Available for a 4–6 month internship (PFE) from February 2027.">
+<meta name="keywords" content="machine learning, deep learning, NLP, LLM, RAG, AI agents, computer vision, PyTorch, LangGraph, FastAPI, internship, PFE, Tunisia">
+<link rel="canonical" href="https://abd-elmouhib-souri.github.io/">
 <meta name="author" content="Abd Elmouhib Souri">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Abd Elmouhib Souri — AI engineering student">
-<meta property="og:description" content="Trustworthy RAG, medical AI and LLM agents, with measured results. Seeking a research internship from February 2027.">
+<meta property="og:description" content="Trustworthy RAG, medical AI, LLM agents and computer vision, with measured results. Available for a 4–6 month internship from February 2027.">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://abd-elmouhib-souri.github.io/assets/img/og.png">
 <meta property="og:url" content="https://abd-elmouhib-souri.github.io/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Abd Elmouhib Souri","jobTitle":"Data Science & AI engineering student","url":"https://abd-elmouhib-souri.github.io/","email":"mailto:AbdElmouhib.Souri@esprim.tn","address":{"@type":"PostalAddress","addressLocality":"Monastir","addressCountry":"TN"},"alumniOf":{"@type":"CollegeOrUniversity","name":"ESPRIM, Monastir, Tunisia"},"knowsLanguage":["ar","fr","en"],"knowsAbout":["Machine learning","Deep learning","Natural language processing","Large language models","Retrieval-augmented generation","AI agents","Computer vision","Object detection","OCR","Python","PyTorch","FastAPI","SQL","Power BI"],"sameAs":["https://github.com/Abd-Elmouhib-Souri","https://www.linkedin.com/in/abd-elmouhib-souri/"]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap">
 <script>
-  // Theme and language before first paint (no flash). Storage may be blocked: fall back silently.
+  // Apply the saved theme before paint (no flash). Storage can be blocked: fall back silently.
   (function () {
-    var d = document.documentElement, t = null, l = null;
-    try { t = localStorage.getItem("theme"); l = localStorage.getItem("lang"); } catch (e) {}
-    var q = new URLSearchParams(location.search).get("lang");          // ?lang=fr shareable links
-    if (q) l = q;
-    if (t === "dark" || t === "light") d.dataset.theme = t;
-    if (l === "fr" || l === "ar" || l === "en") { d.lang = l; d.dir = l === "ar" ? "rtl" : "ltr"; }
+    try { var t = localStorage.getItem("theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch (e) {}
   })();
 </script>
 <style>
 /* ── Tokens ─────────────────────────────────────────────────────────────── */
 :root {
-  --paper: #f4f6f7; --surface: #ffffff; --ink: #13212b; --ink-2: #4b5b67; --rule: #d7dee3;
-  --accent: #0d6b66; --accent-soft: #dcecea; --strike: #b3261e; --warn: #8a5a00; --warn-soft: #f6ead2;
+  --paper: #f4f6f7;      /* cool page background */
+  --surface: #ffffff;    /* raised areas (dialog, figures) */
+  --ink: #13212b;        /* main text */
+  --ink-2: #4b5b67;      /* secondary text */
+  --rule: #d7dee3;       /* hairlines */
+  --accent: #0d6b66;     /* deep clinical teal: links, measured numbers */
+  --accent-soft: #dcecea;
+  --strike: #b3261e;     /* struck (corrected) claims */
   --display: "Schibsted Grotesk", "Segoe UI", system-ui, sans-serif;
   --prose: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --wrap: 1120px; --gutter: clamp(16px, 4vw, 40px);
+  --wrap: 1120px;
+  --gutter: clamp(16px, 4vw, 40px);
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #0f171d; --surface: #16212a; --ink: #e5ecf0; --ink-2: #9aabb6; --rule: #263540;
-    --accent: #5ec6bc; --accent-soft: #173431; --strike: #f08a82; --warn: #e8b766; --warn-soft: #3a2e17; color-scheme: dark;
+    --paper: #0f171d; --surface: #16212a; --ink: #e5ecf0; --ink-2: #9aabb6;
+    --rule: #263540; --accent: #5ec6bc; --accent-soft: #173431; --strike: #f08a82;
+    color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --paper: #0f171d; --surface: #16212a; --ink: #e5ecf0; --ink-2: #9aabb6; --rule: #263540;
-  --accent: #5ec6bc; --accent-soft: #173431; --strike: #f08a82; --warn: #e8b766; --warn-soft: #3a2e17; color-scheme: dark;
+  --paper: #0f171d; --surface: #16212a; --ink: #e5ecf0; --ink-2: #9aabb6;
+  --rule: #263540; --accent: #5ec6bc; --accent-soft: #173431; --strike: #f08a82;
+  color-scheme: dark;
 }
-/* Arabic: dedicated families, slightly larger and looser */
-:root[lang="ar"] { --display: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif; --prose: "Noto Naskh Arabic", "Traditional Arabic", serif; }
-:root[lang="ar"] body { font-size: 1.1rem; line-height: 1.85; }
-:root[lang="ar"] h1, :root[lang="ar"] h2, :root[lang="ar"] h3 { letter-spacing: 0; line-height: 1.35; }
 
 /* ── Base ───────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1.0625rem/1.65 var(--prose); }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 400 1.0625rem/1.65 var(--prose);
+  font-variant-numeric: lining-nums;
+}
 img { max-width: 100%; display: block; }
 a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
 a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0; text-wrap: balance; letter-spacing: -0.015em; }
 p { margin: 0; text-wrap: pretty; }
-button { font: inherit; color: inherit; }
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
-.skip { position: absolute; inset-inline-start: -999px; top: 8px; background: var(--ink); color: var(--paper); padding: 8px 12px; z-index: 50; }
-.skip:focus { inset-inline-start: 8px; }
-.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.ui, nav, button, .chip, .meta, .btn, .stack, .when, .status, .badge, .ledger, .viz, label, input, textarea, select { font-family: var(--display); }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: var(--paper); padding: 8px 12px; z-index: 20; }
+.skip:focus { left: 8px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 
-/* Scroll progress */
-.progress { position: fixed; inset-inline-start: 0; top: 0; height: 3px; width: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0); z-index: 30; }
-[dir="rtl"] .progress { transform-origin: right; }
+/* UI text uses the display family */
+.ui, nav, button, .chip, .meta, .ledger, .btn, .stack, .timeline .when, .status { font-family: var(--display); }
 
 /* ── Header ─────────────────────────────────────────────────────────────── */
-header.top { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
-.top .wrap { display: flex; align-items: center; gap: 12px; min-height: 62px; }
-.brand { font: 700 1rem var(--display); color: var(--ink); text-decoration: none; margin-inline-end: auto; white-space: nowrap; }
-nav.main ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
-nav.main a { color: var(--ink-2); text-decoration: none; font-size: .95rem; font-weight: 500; padding: 6px 0; border-bottom: 2px solid transparent; }
-nav.main a:hover { color: var(--ink); }
-nav.main a[aria-current="true"] { color: var(--ink); border-bottom-color: var(--accent); }
-.icon-btn { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--rule); background: transparent; border-radius: 50%; cursor: pointer; flex: 0 0 auto; }
+header.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
+.top .wrap { display: flex; align-items: center; gap: 16px; min-height: 60px; }
+.brand { font: 700 1rem var(--display); color: var(--ink); text-decoration: none; margin-right: auto; }
+nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+nav a { color: var(--ink-2); text-decoration: none; font-size: .95rem; font-weight: 500; }
+nav a:hover { color: var(--ink); }
+.icon-btn { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--rule); background: transparent; color: var(--ink); border-radius: 50%; cursor: pointer; }
 .icon-btn svg { width: 18px; height: 18px; }
-.lang { display: flex; border: 1px solid var(--rule); border-radius: 999px; overflow: hidden; }
-.lang button { border: 0; background: transparent; padding: 7px 10px; font-size: .85rem; font-weight: 600; cursor: pointer; color: var(--ink-2); }
-.lang button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
-.menu-btn { display: none; }
-@media (max-width: 900px) {
-  .menu-btn { display: grid; }
-  nav.main { position: fixed; inset: 62px 0 auto 0; background: var(--paper); border-bottom: 1px solid var(--rule); display: none; }
-  nav.main.open { display: block; }
-  nav.main ul { flex-direction: column; gap: 0; padding: 8px var(--gutter) 16px; }
-  nav.main a { display: block; padding: 12px 0; font-size: 1.05rem; border-bottom: 1px solid var(--rule); }
-  nav.main a[aria-current="true"] { border-bottom-color: var(--rule); color: var(--accent); }
-}
-@media (max-width: 420px) { .brand { font-size: .92rem; } .lang button { padding: 6px 8px; } }
+@media (max-width: 720px) { nav ul { display: none; } }
 
 /* ── Buttons ────────────────────────────────────────────────────────────── */
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 6px; font-weight: 600; font-size: .95rem; text-decoration: none; border: 1px solid var(--ink); color: var(--ink); background: transparent; cursor: pointer; }
 .btn.primary { background: var(--ink); color: var(--paper); }
 .btn:hover { text-decoration: none; filter: brightness(1.08); }
-.btn.sm { padding: 7px 12px; font-size: .88rem; }
+.btn svg { width: 16px; height: 16px; }
 
 /* ── Hero ───────────────────────────────────────────────────────────────── */
-.hero { padding: clamp(36px, 7vw, 80px) 0 clamp(32px, 5vw, 56px); }
-.hero .grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
-.badge { display: inline-flex; align-items: center; gap: 10px; font-size: .9rem; font-weight: 600; padding: 6px 14px 6px 10px; border: 1px solid var(--rule); border-radius: 999px; background: var(--surface); }
-.badge .dot { width: 9px; height: 9px; border-radius: 50%; background: #1f9d55; box-shadow: 0 0 0 0 rgb(31 157 85 / .5); }
-@media (prefers-reduced-motion: no-preference) { .badge .dot { animation: pulse 2.4s ease-out infinite; } }
-@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgb(31 157 85 / .45); } 70% { box-shadow: 0 0 0 9px rgb(31 157 85 / 0); } 100% { box-shadow: 0 0 0 0 rgb(31 157 85 / 0); } }
-.hero .who { font: 600 1.02rem var(--display); color: var(--ink-2); margin: 20px 0 14px; }
-.hero h1 { font-size: clamp(2.4rem, 6.2vw, 4.5rem); font-weight: 800; letter-spacing: -0.03em; max-width: 14ch; }
-.focus { margin-top: 20px; font: 500 1.12rem var(--display); color: var(--ink-2); min-height: 3.2em; }
-.focus .word { color: var(--accent); font-weight: 700; }
-.focus .caret { display: inline-block; width: 2px; height: 1.05em; background: var(--accent); vertical-align: -0.15em; margin-inline-start: 2px; }
-@media (prefers-reduced-motion: no-preference) { .focus .caret { animation: blink 1s steps(1) infinite; } }
-@keyframes blink { 50% { opacity: 0; } }
-.hero .interests { margin-top: 14px; font-size: .95rem; color: var(--ink-2); max-width: 60ch; }
-.interests strong { color: var(--ink); font-family: var(--display); margin-inline-end: 6px; }
-.lede { font-size: 1.15rem; color: var(--ink-2); margin-top: 12px; max-width: 56ch; }
-.hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.hero { padding: clamp(40px, 8vw, 88px) 0 clamp(36px, 6vw, 64px); }
+.hero .grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: end; }
+.hero .who { font: 600 1.05rem var(--display); color: var(--ink-2); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(2.5rem, 6.4vw, 4.6rem); font-weight: 800; letter-spacing: -0.03em; max-width: 13ch; }
+.hero .lede { font-size: 1.2rem; color: var(--ink-2); margin-top: 22px; max-width: 54ch; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.glance { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; padding: 0; list-style: none; }
+.glance li { font: 500 .88rem var(--display); color: var(--ink-2); border: 1px solid var(--rule); border-radius: 999px; padding: 6px 13px; }
+.glance li b { color: var(--ink); font-weight: 600; }
 .portrait { margin: 0; justify-self: end; width: 100%; max-width: 340px; }
 .portrait img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px; }
 .portrait figcaption { font: 500 .85rem var(--display); color: var(--ink-2); margin-top: 10px; }
@@ -130,144 +116,80 @@ nav.main a[aria-current="true"] { color: var(--ink); border-bottom-color: var(--
   .portrait figcaption { display: none; }
 }
 
-/* ── Ledger ─────────────────────────────────────────────────────────────── */
-.ledger { margin-top: clamp(36px, 6vw, 64px); border-top: 2px solid var(--ink); }
-.ledger-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+/* ── Ledger (signature element) ────────────────────────────────────────── */
+.ledger { margin-top: clamp(40px, 7vw, 72px); border-top: 2px solid var(--ink); }
+.ledger-head { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--rule); }
 .ledger-head h2 { font-size: 1.05rem; font-weight: 700; letter-spacing: 0; }
 .ledger-head p { font-size: .9rem; color: var(--ink-2); }
 .row { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr) 7.5rem 8.5rem; gap: 16px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--rule); }
 .row .proj { font-weight: 700; }
 .row .what { color: var(--ink-2); font-size: .98rem; }
 .row .what a { font-weight: 600; }
-.num { font-weight: 800; font-size: clamp(1.6rem, 3.4vw, 2.2rem); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; line-height: 1; justify-self: end; direction: ltr; }
-.num.old { color: var(--strike); position: relative; opacity: .85; }
-.num.old::after { content: ""; position: absolute; left: -4%; right: -4%; top: 52%; height: 3px; background: var(--strike); transform-origin: left; transform: scaleX(var(--sx, 1)); }
-.num.new { color: var(--accent); }
-.num.none { color: var(--ink-2); font-weight: 500; font-size: 1rem; }
+.num { font-weight: 800; font-size: clamp(1.6rem, 3.4vw, 2.2rem); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; line-height: 1; }
+.num.old { color: var(--strike); position: relative; justify-self: end; opacity: .85; }
+.num.old::after { content: ""; position: absolute; left: -4%; right: -4%; top: 52%; height: 3px; background: var(--strike); transform-origin: left; transform: scaleX(var(--strike-x, 1)); }
+.num.new { color: var(--accent); justify-self: end; }
+.num.none { color: var(--ink-2); font-weight: 500; font-size: 1rem; justify-self: end; }
 @media (max-width: 720px) {
   .row { grid-template-columns: 1fr auto auto; grid-template-areas: "proj old new" "what what what"; row-gap: 8px; }
-  .row .proj { grid-area: proj; } .row .what { grid-area: what; } .row .old, .row .none { grid-area: old; } .row .new { grid-area: new; }
+  .row .proj { grid-area: proj; } .row .what { grid-area: what; }
+  .row .old, .row .none { grid-area: old; } .row .new { grid-area: new; }
 }
+/* One orchestrated moment: the strike lines draw, then the measured numbers appear */
 @media (prefers-reduced-motion: no-preference) {
-  .js .ledger .num.old::after { --sx: 0; animation: strike .5s cubic-bezier(.6,0,.2,1) .2s forwards; }
-  .js .ledger .r2 .num.old::after { animation-delay: .55s; }
+  .js .ledger .num.old::after { --strike-x: 0; animation: strike .5s cubic-bezier(.6,0,.2,1) forwards; }
+  .js .ledger .num.new { opacity: 0; animation: arrive .45s ease-out forwards; }
+  .js .ledger .r1 .num.new { animation-delay: .45s; }
+  .js .ledger .r2 .num.old::after { animation-delay: .35s; } .js .ledger .r2 .num.new { animation-delay: .8s; }
+  .js .ledger .r3 .num.new { animation-delay: 1.15s; }
+  .js .ledger .r4 .num.old::after { animation-delay: 1.4s; } .js .ledger .r4 .num.new { animation-delay: 1.85s; }
 }
 @keyframes strike { to { transform: scaleX(1); } }
+@keyframes arrive { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 
 /* ── Sections ───────────────────────────────────────────────────────────── */
 section.block { padding: clamp(48px, 8vw, 96px) 0; border-top: 1px solid var(--rule); }
 .block h2.title { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 800; }
 .block .intro { color: var(--ink-2); margin-top: 12px; max-width: 62ch; font-size: 1.1rem; }
-/* Reveal once on scroll (subtle) */
-@media (prefers-reduced-motion: no-preference) {
-  .js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
-  .js .reveal.in { opacity: 1; transform: none; }
-}
 
-/* Filters */
-.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 8px; align-items: center; }
+/* Filter */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 8px; }
 .chip { border: 1px solid var(--rule); background: transparent; color: var(--ink-2); padding: 7px 14px; border-radius: 999px; font-size: .92rem; font-weight: 500; cursor: pointer; }
 .chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.skill-note { display: none; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 10px; font: 500 .95rem var(--display); color: var(--accent); }
-.skill-note.on { display: flex; }
 
-/* Case studies */
+/* Case studies: rows with a large figure, not identical cards */
 .case { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); padding: clamp(32px, 5vw, 56px) 0; border-bottom: 1px solid var(--rule); align-items: start; }
 .case[hidden] { display: none; }
+.case .shot { margin: 0; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--surface); cursor: zoom-in; }
+.case .demo { margin: 0 0 16px; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--surface); }
+.case .demo video { display: block; width: 100%; height: auto; background: #000; }
+.case .demo figcaption { padding: 10px 14px; font: 500 .88rem var(--display); color: var(--ink-2); }
+.case .shot img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; object-position: top left; }
+.case .shot button { all: unset; display: block; cursor: zoom-in; }
+.case .shot button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .case .meta { color: var(--ink-2); font-size: .9rem; font-weight: 500; }
 .case h3 { font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight: 800; margin: 6px 0 12px; }
 .case .pitch { font-size: 1.1rem; }
 .facts { margin: 20px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-.facts li { padding-inline-start: 18px; position: relative; }
-.facts li::before { content: ""; position: absolute; inset-inline-start: 0; top: .78em; width: 8px; height: 2px; background: var(--accent); }
-.result { margin-top: 20px; padding: 14px 16px; border-inline-start: 3px solid var(--accent); background: var(--accent-soft); }
-.result strong, .limit strong { font-family: var(--display); }
-.limit { margin-top: 16px; }
-.stack { margin-top: 14px; color: var(--ink-2); font-size: .9rem; direction: ltr; text-align: start; }
-[dir="rtl"] .stack { direction: rtl; }
+.facts li { padding-left: 18px; position: relative; }
+.facts li::before { content: ""; position: absolute; left: 0; top: .72em; width: 8px; height: 2px; background: var(--accent); }
+.result { margin-top: 20px; padding: 14px 16px; border-left: 3px solid var(--accent); background: var(--accent-soft); }
+.result strong { font-family: var(--display); }
+.stack { margin-top: 18px; color: var(--ink-2); font-size: .9rem; }
+.limit { font-family: var(--prose); font-size: 1rem; color: var(--ink); }
+.limit strong { font-family: var(--display); }
 .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-@media (min-width: 861px) { .case .media { position: sticky; top: 84px; } }
-@media (max-width: 860px) { .case { grid-template-columns: 1fr; } .case .media { order: 2; } }
+@media (min-width: 861px) { .case .shot { position: sticky; top: 84px; } .case:has(.demo) .shot { position: static; } }
+@media (max-width: 860px) { .case { grid-template-columns: 1fr; } }
 
-/* Inline carousel */
-.carousel { border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--surface); }
-.carousel .track { display: flex; transition: transform .45s cubic-bezier(.4,0,.2,1); touch-action: pan-y; }
-.carousel .slide { flex: 0 0 100%; margin: 0; cursor: zoom-in; }
-.carousel .slide img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: contain; background: var(--paper); }
-.carousel .bar { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-top: 1px solid var(--rule); }
-.carousel .cap { flex: 1; font-size: .95rem; min-height: 2.6em; }
-.carousel .nav { display: flex; gap: 6px; }
-.carousel .dots { display: flex; gap: 6px; justify-content: center; padding: 0 0 10px; }
-.carousel .dots button { width: 8px; height: 8px; padding: 0; border-radius: 50%; border: 0; background: var(--rule); cursor: pointer; }
-.carousel .dots button[aria-current="true"] { background: var(--accent); width: 22px; border-radius: 4px; }
-@media (prefers-reduced-motion: reduce) { .carousel .track { transition: none; } }
-
-/* ── Interactive proofs (one per case) ─────────────────────────────────── */
-.viz { margin-top: 18px; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); padding: 16px; }
-.viz h4 { margin: 0; font: 700 1.02rem var(--display); }
-.viz .sub { color: var(--ink-2); font-size: .88rem; margin-top: 4px; }
-.viz .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-/* MedRAG replay */
-.stages { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 6px; }
-.stages li { display: grid; grid-template-columns: 22px 1fr auto; gap: 10px; align-items: center; font-size: .92rem; color: var(--ink-2); padding: 6px 8px; border-radius: 4px; transition: background .25s, color .25s; }
-.stages .mark { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--rule); }
-.stages li.run { background: var(--accent-soft); color: var(--ink); }
-.stages li.run .mark { border-color: var(--accent); border-top-color: transparent; }
-@media (prefers-reduced-motion: no-preference) { .stages li.run .mark { animation: spin .7s linear infinite; } }
-@keyframes spin { to { transform: rotate(360deg); } }
-.stages li.ok { color: var(--ink); } .stages li.ok .mark { background: var(--accent); border-color: var(--accent); }
-.stages li.stop { color: var(--strike); } .stages li.stop .mark { background: var(--strike); border-color: var(--strike); }
-.stages li.skipped { color: var(--ink-2); text-decoration: line-through; opacity: .7; }
-.stages .tag { font-size: .8rem; font-weight: 600; }
-.output { margin-top: 12px; padding: 12px 14px; border-radius: 4px; font-family: var(--prose); min-height: 3.2em; border-inline-start: 3px solid var(--rule); background: var(--paper); }
-.output.ok { border-color: var(--accent); } .output.stop { border-color: var(--strike); }
-.demo { margin: 0 0 16px; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--surface); }
-.demo video { display: block; width: 100%; height: auto; background: #000; }
-.demo figcaption { padding: 10px 14px; font-size: .88rem; color: var(--ink-2); }
-.bar-fill.grey { background: var(--ink-3, #8a969e); }
-.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
-.tiles div { border: 1px solid var(--rule); border-radius: 4px; padding: 8px 10px; background: var(--paper); }
-.tiles b { display: block; font: 700 1.25rem var(--display); color: var(--accent); font-variant-numeric: tabular-nums; }
-.tiles span { font-size: .78rem; color: var(--ink-2); }
-.output code { display: block; font: .8rem/1.5 ui-monospace, Consolas, monospace; overflow-wrap: anywhere; margin-bottom: 6px; }
-.output .q { font: 600 .85rem var(--display); color: var(--ink-2); display: block; margin-bottom: 4px; }
-/* DataScoop bars */
-.bars { margin-top: 14px; display: grid; gap: 10px; position: relative; }
-.bar-row { display: grid; grid-template-columns: 8.5rem 1fr 3.4rem; gap: 10px; align-items: center; font-size: .88rem; }
-.bar-row .name { font-weight: 600; } .bar-row .name small { display: block; font-weight: 500; color: var(--ink-2); font-size: .78rem; }
-.bar-track { position: relative; height: 14px; background: var(--paper); border-radius: 3px; }
-.bar-fill { position: absolute; inset-block: 0; inset-inline-start: 0; width: 0; border-radius: 3px; background: var(--accent); transition: width .7s cubic-bezier(.4,0,.2,1); }
-.bar-fill.off { background: var(--ink-2); opacity: .55; }
-.bar-ci { position: absolute; top: -3px; bottom: -3px; border-inline: 2px solid var(--ink); opacity: 0; transition: opacity .3s; }
-.bar-ci.on { opacity: .8; }
-.chance { position: absolute; top: -4px; bottom: -4px; width: 0; border-inline-start: 2px dashed var(--strike); }
-.bar-val { font-weight: 700; font-variant-numeric: tabular-nums; text-align: end; direction: ltr; }
-.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px; font-size: .8rem; color: var(--ink-2); }
-.legend i { display: inline-block; width: 14px; height: 0; border-top: 2px dashed var(--strike); vertical-align: middle; margin-inline-end: 6px; }
-.legend b { display: inline-block; width: 10px; height: 10px; border-inline: 2px solid var(--ink); vertical-align: middle; margin-inline-end: 6px; }
-@media (prefers-reduced-motion: reduce) { .bar-fill, .bar-ci { transition: none; } }
-/* ForgeAI weights */
-.weights { display: flex; height: 26px; border-radius: 4px; overflow: hidden; margin-top: 14px; }
-.weights button { border: 0; padding: 0; cursor: pointer; background: var(--accent); opacity: .35; border-inline-end: 2px solid var(--surface); }
-.weights button:nth-child(odd) { opacity: .55; }
-.weights button[aria-pressed="true"] { opacity: 1; }
-.wlist { list-style: none; margin: 10px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 18px; font-size: .86rem; }
-.wlist li { display: flex; justify-content: space-between; gap: 8px; padding: 3px 4px; border-radius: 3px; }
-.wlist li.on { background: var(--accent-soft); font-weight: 600; }
-.wlist span:last-child { font-variant-numeric: tabular-nums; direction: ltr; }
-@media (max-width: 480px) { .wlist { grid-template-columns: 1fr; } .bar-row { grid-template-columns: 6.8rem 1fr 3rem; } }
-
-/* More work */
+/* In progress / smaller work */
 .small-work { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0 40px; margin-top: 28px; }
 .small-work article { padding: 20px 0; border-top: 1px solid var(--rule); }
 .small-work h3 { font-size: 1.2rem; font-weight: 700; }
-.small-work p { color: var(--ink-2); margin-top: 6px; }
-.small-work .thumb { display: block; position: relative; margin-top: 14px; padding: 0; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--surface); cursor: zoom-in; width: 100%; }
-.small-work .thumb img { display: block; width: 100%; height: 180px; object-fit: cover; object-position: top left; }
-.small-work .thumb span { position: absolute; inset-inline-end: 8px; bottom: 8px; background: rgba(19,33,43,.85); color: #fff; font-size: .8rem; padding: 3px 8px; border-radius: 4px; }
-.small-work .thumb:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.status { display: inline-block; font-size: .8rem; font-weight: 600; padding: 2px 9px; border-radius: 999px; background: var(--warn-soft); color: var(--warn); margin-inline-start: 8px; vertical-align: 3px; }
-.small-work .links { margin-top: 10px; } .small-work .links a { font: 600 .92rem var(--display); }
+.small-work p { color: var(--ink-2); margin-top: 6px; font-size: 1rem; }
+.status { display: inline-block; font-size: .8rem; font-weight: 600; padding: 2px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); margin-left: 6px; vertical-align: 3px; }
+.small-work .links { margin-top: 10px; }
+.small-work .links a { font: 600 .92rem var(--display); }
 
 /* Method */
 .method { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(24px, 5vw, 64px); margin-top: 28px; }
@@ -276,1148 +198,529 @@ section.block { padding: clamp(48px, 8vw, 96px) 0; border-top: 1px solid var(--r
 .method p { margin-top: 8px; color: var(--ink-2); }
 @media (max-width: 720px) { .method { grid-template-columns: 1fr; } }
 
-/* Timeline: the line fills as you scroll */
-.timeline { list-style: none; margin: 28px 0 0; padding: 0; position: relative; }
-.timeline::before { content: ""; position: absolute; inset-inline-start: calc(10rem + 9px); top: 0; bottom: 0; width: 2px; background: var(--rule); }
-.timeline .fill { position: absolute; inset-inline-start: calc(10rem + 9px); top: 0; width: 2px; height: 0; background: var(--accent); }
-.timeline li { display: grid; grid-template-columns: 10rem 20px minmax(0, 1fr); gap: 0 20px; padding: 20px 0; position: relative; }
-.timeline .when { color: var(--ink-2); font-weight: 600; font-size: .95rem; text-align: end; padding-top: 2px; }
-.timeline .pin { width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--accent); margin: 6px auto 0; position: relative; z-index: 1; }
+/* Timeline (a real sequence) */
+.timeline { list-style: none; margin: 28px 0 0; padding: 0; }
+.timeline li { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--rule); }
+.timeline .when { color: var(--ink-2); font-weight: 600; font-size: .95rem; }
 .timeline h3 { font-size: 1.2rem; font-weight: 700; }
 .timeline .org { color: var(--ink-2); font-family: var(--display); font-weight: 500; margin-top: 2px; }
-.timeline p.desc { margin-top: 8px; }
-@media (max-width: 640px) {
-  .timeline::before, .timeline .fill { inset-inline-start: 5px; }
-  .timeline li { grid-template-columns: 12px minmax(0, 1fr); gap: 4px 16px; }
-  .timeline .when { grid-column: 2; text-align: start; order: -1; }
-  .timeline .pin { grid-row: 1 / span 2; grid-column: 1; margin-top: 8px; }
-}
+.timeline p { margin-top: 8px; }
+@media (max-width: 640px) { .timeline li { grid-template-columns: 1fr; gap: 6px; } }
 
-/* Skills: each tool filters the case studies */
-.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 26px 40px; margin-top: 28px; }
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px 40px; margin-top: 28px; }
 .skills h3 { font-size: 1.05rem; font-weight: 700; }
-.skills .tools { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-.skills .tools button { border: 1px solid var(--rule); background: var(--surface); border-radius: 4px; padding: 4px 9px; font-size: .88rem; cursor: pointer; }
-.skills .tools button:hover { border-color: var(--accent); color: var(--accent); }
-.skills .tools span { border: 1px dashed var(--rule); border-radius: 4px; padding: 4px 9px; font-size: .88rem; color: var(--ink-2); font-family: var(--display); }
+.skills p { color: var(--ink-2); margin-top: 6px; font-size: 1rem; }
 
 /* Contact */
-.contact .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: start; }
-.contact .big { font: 800 clamp(1.1rem, 2.4vw, 1.7rem)/1.25 var(--display); overflow-wrap: anywhere; margin-top: 22px; direction: ltr; text-align: start; }
-.contact dl { margin: 22px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 10px 20px; font-family: var(--display); }
-.contact dt { color: var(--ink-2); font-weight: 500; } .contact dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
-form.mail { display: grid; gap: 14px; padding: 20px; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); }
-form.mail .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-form.mail label { display: grid; gap: 6px; font-size: .9rem; font-weight: 600; }
-form.mail input, form.mail textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); font-size: 1rem; font-family: var(--prose); }
-form.mail textarea { min-height: 130px; resize: vertical; }
-form.mail .err { color: var(--strike); font-size: .85rem; font-weight: 500; min-height: 1.2em; }
-form.mail .hint { color: var(--ink-2); font-size: .85rem; }
-.copy-note { font: 500 .9rem var(--display); color: var(--accent); min-height: 1.4em; margin-top: 8px; }
-@media (max-width: 760px) { .contact .grid { grid-template-columns: 1fr; } form.mail .two { grid-template-columns: 1fr; } }
+.contact .grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: start; }
+.contact .big { font: 800 clamp(1.15rem, 2.6vw, 1.9rem)/1.2 var(--display); letter-spacing: -0.01em; overflow-wrap: anywhere; }
+.contact dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 10px 20px; font-family: var(--display); }
+.contact dt { color: var(--ink-2); font-weight: 500; }
+.contact dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+.copy-note { font: 500 .9rem var(--display); color: var(--accent); min-height: 1.4em; margin-top: 10px; }
+@media (max-width: 760px) { .contact .grid { grid-template-columns: 1fr; } }
 footer { border-top: 1px solid var(--rule); padding: 28px 0 40px; color: var(--ink-2); font: 500 .9rem var(--display); }
 
-/* Lightbox */
+/* ── Case-study dialog with gallery ─────────────────────────────────────── */
 dialog { width: min(1100px, calc(100vw - 24px)); max-height: calc(100vh - 24px); padding: 0; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); color: var(--ink); }
-dialog::backdrop { background: rgb(8 14 18 / .75); }
+dialog::backdrop { background: rgb(8 14 18 / .72); }
 .dlg-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--rule); position: sticky; top: 0; background: var(--surface); z-index: 1; }
 .dlg-head h2 { font-size: 1.15rem; }
 .dlg-body { padding: 18px; }
 .stage { margin: 0; }
 .stage img { width: 100%; max-height: 66vh; object-fit: contain; background: var(--paper); border: 1px solid var(--rule); border-radius: 4px; }
 .stage figcaption { margin-top: 12px; font-size: 1.02rem; }
-.pager { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 14px; }
-.pager .count { color: var(--ink-2); font: 500 .92rem var(--display); }
+.pager { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 14px; font-family: var(--display); }
+.pager .count { color: var(--ink-2); font-size: .92rem; font-variant-numeric: tabular-nums; }
+.thumbs { display: flex; gap: 8px; overflow-x: auto; margin-top: 14px; padding-bottom: 4px; }
+.thumbs button { flex: 0 0 auto; width: 92px; height: 56px; padding: 0; border: 2px solid transparent; border-radius: 4px; overflow: hidden; background: var(--paper); cursor: pointer; }
+.thumbs button[aria-current="true"] { border-color: var(--accent); }
+.thumbs img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-@media print { header.top, .filters, .links, dialog, .progress, form.mail, .viz .controls { display: none !important; } }
+@media print { header.top, .filters, .links, dialog { display: none !important; } section.block { break-inside: avoid; } }
 </style>
 </head>
 <body>
-<div class="progress" aria-hidden="true"></div>
-<a class="skip" href="#main" data-t="skip">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top">Abd Elmouhib Souri</a>
-    <nav class="main" id="nav" aria-label="Main">
+    <nav aria-label="Main">
       <ul>
-        <li><a href="#work" data-t="nav.work">Work</a></li>
-        <li><a href="#method" data-t="nav.method">How I work</a></li>
-        <li><a href="#experience" data-t="nav.exp">Experience</a></li>
-        <li><a href="#skills" data-t="nav.skills">Skills</a></li>
-        <li><a href="#contact" data-t="nav.contact">Contact</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#method">How I work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <div class="lang" role="group" aria-label="Language">
-      <button type="button" data-lang="en" lang="en">EN</button>
-      <button type="button" data-lang="fr" lang="fr">FR</button>
-      <button type="button" data-lang="ar" lang="ar">ع</button>
-    </div>
-    <button class="icon-btn" id="theme" type="button" aria-label="Switch theme">
+    <button class="icon-btn" id="theme" type="button" aria-label="Switch to dark theme">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
-    </button>
-    <button class="icon-btn menu-btn" id="menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
   </div>
 </header>
 
 <main id="main">
+  <!-- ── Hero ─────────────────────────────────────────────────────────── -->
   <section class="hero" id="top">
     <div class="wrap">
       <div class="grid">
         <div>
-          <span class="badge"><span class="dot" aria-hidden="true"></span><span data-t="badge">Open to a research internship from February 2027</span></span>
-          <p class="who" data-t="who">Final-year engineering student in Data Science &amp; AI, ESPRIM, Tunisia</p>
-          <h1 data-t="h1">I build AI that shows its evidence.</h1>
-          <p class="focus"><span data-t="focus">Currently working on</span> <span class="word" id="word"></span><span class="caret" aria-hidden="true"></span></p>
-          <p class="lede" data-t="lede">I measure before I claim.</p>
-          <p class="interests"><strong data-t="int.k">Research interests</strong> <span data-t="int.v">Low-resource NLP (Tunisian Arabic), trustworthy retrieval-augmented LLMs, evaluation methodology.</span></p>
+          <p class="who">Final-year engineering student in Data Science &amp; AI, ESPRIM, Tunisia</p>
+          <h1>I build AI that shows its evidence.</h1>
+          <p class="lede">Retrieval-augmented LLMs that refuse when the source is silent, medical models measured on leak-free data, and agent pipelines where rules check what the model proposes. I'm looking for a 4–6 month PFE internship from February 2027, in a research lab or an engineering team.</p>
           <div class="actions">
-            <a class="btn primary" href="#work" data-t="cta.work">See the case studies</a>
-            <a class="btn" href="#contact" data-t="cta.contact">Contact me</a>
+            <a class="btn primary" href="#work">See the case studies</a>
+            <a class="btn" href="assets/cv/Abd_Elmouhib_Souri_CV.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg>
+              Download CV (PDF)
+            </a>
           </div>
+          <!-- Scannable facts: a recruiter reads this strip in five seconds -->
+          <ul class="glance">
+            <li><b>Available</b> February 2027, 4–6 months</li>
+            <li><b>Looking for</b> AI / ML / data engineering internship</li>
+            <li><b>Monastir, Tunisia</b> — can relocate</li>
+            <li><b>Python</b>, PyTorch, LangGraph, FastAPI, SQL</li>
+          </ul>
         </div>
         <figure class="portrait">
-          <img src="assets/img/portrait.webp" width="640" height="800" alt="Abd Elmouhib Souri" data-t-alt="photoAlt">
-          <figcaption data-t="photoCap">Monastir, Tunisia.</figcaption>
+          <img src="assets/img/portrait.webp" width="640" height="800" alt="Portrait of Abd Elmouhib Souri">
+          <figcaption>Monastir, Tunisia. Arabic, French (C1), English (B1).</figcaption>
         </figure>
       </div>
 
+      <!-- Signature element: numbers I corrected or measured myself -->
       <div class="ledger" aria-labelledby="ledger-title">
         <div class="ledger-head">
-          <h2 id="ledger-title" data-t="ledger.title">Numbers I corrected or measured myself</h2>
-          <p data-t="ledger.note">Struck values are what an earlier version reported.</p>
+          <h2 id="ledger-title">Numbers I corrected or measured myself</h2>
+          <p>Struck values are what an earlier version reported.</p>
         </div>
         <div class="row r1">
           <span class="proj">DataScoop</span>
-          <span class="what"><span data-t="ledger.r1">ResNet-50 accuracy on Alzheimer MRI.</span> <a href="#case-datascoop" data-t="ledger.r1link">How I proved it</a></span>
-          <span class="num old">0.900</span>
-          <span class="num new" data-count="0.814" data-dec="3">0.814</span>
+          <span class="what">ResNet-50 accuracy on Alzheimer MRI, after I found augmented copies of the same scans on both sides of the split. <a href="#case-datascoop">How I proved it</a></span>
+          <span class="num old" aria-label="earlier value 0.900">0.900</span>
+          <span class="num new" aria-label="measured value 0.814">0.814</span>
         </div>
         <div class="row r2">
           <span class="proj">MedRAG</span>
-          <span class="what"><span data-t="ledger.r2">Relevance gate accuracy.</span> <a href="#case-medrag" data-t="ledger.r2link">The comparison</a></span>
-          <span class="num old">50%</span>
-          <span class="num new" data-count="88" data-dec="0" data-suffix="%">88%</span>
+          <span class="what">Relevance gate (leave-one-out balanced accuracy). The first reranker scored at chance level, so I replaced it after a controlled comparison. <a href="#case-medrag">The comparison</a></span>
+          <span class="num old" aria-label="earlier value 50 percent">50%</span>
+          <span class="num new" aria-label="measured value 88 percent">88%</span>
         </div>
         <div class="row r3">
           <span class="proj">MedRAG</span>
-          <span class="what" data-t="ledger.r3">Unanswerable questions refused on a held-out test set.</span>
-          <span class="num none" data-t="ledger.newtest">new test</span>
-          <span class="num new">8/8</span>
+          <span class="what">Unanswerable questions refused on a held-out test set, run once, with none answered anyway.</span>
+          <span class="num none">new test</span>
+          <span class="num new" aria-label="8 out of 8">8/8</span>
+        </div>
+        <div class="row r4">
+          <span class="proj">MindCare AI</span>
+          <span class="what">Voice-emotion accuracy on a speaker never seen in training (acted speech, two speakers). The earlier figure came from the same speakers and words appearing on both sides of the split.</span>
+          <span class="num old" aria-label="earlier value 0.981">0.981</span>
+          <span class="num new" aria-label="measured value 0.453">0.453</span>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ── Work ─────────────────────────────────────────────────────────── -->
   <section class="block" id="work" aria-labelledby="work-title">
     <div class="wrap">
-      <h2 class="title reveal" id="work-title" data-t="work.title">Case studies</h2>
-      <p class="intro reveal" data-t="work.intro">Three systems I built or rebuilt in 2026.</p>
-      <div class="filters" role="group" aria-labelledby="work-title" id="filters"></div>
-      <p class="skill-note" id="skill-note" role="status"><span id="skill-note-text"></span><button class="btn sm" type="button" id="skill-clear" data-t="skills.clear">Show all</button></p>
+      <h2 class="title" id="work-title">Case studies</h2>
+      <p class="intro">Four systems I built or rebuilt in 2026. Each one says what I measured, how, and where it still falls short.</p>
+      <div class="filters" role="group" aria-label="Filter case studies">
+        <!-- Filled by script from the topics in the data below -->
+      </div>
       <div id="cases"></div>
     </div>
   </section>
 
+  <!-- ── In progress and smaller work ─────────────────────────────────── -->
   <section class="block" id="more" aria-labelledby="more-title">
     <div class="wrap">
-      <h2 class="title reveal" id="more-title" data-t="more.title">More work</h2>
-      <p class="intro reveal" data-t="more.intro">Smaller or ongoing projects.</p>
+      <h2 class="title" id="more-title">More work</h2>
+      <p class="intro">Smaller or ongoing projects. I add a result here only once I have measured it. The repositories of NewsCheck TN and 9anoun AI are private (team and school rules).</p>
       <div class="small-work" id="small-work"></div>
     </div>
   </section>
 
+  <!-- ── Method ───────────────────────────────────────────────────────── -->
   <section class="block" id="method" aria-labelledby="method-title">
     <div class="wrap">
-      <h2 class="title reveal" id="method-title" data-t="method.title">How I work</h2>
-      <p class="intro reveal" data-t="method.intro">The habits behind the numbers above.</p>
-      <div class="method" id="method-list"></div>
+      <h2 class="title" id="method-title">How I work</h2>
+      <p class="intro">The habits behind the numbers above. I apply them to my own projects first.</p>
+      <div class="method">
+        <article>
+          <h3>Audit before training</h3>
+          <p>In DataScoop I rebuilt the exact Keras validation split, found 195 groups of exact duplicates and near-identical augmented copies across it, and kept only the 3,153 validation images with no copy in training. Auditing my own first MindCare showed that its 88% recall came from 50 sentences copied 3,000 times.</p>
+        </article>
+        <article>
+          <h3>Fix the decision rule before the experiment</h3>
+          <p>For MedRAG's reranker I wrote down what "better" meant (accuracy gain and a latency limit) before running bge-reranker-v2-m3, so I could not pick the rule after seeing the result. MedBox's protocol is committed before each run, and its code is committed after its design.</p>
+        </article>
+        <article>
+          <h3>Keep a test set I touch once</h3>
+          <p>MedRAG was tuned on 32 development questions and reported on 19 held-out ones. When the held-out run exposed a drug-class error, I reported it instead of fixing it on the test set. MedBox v2's independent test is still pending, so I report its development numbers as development numbers.</p>
+        </article>
+        <article>
+          <h3>Refuse rather than guess</h3>
+          <p>MedRAG's gate refuses when no passage is relevant, and the LLM is never called. In MedBox, a lower threshold would have turned an OCR reading of a molecule into another laboratory's product, so the system refuses instead.</p>
+        </article>
+        <article>
+          <h3>Publish the negative result</h3>
+          <p>MedBox v1 never gave a wrong drug name but never recognized one either, and I published that with the error analysis. ForgeAI's pre-registered test failed (every idea scored 7.0), so I published it and traced the cause.</p>
+        </article>
+        <article>
+          <h3>Tests that fail when the bug returns</h3>
+          <p>Each security or safety fix gets a test, and I check that the test fails when I put the old code back. DataScoop has 28 backend and 17 Python tests, MedRAG has 38 and MedBox 16.</p>
+        </article>
+      </div>
     </div>
   </section>
 
+  <!-- ── Experience & education (a real sequence, newest first) ───────── -->
   <section class="block" id="experience" aria-labelledby="exp-title">
     <div class="wrap">
-      <h2 class="title reveal" id="exp-title" data-t="exp.title">Experience and education</h2>
-      <ol class="timeline" id="timeline"><span class="fill" aria-hidden="true"></span></ol>
+      <h2 class="title" id="exp-title">Experience and education</h2>
+      <ol class="timeline">
+        <li>
+          <span class="when">Jul – Sep 2026</span>
+          <div>
+            <h3>Software &amp; AI engineering intern</h3>
+            <p class="org">DotJcom Ltd, Soliman, Tunisia</p>
+            <p>Built ForgeAI, a multi-agent platform that turns a startup idea into a sourced analysis and execution plan. See the case study above.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">Aug – Sep 2025</span>
+          <div>
+            <h3>Mobile development intern</h3>
+            <p class="org">Tunisie Telecom, Monastir</p>
+            <p>A React Native and Firebase app with a Gemini assistant that explains USSD service codes in plain language.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2024 – 2027</span>
+          <div>
+            <h3>Engineering degree, Data Science &amp; AI</h3>
+            <p class="org">ESPRIM, Monastir (final year)</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2022 – 2024</span>
+          <div>
+            <h3>Preparatory classes, Physics–Technology</h3>
+            <p class="org">Gafsa, Tunisia</p>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 
+  <!-- ── Skills ───────────────────────────────────────────────────────── -->
   <section class="block" id="skills" aria-labelledby="skills-title">
     <div class="wrap">
-      <h2 class="title reveal" id="skills-title" data-t="skills.title">Tools I've used in these projects</h2>
-      <p class="intro reveal" data-t="skills.intro">Select a tool to see the case studies that use it.</p>
-      <div class="skills" id="skill-groups"></div>
+      <h2 class="title" id="skills-title">Tools I've used in these projects</h2>
+      <div class="skills">
+        <div><h3>LLMs, RAG and agents</h3><p>Retrieval-augmented generation (RAG), AI agent pipelines, LangChain, LangGraph, vector databases (ChromaDB), BM25, cross-encoder reranking, embeddings, prompt engineering, prompt-injection defences, LLM evaluation, Groq and Gemini APIs, language identification, Arabic text normalization</p></div>
+        <div><h3>Machine learning, deep learning and computer vision</h3><p>Python, PyTorch, TensorFlow and Keras, scikit-learn, CNNs and Bi-LSTM, transfer learning and fine-tuning (ResNet-50, EfficientNet), object detection (YOLOv8 / Ultralytics), OCR (Hugging Face TrOCR, EasyOCR and CRAFT), text classification, model evaluation: held-out tests, leakage audits, bootstrap confidence intervals</p></div>
+        <div><h3>Software engineering and MLOps</h3><p>FastAPI, Flask, Streamlit, Gradio, REST APIs, Node.js and Express, Next.js and React, TypeScript, PostgreSQL, MongoDB, Redis, Docker, Git, GitHub Actions (CI/CD), pytest, JWT and 2FA authentication</p></div>
+        <div><h3>Data and business intelligence</h3><p>SQL (PostgreSQL), Pandas, NumPy, ETL design, star schemas, Power BI and DAX, statistics. Google Business Intelligence Professional Certificate (2026)</p></div>
+      </div>
     </div>
   </section>
 
+  <!-- ── Contact ──────────────────────────────────────────────────────── -->
   <section class="block contact" id="contact" aria-labelledby="contact-title">
     <div class="wrap grid">
       <div>
-        <h2 class="title" id="contact-title" data-t="contact.title">Let's talk about your lab's projects</h2>
-        <p class="intro" data-t="contact.intro">Available from February 2027.</p>
-        <p class="big"><a href="mailto:AbdElmouhib.Souri@esprim.tn">AbdElmouhib.Souri@esprim.tn</a></p>
-        <button class="btn sm" type="button" id="copy-email" style="margin-top:12px" data-t="contact.copy">Copy email address</button>
+        <h2 class="title" id="contact-title">Hiring for AI, data or software engineering?</h2>
+        <p class="intro">Research lab or engineering team, I'd be glad to hear about your projects — trustworthy LLMs and RAG, medical AI, multilingual NLP or computer vision. I'm available for a 4–6 month internship (PFE) from February 2027, can relocate, and I answer every message.</p>
+        <p class="big" style="margin-top:24px"><a href="mailto:AbdElmouhib.Souri@esprim.tn">AbdElmouhib.Souri@esprim.tn</a></p>
+        <button class="btn" type="button" id="copy-email" style="margin-top:16px">Copy email address</button>
         <p class="copy-note" id="copy-note" role="status" aria-live="polite"></p>
-        <dl>
-          <dt data-t="contact.personal">Personal email</dt><dd><a href="mailto:abdelmouhibsouri@gmail.com">abdelmouhibsouri@gmail.com</a></dd>
-          <dt>GitHub</dt><dd><a href="https://github.com/Abd-Elmouhib-Souri">github.com/Abd-Elmouhib-Souri</a></dd>
-          <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/abd-elmouhib-souri/">linkedin.com/in/abd-elmouhib-souri</a></dd>
-          <dt data-t="contact.based">Based in</dt><dd data-t="contact.place">Monastir, Tunisia (UTC+1)</dd>
-        </dl>
       </div>
-      <form class="mail" id="mail-form" novalidate>
-        <div class="two">
-          <label><span data-t="form.name">Your name</span><input name="name" autocomplete="name" required></label>
-          <label><span data-t="form.email">Your email</span><input name="email" type="email" autocomplete="email" required></label>
-        </div>
-        <label><span data-t="form.subject">Subject</span><input name="subject" required></label>
-        <label><span data-t="form.message">Message</span><textarea name="message" required></textarea></label>
-        <p class="err" id="form-err" role="alert"></p>
-        <button class="btn primary" type="submit" data-t="form.send">Open in my email app</button>
-        <p class="hint" data-t="form.hint">Your email app opens with the message ready. Nothing is sent from this page.</p>
-      </form>
+      <dl>
+        <dt>GitHub</dt><dd><a href="https://github.com/Abd-Elmouhib-Souri">github.com/Abd-Elmouhib-Souri</a></dd>
+        <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/abd-elmouhib-souri/">linkedin.com/in/abd-elmouhib-souri</a></dd>
+        <dt>CV</dt><dd><a href="assets/cv/Abd_Elmouhib_Souri_CV.pdf" download>Download (PDF, 1 page)</a></dd>
+        <dt>Available</dt><dd>February 2027, 4–6 months (internship / PFE)</dd>
+        <dt>Based in</dt><dd>Monastir, Tunisia (UTC+1), can relocate</dd>
+      </dl>
     </div>
   </section>
 </main>
 
-<footer><div class="wrap" data-t="footer">Abd Elmouhib Souri, 2026. All patient data shown in these projects is fictional.</div></footer>
+<footer>
+  <div class="wrap">Abd Elmouhib Souri — updated November 2026. All patient data shown in these projects is fictional. The MedBox demo examples come from a public Kaggle dataset (CC BY 4.0).</div>
+</footer>
 
+<!-- Case-study gallery -->
 <dialog id="gallery" aria-labelledby="dlg-title">
   <div class="dlg-head">
-    <h2 id="dlg-title"></h2>
-    <button class="icon-btn" type="button" id="dlg-close" aria-label="Close">
+    <h2 id="dlg-title">Screenshots</h2>
+    <button class="icon-btn" type="button" id="dlg-close" aria-label="Close screenshots">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
     </button>
   </div>
   <div class="dlg-body">
-    <figure class="stage"><img id="stage-img" src="data:," alt=""><figcaption id="stage-cap"></figcaption></figure>
+    <figure class="stage"><img id="stage-img" src="" alt=""><figcaption id="stage-cap"></figcaption></figure>
     <div class="pager">
-      <button class="btn" type="button" id="prev" data-t="ui.prev">Previous</button>
+      <button class="btn" type="button" id="prev">Previous</button>
       <span class="count" id="count" aria-live="polite"></span>
-      <button class="btn" type="button" id="next" data-t="ui.next">Next</button>
+      <button class="btn" type="button" id="next">Next</button>
     </div>
+    <div class="thumbs" id="thumbs" aria-label="All screenshots"></div>
   </div>
 </dialog>
 
-<noscript><p class="wrap" style="padding:16px 0">This page needs JavaScript for the case studies. The code is on <a href="https://github.com/Abd-Elmouhib-Souri">GitHub</a>.</p></noscript>
-
 <script>
 document.documentElement.classList.add("js");
-const EMAIL = "AbdElmouhib.Souri@esprim.tn";
-const IMG = "assets/img/"; const IMG_VER = "7"; // bump to force browsers to reload changed screenshots
 
-/* ═══ Interface text in three languages ═══════════════════════════════════
-   Only measured numbers appear here. To edit a sentence, change it in all three. */
-const T = {
-en: {
-  skip: "Skip to content",
-  "nav.work": "Work", "nav.method": "How I work", "nav.exp": "Experience", "nav.skills": "Skills", "nav.contact": "Contact",
-  badge: "Open to a research internship from February 2027",
-  who: "Final-year engineering student in Data Science & AI, ESPRIM, Tunisia",
-  h1: "I build AI that shows its evidence.",
-  focus: "Currently working on",
-  words: ["trustworthy retrieval-augmented LLMs", "computer vision for medical imaging, measured on leak-free data", "LLM agents checked by deterministic rules", "NLP in Arabic, French and English"],
-  lede: "I measure before I claim: held-out test sets, leakage audits, and tests that fail when a bug comes back. I'm looking for a 4–6 month research internship from February 2027.",
-  "int.k": "Research interests", "int.v": "Low-resource NLP (Tunisian Arabic and Arabizi), trustworthy retrieval-augmented LLMs, and evaluation methodology.",
-  "cta.work": "See the case studies", "cta.contact": "Contact me",
-  photoAlt: "Portrait of Abd Elmouhib Souri", photoCap: "Monastir, Tunisia. Arabic (native), French (C1), English (B1).",
-  "ledger.title": "Numbers I corrected or measured myself",
-  "ledger.note": "Struck values are what an earlier version reported.",
-  "ledger.r1": "ResNet-50 accuracy on Alzheimer MRI, after I found augmented copies of the same scans on both sides of the split.",
-  "ledger.r1link": "How I proved it",
-  "ledger.r2": "Relevance gate (leave-one-out balanced accuracy). The first reranker scored at chance level, so I replaced it after a controlled comparison.",
-  "ledger.r2link": "The comparison",
-  "ledger.r3": "Unanswerable questions refused on a held-out test set, run once, with no invented answer.",
-  "ledger.newtest": "new test",
-  "work.title": "Case studies",
-  "work.intro": "Six systems from 2026 that I built, rebuilt, or built a core part of. Each one says what I measured, how, and where it still falls short. Try the interactive panels: they replay real results.",
-  all: "All", "topic.rag": "LLMs & RAG", "topic.med": "Medical AI", "topic.vision": "Computer vision", "topic.agents": "LLM agents", "topic.nlp": "NLP", "case.progress": "In progress", "case.private": "Team repository, private for now (school and partner rules). Shared on request.", "case.video": "30-second demo, no sound, recorded on my machine: the landing page, my dashboard, a new idea, the analysis running, the committee verdict, the generated UML, and the exported PDF.",
-  "case.code": "View the code", "case.limit": "Limitation.",
-  "ui.prev": "Previous", "ui.next": "Next", "ui.count": "{i} of {n}", "ui.open": "Open screenshot {i} of {n} in full size", "ui.close": "Close", "ui.shots": "Screenshots",
-  "more.title": "More work", "more.intro": "Smaller or ongoing projects. I add a result here only once I have measured it.",
-  "more.progress": "In progress", "more.code": "View the code",
-  "method.title": "How I work", "method.intro": "The habits behind the numbers above. I apply them to my own projects first.",
-  "exp.title": "Experience and education",
-  "skills.title": "Tools I've used in these projects", "skills.intro": "Select a tool to see the case studies that use it.",
-  "skills.showing": "Case studies that use {s}.", "skills.clear": "Show all", "skills.none": "Not in a case study yet",
-  "contact.title": "Working on trustworthy LLMs, medical AI or multilingual NLP?",
-  "contact.intro": "I'd be glad to hear about your lab's projects. I'm available for a 4–6 month internship from February 2027 and can relocate.",
-  "contact.copy": "Copy email address", "contact.copied": "Email address copied.", "contact.nocopy": "Copy isn't available here. Select the address above instead.",
-  "contact.personal": "Personal email", "contact.based": "Based in", "contact.place": "Monastir, Tunisia (UTC+1)",
-  "form.name": "Your name", "form.email": "Your email", "form.subject": "Subject", "form.message": "Message",
-  "form.send": "Open in my email app", "form.hint": "Your email app opens with the message ready. Nothing is sent from this page.",
-  "form.missing": "Fill in every field before sending.", "form.bademail": "Enter a valid email address, like name@university.edu.",
-  footer: "Abd Elmouhib Souri, 2026. All patient data shown in these projects is fictional.",
-  "theme.dark": "Switch to dark theme", "theme.light": "Switch to light theme", menu: "Menu"
-},
-fr: {
-  skip: "Aller au contenu",
-  "nav.work": "Projets", "nav.method": "Ma méthode", "nav.exp": "Parcours", "nav.skills": "Compétences", "nav.contact": "Contact",
-  badge: "Disponible pour un stage de recherche dès février 2027",
-  who: "Élève ingénieur en dernière année, Data Science & IA, ESPRIM, Tunisie",
-  h1: "Je construis une IA qui montre ses preuves.",
-  focus: "En ce moment :",
-  words: ["des LLM augmentés par la recherche, fiables", "de la vision par ordinateur pour l'imagerie médicale, mesurée sans fuite", "des agents LLM vérifiés par des règles", "du NLP en arabe, français et anglais"],
-  lede: "Je mesure avant d'affirmer : jeux de test tenus à l'écart, audits de fuite de données et tests qui échouent quand un bug revient. Je cherche un stage de recherche de 4 à 6 mois à partir de février 2027.",
-  "int.k": "Intérêts de recherche", "int.v": "NLP pour langues peu dotées (arabe tunisien et arabizi), LLM augmentés par la recherche et fiables, méthodologie d'évaluation.",
-  "cta.work": "Voir les études de cas", "cta.contact": "Me contacter",
-  photoAlt: "Portrait d'Abd Elmouhib Souri", photoCap: "Monastir, Tunisie. Arabe (natif), français (C1), anglais (B1).",
-  "ledger.title": "Des chiffres que j'ai corrigés ou mesurés moi-même",
-  "ledger.note": "Les valeurs barrées sont celles d'une version précédente.",
-  "ledger.r1": "Exactitude de ResNet-50 sur des IRM d'Alzheimer, après avoir trouvé des copies augmentées des mêmes images des deux côtés du découpage.",
-  "ledger.r1link": "Comment je l'ai prouvé",
-  "ledger.r2": "Filtre de pertinence (exactitude équilibrée en leave-one-out). Le premier reranker était au niveau du hasard ; je l'ai remplacé après une comparaison contrôlée.",
-  "ledger.r2link": "La comparaison",
-  "ledger.r3": "Questions sans réponse refusées sur un jeu de test tenu à l'écart, lancé une seule fois, sans aucune réponse inventée.",
-  "ledger.newtest": "nouveau test",
-  "work.title": "Études de cas",
-  "work.intro": "Six systèmes de 2026 que j'ai construits, reconstruits, ou dont j'ai construit une partie centrale. Chacun dit ce que j'ai mesuré, comment, et où il reste des limites. Essayez les panneaux interactifs : ils rejouent des résultats réels.",
-  all: "Tous", "topic.rag": "LLM & RAG", "topic.med": "IA médicale", "topic.vision": "Vision par ordinateur", "topic.agents": "Agents LLM", "topic.nlp": "NLP", "case.progress": "En cours", "case.private": "Dépôt d'équipe, privé pour l'instant (règles de l'école et du partenaire). Partagé sur demande.", "case.video": "Démo de 30 secondes, sans son, enregistrée sur ma machine : la page d'accueil, mon tableau de bord, une nouvelle idée, l'analyse en cours, le verdict du comité, l'UML généré et le PDF exporté.",
-  "case.code": "Voir le code", "case.limit": "Limite.",
-  "ui.prev": "Précédente", "ui.next": "Suivante", "ui.count": "{i} sur {n}", "ui.open": "Ouvrir la capture {i} sur {n} en grand", "ui.close": "Fermer", "ui.shots": "Captures",
-  "more.title": "Autres travaux", "more.intro": "Projets plus petits ou en cours. J'ajoute un résultat ici seulement une fois mesuré.",
-  "more.progress": "En cours", "more.code": "Voir le code",
-  "method.title": "Ma méthode", "method.intro": "Les habitudes derrière les chiffres ci-dessus. Je les applique d'abord à mes propres projets.",
-  "exp.title": "Expérience et formation",
-  "skills.title": "Les outils utilisés dans ces projets", "skills.intro": "Choisissez un outil pour voir les études de cas qui l'utilisent.",
-  "skills.showing": "Études de cas qui utilisent {s}.", "skills.clear": "Tout afficher", "skills.none": "Pas encore dans une étude de cas",
-  "contact.title": "Vous travaillez sur des LLM fiables, l'IA médicale ou le NLP multilingue ?",
-  "contact.intro": "Je serais ravi d'en savoir plus sur les projets de votre laboratoire. Disponible pour un stage de 4 à 6 mois dès février 2027, avec mobilité.",
-  "contact.copy": "Copier l'adresse e-mail", "contact.copied": "Adresse e-mail copiée.", "contact.nocopy": "La copie n'est pas disponible ici. Sélectionnez l'adresse ci-dessus.",
-  "contact.personal": "E-mail personnel", "contact.based": "Basé à", "contact.place": "Monastir, Tunisie (UTC+1)",
-  "form.name": "Votre nom", "form.email": "Votre e-mail", "form.subject": "Objet", "form.message": "Message",
-  "form.send": "Ouvrir dans ma messagerie", "form.hint": "Votre messagerie s'ouvre avec le message prêt. Rien n'est envoyé depuis cette page.",
-  "form.missing": "Remplissez tous les champs avant l'envoi.", "form.bademail": "Saisissez une adresse e-mail valide, par exemple nom@universite.fr.",
-  footer: "Abd Elmouhib Souri, 2026. Toutes les données de patients présentées sont fictives.",
-  "theme.dark": "Passer au thème sombre", "theme.light": "Passer au thème clair", menu: "Menu"
-},
-ar: {
-  skip: "انتقل إلى المحتوى",
-  "nav.work": "المشاريع", "nav.method": "منهجي", "nav.exp": "المسار", "nav.skills": "المهارات", "nav.contact": "تواصل",
-  badge: "متاح لتربص بحثي ابتداءً من فيفري 2027",
-  who: "طالب مهندس في السنة الأخيرة، علوم البيانات والذكاء الاصطناعي، ESPRIM، تونس",
-  h1: "أبني ذكاءً اصطناعيًا يُظهر أدلّته.",
-  focus: "أعمل حاليًا على",
-  words: ["نماذج لغوية موثوقة معزَّزة بالاسترجاع", "رؤية حاسوبية للتصوير الطبي، مُقاسة دون تسرّب للبيانات", "وكلاء نماذج لغوية تتحقق منهم قواعد ثابتة", "معالجة اللغة بالعربية والفرنسية والإنجليزية"],
-  lede: "أقيس قبل أن أدّعي: مجموعات اختبار معزولة، وتدقيق في تسرّب البيانات، واختبارات تفشل إذا عاد الخطأ. أبحث عن تربص بحثي لمدة 4 إلى 6 أشهر ابتداءً من فيفري 2027.",
-  "int.k": "اهتمامات بحثية", "int.v": "معالجة اللغات قليلة الموارد (العربية التونسية والعربيزي)، ونماذج لغوية موثوقة معزَّزة بالاسترجاع، ومنهجية التقييم.",
-  "cta.work": "شاهد دراسات الحالة", "cta.contact": "تواصل معي",
-  photoAlt: "صورة عبد المهيب السوري", photoCap: "المنستير، تونس. العربية (اللغة الأم)، الفرنسية (C1)، الإنجليزية (B1).",
-  "ledger.title": "أرقام صحّحتها أو قستها بنفسي",
-  "ledger.note": "القيم المشطوبة هي ما أعلنته نسخة سابقة.",
-  "ledger.r1": "دقة ResNet-50 على صور الرنين المغناطيسي للزهايمر، بعد أن اكتشفت نسخًا معدَّلة من الصور نفسها في جهتي التقسيم.",
-  "ledger.r1link": "كيف أثبتّ ذلك",
-  "ledger.r2": "مرشّح الصلة (الدقة المتوازنة بطريقة leave-one-out). كان أول نموذج إعادة ترتيب في مستوى الصدفة، فاستبدلته بعد مقارنة مضبوطة.",
-  "ledger.r2link": "المقارنة",
-  "ledger.r3": "أسئلة بلا جواب في الوثائق رُفضت على مجموعة اختبار معزولة، شُغّلت مرة واحدة، دون أي جواب مختلَق.",
-  "ledger.newtest": "اختبار جديد",
-  "work.title": "دراسات الحالة",
-  "work.intro": "ستة أنظمة من 2026 بنيتها أو أعدت بناءها أو بنيت جزءًا أساسيًا منها. كل واحد يوضّح ما قسته، وكيف، وأين ما زال قاصرًا. جرّب اللوحات التفاعلية: إنها تعيد عرض نتائج حقيقية.",
-  all: "الكل", "topic.rag": "النماذج اللغوية وRAG", "topic.med": "الذكاء الاصطناعي الطبي", "topic.vision": "الرؤية الحاسوبية", "topic.agents": "وكلاء النماذج اللغوية", "topic.nlp": "معالجة اللغة الطبيعية (NLP)", "case.progress": "قيد الإنجاز", "case.private": "مستودع الفريق خاص حاليًا (قواعد المدرسة والشريك). يُشارَك عند الطلب.", "case.video": "عرض لمدة 30 ثانية دون صوت، مسجَّل على جهازي: الصفحة الرئيسية، ولوحة التحكم، وفكرة جديدة، والتحليل أثناء التشغيل، وحكم اللجنة، ومخطط UML المولَّد، وملف PDF المصدَّر.",
-  "case.code": "عرض الشيفرة", "case.limit": "الحدود.",
-  "ui.prev": "السابقة", "ui.next": "التالية", "ui.count": "{i} من {n}", "ui.open": "افتح الصورة {i} من {n} بالحجم الكامل", "ui.close": "إغلاق", "ui.shots": "لقطات الشاشة",
-  "more.title": "أعمال أخرى", "more.intro": "مشاريع أصغر أو قيد الإنجاز. لا أضيف نتيجة هنا إلا بعد قياسها.",
-  "more.progress": "قيد الإنجاز", "more.code": "عرض الشيفرة",
-  "method.title": "منهجي", "method.intro": "العادات التي تقف وراء الأرقام أعلاه. أطبّقها أولًا على مشاريعي.",
-  "exp.title": "الخبرة والتكوين",
-  "skills.title": "الأدوات التي استعملتها في هذه المشاريع", "skills.intro": "اختر أداة لترى دراسات الحالة التي تستعملها.",
-  "skills.showing": "دراسات الحالة التي تستعمل {s}.", "skills.clear": "عرض الكل", "skills.none": "ليست في دراسة حالة بعد",
-  "contact.title": "تعمل على نماذج لغوية موثوقة أو ذكاء اصطناعي طبي أو معالجة لغات متعددة؟",
-  "contact.intro": "يسعدني التعرّف على مشاريع مخبرك. أنا متاح لتربص من 4 إلى 6 أشهر ابتداءً من فيفري 2027، ومستعد للتنقل.",
-  "contact.copy": "نسخ البريد الإلكتروني", "contact.copied": "تم نسخ البريد الإلكتروني.", "contact.nocopy": "النسخ غير متاح هنا. حدّد العنوان أعلاه.",
-  "contact.personal": "البريد الشخصي", "contact.based": "مقيم في", "contact.place": "المنستير، تونس (UTC+1)",
-  "form.name": "اسمك", "form.email": "بريدك الإلكتروني", "form.subject": "الموضوع", "form.message": "الرسالة",
-  "form.send": "افتح في تطبيق البريد", "form.hint": "يُفتح تطبيق البريد والرسالة جاهزة. لا يُرسَل شيء من هذه الصفحة.",
-  "form.missing": "املأ كل الحقول قبل الإرسال.", "form.bademail": "أدخل بريدًا إلكترونيًا صحيحًا، مثل name@university.edu.",
-  footer: "عبد المهيب السوري، 2026. كل بيانات المرضى المعروضة في هذه المشاريع وهمية.",
-  "theme.dark": "التبديل إلى الوضع الداكن", "theme.light": "التبديل إلى الوضع الفاتح", menu: "القائمة"
-}};
-
-/* ═══ Case studies ═════════════════════════════════════════════════════════
-   To add a project, add one object here. */
+/* ── Content ─────────────────────────────────────────────────────────────
+   To add a project (for example MindCare AI once its evaluation is done),
+   add one object to CASES. Only write numbers you have measured yourself. */
 const CASES = [
-{
-  id: "medrag", title: "MedRAG", topics: ["rag", "med", "nlp"], viz: "replay",
-  repo: "https://github.com/Abd-Elmouhib-Souri/MedRAG",
-  stack: "Python · FastAPI · Streamlit · LangChain · ChromaDB · bge-reranker-v2-m3 · Groq (gpt-oss) · 38 pytest tests",
-  tools: ["Python", "FastAPI", "LangChain", "ChromaDB", "BM25", "Cross-encoder reranking", "Groq / Gemini", "pytest", "Prompt-injection defence", "Multilingual NLP"],
-  shots: ["medrag-01", "medrag-02", "medrag-03", "medrag-04", "medrag-05", "medrag-06", "medrag-07"],
-  en: {
+  {
+    id: "medrag",
+    title: "MedRAG",
     meta: "Personal project, 2026",
+    topics: ["LLMs & RAG", "Medical AI"],
     pitch: "A question-answering assistant over patient records in French, English and Arabic. It answers only from the record, cites the page, and refuses when the record doesn't contain the answer.",
-    facts: ["Hybrid retrieval (ChromaDB and BM25, weighted rank fusion), with the question translated into the records' language.",
-            "A cross-encoder relevance gate: when no passage is relevant enough, the system refuses without calling the LLM.",
-            "A second LLM checks each answer against its sources; text that tries to give the model orders is quarantined at upload.",
-            "I compared three rerankers under a rule fixed in advance: chance level (50%), 73%, then 88% for bge-reranker-v2-m3.",
-            "The held-out test missed \"Which beta-blocker?\" (the record only says bisoprolol). I wrote 17 new development questions before coding a class-to-molecule table: 4 → 10 of 11 answered, 6 of 6 traps still refused, no change on the 32 earlier questions."],
-    result: "<strong>Held-out test, run once:</strong> 10 of 11 answers correct (95% CI 62–98%), 8 of 8 unanswerable questions refused, 0 invented answers. Median time per question: 4.3 s (p95 9.1 s) on a laptop CPU, with the LLM called through Groq.",
-    limit: "Small fictional benchmark (4 records, 15 pages), so the timings say nothing about long records. The held-out numbers above are from before the drug-class fix; the fix is measured on development questions only, and claiming it as a test result needs a new held-out set.",
-    caps: ["The full app: patient card, cited answer, alert and a refusal.", "The pipeline: hybrid retrieval, cross-encoder gate, cited answer, grounding check.", "Every answer cites its page and is checked against the sources.", "No relevant source: the gate refuses and the LLM is never called.", "Results on 19 held-out questions never used for tuning.", "The controlled comparison of three cross-encoders that chose the gate.", "A patient card generated automatically from the uploaded record."]
+    facts: [
+      "Hybrid retrieval (ChromaDB and BM25, weighted rank fusion), with the question translated into the records' language.",
+      "A cross-encoder relevance gate, added because v1 never refused: when no passage is relevant enough, the system refuses without calling the LLM.",
+      "A second LLM checks each answer against its sources; text that tries to give the model orders is quarantined at upload.",
+      "I compared three rerankers under a rule fixed in advance: chance level (50%), 73%, then 88% for bge-reranker-v2-m3."
+    ],
+    result: "<strong>Held-out test, run once:</strong> 10 of 11 answers correct (95% CI 62–98%), 8 of 8 unanswerable questions refused, 0 answered anyway. Median latency 5.4 s on a laptop CPU with the Groq free tier.",
+    limit: "Small fictional benchmark. The test exposed a miss on questions that name a drug class instead of the drug. I fixed it on 17 new development questions (4/11 to 10/11), so the test set can no longer measure that fix.",
+    stack: "Python, FastAPI, Streamlit, LangChain, ChromaDB, bge-reranker-v2-m3, Groq (gpt-oss), 38 offline pytest tests",
+    repo: "https://github.com/Abd-Elmouhib-Souri/MedRAG",
+    shots: [
+      ["medrag-01.webp", "The full app: patient card, cited answer, alert and a refusal."],
+      ["medrag-02.webp", "The pipeline: hybrid retrieval, cross-encoder gate, cited answer, grounding check."],
+      ["medrag-03.webp", "Every answer cites its page and is checked against the sources."],
+      ["medrag-04.webp", "No relevant source: the gate refuses and the LLM is never called."],
+      ["medrag-05.webp", "Results on 19 held-out questions never used for tuning."],
+      ["medrag-06.webp", "The controlled comparison of three cross-encoders that chose the gate."],
+      ["medrag-07.webp", "A patient card generated automatically from the uploaded record."]
+    ]
   },
-  fr: {
-    meta: "Projet personnel, 2026",
-    pitch: "Un assistant de questions-réponses sur des dossiers patients en français, anglais et arabe. Il répond uniquement à partir du dossier, cite la page, et refuse quand le dossier ne contient pas la réponse.",
-    facts: ["Recherche hybride (ChromaDB et BM25, fusion de rangs pondérée), avec la question traduite dans la langue des dossiers.",
-            "Un filtre de pertinence par cross-encoder : si aucun passage n'est assez pertinent, le système refuse sans appeler le LLM.",
-            "Un second LLM vérifie chaque réponse face à ses sources ; un texte qui tente de donner des ordres au modèle est mis en quarantaine à l'import.",
-            "J'ai comparé trois rerankers selon une règle fixée à l'avance : niveau du hasard (50 %), 73 %, puis 88 % pour bge-reranker-v2-m3.",
-            "Le test tenu à l'écart a raté « Quel bêtabloquant prend-il ? » (le dossier dit seulement bisoprolol). J'ai écrit 17 nouvelles questions de développement avant de coder une table classe → molécules : de 4 à 10 réponses justes sur 11, 6 pièges sur 6 toujours refusés, aucun changement sur les 32 questions d'avant."],
-    result: "<strong>Test tenu à l'écart, lancé une fois :</strong> 10 réponses correctes sur 11 (IC 95 % 62–98 %), 8 questions sans réponse refusées sur 8, 0 réponse inventée. Temps médian par question : 4,3 s (p95 9,1 s) sur le processeur d'un ordinateur portable, avec le LLM appelé via Groq.",
-    limit: "Petit benchmark fictif (4 dossiers, 15 pages) : les temps ne disent rien de dossiers longs. Les chiffres du test tenu à l'écart datent d'avant la correction des classes ; celle-ci n'est mesurée que sur des questions de développement, et l'annoncer comme résultat de test demande un nouveau jeu de test.",
-    caps: ["L'application complète : fiche patient, réponse citée, alerte et un refus.", "Le pipeline : recherche hybride, filtre cross-encoder, réponse citée, vérification des sources.", "Chaque réponse cite sa page et est vérifiée face aux sources.", "Aucune source pertinente : le filtre refuse et le LLM n'est jamais appelé.", "Résultats sur 19 questions tenues à l'écart, jamais utilisées pour le réglage.", "La comparaison contrôlée de trois cross-encoders qui a choisi le filtre.", "Une fiche patient générée automatiquement à partir du dossier importé."]
-  },
-  ar: {
-    meta: "مشروع شخصي، 2026",
-    pitch: "مساعد للإجابة عن الأسئلة حول ملفات المرضى بالفرنسية والإنجليزية والعربية. يجيب من الملف فقط، ويذكر الصفحة، ويرفض الإجابة حين لا يحتوي الملف على الجواب.",
-    facts: ["بحث هجين (ChromaDB وBM25 مع دمج مرجَّح للترتيب)، مع ترجمة السؤال إلى لغة الملفات.",
-            "مرشّح صلة بنموذج cross-encoder: إن لم يكن أي مقطع وثيق الصلة بما يكفي، يرفض النظام دون استدعاء النموذج اللغوي.",
-            "نموذج لغوي ثانٍ يتحقق من كل جواب مقابل مصادره، ويُعزَل عند الرفع كل نص يحاول إعطاء أوامر للنموذج.",
-            "قارنت ثلاثة نماذج لإعادة الترتيب وفق قاعدة محددة مسبقًا: مستوى الصدفة (50%)، ثم 73%، ثم 88% لـ bge-reranker-v2-m3.",
-            "أخفق الاختبار المعزول في سؤال «أي حاصر بيتا يتناول؟» (الملف يذكر البيسوبرولول فقط). كتبت 17 سؤال تطوير جديدًا قبل برمجة جدول يربط الفئة بالأدوية: من 4 إلى 10 أجوبة صحيحة من 11، و6 أسئلة فخ من 6 ما زالت مرفوضة، ولا تغيير على الأسئلة الـ32 السابقة."],
-    result: "<strong>اختبار معزول شُغّل مرة واحدة:</strong> 10 أجوبة صحيحة من 11 (مجال ثقة 95%: 62–98%)، ورُفضت 8 أسئلة من 8 لا جواب لها، ولا جواب مختلَق. الزمن الوسيط لكل سؤال: 4.3 ثانية (p95: 9.1 ثانية) على معالج حاسوب محمول، مع استدعاء النموذج اللغوي عبر Groq.",
-    limit: "مجموعة اختبار صغيرة ووهمية (4 ملفات، 15 صفحة)، فالأزمنة لا تقول شيئًا عن الملفات الطويلة. أرقام الاختبار المعزول تسبق إصلاح فئات الأدوية؛ والإصلاح مقاس على أسئلة التطوير فقط، واعتباره نتيجة اختبار يتطلب مجموعة اختبار جديدة.",
-    caps: ["التطبيق كاملًا: بطاقة المريض، جواب موثَّق، تنبيه، ورفض.", "المسار: بحث هجين، مرشّح cross-encoder، جواب موثَّق، تحقق من المصادر.", "كل جواب يذكر صفحته ويُتحقق منه مقابل المصادر.", "لا مصدر ذا صلة: يرفض المرشّح ولا يُستدعى النموذج اللغوي.", "النتائج على 19 سؤالًا معزولًا لم يُستعمل أي منها في الضبط.", "المقارنة المضبوطة بين ثلاثة نماذج cross-encoder التي اختارت المرشّح.", "بطاقة مريض مولَّدة آليًا من الملف المرفوع."]
-  }
-},
-{
-  id: "datascoop", title: "DataScoop", topics: ["med", "vision"], viz: "bars",
-  repo: "https://github.com/Abd-Elmouhib-Souri/DataScoop",
-  stack: "TensorFlow/Keras · Flask · Node.js/Express · MongoDB · React/TypeScript · 28 backend + 17 Python tests",
-  tools: ["Python", "TensorFlow / Keras", "CNNs (ResNet-50, EfficientNet)", "Transfer learning", "Medical imaging (MRI)", "Leakage audit", "Bootstrap CI", "Flask", "Node.js / Express", "MongoDB", "React / TypeScript", "JWT + bcrypt"],
-  shots: ["datascoop-01", "datascoop-02", "datascoop-03", "datascoop-04", "datascoop-05", "datascoop-06", "datascoop-07"],
-  en: {
+  {
+    id: "datascoop",
+    title: "DataScoop",
     meta: "Team project (PFA), 2026. The audit, evaluation and rebuild described here are my work.",
+    topics: ["Medical AI", "Computer vision"],
     pitch: "Alzheimer MRI decision support where the AI only suggests and the doctor decides. I rebuilt it after finding that its accuracy was inflated and that it could show results it never computed.",
-    facts: ["Proved data leakage on 50,400 Kaggle images: exact duplicates (MD5) and augmented copies crossing the train/validation split.",
-            "Re-evaluated 5 models on a leak-free subset with bootstrap confidence intervals; disabled the 3 that were broken or too weak.",
-            "Removed every simulated prediction. The patient never sees AI output, only the diagnosis his doctor validated or corrected.",
-            "JWT and bcrypt authentication, per-doctor patient isolation, one-time doctor invitations, and a check that refuses non-MRI images."],
-    result: "<strong>Leak-free accuracy:</strong> ResNet-50 0.814 (95% CI 0.800–0.826), down from 0.900 on the leaky split. Recall by class: moderate 0.99, mild 0.86, non-demented 0.76, very mild 0.73.",
-    limit: "Measured on 3,153 validation images with no near-duplicate in training, but the same images chose the best epoch and the preprocessing, so the score is optimistic and no independent test set exists yet (next: OASIS-2 or OASIS-3, split by patient). 2D slices without patient IDs. About 1 in 4 \"very mild\" cases is still missed.",
-    caps: ["The AI suggests, the doctor decides: validate or correct.", "When the two models disagree, the suggestion is flagged as uncertain.", "No AI result is ever shown to the patient.", "The patient sees only what his doctor validated.", "Statistics count doctor decisions, not raw AI output.", "Each doctor sees only his own patients.", "Obvious non-MRI images are refused before any prediction."]
+    facts: [
+      "Proved data leakage on 50,400 Kaggle images: exact duplicates (MD5) and augmented copies crossing the train/validation split.",
+      "Re-evaluated 5 models on a leak-free subset with bootstrap confidence intervals; disabled the 3 that were broken or too weak.",
+      "Removed every simulated prediction. The patient never sees AI output, only the diagnosis his doctor validated or corrected.",
+      "JWT and bcrypt authentication, per-doctor patient isolation, one-time doctor invitations, and a check that refuses non-MRI images."
+    ],
+    result: "<strong>Leak-free accuracy:</strong> ResNet-50 0.814 (95% CI 0.800–0.826, macro-F1 0.832), down from 0.900 on the leaky split.",
+    limit: "2D slices without patient IDs, so all scores are upper bounds. About 1 in 4 \"very mild\" cases is still missed.",
+    stack: "TensorFlow/Keras, Flask, Node.js/Express, MongoDB, React/TypeScript, 28 backend and 17 Python tests",
+    repo: "https://github.com/Abd-Elmouhib-Souri/DataScoop",
+    shots: [
+      ["datascoop-01.webp", "The AI suggests, the doctor decides: validate or correct."],
+      ["datascoop-02.webp", "When the two models disagree, the suggestion is flagged as uncertain."],
+      ["datascoop-03.webp", "No AI result is ever shown to the patient."],
+      ["datascoop-04.webp", "The patient sees only what his doctor validated."],
+      ["datascoop-05.webp", "Statistics count doctor decisions, not raw AI output."],
+      ["datascoop-06.webp", "Each doctor sees only his own patients."],
+      ["datascoop-07.webp", "Obvious non-MRI images are refused before any prediction."]
+    ]
   },
-  fr: {
-    meta: "Projet d'équipe (PFA), 2026. L'audit, l'évaluation et la reconstruction décrits ici sont mon travail.",
-    pitch: "Aide à la décision pour les IRM d'Alzheimer, où l'IA suggère et le médecin décide. Je l'ai reconstruit après avoir découvert que son exactitude était gonflée et qu'il pouvait afficher des résultats jamais calculés.",
-    facts: ["Fuite de données prouvée sur 50 400 images Kaggle : doublons exacts (MD5) et copies augmentées des deux côtés du découpage entraînement/validation.",
-            "Réévaluation de 5 modèles sur un sous-ensemble sans fuite, avec intervalles de confiance par bootstrap ; désactivation des 3 modèles cassés ou trop faibles.",
-            "Suppression de toute prédiction simulée. Le patient ne voit jamais la sortie de l'IA, seulement le diagnostic validé ou corrigé par son médecin.",
-            "Authentification JWT et bcrypt, isolement des patients par médecin, invitations médecin à usage unique, et refus des images qui ne sont pas des IRM."],
-    result: "<strong>Exactitude sans fuite :</strong> ResNet-50 0,814 (IC 95 % 0,800–0,826), contre 0,900 sur le découpage avec fuite. Rappel par classe : modérée 0,99, légère 0,86, non démente 0,76, très légère 0,73.",
-    limit: "Mesuré sur 3 153 images de validation sans quasi-doublon dans l'entraînement, mais ces mêmes images ont servi à choisir la meilleure époque et le prétraitement : le score est optimiste, et il n'existe pas encore de jeu de test indépendant (prochaine étape : OASIS-2 ou OASIS-3, découpé par patient). Coupes 2D sans identifiant patient. Environ 1 cas « très léger » sur 4 est encore manqué.",
-    caps: ["L'IA suggère, le médecin décide : valider ou corriger.", "Quand les deux modèles divergent, la suggestion est signalée comme incertaine.", "Aucun résultat de l'IA n'est montré au patient.", "Le patient ne voit que ce que son médecin a validé.", "Les statistiques comptent les décisions du médecin, pas la sortie brute de l'IA.", "Chaque médecin ne voit que ses propres patients.", "Les images qui ne sont manifestement pas des IRM sont refusées avant toute prédiction."]
-  },
-  ar: {
-    meta: "مشروع جماعي (PFA)، 2026. التدقيق والتقييم وإعادة البناء الموصوفة هنا من عملي.",
-    pitch: "نظام لدعم القرار في صور الرنين المغناطيسي للزهايمر: الذكاء الاصطناعي يقترح والطبيب يقرّر. أعدت بناءه بعد أن اكتشفت أن دقته مضخَّمة وأنه قد يعرض نتائج لم يحسبها قط.",
-    facts: ["أثبتّ تسرّب البيانات في 50,400 صورة من Kaggle: نسخ مطابقة (MD5) ونسخ معدَّلة موزعة على جهتي التقسيم بين التدريب والتحقق.",
-            "أعدت تقييم 5 نماذج على مجموعة خالية من التسرّب مع مجالات ثقة بطريقة bootstrap، وعطّلت 3 نماذج معطوبة أو ضعيفة.",
-            "حذفت كل تنبؤ محاكى. لا يرى المريض مخرجات الذكاء الاصطناعي أبدًا، بل التشخيص الذي صادق عليه طبيبه أو صحّحه فقط.",
-            "مصادقة JWT وbcrypt، وعزل المرضى حسب الطبيب، ودعوات أطباء صالحة لمرة واحدة، ورفض الصور التي ليست صور رنين."],
-    result: "<strong>الدقة دون تسرّب:</strong> ResNet-50 بلغ 0.814 (مجال ثقة 95%: 0.800–0.826)، مقابل 0.900 على التقسيم المتسرّب. الاستدعاء حسب الفئة: متوسطة 0.99، خفيفة 0.86، غير مصابة 0.76، خفيفة جدًا 0.73.",
-    limit: "مقاسة على 3153 صورة تحقق دون نسخ شبه مطابقة في التدريب، لكن هذه الصور نفسها استُعملت لاختيار أفضل حقبة وطريقة المعالجة المسبقة، لذا النتيجة متفائلة، ولا توجد بعدُ مجموعة اختبار مستقلة (الخطوة التالية: OASIS-2 أو OASIS-3 مع تقسيم حسب المريض). شرائح ثنائية الأبعاد دون معرّف للمريض. ما زالت حالة واحدة تقريبًا من كل 4 حالات «خفيفة جدًا» تُفوَّت.",
-    caps: ["الذكاء الاصطناعي يقترح والطبيب يقرّر: مصادقة أو تصحيح.", "حين يختلف النموذجان، يُعلَّم الاقتراح بأنه غير مؤكد.", "لا تُعرض أي نتيجة للذكاء الاصطناعي على المريض.", "يرى المريض فقط ما صادق عليه طبيبه.", "الإحصاءات تحسب قرارات الطبيب لا مخرجات الذكاء الاصطناعي الخام.", "يرى كل طبيب مرضاه فقط.", "تُرفض الصور التي ليست صور رنين بوضوح قبل أي تنبؤ."]
-  }
-},
-{
-  id: "forgeai", title: "ForgeAI", topics: ["agents", "rag"], viz: "weights", video: "forgeai-demo",
-  repo: "https://github.com/Abd-Elmouhib-Souri/ForgeAI",
-  stack: "Python · FastAPI · LangGraph · Next.js · PostgreSQL · Redis · ChromaDB · Docker Compose · Gemini · Groq",
-  tools: ["Python", "FastAPI", "LangGraph", "LangChain", "ChromaDB", "Groq / Gemini", "Next.js / React", "PostgreSQL", "Redis", "Docker"],
-  shots: ["forgeai-03", "forgeai-02", "forgeai-04", "forgeai-05", "forgeai-06", "forgeai-07", "forgeai-08", "forgeai-09", "forgeai-01", "forgeai-10", "forgeai-11", "forgeai-12", "forgeai-13"],
-  en: {
+  {
+    id: "forgeai",
+    title: "ForgeAI",
     meta: "Internship at DotJcom, Jul – Sep 2026",
+    topics: ["Agents & LLMs", "LLMs & RAG"],
     pitch: "A platform that turns a startup idea into a sourced analysis, an argued verdict and an execution plan. Its rule: AI agents propose, deterministic rules validate and decide.",
-    facts: ["A LangGraph pipeline of 8 analysis steps: market, SWOT, business model canvas, competition, finances, score, personas, fact-checking.",
-            "Two ChromaDB retrieval stores and web search, with the evidence for each claim kept and shown.",
-            "A 9-criterion weighted score and an 8-role investment committee, both computed by rules rather than by the LLM.",
-            "Gemini with Groq fallback, JWT, Google sign-in and 2FA, an admin console with real health checks and an audit log, PDF and Word exports."],
-    result: "<strong>In use during testing:</strong> 25 analyses completed (SQL count). One full 15-section report took 5 min 37 s.",
-    limit: "In a test fixed in advance (two strong ideas, three weak ones), the final score was 7.0 for all five: it does not yet separate good ideas from bad ones. The committee code uses fixed values (opportunity 6.0, risk 7.0); removing them is my next step. Report quality also depends on the web sources found.",
-    caps: ["A complete analysis in 15 sections, finished in 5 min 37 s.", "The guided path: the idea's context is checked before any analysis starts.", "External sources and verified competitors behind the analysis.", "The 8-role committee and its votes, computed by rules.", "The final verdict, score and risk.", "The product plan, computed on the server.", "A generated UML use-case diagram.", "The technical stack.", "The platform's home page and modules.", "Admin console: sign-in requires a code from an authenticator app (2FA).", "Admin dashboard: users, projects, average score and analyses by status.", "User management: roles, email verification and deactivation (names and emails hidden).", "Audit log: every admin action and sign-in, including failed 2FA attempts; entries cannot be edited (emails hidden)."]
+    facts: [
+      "A LangGraph pipeline of 8 analysis steps: market, SWOT, business model canvas, competition, finances, score, personas, fact-checking.",
+      "Two ChromaDB retrieval stores and web search, with the evidence for each claim kept and shown.",
+      "A 9-criterion weighted score and an 8-role investment committee, both computed by rules rather than by the LLM.",
+      "Gemini with Groq fallback, JWT, Google sign-in and 2FA, an admin console with real health checks and an audit log, PDF and Word exports.",
+      "A pre-registered discrimination test (2 strong and 3 weak ideas, success = a gap of at least 2 points) failed: every idea scored 7.0. I published the failure and traced it to fixed committee values in the code."
+    ],
+    result: "<strong>In use during testing:</strong> 25 analyses completed. One full 15-section report took 5 min 37 s.",
+    limit: "Report quality depends on the web sources found. The score is a structured opinion, not a prediction of success.",
+    stack: "Python, FastAPI, LangGraph, Next.js, PostgreSQL, Redis, ChromaDB, Docker Compose, Gemini, Groq",
+    repo: "https://github.com/Abd-Elmouhib-Souri/ForgeAI",
+    video: { file: "forgeai-demo", caption: "43-second demo: starting an analysis and reading the finished report." },
+    shots: [
+      ["forgeai-03.webp", "A complete analysis in 15 sections, finished in 5 min 37 s."],
+      ["forgeai-02.webp", "The guided path: the idea's context is checked before any analysis starts."],
+      ["forgeai-04.webp", "External sources and verified competitors behind the analysis."],
+      ["forgeai-05.webp", "The 8-role committee and its votes, computed by rules."],
+      ["forgeai-06.webp", "The final verdict, score and risk."],
+      ["forgeai-07.webp", "The product plan, computed on the server."],
+      ["forgeai-08.webp", "A generated UML use-case diagram."],
+      ["forgeai-09.webp", "The technical stack."],
+      ["forgeai-01.webp", "The platform's home page and modules."]
+    ]
   },
-  fr: {
-    meta: "Stage chez DotJcom, juil. – sept. 2026",
-    pitch: "Une plateforme qui transforme une idée de startup en analyse sourcée, verdict argumenté et plan d'exécution. Sa règle : les agents IA proposent, des règles déterministes valident et décident.",
-    facts: ["Un pipeline LangGraph de 8 étapes : marché, SWOT, business model canvas, concurrence, finances, score, personas, vérification des faits.",
-            "Deux bases de recherche ChromaDB et une recherche web, avec la preuve de chaque affirmation conservée et affichée.",
-            "Un score pondéré sur 9 critères et un comité d'investissement à 8 rôles, tous deux calculés par des règles et non par le LLM.",
-            "Gemini avec repli sur Groq, JWT, connexion Google et 2FA, console d'administration avec vrais contrôles de santé et journal d'audit, exports PDF et Word."],
-    result: "<strong>En usage pendant les tests :</strong> 25 analyses terminées (comptage SQL). Un rapport complet de 15 sections a pris 5 min 37 s.",
-    limit: "Lors d'un test fixé à l'avance (deux idées solides, trois faibles), le score final a été de 7,0 pour les cinq : il ne distingue pas encore une bonne idée d'une mauvaise. Le code du comité utilise des valeurs fixes (opportunité 6,0, risque 7,0) ; les retirer est ma prochaine étape. La qualité du rapport dépend aussi des sources web trouvées.",
-    caps: ["Une analyse complète en 15 sections, terminée en 5 min 37 s.", "Le parcours guidé : le contexte de l'idée est vérifié avant toute analyse.", "Les sources externes et les concurrents vérifiés derrière l'analyse.", "Le comité à 8 rôles et ses votes, calculés par des règles.", "Le verdict final, le score et le risque.", "Le plan produit, calculé côté serveur.", "Un diagramme UML de cas d'utilisation généré.", "La pile technique.", "La page d'accueil et les modules de la plateforme.", "Console admin : la connexion exige un code d'application d'authentification (2FA).", "Tableau de bord admin : utilisateurs, projets, score moyen et analyses par statut.", "Gestion des utilisateurs : rôles, vérification de l'e-mail et désactivation (noms et e-mails masqués).", "Journal d'audit : chaque action et connexion admin, y compris les échecs de 2FA ; les entrées ne sont pas modifiables (e-mails masqués)."]
-  },
-  ar: {
-    meta: "تربص في DotJcom، جويلية – سبتمبر 2026",
-    pitch: "منصّة تحوّل فكرة مشروع ناشئ إلى تحليل موثَّق المصادر، وحكم معلَّل، وخطة تنفيذ. قاعدتها: وكلاء الذكاء الاصطناعي يقترحون، وقواعد ثابتة تتحقق وتقرّر.",
-    facts: ["مسار LangGraph من 8 مراحل: السوق، SWOT، نموذج العمل، المنافسة، المالية، التقييم، الشخصيات، التحقق من الوقائع.",
-            "قاعدتا استرجاع ChromaDB وبحث على الويب، مع حفظ دليل كل ادعاء وعرضه.",
-            "تقييم مرجَّح على 9 معايير ولجنة استثمار من 8 أدوار، وكلاهما يُحسب بقواعد لا بالنموذج اللغوي.",
-            "Gemini مع بديل Groq، وJWT، والدخول عبر Google، والتحقق بخطوتين، ولوحة إدارة بفحوص صحة حقيقية وسجل تدقيق، وتصدير PDF وWord."],
-    result: "<strong>أثناء الاختبار:</strong> اكتمل 25 تحليلًا (عدّ عبر SQL). استغرق تقرير كامل من 15 قسمًا 5 دقائق و37 ثانية.",
-    limit: "في اختبار حُدِّد مسبقًا (فكرتان قويتان وثلاث ضعيفة)، كان التقييم النهائي 7.0 للأفكار الخمس: فهو لا يميّز بعدُ بين الفكرة الجيدة والسيئة. يستعمل كود اللجنة قيمًا ثابتة (الفرصة 6.0، المخاطر 7.0)؛ وإزالتها خطوتي التالية. كما تتوقف جودة التقرير على مصادر الويب.",
-    caps: ["تحليل كامل في 15 قسمًا، انتهى في 5 دقائق و37 ثانية.", "المسار الموجَّه: يُتحقق من سياق الفكرة قبل بدء أي تحليل.", "المصادر الخارجية والمنافسون الذين تم التحقق منهم وراء التحليل.", "لجنة الأدوار الثمانية وأصواتها، محسوبة بقواعد.", "الحكم النهائي والتقييم والمخاطر.", "خطة المنتج، محسوبة على الخادم.", "مخطط UML لحالات الاستخدام مولَّد آليًا.", "البنية التقنية.", "الصفحة الرئيسية للمنصّة ووحداتها.", "لوحة الإدارة: يتطلب الدخول رمزًا من تطبيق المصادقة (2FA).", "لوحة تحكم الإدارة: المستخدمون والمشاريع ومتوسط التقييم والتحليلات حسب الحالة.", "إدارة المستخدمين: الأدوار والتحقق من البريد والتعطيل (الأسماء والعناوين مخفية).", "سجل التدقيق: كل عملية ودخول إداري، بما فيها محاولات 2FA الفاشلة؛ لا يمكن تعديل المدخلات (العناوين مخفية)."]
+  {
+    id: "medbox",
+    title: "MedBox Reader",
+    meta: "Personal project, 2026. Two versions.",
+    topics: ["Computer vision", "Medical AI"],
+    pitch: "Reads the trade name of a Tunisian medicine from a photo of its box, or refuses. It is built never to guess a drug, because a wrong medicine is worse than no answer.",
+    facts: [
+      "v1: YOLOv8n (PyTorch, Kaggle test mAP@0.5 0.667) finds the name line, TrOCR (Hugging Face) reads it, and fuzzy matching compares it with 2,160 Tunisian trade names. Below a threshold fixed on development images, it refuses.",
+      "The error analysis found why v1 failed: in the training data the labels often sit on the molecule line, not the brand. On one phone photo, a lower threshold would have returned another laboratory's product with confidence. The refusal rule stopped it.",
+      "v2 was designed from that finding, with its rules committed before any code: CRAFT text detection on the tallest lines, TrOCR, then a trade-name answer, a molecule answer, or a refusal.",
+      "Protocols and thresholds are committed before each run and each test runs once. 16 tests, continuous integration, and a Gradio demo that compares v1 and v2 on the same photo."
+    ],
+    result: "<strong>v1, frozen tests (27 images):</strong> 0 wrong answers, but 0 drugs recognized. <strong>v2, development photos:</strong> 6/8 brands, 7/8 brand or molecule, 0/13 wrong. Those thresholds were tuned on these photos, so this is not a test.",
+    limit: "v2 has no independent test yet: its protocol is committed and the run is pending. It does not read Arabic, dosage or prescriptions. Not a medical tool.",
+    stack: "Python, PyTorch, Ultralytics YOLOv8, Hugging Face TrOCR, EasyOCR (CRAFT), rapidfuzz, Gradio, pytest, GitHub Actions",
+    repo: "https://github.com/Abd-Elmouhib-Souri/MedBox",
+    shots: [
+      ["medbox-01.webp", "v2 demo: the molecule is recognized but the brand is not, so it says so instead of guessing a brand."],
+      ["medbox-02.webp", "v2 demo: no text line is close enough to a known name, so it refuses."],
+      ["medbox-03.webp", "How detection works, on 4 random Kaggle test images: the detector often frames the molecule, not the brand."]
+    ]
   }
-},{
-  id: "mindcare", title: "MindCare AI", topics: ["nlp", "med"], viz: "probes",
-  repo: "https://github.com/Abd-Elmouhib-Souri/MindCare-AI",
-  stack: "Python · TensorFlow/Keras (Bi-LSTM + GloVe) · scikit-learn (TF-IDF + logistic regression) · FastAPI · React/TypeScript · 48 pytest tests",
-  tools: ["Python", "TensorFlow / Keras", "scikit-learn", "FastAPI", "React / TypeScript", "pytest", "Leakage audit", "Bootstrap CI", "Shortcut probes", "Multilingual NLP"],
-  shots: ["mindcare-01", "mindcare-02", "mindcare-03"],
-  en: {
-    meta: "Personal project, rebuilt in 2026 (v2.0). A research prototype, not a diagnostic or crisis tool.",
-    pitch: "A model that scores how much a Reddit post resembles r/SuicideWatch posts. I audited my own first version, found that its numbers could not be trusted, and rebuilt the data, the evaluation and the demo so that every number can be reproduced from a fresh clone.",
-    facts: ["The first version copied 50 hand-written sentences 3,000 times before the train/test split, so the same sentences were in both. I removed them and split by a hash of the normalized text: 0 texts shared between splits.",
-            "Six other problems fixed: labels guessed from file names, Twitter mixed with Reddit, stopword removal that deleted \"not\" and \"no\", SMOTE on token IDs, a global SSL bypass, and a UTF-16 requirements file.",
-            "The decision threshold was fixed on validation before the test (best precision with recall ≥ 0.90), and the test ran once.",
-            "Shortcut probes: with no distress vocabulary at all, post length and writing style alone reach a macro-F1 of 0.77, so part of the score comes from recognising the community, not the distress.",
-            "Face and voice models re-evaluated honestly and never fused with the text: 0.575 on face images with duplicates removed, and 0.453 on a voice never heard in training (it was 0.981 on a random split)."],
-    result: "<strong>Frozen test, run once (34,635 posts):</strong> Bi-LSTM macro-F1 0.938 (95% CI 0.936–0.941), finding 91% of distress posts at 0.97 precision. A TF-IDF baseline reaches 0.936: the difference is not significant.",
-    limit: "Labels are subreddits (r/SuicideWatch vs r/teenagers), not clinical annotations. On 80 sentences written before the evaluation, distress in a teenage context was found once out of 20. It must never be used to screen, monitor or judge a person; every result shows a link to a helpline.",
-    caps: ["The demo on my PC opens with what the model measures and a helpline link, before any text is scored.",
-           "A short, explicit sentence scores 0.68, below the 0.87 threshold fixed on validation: a false negative, shown as it is.",
-           "Where it fails: on 80 sentences frozen before the evaluation, distress in a teenage context is found once out of 20."]
-  },
-  fr: {
-    meta: "Projet personnel, reconstruit en 2026 (v2.0). Un prototype de recherche, pas un outil de diagnostic ni de crise.",
-    pitch: "Un modèle qui mesure à quel point un post Reddit ressemble aux posts de r/SuicideWatch. J'ai audité ma propre première version, constaté que ses chiffres n'étaient pas fiables, puis reconstruit les données, l'évaluation et la démo pour que chaque chiffre se reproduise à partir d'un clone neuf.",
-    facts: ["La première version copiait 50 phrases écrites à la main 3 000 fois avant le découpage train/test : les mêmes phrases étaient des deux côtés. Je les ai retirées et j'ai découpé par une empreinte du texte normalisé : 0 texte commun entre les ensembles.",
-            "Six autres problèmes corrigés : étiquettes devinées d'après le nom des fichiers, Twitter mélangé avec Reddit, suppression des mots vides qui effaçait « not » et « no », SMOTE sur des identifiants de mots, contournement SSL global, et fichier de dépendances en UTF-16.",
-            "Le seuil de décision a été fixé sur la validation avant le test (meilleure précision avec un rappel ≥ 0,90), et le test n'a été lancé qu'une fois.",
-            "Sondes de raccourci : sans aucun mot du vocabulaire de la détresse, la longueur et le style du post atteignent déjà un macro-F1 de 0,77. Une partie du score vient donc de la reconnaissance de la communauté, pas de la détresse.",
-            "Les modèles visage et voix ont été réévalués honnêtement et ne sont jamais fusionnés avec le texte : 0,575 sur des images de visage sans doublons, et 0,453 sur une voix jamais entendue à l'entraînement (contre 0,981 sur un découpage aléatoire)."],
-    result: "<strong>Test gelé, lancé une fois (34 635 posts) :</strong> macro-F1 du Bi-LSTM 0,938 (IC 95 % 0,936–0,941), qui trouve 91 % des posts de détresse avec une précision de 0,97. Une baseline TF-IDF atteint 0,936 : la différence n'est pas significative.",
-    limit: "Les étiquettes sont des subreddits (r/SuicideWatch contre r/teenagers), pas des annotations cliniques. Sur 80 phrases écrites avant l'évaluation, la détresse dans un contexte d'adolescent n'a été trouvée qu'une fois sur 20. Ce modèle ne doit jamais servir à dépister, surveiller ou juger une personne ; chaque résultat affiche un lien vers une ligne d'aide.",
-    caps: ["La démo sur mon PC commence par ce que le modèle mesure et un lien vers une ligne d'aide, avant tout score.",
-           "Une phrase courte et explicite obtient 0,68, sous le seuil de 0,87 fixé sur la validation : un faux négatif, montré tel quel.",
-           "Là où il échoue : sur 80 phrases gelées avant l'évaluation, la détresse dans un contexte d'adolescent n'est trouvée qu'une fois sur 20."]
-  },
-  ar: {
-    meta: "مشروع شخصي، أعيد بناؤه في 2026 (الإصدار 2.0). نموذج بحثي أولي، وليس أداة تشخيص ولا أداة أزمات.",
-    pitch: "نموذج يقيس مدى تشابه منشور على Reddit مع منشورات r/SuicideWatch. دقّقت نسختي الأولى بنفسي، فوجدت أن أرقامها غير موثوقة، فأعدت بناء البيانات والتقييم والعرض حتى يمكن إعادة إنتاج كل رقم من نسخة جديدة من المستودع.",
-    facts: ["كانت النسخة الأولى تنسخ 50 جملة مكتوبة يدويًا 3000 مرة قبل تقسيم التدريب والاختبار، فكانت الجمل نفسها في الجهتين. أزلتها وقسّمت البيانات ببصمة النص بعد تطبيعه: 0 نص مشترك بين المجموعات.",
-            "ستة أخطاء أخرى صُحّحت: تسميات مستنتجة من أسماء الملفات، وخلط Twitter مع Reddit، وحذف الكلمات الشائعة الذي كان يمحو «not» و«no»، وتطبيق SMOTE على أرقام الكلمات، وتعطيل شامل للتحقق من SSL، وملف متطلبات بترميز UTF-16.",
-            "حُدِّدت عتبة القرار على بيانات التحقق قبل الاختبار (أفضل دقة مع استدعاء ≥ 0.90)، وشُغّل الاختبار مرة واحدة.",
-            "اختبارات الاختصار: دون أي كلمة من مفردات الضيق، يبلغ طول المنشور وأسلوبه وحدهما macro-F1 قدره 0.77، أي أن جزءًا من النتيجة يأتي من التعرّف على المجتمع لا على الضيق.",
-            "أعيد تقييم نموذجي الوجه والصوت بأمانة، ولا يُدمجان أبدًا مع النص: 0.575 على صور وجوه دون نسخ مكررة، و0.453 على صوت لم يُسمع في التدريب (مقابل 0.981 على تقسيم عشوائي)."],
-    result: "<strong>اختبار مجمَّد شُغّل مرة واحدة (34,635 منشورًا):</strong> بلغ macro-F1 لنموذج Bi-LSTM ‏0.938 (مجال ثقة 95%: 0.936–0.941)، ويكشف 91% من منشورات الضيق بدقة 0.97. يبلغ خط الأساس TF-IDF ‏0.936: والفرق غير دال إحصائيًا.",
-    limit: "التسميات هي أسماء المنتديات (r/SuicideWatch مقابل r/teenagers) وليست تشخيصات سريرية. على 80 جملة كُتبت قبل التقييم، لم يُكتشف الضيق في سياق المراهقين إلا مرة واحدة من 20. لا يجوز استعماله أبدًا لفحص شخص أو مراقبته أو الحكم عليه؛ وكل نتيجة تعرض رابطًا لخط مساعدة.",
-    caps: ["يبدأ العرض على حاسوبي بما يقيسه النموذج ورابط لخط مساعدة، قبل حساب أي نتيجة.",
-           "جملة قصيرة وصريحة تحصل على 0.68، تحت العتبة 0.87 المحدَّدة على بيانات التحقق: سلبية خاطئة تُعرض كما هي.",
-           "أين يخفق: على 80 جملة جُمّدت قبل التقييم، لم يُكتشف الضيق في سياق المراهقين إلا مرة واحدة من 20."]
-  }
-},{
-  id: "newscheck", title: "NewsCheck TN", topics: ["nlp"], viz: "recall", status: true,
-  stack: "Python 3.10 · regular expressions · scikit-learn (offline training) · weights in JSON · FastAPI · pytest · ruff",
-  tools: ["Python", "FastAPI", "pytest", "scikit-learn", "Language identification", "Character n-grams", "Arabic text normalization", "Multilingual NLP"],
-  shots: ["newscheck-a1", "newscheck-a2"],
-  en: {
-    meta: "Team project at ESPRIM, topic proposed by the startup Tradrly, 2026. My part: work package A2 (normalization, language identification, noise detection).",
-    pitch: "A fact-checking pipeline for news and comments in French, Modern Standard Arabic and Tunisian dialect, written in Arabic script or in Arabizi (Latin letters and digits). My stage is the first one: it decides the language and script of every text before the other stages run.",
-    facts: ["Tunisian in Arabic script: a lexicon of 78 dialect markers plus the \"ma…ch\" negation, because there is too little annotated Tunisian to train a model and each decision can be explained.",
-            "Arabizi: a logistic regression on character n-grams (1 to 4), exported as JSON weights for a light FastAPI service. Its threshold was tuned on development data only.",
-            "A character-level perplexity model, one per script, flags noisy texts instead of deleting them.",
-            "Macro-F1 as the metric, because about 77% of the development set is Tunisian and accuracy would hide the small classes. Normalization never changes numbers (29 of 29 kept)."],
-    result: "<strong>Frozen test set (34 sentences):</strong> 0.94 macro-F1 vs 0.50 for a script-only baseline, and 0 of 680 Arabic news sentences wrongly labelled as Tunisian.",
-    limit: "On real comments, Tunisian in Arabic script is found only 53% of the time (precision 1.00): a word outside the lexicon is read as standard Arabic. The test set is small (34 sentences, only 5 in Tunisian Arabic script). Next step, with its protocol committed before any data was drawn: fine-tune MARBERTv2 behind the lexicon, judged on a new frozen test of 300 doubly annotated comments (success: recall ≥ 0.70 at precision ≥ 0.90).",
-    caps: ["My stage: every text enters the pipeline through one typed function (normalize, script, language), and each design choice is shown next to the alternative it replaced.",
-           "Language identification: 0.94 macro-F1 on the frozen test set (34 sentences) against 0.50 for a script-only baseline, and the limit I measured on real comments."]
-  },
-  fr: {
-    meta: "Projet d'équipe à l'ESPRIM, sujet proposé par la startup Tradrly, 2026. Ma partie : le lot A2 (normalisation, identification de la langue, détection du bruit).",
-    pitch: "Un pipeline de vérification d'informations pour des articles et commentaires en français, en arabe standard et en tunisien, écrit en lettres arabes ou en arabizi (lettres latines et chiffres). Mon étape est la première : elle détermine la langue et l'écriture de chaque texte avant les autres étapes.",
-    facts: ["Tunisien en lettres arabes : un lexique de 78 marques dialectales et la négation « ma…ch », car il y a trop peu de tunisien annoté pour entraîner un modèle, et chaque décision s'explique.",
-            "Arabizi : une régression logistique sur des n-grammes de caractères (1 à 4), exportée en poids JSON pour un service FastAPI léger. Son seuil a été réglé uniquement sur les données de développement.",
-            "Un modèle de perplexité sur les caractères, un par écriture, signale les textes bruités au lieu de les supprimer.",
-            "Le macro-F1 comme métrique, car environ 77 % du jeu de développement est en tunisien et l'exactitude cacherait les petites classes. La normalisation ne modifie jamais les nombres (29 sur 29 conservés)."],
-    result: "<strong>Jeu de test gelé (34 phrases) :</strong> macro-F1 de 0,94 contre 0,50 pour une baseline fondée sur l'alphabet seul, et 0 phrase de presse arabe sur 680 classée à tort comme tunisienne.",
-    limit: "Sur de vrais commentaires, le tunisien en lettres arabes n'est trouvé que dans 53 % des cas (précision 1,00) : un mot absent du lexique est lu comme de l'arabe standard. Le jeu de test est petit (34 phrases, dont 5 seulement en tunisien en lettres arabes). Prochaine étape, avec un protocole commité avant le tirage des données : affiner MARBERTv2 derrière le lexique, jugé sur un nouveau test gelé de 300 commentaires annotés par deux personnes (réussite : rappel ≥ 0,70 avec une précision ≥ 0,90).",
-    caps: ["Mon étape : chaque texte entre dans le pipeline par une seule fonction typée (normalisation, écriture, langue), et chaque choix de conception est montré face à l'alternative écartée.",
-           "Identification de la langue : macro-F1 de 0,94 sur le test gelé (34 phrases) contre 0,50 pour une baseline fondée sur l'alphabet seul, et la limite mesurée sur de vrais commentaires."]
-  },
-  ar: {
-    meta: "مشروع جماعي في ESPRIM، اقترحت موضوعه الشركة الناشئة Tradrly، 2026. جزئي: حزمة العمل A2 (التطبيع، وتحديد اللغة، وكشف الضجيج).",
-    pitch: "مسار للتحقق من الأخبار والتعليقات بالفرنسية والعربية الفصحى واللهجة التونسية، المكتوبة بالحروف العربية أو بالعربيزي (حروف لاتينية وأرقام). مرحلتي هي الأولى: تحدد لغة كل نص وطريقة كتابته قبل باقي المراحل.",
-    facts: ["التونسية بالحروف العربية: معجم من 78 علامة لهجية مع النفي «ما…ش»، لأن البيانات التونسية المصنَّفة قليلة جدًا لتدريب نموذج، ولأن كل قرار قابل للتفسير.",
-            "العربيزي: انحدار لوجستي على مقاطع حروف (من 1 إلى 4)، مصدَّر كأوزان JSON لخدمة FastAPI خفيفة. ضُبطت عتبته على بيانات التطوير فقط.",
-            "نموذج حيرة (perplexity) على مستوى الحروف، واحد لكل طريقة كتابة، ينبّه إلى النصوص المشوَّشة بدل حذفها.",
-            "مقياس macro-F1، لأن نحو 77% من بيانات التطوير تونسية والدقة الإجمالية كانت ستخفي الفئات الصغيرة. التطبيع لا يغيّر الأرقام أبدًا (29 من 29)."],
-    result: "<strong>مجموعة اختبار مجمَّدة (34 جملة):</strong> macro-F1 بلغ 0.94 مقابل 0.50 لخط أساس يعتمد على الحروف فقط، ولم تُصنَّف أي جملة من 680 جملة صحفية عربية خطأً على أنها تونسية.",
-    limit: "في التعليقات الحقيقية، لا تُكتشف التونسية بالحروف العربية إلا في 53% من الحالات (بدقة 1.00): الكلمة الغائبة عن المعجم تُقرأ كعربية فصحى. مجموعة الاختبار صغيرة (34 جملة، منها 5 فقط بالتونسية بالحروف العربية). الخطوة التالية، ببروتوكول التُزم به قبل سحب البيانات: ضبط MARBERTv2 خلف المعجم، ويُحكم عليه باختبار مجمَّد جديد من 300 تعليق يصنّفها شخصان (النجاح: استدعاء ≥ 0.70 بدقة ≥ 0.90).",
-    caps: ["مرحلتي: يدخل كل نص المسار عبر دالة واحدة محدَّدة النوع (التطبيع، طريقة الكتابة، اللغة)، ويُعرض كل قرار تصميم مقابل البديل الذي استبعدته.",
-           "تحديد اللغة: macro-F1 بلغ 0.94 على مجموعة الاختبار المجمَّدة (34 جملة) مقابل 0.50 لخط أساس يعتمد على الحروف فقط، مع الحدّ الذي قسته على تعليقات حقيقية."]
-  }
-},{
-  id: "9anoun", title: "9anoun AI", topics: ["rag", "nlp"], viz: "api", status: true,
-  stack: "Python · pure-Python BM25 with Arabic normalization · Gemini embeddings (768 dimensions) · RRF fusion · FastAPI · uvicorn · pytest",
-  tools: ["Python", "FastAPI", "pytest", "BM25", "Hybrid search (RRF)", "Retrieval evaluation", "Arabic text normalization"],
-  shots: [],
-  en: {
-    meta: "Team project (6 members) at ESPRIM with the startup Tradrly, which proposed the topic and provides the documents, 2026. My role: DS2, legal retrieval.",
-    pitch: "A multi-agent assistant that answers Tunisian workers' questions on labour law: sector collective agreements, amendments, salary grids and insurance. It must answer only from the texts, cite the exact article, and refuse when the corpus does not cover the question. I built the retrieval layer the other agents depend on.",
-    facts: ["A versioned corpus: Tradrly's scanned PDFs and OCR output split by article, with versions when an amendment changes an article, and a source registry that maps each PDF to its sector.",
-            "A stable contract (legal_retrieval.v0: search and get_article) with explicit codes: 200 for an answer or a business refusal such as \"source missing\", 422 for a malformed request, 500 for an internal error. The user-facing agent never calls the engine directly.",
-            "BM25 written in plain Python with Arabic normalization (diacritics, prefix letters, stopwords). A question that names \"article 52\" returns that article first.",
-            "An abstention rule: when the raw score and the share of question words found are both too low, the system refuses instead of guessing.",
-            "Semantic search (Gemini embeddings fused with BM25 by RRF, k = 60) is written and tested offline. It is not measured yet: no corpus goes to an external model before the partner's written agreement."],
-    result: "<strong>Current evaluation (17 core questions, BM25 alone):</strong> Recall@1 of 58.8% (10 of 17) and Recall@3 of 94.1% (16 of 17), MRR 0.755. 6 of 8 out-of-corpus questions refused. 185 tests pass on my retrieval module (1,209 in the whole team repository), and my four sprints are merged into main after peer review.",
-    limit: "Small evaluation: 29 of 43 golden questions are complete, and the 17 core ones are measured (13 by topic, 4 by article number). 2 of 8 out-of-corpus questions still get an answer, and 1 core question is wrongly refused. French and dialect questions: 0 of 4 found (a French–Arabic glossary is planned). Page numbers are missing on one ingestion path.",
-    caps: []
-  },
-  fr: {
-    meta: "Projet d'équipe (6 membres) à l'ESPRIM avec la startup Tradrly, qui a proposé le sujet et fournit les documents, 2026. Mon rôle : DS2, la recherche juridique.",
-    pitch: "Un assistant multi-agents qui répond aux questions des travailleurs tunisiens sur le droit du travail : conventions collectives sectorielles, avenants, grilles salariales et assurances. Il doit répondre uniquement à partir des textes, citer l'article exact et s'abstenir quand le corpus ne couvre pas la question. J'ai construit la couche de recherche dont dépendent les autres agents.",
-    facts: ["Un corpus versionné : les PDF scannés et les sorties OCR de Tradrly découpés par article, avec des versions quand un avenant modifie un article, et un registre qui associe chaque PDF à son secteur.",
-            "Un contrat stable (legal_retrieval.v0 : search et get_article) avec des codes explicites : 200 pour une réponse ou un refus métier comme « source manquante », 422 pour une requête mal formée, 500 pour une erreur interne. L'agent qui parle à l'utilisateur n'appelle jamais le moteur directement.",
-            "Un BM25 écrit en Python pur avec normalisation de l'arabe (voyelles, lettres préfixes, mots vides). Une question qui cite « l'article 52 » renvoie cet article en premier.",
-            "Une règle d'abstention : quand le score brut et la part des mots de la question retrouvés sont tous deux trop faibles, le système refuse au lieu de deviner.",
-            "La recherche par le sens (embeddings Gemini fusionnés avec BM25 par RRF, k = 60) est écrite et testée hors ligne. Elle n'est pas encore mesurée : aucun corpus ne part vers un modèle externe sans l'accord écrit du partenaire."],
-    result: "<strong>Évaluation actuelle (17 questions centrales, BM25 seul) :</strong> Recall@1 de 58,8 % (10 sur 17) et Recall@3 de 94,1 % (16 sur 17), MRR 0,755. 6 questions hors corpus sur 8 refusées. 185 tests passent sur mon module de recherche (1 209 dans tout le dépôt de l'équipe), et mes quatre sprints sont fusionnés sur main après revue par les pairs.",
-    limit: "Évaluation petite : 29 questions de référence complètes sur 43, et les 17 centrales sont mesurées (13 par sujet, 4 par numéro d'article). 2 questions hors corpus sur 8 reçoivent encore une réponse, et 1 question centrale est refusée à tort. Questions en français et en dialecte : 0 sur 4 trouvée (un glossaire français–arabe est prévu). Le numéro de page manque sur un des chemins d'ingestion.",
-    caps: []
-  },
-  ar: {
-    meta: "مشروع جماعي (6 أعضاء) في ESPRIM مع الشركة الناشئة Tradrly التي اقترحت الموضوع وتوفّر الوثائق، 2026. دوري: DS2، البحث القانوني.",
-    pitch: "مساعد متعدد الوكلاء يجيب عن أسئلة العمّال التونسيين في قانون الشغل: الاتفاقيات المشتركة القطاعية، والملاحق، وجداول الأجور، والتأمين. عليه أن يجيب من النصوص فقط، وأن يذكر الفصل بدقة، وأن يمتنع حين لا تغطي المدوّنة السؤال. بنيتُ طبقة البحث التي يعتمد عليها باقي الوكلاء.",
-    facts: ["مدوّنة بإصدارات: ملفات PDF الممسوحة ومخرجات OCR من Tradrly مقسّمة حسب الفصل، مع إصدارات حين يعدّل ملحقٌ فصلًا، وسجلّ يربط كل ملف بقطاعه.",
-            "عقد واجهة ثابت اسمه legal_retrieval.v0، فيه وظيفتان هما search وget_article، برموز واضحة: 200 للجواب أو للرفض المهني مثل «المصدر غير موجود»، و422 للطلب غير الصالح، و500 للخطأ الداخلي. الوكيل الذي يحاور المستخدم لا يستدعي المحرّك مباشرة أبدًا.",
-            "BM25 مكتوب بلغة Python فقط مع تطبيع العربية (الحركات، وحروف السوابق، والكلمات الشائعة). السؤال الذي يذكر «الفصل 52» يُرجع ذلك الفصل أولًا.",
-            "قاعدة امتناع: حين تكون الدرجة الخام ونسبة كلمات السؤال الموجودة منخفضتين معًا، يرفض النظام بدل التخمين.",
-            "البحث الدلالي، أي تضمينات Gemini مدموجة مع BM25 بطريقة RRF، مكتوب ومختبَر دون اتصال. لم يُقَس بعد: لا تُرسَل أي مدوّنة إلى نموذج خارجي قبل موافقة الشريك كتابيًا."],
-    result: "<strong>التقييم الحالي (17 سؤالًا أساسيًا، BM25 وحده):</strong> Recall@1 بنسبة 58.8% (10 من 17) وRecall@3 بنسبة 94.1% (16 من 17)، وMRR بقيمة 0.755. رُفض 6 من 8 أسئلة خارج المدوّنة. تنجح 185 اختبارًا على وحدة البحث التي بنيتها (1209 في مستودع الفريق كاملًا)، ودُمجت سبرنتاتي الأربعة في main بعد مراجعة الزملاء.",
-    limit: "التقييم صغير: 29 سؤالًا مرجعيًا مكتملًا من 43، والـ17 الأساسية هي المقاسة (13 حسب الموضوع و4 حسب رقم الفصل). سؤالان من 8 خارج المدوّنة ما زالا يتلقيان جوابًا، وسؤال أساسي واحد يُرفض خطأً. الأسئلة بالفرنسية وباللهجة: 0 من 4 (معجم فرنسي–عربي مبرمج). ورقم الصفحة غائب في أحد مسارات الإدخال.",
-    caps: []
-  }
-}];
+];
 
-
-/* Interactive proofs: data from the project journals and source code */
-const REPLAY = {
-  runs: [
-    { q: "Quelle est la dernière HbA1c ?", gate: true, time: 4.0,
-      out: "La dernière HbA1c est de 8,1 % le 2 octobre 2026. [Page 3]" },
-    { q: "Quel est le résultat de l'EEG ?", gate: false, time: 2.2,
-      out: "Information non trouvée dans les documents fournis." }
-  ],
-  en: { title: "Replay a recorded run", sub: "Two real questions asked on 24 Oct 2026 to a fictional record. The steps are real; the animation speed is not the real timing.",
-        stages: ["Rewrite and translate the question", "Hybrid search (ChromaDB + BM25)", "Remove quarantined passages", "Cross-encoder reranking", "Relevance gate", "Answer with page citations", "Grounding check"],
-        pick: "Pick a question to replay the run.", pass: "passed", blocked: "nothing relevant enough", skipped: "LLM not called", verified: "verified", done: "done",
-        ask: "Ask", answer: "Answer", refused: "Refused", total: "Total time in the real run" },
-  fr: { title: "Rejouer une exécution enregistrée", sub: "Deux vraies questions posées le 24/10/2026 sur un dossier fictif. Les étapes sont réelles ; la vitesse de l'animation ne l'est pas.",
-        stages: ["Réécrire et traduire la question", "Recherche hybride (ChromaDB + BM25)", "Retirer les passages en quarantaine", "Reranking par cross-encoder", "Filtre de pertinence", "Réponse avec citation de page", "Vérification des sources"],
-        pick: "Choisissez une question pour rejouer l'exécution.", pass: "passé", blocked: "rien d'assez pertinent", skipped: "LLM non appelé", verified: "vérifiée", done: "fait",
-        ask: "Poser", answer: "Réponse", refused: "Refus", total: "Durée totale de l'exécution réelle" },
-  ar: { title: "أعد تشغيل جلسة مسجّلة", sub: "سؤالان حقيقيان طُرحا يوم 24/10/2026 على ملف وهمي. المراحل حقيقية، أما سرعة العرض فليست التوقيت الحقيقي.",
-        stages: ["إعادة صياغة السؤال وترجمته", "بحث هجين (ChromaDB + BM25)", "حذف المقاطع المعزولة", "إعادة الترتيب بـ cross-encoder", "مرشّح الصلة", "جواب مع ذكر الصفحة", "التحقق من المصادر"],
-        pick: "اختر سؤالًا لإعادة تشغيل الجلسة.", pass: "اجتاز", blocked: "لا شيء وثيق الصلة بما يكفي", skipped: "لم يُستدعَ النموذج", verified: "تم التحقق", done: "تم",
-        ask: "اسأل", answer: "الجواب", refused: "رفض", total: "المدة الإجمالية في التشغيل الحقيقي" }
-};
-const BARS = {
-  models: [
-    { n: "ResNet-50", leaky: 0.900, free: 0.814, ci: [0.800, 0.826], served: true },
-    { n: "Custom CNN", leaky: 0.810, free: 0.784, ci: [0.770, 0.799], served: true },
-    { n: "EfficientNet-B4", leaky: 0.567, free: 0.555, ci: [0.539, 0.573], served: false },
-    { n: "EfficientNet-B3", leaky: 0.317, free: 0.297, served: false },
-    { n: "EfficientNet-B0", leaky: 0.229, free: 0.209, served: false }
-  ],
-  en: { title: "Accuracy: leaky split vs leak-free images", sub: "Measured on Kaggle (TensorFlow 2.20). Switch to see what the leak was hiding.",
-        leaky: "Leaky split (10,079 images)", free: "Leak-free (3,153 images)", served: "served", off: "disabled", chance: "chance level (4 classes)", ci: "95% bootstrap interval" },
-  fr: { title: "Exactitude : découpage avec fuite vs images sans fuite", sub: "Mesuré sur Kaggle (TensorFlow 2.20). Basculez pour voir ce que la fuite cachait.",
-        leaky: "Avec fuite (10 079 images)", free: "Sans fuite (3 153 images)", served: "en service", off: "désactivé", chance: "niveau du hasard (4 classes)", ci: "intervalle bootstrap à 95 %" },
-  ar: { title: "الدقة: تقسيم متسرّب مقابل صور دون تسرّب", sub: "مقاسة على Kaggle (TensorFlow 2.20). بدّل لترى ما كان التسرّب يخفيه.",
-        leaky: "مع التسرّب (10,079 صورة)", free: "دون تسرّب (3,153 صورة)", served: "قيد الخدمة", off: "معطَّل", chance: "مستوى الصدفة (4 فئات)", ci: "مجال bootstrap بنسبة 95%" }
-};
-const WEIGHTS = {
-  w: [17, 14, 13, 13, 10, 10, 10, 8, 5],
-  en: { title: "How the 9-criterion score is weighted", sub: "The intended weights, read from startup_score_agent.py. Select a part of the bar. In my test, the final score did not vary (see the limitation).",
-        names: ["Problem–solution fit", "Market potential", "Execution feasibility", "Business model strength", "Competitive advantage", "Scalability", "Financial viability", "Innovation", "Risk management"] },
-  fr: { title: "La pondération du score à 9 critères", sub: "Les poids prévus, lus dans startup_score_agent.py. Sélectionnez une partie de la barre. Dans mon test, le score final n'a pas varié (voir la limite).",
-        names: ["Adéquation problème–solution", "Potentiel de marché", "Faisabilité d'exécution", "Solidité du modèle économique", "Avantage concurrentiel", "Passage à l'échelle", "Viabilité financière", "Innovation", "Gestion des risques"] },
-  ar: { title: "كيف تُوزَّع أوزان التقييم على 9 معايير", sub: "الأوزان المقرَّرة، مأخوذة من startup_score_agent.py. اختر جزءًا من الشريط. في اختباري لم يتغيّر التقييم النهائي (انظر الحدود).",
-        names: ["ملاءمة الحل للمشكلة", "إمكانات السوق", "قابلية التنفيذ", "متانة نموذج العمل", "الميزة التنافسية", "قابلية التوسّع", "الجدوى المالية", "الابتكار", "إدارة المخاطر"] }
-};
-
-const PROBES = {
-  rows: [["p0", 0.334, "probe"], ["p1", 0.748, "probe"], ["p3", 0.773, "probe"], ["tfidf", 0.936, "model"], ["bilstm", 0.938, "model"]],
-  ch: [["a", 3, 20], ["b", 17, 20], ["c", 1, 20], ["d0", 10, 10], ["d1", 2, 10]],
-  en: { title: "How much is a shortcut?", sub: "Macro-F1. Grey: probes that see no distress vocabulary (validation). Teal: the real models (frozen test, 34,635 posts).",
-        tabs: ["Shortcut probes", "Challenge set (Bi-LSTM)"],
-        names: { p0: "Majority class (no information)", p1: "Post length only", p3: "Style only (length, negations, \"you\", links)", tfidf: "TF-IDF + logistic regression", bilstm: "Bi-LSTM + GloVe" },
-        chsub: "80 synthetic sentences, frozen before the evaluation. Correct answers per group.",
-        chnames: { a: "Distress without keywords", b: "A keyword without distress", c: "Distress in a teen context", d0: "Negation that cancels distress", d1: "Negation that expresses distress" } },
-  fr: { title: "Combien vaut un raccourci ?", sub: "Macro-F1. En gris : des sondes qui ne voient aucun mot de détresse (validation). En vert : les vrais modèles (test gelé, 34 635 posts).",
-        tabs: ["Sondes de raccourci", "Jeu de défi (Bi-LSTM)"],
-        names: { p0: "Classe majoritaire (aucune information)", p1: "Longueur du post seule", p3: "Style seul (longueur, négations, « you », liens)", tfidf: "TF-IDF + régression logistique", bilstm: "Bi-LSTM + GloVe" },
-        chsub: "80 phrases synthétiques, gelées avant l'évaluation. Bonnes réponses par groupe.",
-        chnames: { a: "Détresse sans mot-clé", b: "Mot-clé sans détresse", c: "Détresse dans un contexte d'adolescent", d0: "Négation qui annule la détresse", d1: "Négation qui exprime la détresse" } },
-  ar: { title: "كم يساوي الاختصار؟", sub: "macro-F1. بالرمادي: اختبارات لا ترى أي كلمة من مفردات الضيق (بيانات التحقق). بالأخضر: النماذج الحقيقية (اختبار مجمَّد، 34,635 منشورًا).",
-        tabs: ["اختبارات الاختصار", "مجموعة التحدي (Bi-LSTM)"],
-        names: { p0: "الفئة الأغلب (دون معلومات)", p1: "طول المنشور فقط", p3: "الأسلوب فقط (الطول، النفي، «you»، الروابط)", tfidf: "TF-IDF مع الانحدار اللوجستي", bilstm: "Bi-LSTM مع GloVe" },
-        chsub: "80 جملة مصطنعة، جُمّدت قبل التقييم. الأجوبة الصحيحة في كل مجموعة.",
-        chnames: { a: "ضيق دون كلمات مفتاحية", b: "كلمة مفتاحية دون ضيق", c: "ضيق في سياق مراهق", d0: "نفي يلغي الضيق", d1: "نفي يعبّر عن الضيق" } }
-};
-
-const RECALL = {
-  rows: [["fr", 10, 10], ["msa", 10, 10], ["tn", 4, 5], ["arabizi", 5, 5], ["mixed", 3, 4]],
-  en: { title: "Recall per language on the frozen test set", sub: "34 sentences, run once (commit 85fb77d). The counts are small, so read them as a sanity check.",
-        names: { fr: "French", msa: "Standard Arabic", tn: "Tunisian (Arabic script)", arabizi: "Arabizi", mixed: "Mixed" },
-        real: "On real comments (development set): Tunisian in Arabic script found 53% of the time, with precision 1.00." },
-  fr: { title: "Rappel par langue sur le jeu de test gelé", sub: "34 phrases, lancé une fois (commit 85fb77d). Les effectifs sont petits : c'est un contrôle, pas une preuve.",
-        names: { fr: "Français", msa: "Arabe standard", tn: "Tunisien (lettres arabes)", arabizi: "Arabizi", mixed: "Mixte" },
-        real: "Sur de vrais commentaires (développement) : tunisien en lettres arabes trouvé dans 53 % des cas, avec une précision de 1,00." },
-  ar: { title: "الاستدعاء حسب اللغة على مجموعة الاختبار المجمَّدة", sub: "34 جملة، شُغّلت مرة واحدة (commit 85fb77d). الأعداد صغيرة، فهي فحص أولي لا أكثر.",
-        names: { fr: "الفرنسية", msa: "العربية الفصحى", tn: "التونسية (حروف عربية)", arabizi: "العربيزي", mixed: "مختلط" },
-        real: "في التعليقات الحقيقية (بيانات التطوير): اكتُشفت التونسية بالحروف العربية في 53% من الحالات، بدقة 1.00." }
-};
-
-const API = {
-  calls: [
-    { k: "hit", q: "منحة النقل", code: 200, body: '{ "status": "ok", "results": [ { "article": "52", "score": 1.0 }, … ] }' },
-    { k: "miss", code: 200, body: '{ "status": "refused", "reason": "SOURCE_MANQUANTE" }' },
-    { k: "bad", q: "", code: 422, body: '{ "error": "PARAM_INVALIDE" }' }
-  ],
-  en: { title: "Replay the HTTP proofs", sub: "Three requests sent to the local server in live mode. Responses shortened to their key fields.",
-        hit: "“منحة النقل” (transport allowance)", miss: "A question outside the corpus", bad: "An empty request",
-        note: { hit: "Article 52 comes first, with the top score.", miss: "A business refusal, not an error: the agent can say \"I don't have this text\".", bad: "Rejected before any search." },
-        pick: "Pick a request.", metrics: [["58.8%", "Recall@1 (10/17)"], ["94.1%", "Recall@3 (16/17)"], ["6/8", "out-of-corpus refused"]] },
-  fr: { title: "Rejouer les preuves HTTP", sub: "Trois requêtes envoyées au serveur local en mode live. Réponses réduites à leurs champs clés.",
-        hit: "« منحة النقل » (prime de transport)", miss: "Une question hors corpus", bad: "Une requête vide",
-        note: { hit: "L'article 52 arrive en premier, avec le score maximal.", miss: "Un refus métier, pas une erreur : l'agent peut dire « je n'ai pas ce texte ».", bad: "Rejetée avant toute recherche." },
-        pick: "Choisissez une requête.", metrics: [["58,8 %", "Recall@1 (10/17)"], ["94,1 %", "Recall@3 (16/17)"], ["6/8", "refus hors corpus"]] },
-  ar: { title: "أعد تشغيل إثباتات HTTP", sub: "ثلاثة طلبات أُرسلت إلى الخادم المحلي في وضع live. الردود مختصرة إلى حقولها الأساسية.",
-        hit: "«منحة النقل»", miss: "سؤال خارج المدوّنة", bad: "طلب فارغ",
-        note: { hit: "الفصل 52 يأتي أولًا بأعلى درجة.", miss: "رفض مهني وليس خطأ: يستطيع الوكيل أن يقول «لا أملك هذا النص».", bad: "رُفض قبل أي بحث." },
-        pick: "اختر طلبًا.", metrics: [["58.8%", "Recall@1 (10/17)"], ["94.1%", "Recall@3 (16/17)"], ["6/8", "رفض خارج المدوّنة"]] }
-};
-
-/* Smaller and ongoing work */
+/* Smaller and ongoing work: honest one-liners, no unmeasured numbers. */
 const MORE = [
-  { id: "sales", repo: "https://github.com/Abd-Elmouhib-Souri/sales-forecasting-pipeline", shots: ["sales-01", "sales-02", "sales-03", "sales-04"],
-    caps: { en: ["2018, the year kept out of training: actual monthly revenue next to the Ridge forecast from a model trained on 2015–2017 (MAPE 20.3% vs 24.9% for a seasonal naive baseline). Totals checked against SQL: $722.05K, 1,661 orders.", "2017: $600.19K revenue, 1,295 orders, 635 customers.", "2016: $459.44K revenue, 1,019 orders, 567 customers.", "2015: $479.86K revenue, 947 orders, 589 customers."],
-            fr: ["2018, l'année tenue à l'écart de l'entraînement : le chiffre d'affaires mensuel réel à côté de la prévision Ridge d'un modèle entraîné sur 2015–2017 (MAPE 20,3 % contre 24,9 % pour une baseline naïve saisonnière). Totaux vérifiés en SQL : 722,05 k$, 1 661 commandes.", "2017 : 600,19 k$ de chiffre d'affaires, 1 295 commandes, 635 clients.", "2016 : 459,44 k$ de chiffre d'affaires, 1 019 commandes, 567 clients.", "2015 : 479,86 k$ de chiffre d'affaires, 947 commandes, 589 clients."],
-            ar: ["2018، السنة المعزولة عن التدريب: رقم المعاملات الشهري الفعلي بجانب تنبؤ Ridge من نموذج دُرّب على 2015–2017 (MAPE ‏20.3% مقابل 24.9% لخط أساس موسمي بسيط). مجاميع متحقَّق منها عبر SQL: 722.05 ألف دولار و1,661 طلبًا.", "2017: رقم معاملات 600.19 ألف دولار، 1,295 طلبًا، 635 عميلًا.", "2016: رقم معاملات 459.44 ألف دولار، 1,019 طلبًا، 567 عميلًا.", "2015: رقم معاملات 479.86 ألف دولار، 947 طلبًا، 589 عميلًا."] },
-    en: { t: "Sales forecasting pipeline", d: "ETL of 9,800 transactions into a PostgreSQL star schema (Docker) and a Power BI report. On the last 12 months, kept out of training, Ridge (trend + month) reaches a MAPE of 20.3%, against 24.9% for a seasonal naive baseline: a modest gain on 12 points." },
-    fr: { t: "Pipeline de prévision des ventes", d: "ETL de 9 800 transactions vers un schéma en étoile PostgreSQL (Docker) et un rapport Power BI. Sur les 12 derniers mois, tenus à l'écart de l'entraînement, Ridge (tendance + mois) atteint une MAPE de 20,3 %, contre 24,9 % pour une baseline naïve saisonnière : un gain modeste, mesuré sur 12 points." },
-    ar: { t: "مسار للتنبؤ بالمبيعات", d: "استخراج وتحويل 9,800 معاملة إلى مخطط نجمي على PostgreSQL ‏(Docker) مع تقرير Power BI. على آخر 12 شهرًا المعزولة عن التدريب، يبلغ Ridge ‏(الاتجاه + الشهر) نسبة MAPE قدرها 20.3%، مقابل 24.9% لخط أساس موسمي بسيط: تحسّن متواضع على 12 نقطة." } },
-  { id: "retail", repo: "https://github.com/Abd-Elmouhib-Souri/retail-sales-powerbi-dashboard", shots: ["retail-01", "retail-02", "retail-03", "retail-04", "retail-05"],
-    caps: { en: ["Filtered on Camping Equipment: total cost $2.22M, by retailer type and city, with revenue and profit by year.", "Filtered on Mountaineering Equipment: total cost $726.86K, by retailer type and city, with revenue and profit by year.", "Filtered on Personal Accessories: total cost $443.93K, by retailer type and city, with revenue and profit by year.", "Filtered on Golf Equipment: total cost $287.37K, by retailer type and city, with revenue and profit by year. Profit is revenue minus cost; it was revenue times cost before I read the model as text.", "Filtered on Outdoor Protection: total cost $73.29K, by retailer type and city, with revenue and profit by year."],
-            fr: ["Filtré sur Camping Equipment : coût total 2,22 M$, par type de revendeur et par ville, avec le chiffre d'affaires et le profit par année.", "Filtré sur Mountaineering Equipment : coût total 726,86 k$, par type de revendeur et par ville, avec le chiffre d'affaires et le profit par année.", "Filtré sur Personal Accessories : coût total 443,93 k$, par type de revendeur et par ville, avec le chiffre d'affaires et le profit par année.", "Filtré sur Golf Equipment : coût total 287,37 k$, par type de revendeur et par ville, avec le chiffre d'affaires et le profit par année. Le profit est le chiffre d'affaires moins le coût ; c'était une multiplication avant que je lise le modèle en texte.", "Filtré sur Outdoor Protection : coût total 73,29 k$, par type de revendeur et par ville, avec le chiffre d'affaires et le profit par année."],
-            ar: ["مصفّى على Camping Equipment: التكلفة الإجمالية 2.22 مليون دولار، حسب نوع البائع والمدينة، مع رقم المعاملات والربح حسب السنة.", "مصفّى على Mountaineering Equipment: التكلفة الإجمالية 726.86 ألف دولار، حسب نوع البائع والمدينة، مع رقم المعاملات والربح حسب السنة.", "مصفّى على Personal Accessories: التكلفة الإجمالية 443.93 ألف دولار، حسب نوع البائع والمدينة، مع رقم المعاملات والربح حسب السنة.", "مصفّى على Golf Equipment: التكلفة الإجمالية 287.37 ألف دولار، حسب نوع البائع والمدينة، مع رقم المعاملات والربح حسب السنة. الربح هو رقم المعاملات ناقص التكلفة؛ وكان ضربًا قبل أن أقرأ النموذج كنص.", "مصفّى على Outdoor Protection: التكلفة الإجمالية 73.29 ألف دولار، حسب نوع البائع والمدينة، مع رقم المعاملات والربح حسب السنة."] },
-    en: { t: "Retail sales Power BI dashboard", d: "A one-page Power BI report (ESPRIM BI course, course dataset), versioned as a Power BI Project so measures and visuals are readable in Git. Reading the model as text revealed that Profit multiplied revenue by cost instead of subtracting it; I fixed it and documented the fix." },
-    fr: { t: "Tableau de bord Power BI des ventes", d: "Un rapport Power BI d'une page (cours de BI à l'ESPRIM, données du cours), versionné comme projet Power BI pour que les mesures et les visuels se lisent dans Git. En lisant le modèle en texte, j'ai découvert que le profit multipliait le chiffre d'affaires par le coût au lieu de les soustraire ; je l'ai corrigé et documenté." },
-    ar: { t: "لوحة Power BI لمبيعات التجزئة", d: "تقرير Power BI من صفحة واحدة (درس ذكاء الأعمال في ESPRIM، بيانات الدرس)، محفوظ كمشروع Power BI حتى تُقرأ المقاييس والمرئيات في Git. عند قراءة النموذج كنص اكتشفت أن الربح كان يضرب رقم المعاملات في التكلفة بدل طرحها؛ فأصلحته ووثّقت الإصلاح." } }
+  { title: "MindCare AI", status: "Audited and rebuilt",
+    text: "Distress-language detection on Reddit posts. I audited my first version and found its 88% recall came from 50 sentences copied 3,000 times before the split. Rebuilt with a hash split and a test run once: Bi-LSTM macro-F1 0.938 against 0.936 for a TF-IDF baseline, not a significant difference. Face accuracy is 0.575 and voice accuracy on an unseen speaker 0.453 (it was 0.981). The labels are subreddit-level, so this is a research tool, not a screening tool.",
+    repo: "https://github.com/Abd-Elmouhib-Souri/MindCare-AI" },
+  { title: "NewsCheck TN", status: "In progress",
+    text: "Team project at ESPRIM on fact-checking in Tunisian, Arabic and French. My part is language and script identification (French, Modern Standard Arabic, Tunisian in Arabic script or Arabizi): macro-F1 0.94 against a 0.50 baseline on a 34-sentence frozen test, 0 of 680 MSA news sentences mislabelled. Recall on real comments is only 0.53, so I plan a MARBERTv2 model under a pre-registered protocol." },
+  { title: "9anoun AI", status: "In progress",
+    text: "Team project with the startup Tradrly: a Tunisian labour-law assistant. My part is legal retrieval: a versioned article corpus, BM25 with Arabic normalization, an abstention rule and a stable API contract. Recall@1 is 10/17 and Recall@3 16/17, with 6 of 8 out-of-corpus questions refused, and 185 tests cover my module." },
+  { title: "Sales forecasting pipeline",
+    text: "ETL of 9,800 transactions into a star schema on PostgreSQL in Docker, and a Power BI report where I found and fixed a wrong profit formula. On held-out 2018, a Ridge regression reaches a MAPE of 20.3% against 24.9% for a seasonal naive baseline.",
+    repo: "https://github.com/Abd-Elmouhib-Souri/sales-forecasting-pipeline" },
+  { title: "Retail sales Power BI dashboard",
+    text: "A Business Intelligence course report on retail cost, revenue and profit by product line, retailer and city. It is versioned as a Power BI Project (TMDL and PBIR), so every measure is readable in the git history; reading the model as text is how I found a profit measure that multiplied instead of subtracting.",
+    repo: "https://github.com/Abd-Elmouhib-Souri/retail-sales-powerbi-dashboard" },
+  { title: "myTT assistant",
+    text: "Internship app at Tunisie Telecom: React Native, Firebase and a Gemini chat that explains USSD service codes. The repository is private (company code)." }
 ];
 
-const METHOD = {
-  en: [["Audit before training", "In DataScoop I rebuilt the exact Keras validation split, found 195 groups of exact duplicates and near-identical augmented copies across it, and kept only the 3,153 validation images with no copy in training."],
-       ["Fix the decision rule before the experiment", "For MedRAG's reranker I wrote down what \"better\" meant (accuracy gain and a latency limit) before running bge-reranker-v2-m3, so I could not pick the rule after seeing the result."],
-       ["Keep a test set I touch once", "MedRAG was tuned on 32 development questions and reported on 19 held-out ones. When the held-out run exposed a drug-class error, I reported it, then fixed it with new development questions written before the code, without re-running the test."],
-       ["Tests that fail when the bug returns", "Each security or safety fix gets a test, and I check that the test fails when I put the old code back. DataScoop has 28 backend and 17 Python tests; MedRAG has 38."]],
-  fr: [["Auditer avant d'entraîner", "Dans DataScoop, j'ai reconstruit le découpage de validation exact de Keras, trouvé 195 groupes de doublons exacts et des copies augmentées quasi identiques de part et d'autre, et gardé seulement les 3 153 images de validation sans copie à l'entraînement."],
-       ["Fixer la règle de décision avant l'expérience", "Pour le reranker de MedRAG, j'ai écrit ce que « meilleur » voulait dire (gain d'exactitude et limite de latence) avant de lancer bge-reranker-v2-m3, pour ne pas choisir la règle après avoir vu le résultat."],
-       ["Un jeu de test touché une seule fois", "MedRAG a été réglé sur 32 questions de développement et évalué sur 19 questions tenues à l'écart. Quand ce test a révélé une erreur de classe de médicament, je l'ai rapportée, puis corrigée avec de nouvelles questions de développement écrites avant le code, sans relancer le test."],
-       ["Des tests qui échouent si le bug revient", "Chaque correctif de sécurité a son test, et je vérifie qu'il échoue quand je remets l'ancien code. DataScoop a 28 tests backend et 17 tests Python ; MedRAG en a 38."]],
-  ar: [["التدقيق قبل التدريب", "في DataScoop أعدت بناء تقسيم التحقق نفسه الذي يستعمله Keras، ووجدت 195 مجموعة من النسخ المطابقة ونسخًا معدَّلة شبه متطابقة في الجهتين، واحتفظت فقط بـ 3,153 صورة تحقق لا نسخة لها في التدريب."],
-       ["تحديد قاعدة القرار قبل التجربة", "بالنسبة لمرشّح MedRAG كتبت مسبقًا ماذا تعني «أفضل» (مكسب في الدقة وحدّ للزمن) قبل تشغيل bge-reranker-v2-m3، حتى لا أختار القاعدة بعد رؤية النتيجة."],
-       ["مجموعة اختبار تُلمس مرة واحدة", "ضُبط MedRAG على 32 سؤال تطوير وقُيّم على 19 سؤالًا معزولًا. حين كشف هذا الاختبار خطأً في فئة دواء، أبلغت عنه، ثم أصلحته بأسئلة تطوير جديدة كُتبت قبل الشيفرة، دون إعادة تشغيل الاختبار."],
-       ["اختبارات تفشل إذا عاد الخطأ", "لكل إصلاح أمني اختبار، وأتأكد أنه يفشل حين أعيد الشيفرة القديمة. في DataScoop ‏28 اختبارًا للخادم و17 اختبار Python، وفي MedRAG ‏38 اختبارًا."]]
-};
-
-const TIMELINE = {
-  en: [["Jul – Sep 2026", "Software & AI engineering intern", "DotJcom Ltd, Soliman, Tunisia", "Built ForgeAI, a multi-agent platform that turns a startup idea into a sourced analysis and execution plan."],
-       ["Aug – Sep 2025", "Mobile development intern", "Tunisie Telecom, Monastir", "A React Native and Firebase app with a Gemini assistant that explains USSD service codes in plain language."],
-       ["2024 – 2027", "Engineering degree, Data Science & AI", "ESPRIM, Monastir (final year)", ""],
-       ["2022 – 2024", "Preparatory classes, Physics–Technology", "Gafsa, Tunisia", ""]],
-  fr: [["juil. – sept. 2026", "Stagiaire ingénieur logiciel & IA", "DotJcom Ltd, Soliman, Tunisie", "Construction de ForgeAI, une plateforme multi-agents qui transforme une idée de startup en analyse sourcée et plan d'exécution."],
-       ["août – sept. 2025", "Stagiaire développement mobile", "Tunisie Telecom, Monastir", "Une application React Native et Firebase avec un assistant Gemini qui explique les codes USSD en langage simple."],
-       ["2024 – 2027", "Diplôme d'ingénieur, Data Science & IA", "ESPRIM, Monastir (dernière année)", ""],
-       ["2022 – 2024", "Classes préparatoires, Physique–Technologie", "Gafsa, Tunisie", ""]],
-  ar: [["جويلية – سبتمبر 2026", "متربص مهندس برمجيات وذكاء اصطناعي", "DotJcom Ltd، سليمان، تونس", "بناء ForgeAI، منصّة متعددة الوكلاء تحوّل فكرة مشروع ناشئ إلى تحليل موثَّق وخطة تنفيذ."],
-       ["أوت – سبتمبر 2025", "متربص في تطوير تطبيقات الهاتف", "اتصالات تونس، المنستير", "تطبيق React Native وFirebase مع مساعد Gemini يشرح رموز خدمات USSD بلغة بسيطة."],
-       ["2024 – 2027", "شهادة مهندس، علوم البيانات والذكاء الاصطناعي", "ESPRIM، المنستير (السنة الأخيرة)", ""],
-       ["2022 – 2024", "الأقسام التحضيرية، فيزياء–تكنولوجيا", "قفصة، تونس", ""]]
-};
-
-/* Skill groups: tools that appear in a case study become filter buttons */
-const SKILLS = [
-  { en: "LLMs, RAG and agents", fr: "LLM, RAG et agents", ar: "النماذج اللغوية وRAG والوكلاء",
-    tools: ["LangChain", "LangGraph", "ChromaDB", "Cross-encoder reranking", "Hybrid search (RRF)", "Groq / Gemini", "Prompt-injection defence", "Retrieval evaluation"] },
-  { en: "NLP", fr: "NLP (traitement du langage)", ar: "معالجة اللغة الطبيعية (NLP)",
-    tools: ["Multilingual NLP", "Arabic text normalization", "Language identification", "Character n-grams", "BM25"] },
-  { en: "Computer vision", fr: "Vision par ordinateur", ar: "الرؤية الحاسوبية",
-    tools: ["CNNs (ResNet-50, EfficientNet)", "Transfer learning", "Medical imaging (MRI)", "TensorFlow / Keras"] },
-  { en: "Machine learning and evaluation", fr: "Apprentissage automatique et évaluation", ar: "تعلّم الآلة والتقييم",
-    tools: ["scikit-learn", "Leakage audit", "Bootstrap CI", "Shortcut probes"] },
-  { en: "Engineering", fr: "Ingénierie", ar: "الهندسة البرمجية",
-    tools: ["Python", "FastAPI", "Flask", "Node.js / Express", "Next.js / React", "React / TypeScript", "PostgreSQL", "MongoDB", "Redis", "Docker", "pytest", "JWT + bcrypt"] },
-  { en: "Data and BI", fr: "Données et BI", ar: "البيانات وذكاء الأعمال",
-    tools: ["Pandas", "ETL", "Star schema", "Power BI / DAX"] }
-];
-
-/* ═══ Helpers ═════════════════════════════════════════════════════════════ */
+/* ── Rendering ───────────────────────────────────────────────────────── */
 const $ = (s, el = document) => el.querySelector(s);
-const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-const root = document.documentElement;
-const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-let lang = ["en", "fr", "ar"].includes(root.lang) ? root.lang : "en";
-const t = (k, vars) => { let s = (T[lang] && T[lang][k]) ?? T.en[k] ?? k; if (vars) for (const v in vars) s = s.replace(`{${v}}`, vars[v]); return s; };
-const numFmt = (x, d) => lang === "fr" ? x.toFixed(d).replace(".", ",") : x.toFixed(d);
-
-/* ═══ Static text ═════════════════════════════════════════════════════════ */
-function applyStatic() {
-  $$("[data-t]").forEach(el => { el.textContent = t(el.dataset.t); });
-  $$("[data-t-alt]").forEach(el => { el.alt = t(el.dataset.tAlt); });
-  $$(".lang button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
-  $("#menu").setAttribute("aria-label", t("menu"));
-  $("#dlg-close").setAttribute("aria-label", t("ui.close"));
-  labelTheme();
-}
-
-/* ═══ Case studies, carousels and interactive proofs ═════════════════════ */
-let activeTopic = "all", activeSkill = null;
-function renderFilters() {
-  const topics = ["all", ...new Set(CASES.flatMap(c => c.topics))];
-  $("#filters").innerHTML = topics.map(k =>
-    `<button class="chip" type="button" data-topic="${k}" aria-pressed="${k === activeTopic}">${esc(k === "all" ? t("all") : t("topic." + k))}</button>`).join("");
-}
-function applyFilter() {
-  $$(".case").forEach(el => {
-    const c = CASES.find(x => x.id === el.dataset.id);
-    const okTopic = activeTopic === "all" || c.topics.includes(activeTopic);
-    const okSkill = !activeSkill || c.tools.includes(activeSkill);
-    el.hidden = !(okTopic && okSkill);
-  });
-  const note = $("#skill-note");
-  note.classList.toggle("on", !!activeSkill);
-  if (activeSkill) $("#skill-note-text").textContent = t("skills.showing", { s: activeSkill });
-}
-$("#filters").addEventListener("click", e => {
-  const b = e.target.closest(".chip"); if (!b) return;
-  activeTopic = b.dataset.topic; renderFilters(); applyFilter();
-});
-$("#skill-clear").addEventListener("click", () => { activeSkill = null; applyFilter(); });
-
-function vizHTML(c) {
-  if (c.viz === "replay") {
-    const L = REPLAY[lang];
-    return `<div class="viz" data-viz="replay"><h4>${esc(L.title)}</h4><p class="sub">${esc(L.sub)}</p>
-      <div class="controls">${REPLAY.runs.map((r, i) => `<button class="btn sm" type="button" data-run="${i}" lang="fr">${esc(L.ask)}${lang === "fr" ? " : " : ": "}« ${esc(r.q)} »</button>`).join("")}</div>
-      <ol class="stages">${L.stages.map(s => `<li><span class="mark" aria-hidden="true"></span><span>${esc(s)}</span><span class="tag"></span></li>`).join("")}</ol>
-      <div class="output" aria-live="polite">${esc(L.pick)}</div></div>`;
-  }
-  if (c.viz === "bars") {
-    const L = BARS[lang];
-    return `<div class="viz" data-viz="bars"><h4>${esc(L.title)}</h4><p class="sub">${esc(L.sub)}</p>
-      <div class="controls" role="group"><button class="chip" type="button" data-split="leaky" aria-pressed="false">${esc(L.leaky)}</button><button class="chip" type="button" data-split="free" aria-pressed="true">${esc(L.free)}</button></div>
-      <div class="bars">${BARS.models.map(m => `<div class="bar-row"><span class="name">${esc(m.n)}<small>${esc(m.served ? L.served : L.off)}</small></span>
-        <span class="bar-track"><span class="bar-fill${m.served ? "" : " off"}"></span>${m.ci ? `<span class="bar-ci" style="inset-inline-start:${m.ci[0] * 100}%;width:${(m.ci[1] - m.ci[0]) * 100}%"></span>` : ""}<span class="chance" style="inset-inline-start:25%"></span></span>
-        <span class="bar-val"></span></div>`).join("")}</div>
-      <p class="legend"><span><i></i>${esc(L.chance)}</span><span><b></b>${esc(L.ci)}</span></p></div>`;
-  }
-  if (c.viz === "weights") {
-    const L = WEIGHTS[lang];
-    return `<div class="viz" data-viz="weights"><h4>${esc(L.title)}</h4><p class="sub">${esc(L.sub)}</p>
-      <div class="weights" role="group">${WEIGHTS.w.map((w, i) => `<button type="button" style="flex:${w}" data-w="${i}" aria-pressed="${i === 0}" aria-label="${esc(L.names[i])} ${w}%"></button>`).join("")}</div>
-      <ul class="wlist">${WEIGHTS.w.map((w, i) => `<li data-w="${i}" class="${i === 0 ? "on" : ""}"><span>${esc(L.names[i])}</span><span>${w}%</span></li>`).join("")}</ul></div>`;
-  }
-  if (c.viz === "recall") {
-    const L = RECALL[lang];
-    return `<div class="viz" data-viz="recall"><h4>${esc(L.title)}</h4><p class="sub">${esc(L.sub)}</p>
-      <div class="bars">${RECALL.rows.map(([k, hit, n]) => `<div class="bar-row"><span class="name">${esc(L.names[k])}</span>
-        <span class="bar-track"><span class="bar-fill" style="width:${hit / n * 100}%"></span></span>
-        <span class="bar-val">${hit}/${n}</span></div>`).join("")}</div>
-      <p class="legend">${esc(L.real)}</p></div>`;
-  }
-  if (c.viz === "probes") {
-    const L = PROBES[lang];
-    const probeRows = PROBES.rows.map(([k, v, kind]) => `<div class="bar-row"><span class="name">${esc(L.names[k])}</span>
-        <span class="bar-track"><span class="bar-fill${kind === "probe" ? " grey" : ""}" style="width:${v * 100}%"></span></span>
-        <span class="bar-val">${numFmt(v, 3)}</span></div>`).join("");
-    const chRows = PROBES.ch.map(([k, hit, n]) => `<div class="bar-row"><span class="name">${esc(L.chnames[k])}</span>
-        <span class="bar-track"><span class="bar-fill" style="width:${hit / n * 100}%"></span></span>
-        <span class="bar-val">${hit}/${n}</span></div>`).join("");
-    return `<div class="viz" data-viz="probes"><h4>${esc(L.title)}</h4>
-      <div class="controls">${L.tabs.map((x, i) => `<button class="btn sm" type="button" data-probe="${i}" aria-pressed="${i === 0}">${esc(x)}</button>`).join("")}</div>
-      <div class="probe-pane"><p class="sub">${esc(L.sub)}</p><div class="bars">${probeRows}</div></div>
-      <div class="probe-pane" hidden><p class="sub">${esc(L.chsub)}</p><div class="bars">${chRows}</div></div></div>`;
-  }
-  if (c.viz === "api") {
-    const L = API[lang];
-    return `<div class="viz" data-viz="api"><h4>${esc(L.title)}</h4><p class="sub">${esc(L.sub)}</p>
-      <div class="tiles">${L.metrics.map(([v, k]) => `<div><b>${esc(v)}</b><span>${esc(k)}</span></div>`).join("")}</div>
-      <div class="controls">${API.calls.map((a, i) => `<button class="btn sm" type="button" data-api="${i}" aria-pressed="false">${esc(L[a.k])}</button>`).join("")}</div>
-      <div class="output" aria-live="polite">${esc(L.pick)}</div></div>`;
-  }
-  return "";
-}
+const IMG = "assets/img/";
 
 function renderCases() {
-  $("#cases").innerHTML = CASES.map(c => {
-    const L = c[lang], n = c.shots.length;
-    return `<article class="case reveal" id="case-${c.id}" data-id="${c.id}">
-      <div class="media">
-        ${c.video ? `<figure class="demo"><video controls muted playsinline preload="none" poster="assets/video/${c.video}-poster.webp?v=${IMG_VER}" width="1280" height="586"><source src="assets/video/${c.video}.mp4?v=${IMG_VER}" type="video/mp4"></video><figcaption>${esc(t("case.video"))}</figcaption></figure>` : ""}
-        ${n ? `<div class="carousel" data-case="${c.id}" aria-roledescription="carousel" aria-label="${esc(c.title)}: ${esc(t("ui.shots"))}">
-          <div class="track">${c.shots.map((s, i) => `<figure class="slide" data-i="${i}" role="group" aria-label="${esc(t("ui.count", { i: i + 1, n }))}"><img src="${IMG + s}.webp?v=${IMG_VER}" alt="${esc(L.caps[i])}" loading="lazy" width="1600" height="1000"></figure>`).join("")}</div>
-          <div class="bar"><p class="cap"></p><div class="nav">
-            <button class="icon-btn" type="button" data-step="-1" aria-label="${esc(t("ui.prev"))}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
-            <button class="icon-btn" type="button" data-step="1" aria-label="${esc(t("ui.next"))}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
-          </div></div>
-          <div class="dots">${c.shots.map((_, i) => `<button type="button" data-dot="${i}" aria-label="${esc(t("ui.count", { i: i + 1, n }))}"></button>`).join("")}</div>
-        </div>` : ""}
-        ${vizHTML(c)}
+  $("#cases").innerHTML = CASES.map(c => `
+    <article class="case" id="case-${c.id}" data-topics="${esc(c.topics.join("|"))}">
+      <div>
+        ${c.video ? `<figure class="demo">
+          <video controls muted playsinline preload="none" poster="assets/video/${c.video.file}-poster.webp" width="1280" height="586">
+            <source src="assets/video/${c.video.file}.mp4" type="video/mp4">
+          </video>
+          <figcaption>${esc(c.video.caption)}</figcaption>
+        </figure>` : ""}
+        <figure class="shot">
+          <button type="button" data-open="${c.id}" aria-label="Open ${c.shots.length} screenshots of ${esc(c.title)}">
+            <img src="${IMG + c.shots[0][0]}" alt="${esc(c.shots[0][1])}" loading="lazy" width="1600" height="900">
+          </button>
+        </figure>
       </div>
       <div>
-        <p class="meta">${esc(L.meta)}</p>
-        <h3>${esc(c.title)}${c.status ? `<span class="status">${esc(t("case.progress"))}</span>` : ""}</h3>
-        <p class="pitch">${esc(L.pitch)}</p>
-        <ul class="facts">${L.facts.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
-        <p class="result">${L.result}</p>
-        <p class="limit"><strong>${esc(t("case.limit"))}</strong> ${esc(L.limit)}</p>
+        <p class="meta">${esc(c.meta)}</p>
+        <h3>${esc(c.title)}</h3>
+        <p class="pitch">${esc(c.pitch)}</p>
+        <ul class="facts">${c.facts.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
+        <p class="result">${c.result}</p>
+        <p class="stack limit"><strong>Limitation.</strong> ${esc(c.limit)}</p>
         <p class="stack">${esc(c.stack)}</p>
-        <div class="links">${c.repo ? `<a class="btn primary" href="${c.repo}">${esc(t("case.code"))}</a>` : `<p class="stack">${esc(t("case.private"))}</p>`}</div>
-      </div></article>`;
-  }).join("");
-  $$(".carousel").forEach(initCarousel);
-  $$('[data-viz="bars"]').forEach(el => setSplit(el, "free", true));
-  observeReveal();
-  applyFilter();
+        <div class="links">
+          <a class="btn primary" href="${c.repo}">View the code on GitHub</a>
+          <button class="btn" type="button" data-open="${c.id}">See ${c.shots.length} screenshots</button>
+        </div>
+      </div>
+    </article>`).join("");
 }
 
-/* Carousel: arrows, dots, swipe, click to open full size */
-function initCarousel(el) {
-  const c = CASES.find(x => x.id === el.dataset.case), track = $(".track", el), n = c.shots.length;
-  let i = 0;
-  const rtl = () => root.dir === "rtl";
-  const go = k => {
-    i = (k + n) % n;
-    track.style.transform = `translateX(${(rtl() ? 1 : -1) * i * 100}%)`;
-    $(".cap", el).textContent = c[lang].caps[i];
-    $$(".dots button", el).forEach((d, j) => d.setAttribute("aria-current", j === i));
-    $$(".slide", el).forEach((s, j) => { s.setAttribute("aria-hidden", j !== i); s.tabIndex = j === i ? 0 : -1; });
-  };
-  el.addEventListener("click", e => {
-    const s = e.target.closest("[data-step]"); if (s) return go(i + (+s.dataset.step));
-    const d = e.target.closest("[data-dot]"); if (d) return go(+d.dataset.dot);
-    if (e.target.closest(".slide")) openLightbox(c, i, e.target.closest(".slide"));
-  });
-  el.addEventListener("keydown", e => {
-    if ((e.key === "Enter" || e.key === " ") && e.target.closest(".slide")) { e.preventDefault(); openLightbox(c, i, e.target.closest(".slide")); }
-    if (e.key === "ArrowRight") go(i + (rtl() ? -1 : 1));
-    if (e.key === "ArrowLeft") go(i + (rtl() ? 1 : -1));
-  });
-  let x0 = null;                                                    // swipe on touch screens
-  track.addEventListener("pointerdown", e => { x0 = e.clientX; });
-  track.addEventListener("pointerup", e => {
-    if (x0 === null) return; const dx = e.clientX - x0; x0 = null;
-    if (Math.abs(dx) > 40) { e.preventDefault(); go(i + ((dx < 0) !== rtl() ? 1 : -1)); }
-  });
-  go(0);
-}
-
-/* Interactive proofs */
-document.addEventListener("click", e => {
-  const run = e.target.closest("[data-run]"); if (run) playRun(run.closest(".viz"), +run.dataset.run);
-  const split = e.target.closest("[data-split]"); if (split) setSplit(split.closest(".viz"), split.dataset.split);
-  const w = e.target.closest("[data-w]"); if (w && w.closest('[data-viz="weights"]')) setWeight(w.closest(".viz"), +w.dataset.w);
-  const a = e.target.closest("[data-api]"); if (a) showApi(a.closest(".viz"), +a.dataset.api);
-  const mo = e.target.closest("[data-more]");
-  if (mo) { const m = MORE.find(x => x.id === mo.dataset.more);             // "More work" screenshots
-    openLightbox({ title: m[lang].t, shots: m.shots, en: { caps: m.caps.en }, fr: { caps: m.caps.fr }, ar: { caps: m.caps.ar } }, 0, mo); }
-  const pb = e.target.closest("[data-probe]");
-  if (pb) { const box = pb.closest(".viz"), k = +pb.dataset.probe;               // MindCare: probes <-> challenge set
-    $$("[data-probe]", box).forEach((b, j) => b.setAttribute("aria-pressed", j === k));
-    $$(".probe-pane", box).forEach((p, j) => { p.hidden = j !== k; }); }
-});
-
-/* 9anoun: show one recorded HTTP response (status colour: teal = answered, red = refused or rejected) */
-function showApi(box, k) {
-  const L = API[lang], c = API.calls[k], out = $(".output", box);
-  $$("[data-api]", box).forEach((b, j) => b.setAttribute("aria-pressed", j === k));
-  const ok = c.k === "hit";
-  out.className = "output " + (ok ? "ok" : "stop");
-  out.innerHTML = `<span class="q">HTTP ${c.code}</span><code dir="ltr">${esc(c.body)}</code><br>${esc(L.note[c.k])}`;
-}
-
-let runToken = 0;
-async function playRun(box, k) {
-  const L = REPLAY[lang], r = REPLAY.runs[k], items = $$(".stages li", box), out = $(".output", box), token = ++runToken;
-  const wait = ms => new Promise(res => setTimeout(res, reduced ? 0 : ms));
-  items.forEach(li => { li.className = ""; $(".tag", li).textContent = ""; });
-  out.className = "output"; out.innerHTML = `<span class="q" lang="fr">« ${esc(r.q)} »</span>…`;
-  for (let s = 0; s < items.length; s++) {
-    if (token !== runToken) return;                                // another run started
-    const li = items[s], tag = $(".tag", li);
-    if (!r.gate && s > 4) { li.className = "skipped"; tag.textContent = L.skipped; continue; }
-    li.className = "run"; await wait(s === 4 ? 650 : 420);
-    if (token !== runToken) return;
-    if (s === 4 && !r.gate) { li.className = "stop"; tag.textContent = L.blocked; continue; }
-    li.className = "ok"; tag.textContent = s === 4 ? L.pass : s === 6 ? L.verified : L.done;
-  }
-  out.className = "output " + (r.gate ? "ok" : "stop");
-  out.innerHTML = `<span class="q">${esc(r.gate ? L.answer : L.refused)}. ${esc(L.total)}${lang === "fr" ? " : " : ": "}${esc(numFmt(r.time, 1))} s</span><span lang="fr">${esc(r.out)}</span>`;
-}
-
-function setSplit(box, which, instant) {
-  const L = BARS[lang];
-  $$("[data-split]", box).forEach(b => b.setAttribute("aria-pressed", b.dataset.split === which));
-  $$(".bar-row", box).forEach((row, j) => {
-    const m = BARS.models[j], v = which === "free" ? m.free : m.leaky, fill = $(".bar-fill", row);
-    if (instant) { fill.style.transition = "none"; requestAnimationFrame(() => (fill.style.transition = "")); }
-    fill.style.width = (v * 100) + "%";
-    $(".bar-val", row).textContent = numFmt(v, 3);
-    const ci = $(".bar-ci", row); if (ci) ci.classList.toggle("on", which === "free");
-  });
-}
-
-function setWeight(box, k) {
-  $$(".weights button", box).forEach((b, j) => b.setAttribute("aria-pressed", j === k));
-  $$(".wlist li", box).forEach((li, j) => li.classList.toggle("on", j === k));
-}
-
-/* ═══ Other sections ═════════════════════════════════════════════════════ */
 function renderMore() {
-  $("#small-work").innerHTML = MORE.map(m => `<article class="reveal">
-    <h3>${esc(m[lang].t)}${m.status ? `<span class="status">${esc(t("more.progress"))}</span>` : ""}</h3>
-    <p>${esc(m[lang].d)}</p>
-    ${m.shots ? `<button class="thumb" type="button" data-more="${m.id}" aria-label="${esc(t("ui.shots"))}: ${esc(m[lang].t)}"><img src="${IMG + m.shots[0]}.webp?v=${IMG_VER}" alt="" loading="lazy" width="640" height="360"><span>${m.shots.length} ${esc(t("ui.shots"))}</span></button>` : ""}
-    ${m.repo ? `<div class="links"><a href="${m.repo}">${esc(t("more.code"))}</a></div>` : ""}</article>`).join("");
-}
-function renderMethod() {
-  $("#method-list").innerHTML = METHOD[lang].map(([h, p]) => `<article class="reveal"><h3>${esc(h)}</h3><p>${esc(p)}</p></article>`).join("");
-}
-function renderTimeline() {
-  $("#timeline").innerHTML = `<span class="fill" aria-hidden="true"></span>` + TIMELINE[lang].map(([w, h, o, d]) =>
-    `<li><span class="when">${esc(w)}</span><span class="pin" aria-hidden="true"></span><div><h3>${esc(h)}</h3><p class="org">${esc(o)}</p>${d ? `<p class="desc">${esc(d)}</p>` : ""}</div></li>`).join("");
-}
-function renderSkills() {
-  const used = new Set(CASES.flatMap(c => c.tools));
-  $("#skill-groups").innerHTML = SKILLS.map(g => `<div class="reveal"><h3>${esc(g[lang])}</h3><div class="tools">${g.tools.map(x =>
-    used.has(x) ? `<button type="button" data-skill="${esc(x)}">${esc(x)}</button>` : `<span title="${esc(t("skills.none"))}">${esc(x)}</span>`).join("")}</div></div>`).join("");
-}
-$("#skill-groups").addEventListener("click", e => {
-  const b = e.target.closest("[data-skill]"); if (!b) return;
-  activeSkill = b.dataset.skill; activeTopic = "all"; renderFilters(); applyFilter();
-  $("#work").scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
-});
-
-/* ═══ Hero: typed focus words ════════════════════════════════════════════ */
-let typeTimer = null;
-function startTyping() {
-  clearTimeout(typeTimer);
-  const el = $("#word"), words = t("words");
-  if (reduced) { el.textContent = words[0]; return; }
-  let w = 0, c = 0, del = false;
-  (function step() {
-    const word = words[w];
-    el.textContent = word.slice(0, c);
-    if (!del && c < word.length) { c++; typeTimer = setTimeout(step, 42); }
-    else if (!del) { del = true; typeTimer = setTimeout(step, 2200); }
-    else if (c > 0) { c--; typeTimer = setTimeout(step, 18); }
-    else { del = false; w = (w + 1) % words.length; typeTimer = setTimeout(step, 300); }
-  })();
+  $("#small-work").innerHTML = MORE.map(m => `
+    <article>
+      <h3>${esc(m.title)}${m.status ? `<span class="status">${esc(m.status)}</span>` : ""}</h3>
+      <p>${esc(m.text)}</p>
+      ${m.repo ? `<div class="links"><a href="${m.repo}">View the code on GitHub</a></div>` : ""}
+    </article>`).join("");
 }
 
-/* Ledger: measured numbers count up once */
-function countUp() {
-  $$(".ledger [data-count]").forEach((el, k) => {
-    const end = +el.dataset.count, d = +el.dataset.dec, suf = el.dataset.suffix || "";
-    if (reduced) { el.textContent = numFmt(end, d) + suf; return; }
-    const t0 = performance.now() + 500 + k * 350, dur = 900;
-    (function frame(now) {
-      const p = Math.min(Math.max((now - t0) / dur, 0), 1), e = 1 - Math.pow(1 - p, 3);
-      el.textContent = numFmt(end * e, d) + suf;
-      if (p < 1) requestAnimationFrame(frame);
-    })(performance.now());
+/* Filter chips built from the topics actually used */
+function renderFilters() {
+  const topics = ["All", ...new Set(CASES.flatMap(c => c.topics))];
+  const box = $(".filters");
+  box.innerHTML = topics.map((t, i) => `<button class="chip" type="button" aria-pressed="${i === 0}" data-topic="${esc(t)}">${esc(t)}</button>`).join("");
+  box.addEventListener("click", e => {
+    const b = e.target.closest(".chip"); if (!b) return;
+    box.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", x === b));
+    const t = b.dataset.topic;
+    document.querySelectorAll(".case").forEach(el => { el.hidden = t !== "All" && !el.dataset.topics.split("|").includes(t); });
   });
 }
 
-/* ═══ Scroll: progress bar, active section, reveal, timeline fill ════════ */
-const sections = ["work", "method", "experience", "skills", "contact"].map(id => document.getElementById(id));
-function onScroll() {
-  const h = document.documentElement, max = h.scrollHeight - h.clientHeight;
-  $(".progress").style.transform = `scaleX(${max > 0 ? h.scrollTop / max : 0})`;
-  let current = null;
-  sections.forEach(s => { if (s.getBoundingClientRect().top < innerHeight * 0.4) current = s.id; });
-  $$("nav.main a").forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#" + current));
-  const tl = $("#timeline"), fill = $(".fill", tl);
-  if (fill) { const r = tl.getBoundingClientRect(); fill.style.height = Math.min(Math.max(innerHeight * 0.7 - r.top, 0), r.height) + "px"; }
+/* ── Gallery dialog ─────────────────────────────────────────────────── */
+const dlg = $("#gallery");
+let current = null, idx = 0, opener = null;
+function show(i) {
+  idx = (i + current.shots.length) % current.shots.length;
+  const [file, cap] = current.shots[idx];
+  $("#stage-img").src = IMG + file;
+  $("#stage-img").alt = cap;
+  $("#stage-cap").textContent = cap;
+  $("#count").textContent = `${idx + 1} of ${current.shots.length}`;
+  $("#thumbs").querySelectorAll("button").forEach((b, j) => b.setAttribute("aria-current", j === idx));
 }
-addEventListener("scroll", onScroll, { passive: true });
-let io = null;
-function observeReveal() {
-  if (!("IntersectionObserver" in window) || reduced) { $$(".reveal").forEach(el => el.classList.add("in")); return; }
-  io = io || new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
-  $$(".reveal:not(.in)").forEach(el => io.observe(el));
+function openGallery(id, from) {
+  current = CASES.find(c => c.id === id); opener = from;
+  $("#dlg-title").textContent = `${current.title}: screenshots`;
+  $("#thumbs").innerHTML = current.shots.map((s, j) =>
+    `<button type="button" data-i="${j}" aria-label="Screenshot ${j + 1}: ${esc(s[1])}"><img src="${IMG + s[0]}" alt="" loading="lazy"></button>`).join("");
+  show(0);
+  dlg.showModal();
 }
-
-/* ═══ Lightbox ═══════════════════════════════════════════════════════════ */
-const dlg = $("#gallery"); let lb = null, lbI = 0, opener = null;
-function showLb(k) {
-  lbI = (k + lb.shots.length) % lb.shots.length;
-  $("#stage-img").src = IMG + lb.shots[lbI] + ".webp?v=" + IMG_VER; $("#stage-img").alt = lb[lang].caps[lbI];
-  $("#stage-cap").textContent = lb[lang].caps[lbI];
-  $("#count").textContent = t("ui.count", { i: lbI + 1, n: lb.shots.length });
-}
-function openLightbox(c, k, from) { lb = c; opener = from; $("#dlg-title").textContent = `${c.title}: ${t("ui.shots")}`; showLb(k); dlg.showModal(); }
-$("#prev").addEventListener("click", () => showLb(lbI - 1));
-$("#next").addEventListener("click", () => showLb(lbI + 1));
-$("#dlg-close").addEventListener("click", () => dlg.close());
-dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
-dlg.addEventListener("keydown", e => {
-  const rtl = root.dir === "rtl";
-  if (e.key === "ArrowRight") showLb(lbI + (rtl ? -1 : 1));
-  if (e.key === "ArrowLeft") showLb(lbI + (rtl ? 1 : -1));
+document.addEventListener("click", e => {
+  const o = e.target.closest("[data-open]"); if (o) openGallery(o.dataset.open, o);
+  const t = e.target.closest("#thumbs button"); if (t) show(+t.dataset.i);
 });
-dlg.addEventListener("close", () => { if (opener) opener.focus?.(); });
+$("#prev").addEventListener("click", () => show(idx - 1));
+$("#next").addEventListener("click", () => show(idx + 1));
+$("#dlg-close").addEventListener("click", () => dlg.close());
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });           // click on the backdrop
+dlg.addEventListener("keydown", e => {
+  if (e.key === "ArrowRight") show(idx + 1);
+  if (e.key === "ArrowLeft") show(idx - 1);
+});
+dlg.addEventListener("close", () => { if (opener) opener.focus(); });               // return focus
 
-/* ═══ Header controls ════════════════════════════════════════════════════ */
-const themeBtn = $("#theme");
-const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-function labelTheme() { themeBtn.setAttribute("aria-label", t(isDark() ? "theme.light" : "theme.dark")); }
+/* ── Theme toggle (saved per visitor; storage may be unavailable) ───── */
+const root = document.documentElement, themeBtn = $("#theme");
+function isDark() { return root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; }
+function labelTheme() { themeBtn.setAttribute("aria-label", isDark() ? "Switch to light theme" : "Switch to dark theme"); }
 themeBtn.addEventListener("click", () => {
   root.dataset.theme = isDark() ? "light" : "dark";
   try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
   labelTheme();
 });
-const menu = $("#menu"), nav = $("#nav");
-menu.addEventListener("click", () => { const o = !nav.classList.contains("open"); nav.classList.toggle("open", o); menu.setAttribute("aria-expanded", o); });
-nav.addEventListener("click", e => { if (e.target.closest("a")) { nav.classList.remove("open"); menu.setAttribute("aria-expanded", "false"); } });
-$(".lang").addEventListener("click", e => {
-  const b = e.target.closest("[data-lang]"); if (!b || b.dataset.lang === lang) return;
-  setLang(b.dataset.lang);
-  try { localStorage.setItem("lang", lang); } catch (e) {}
-});
+labelTheme();
 
-/* ═══ Contact ════════════════════════════════════════════════════════════ */
+/* ── Copy email ─────────────────────────────────────────────────────── */
 $("#copy-email").addEventListener("click", async () => {
-  try { await navigator.clipboard.writeText(EMAIL); $("#copy-note").textContent = t("contact.copied"); }
-  catch (e) { $("#copy-note").textContent = t("contact.nocopy"); }
-});
-$("#mail-form").addEventListener("submit", e => {
-  e.preventDefault();
-  const f = e.target, v = k => f.elements[k].value.trim(), err = $("#form-err");
-  if (!v("name") || !v("email") || !v("subject") || !v("message")) { err.textContent = t("form.missing"); return; }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v("email"))) { err.textContent = t("form.bademail"); f.elements.email.focus(); return; }
-  err.textContent = "";
-  const body = `${v("message")}\n\n— ${v("name")} <${v("email")}>`;
-  location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(v("subject"))}&body=${encodeURIComponent(body)}`;
+  const note = $("#copy-note");
+  try { await navigator.clipboard.writeText("AbdElmouhib.Souri@esprim.tn"); note.textContent = "Email address copied."; }
+  catch (e) { note.textContent = "Copy isn't available here. Select the address above instead."; }
 });
 
-/* ═══ Language switch: re-render everything in place ═════════════════════ */
-function setLang(l) {
-  lang = l; root.lang = l; root.dir = l === "ar" ? "rtl" : "ltr";
-  applyStatic(); renderFilters(); renderCases(); renderMore(); renderMethod(); renderTimeline(); renderSkills();
-  $$(".ledger [data-count]").forEach(el => el.textContent = numFmt(+el.dataset.count, +el.dataset.dec) + (el.dataset.suffix || ""));
-  $$(".reveal").forEach(el => el.classList.add("in"));             // no re-animation on language change
-  startTyping(); onScroll();
-}
-
-applyStatic(); renderFilters(); renderCases(); renderMore(); renderMethod(); renderTimeline(); renderSkills();
-observeReveal(); startTyping(); countUp(); onScroll();
+renderFilters(); renderCases(); renderMore();
 </script>
 </body>
 </html>
